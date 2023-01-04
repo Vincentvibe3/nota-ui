@@ -12,9 +12,9 @@
 	}
 
 </script>
-<div style={$$props.style} on:click={onClick}>
-	<input bind:group={group} value={value} name={name} on:click type="radio" bind:this={htmlElement}>
-	<div class="radioWrapper"></div>
+<div>
+	<input bind:group={group} value={value} name={name} type="radio" bind:this={htmlElement}>
+	<button type="button" style={$$props.style} tabindex="0" class="radioWrapper" on:click={onClick}></button>
 	<slot></slot>
 </div>
 
@@ -31,8 +31,8 @@
 
 	.radioWrapper {
 		cursor: pointer;
-		width: 0.8rem;
-		height: 0.8rem;
+		width: 1.2rem;
+		height: 1.2rem;
 		border-radius: 1.5rem;
 		border: #bf5383 solid 0.2rem;
 		background-color: #00000000;
@@ -50,9 +50,10 @@
 
 	input:checked ~ .radioWrapper::after {
 		content: "";
-		width: 40%;
-		height: 40%;
-		border-radius: 1.5rem;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1	;
+		border-radius: 1rem;
 		background-color: #99003b;
 		animation-name: popIn;
 		animation-play-state: running;
