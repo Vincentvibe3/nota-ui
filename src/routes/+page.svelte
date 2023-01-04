@@ -4,6 +4,7 @@
 	import Dropdown from "$lib/Dropdown.svelte";
 	import PasswordInput from "$lib/PasswordInput.svelte";
 	import Radio from "$lib/Radio.svelte";
+  	import Spinner from "$lib/Spinner.svelte";
   	import TextInput from "$lib/TextInput.svelte";
 	
 	let button: HTMLButtonElement;
@@ -15,10 +16,12 @@
 	let checked=false;
 	let group="a";
 	let count = 0;
+	let loading=true;
 
 	const click = () => {
 		console.log(`I was clicked! ${count}`)
 		count++
+		loading=!loading
 	}
 
 	const checkInput = (event:Event) => {
@@ -76,6 +79,8 @@
 			<label for="radio">3</label>
 		</Radio>
 	</form>
+	<label for="radio">Spinner</label>
+	<Spinner bind:loading={loading}></Spinner>
 </div>
 
 <style>
