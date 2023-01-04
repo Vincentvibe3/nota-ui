@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Button from "$lib/Button.svelte";
-  import Checkbox from "$lib/Checkbox.svelte";
-  import Dropdown from "$lib/Dropdown.svelte";
-  import Radio from "$lib/Radio.svelte";
-  import Input from "$lib/TextInput.svelte";
+	import Checkbox from "$lib/Checkbox.svelte";
+	import Dropdown from "$lib/Dropdown.svelte";
+	import PasswordInput from "$lib/PasswordInput.svelte";
+	import Radio from "$lib/Radio.svelte";
+  	import TextInput from "$lib/TextInput.svelte";
 	
 	let button: HTMLButtonElement;
 	let input:HTMLInputElement;
+	let passwordInput:HTMLInputElement;
 	let validInput:Boolean|null=null;
 	let text:string;
 	let placeholder = "Input"
@@ -34,7 +36,9 @@
 <h1>Component preview</h1>
 <div>
 	<label for="label">Input</label>
-	<Input bind:text={text} on:input={checkInput} bind:placeholder={placeholder} bind:htmlElement={input} bind:valid={validInput}></Input>
+	<TextInput bind:text={text} on:input={checkInput} bind:placeholder={placeholder} bind:htmlElement={input} bind:valid={validInput}></TextInput>
+	<label for="label">Input</label>
+	<PasswordInput bind:text={text} on:input={checkInput} bind:placeholder={placeholder} bind:htmlElement={passwordInput} bind:valid={validInput}></PasswordInput>
 	<label for="radio">Button</label>
 	<div style="display: flex; flex-direction:row;">
 		<Button type="primary" on:click={click} bind:htmlElement={button}>I was pressed {count} times</Button>
