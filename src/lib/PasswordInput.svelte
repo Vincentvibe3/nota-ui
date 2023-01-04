@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TextInputImpl from "./TextInputImpl.svelte";
+ 	import TextInputImpl from "./TextInputImpl.svelte";
 	export let htmlElement:HTMLInputElement|null=null;
 	export let name:string="";
 	export let valid:Boolean|null=null;
@@ -8,4 +8,4 @@
 
 </script>
 
-<TextInputImpl bind:htmlElement bind:text bind:name bind:valid bind:placeholder type="text" on:click on:input></TextInputImpl>
+<TextInputImpl bind:htmlElement bind:text bind:name bind:valid bind:placeholder type="password" on:click on:input></TextInputImpl>
