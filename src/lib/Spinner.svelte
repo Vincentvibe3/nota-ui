@@ -38,6 +38,8 @@
 	}
 
 	.spinnerSvg {
+		position: relative;
+		z-index: -1;
 		animation: spin 1s ease-in-out;
 		animation-iteration-count: infinite;
 	}

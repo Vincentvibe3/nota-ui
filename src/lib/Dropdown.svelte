@@ -9,6 +9,7 @@
 	let keyboardNavSelect = 0;
 	let active=false;
 	let options:Array<HTMLOptionElement>=[];
+	let optionsWrapper:HTMLDivElement;
 	export let htmlElement:HTMLSelectElement|null=null;
 
 	const onClick = ()=> {
@@ -71,6 +72,7 @@
 				// Do something for "down arrow" key press.
 				if (keyboardNavSelect < htmlElement.options.length-1){
 					keyboardNavSelect +=1
+					optionsWrapper.scroll({top:optionsWrapper.clientHeight/options.length*keyboardNavSelect})
 				}
 				break;
 			case "Up": // IE/Edge specific value
@@ -78,6 +80,7 @@
 				// Do something for "up arrow" key press.
 				if (keyboardNavSelect>0){
 					keyboardNavSelect -=1
+					optionsWrapper.scroll({top:optionsWrapper.clientHeight/options.length*keyboardNavSelect})
 				}
 				break;
 			case "Enter":
@@ -103,7 +106,7 @@
 		<slot></slot>
 	</select>
 	{#if active}
-		<div class="options">
+		<div bind:this={optionsWrapper} class="options">
 			{#each options as option}
 				{#if option.selected || option.index == keyboardNavSelect}
 					<div on:click={() => {selectOption(option.index)}} class="option selected">
@@ -181,6 +184,8 @@
 
 
 	.options {
+		max-height: 20rem;
+		overflow-y: scroll;
 		position: absolute;
 		top: calc(100% - 0.6rem);
 		width: 100%;
