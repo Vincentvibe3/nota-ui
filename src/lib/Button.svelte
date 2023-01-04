@@ -20,6 +20,7 @@
 		margin: 0.5rem;
 		padding: 1rem 1.5rem;
 		border-radius: 0.2rem;
+		cursor: pointer;
 	}
 	
 	button.secondary{

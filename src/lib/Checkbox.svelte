@@ -54,6 +54,7 @@
 		border-radius: 1.5rem;
 		border: #bf5383 solid 0.2rem;
 		background-color: #00000000;
+		cursor: pointer;
 	}
 
 	.customCheckmark {

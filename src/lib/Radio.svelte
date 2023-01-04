@@ -30,6 +30,7 @@
 	}
 
 	.radioWrapper {
+		cursor: pointer;
 		width: 0.8rem;
 		height: 0.8rem;
 		border-radius: 1.5rem;
