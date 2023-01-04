@@ -43,12 +43,22 @@
 		background-color: #b3386b26;
 	}
 
+	button.secondary:focus{
+		transition: all ease-in 0.2s;
+		background-color: #b3386b26;
+		outline: none;
+	}
+
 	button.secondary:active{
 		background-color: #b3386b59;
 	}
 
 	button.primary:hover{
-		/* box-shadow: #00000033 0.2rem 0.2rem 1rem; */
+		transition: all 0.1s;
+		filter: brightness(85%);
+	}
+
+	button.primary:focus{
 		transition: all 0.1s;
 		filter: brightness(85%);
 	}
