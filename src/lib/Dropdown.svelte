@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { text } from "svelte/internal";
+  	import { onMount } from "svelte";
 
 
   	let mounted = false;
-	let optionText:string;
+	let optionText:string="";
 	let dropdown:HTMLButtonElement;
 	let dropdownWrapper:HTMLDivElement;
 	let keyboardNavSelect = 0;
