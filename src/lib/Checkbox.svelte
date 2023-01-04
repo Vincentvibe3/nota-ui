@@ -45,6 +45,9 @@
 		border-radius: 1.5rem;
 		background-color: #99003b;
 		border: none;
+		animation-name: fadeInCircle;
+		animation-timing-function: ease-in-out;
+		animation-duration: 0.2s;
 	}
 
 	.checkboxWrapper {
@@ -55,6 +58,9 @@
 		border: #bf5383 solid 0.2rem;
 		background-color: #00000000;
 		cursor: pointer;
+		animation-name: fadeInCircle;
+		animation-timing-function: ease-in-out;
+		animation-duration: 0.2s;
 	}
 
 	.customCheckmark {
@@ -64,6 +70,29 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		animation-name: fillAnimation;
+		animation-timing-function: ease-in-out;
+		animation-duration: 0.2s;
+	}
+
+	@keyframes fadeInCircle {
+		0% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fillAnimation {
+		0% {
+			opacity: 0;
+			transform: rotate(30deg);
+		}
+		100% {
+			opacity: 1;
+			transform: rotate(0deg);
+		}
 	}
 
 	svg {

@@ -45,6 +45,7 @@
 
 	input:checked ~ .radioWrapper{
 		border: #99003b solid 0.2rem;
+		transition: all ease-in-out 0.2s;
 	}
 
 	input:checked ~ .radioWrapper::after {
@@ -53,6 +54,19 @@
 		height: 40%;
 		border-radius: 1.5rem;
 		background-color: #99003b;
+		animation-name: popIn;
+		animation-play-state: running;
+		animation-duration: 0.1s;
+		animation-timing-function: linear;
+	}
+
+	@keyframes popIn {
+		0% {
+			transform: scale(0%);
+		}
+		100% {
+			transform: scale(100%);
+		}
 	}
 
 	div {
