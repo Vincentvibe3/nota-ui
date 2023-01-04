@@ -218,6 +218,7 @@
 		overflow: hidden;
 		text-align: left;
 		white-space: nowrap;
+		pointer-events: none;
 	}
 
 	svg {
