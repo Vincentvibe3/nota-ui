@@ -49,6 +49,10 @@
 			wrapper.style.setProperty('--borderColor', defaultColor);
 		}
 	};
+
+	const onIconRightClick = () => {
+		dispatch('iconRightClick')
+	}
 </script>
 
 <div bind:this={wrapper} style={$$props.style} class="wrapper">
@@ -87,7 +91,7 @@
 		</div>
 	{/if}
 	{#if $$slots.iconright}
-		<div bind:this={iconRight} class="iconWrapperRight">
+		<div on:click={onIconRightClick} bind:this={iconRight} class="iconWrapperRight">
 			<slot name="iconright" />
 		</div>
 	{/if}

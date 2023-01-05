@@ -35,7 +35,6 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		filter: brightness(100%);
 	}
 
 	.iconWrapper{
@@ -49,8 +48,8 @@
 	}
 
 	.iconWrapper:global( * ) {
-		height: 50%;
-		width: auto;
+		height: auto;
+		width: 1rem;
 	}
 
 	button.secondary {

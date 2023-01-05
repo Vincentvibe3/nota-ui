@@ -148,7 +148,7 @@
 		</div>
 	{/if}
 	<TextInput
-		style="width:100%;margin:0px;"
+		style="width:100%;margin:0px;z-index: 1;"
 		class="shadow"
 		placeholder={placeholder}
 		on:keydown={handleSubmit}
@@ -158,6 +158,7 @@
 		on:input={() => {
 			handleInput('input');
 		}}
+		on:iconRightClick
 		bind:text
 		bind:htmlElement={textInputHtmlElement}>
 		<slot name="iconleft" slot="iconleft" />
@@ -193,6 +194,7 @@
 		outline: 0.1rem solid #c0c0c0;
 		background-color: #f0f0f0;
 		padding-top: 0.6rem;
+		z-index: 1;
 	}
 
 	.option {

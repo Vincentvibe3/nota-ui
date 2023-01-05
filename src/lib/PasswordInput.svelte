@@ -28,6 +28,7 @@
 	bind:placeholder
 	type={type}
 	on:click
+	on:iconRightClick
 	on:input>
 	<slot name="iconleft" slot="iconleft" />
 	<slot name="iconright" slot="iconright" />

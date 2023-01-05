@@ -163,6 +163,7 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		text-align: left;
+		z-index: 1;
 	}
 
 	.dropdown_impl:focus {
@@ -181,6 +182,7 @@
 	}
 
 	.options {
+		position: absolute;
 		max-height: 20rem;
 		overflow-y: scroll;
 		position: absolute;
@@ -191,6 +193,7 @@
 		outline: 0.1rem solid #c0c0c0;
 		background-color: #f0f0f0;
 		padding-top: 0.6rem;
+		z-index: 1;
 	}
 
 	.option {

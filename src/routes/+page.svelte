@@ -20,11 +20,13 @@
 	let count = 0;
 	let loading = true;
 	let showPassword = false;
-	let searchSuggestAll: string[] = ['abc', 'def', 'abd', 'dec'];
+	let searchSuggestAll: string[] = ['abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
 	let searchSuggest: string[] = [];
+	let loadButton1=false;
 
 	const click = () => {
 		count++;
+		loadButton1=!loadButton1
 	};
 
 	const searchInput = (event: any) => {
@@ -52,8 +54,8 @@
 	};
 </script>
 
-<h1>Component preview</h1>
 <main>
+	<h1>Component Preview</h1>
 	<label for="label">Input</label>
 	<TextInput
 		style="width:100%;"
@@ -85,8 +87,13 @@
 	<label for="radio">Button</label>
 	<div style="display: flex; flex-direction:row;">
 		<Button style="height:3rem; margin-right: 1rem;" type="primary" on:click={click} bind:htmlElement={button}>
-			<Spinner bind:loading slot="icon" size="1.5rem" color="#ffffff" loadedColor="#ffffff" checkMarkColor="#99003b"></Spinner>
-			<!-- <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg> -->
+			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
+				{#if loadButton1}
+					<Spinner bind:loading size="1.5rem" color="#ffffff" loadedColor="#ffffff" checkMarkColor="#99003b"></Spinner>
+				{:else}
+					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
+				{/if}
+			</div>
 			I was pressed {count} times
 		</Button>
 		<Button style="height:3rem; margin:0rem;" type="secondary" on:click={click} bind:htmlElement={button}>
@@ -139,17 +146,18 @@
 			Toggle loading
 		</Button>
 	</div>
-	<label for="radio">Search</label>
+	<label for="radio">Search Bar</label>
 	<Searchbar
 		on:submit={() => {
 			alert(`submitted ${searchText}`);
 		}}
+		on:iconRightClick={clearInput2} 
 		bind:text={searchText}
 		on:input={searchInput}
 		placeholder="Search"
 		bind:suggestions={searchSuggest}>
 		<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
-		<svg on:click={clearInput2} slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
+		<svg slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 	</Searchbar>
 </main>
 
