@@ -48,7 +48,6 @@
 	}
 
 	.checkboxWrapper {
-		margin: 00.5rem;
 		width: 1.2rem;
 		height: 1.2rem;
 		border-radius: 1.5rem;

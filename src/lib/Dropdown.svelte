@@ -137,7 +137,6 @@
 
 	.wrapper {
 		position: relative;
-		margin: 0.5rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

@@ -53,7 +53,7 @@
 </script>
 
 <h1>Component preview</h1>
-<div>
+<main>
 	<label for="label">Input</label>
 	<TextInput
 		style="width:100%;"
@@ -84,46 +84,53 @@
 	</PasswordInput>
 	<label for="radio">Button</label>
 	<div style="display: flex; flex-direction:row;">
-		<Button style="height:3rem;" type="primary" on:click={click} bind:htmlElement={button}>I was pressed {count} times</Button>
-		<Button style="height:3rem;" type="secondary" on:click={click} bind:htmlElement={button}>I was pressed {count} times</Button>
+		<Button style="height:3rem; margin-right: 1rem;" type="primary" on:click={click} bind:htmlElement={button}>
+			<Spinner bind:loading slot="icon" size="1.5rem" color="#ffffff" loadedColor="#ffffff" checkMarkColor="#99003b"></Spinner>
+			<!-- <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg> -->
+			I was pressed {count} times
+		</Button>
+		<Button style="height:3rem; margin:0rem;" type="secondary" on:click={click} bind:htmlElement={button}>
+			<Spinner bind:loading slot="icon" size="1.5rem" color="#99003b"></Spinner>
+			I was pressed {count} times
+		</Button>
 	</div>
 	<label for="radio">Dropdown</label>
 	<Dropdown class="dropdown">
-		<option value="0">Select car:</option>
-		<option value="1">Audi</option>
-		<option value="2">BMW</option>
-		<option value="3">Citroen</option>
-		<option value="4">Ford</option>
-		<option value="5">Honda</option>
-		<option value="6">Jaguar</option>
-		<option value="7">Land Rover</option>
-		<option value="8">Mercedes</option>
-		<option value="9">Mini</option>
-		<option value="10">Nissan</option>
-		<option value="11">Toyota</option>
-		<option value="12"
-			>Volvo asjdghafasdasdasdadasdadasdasdasdjhgafjghasjfghajhgasfjhagsfafghashfgasf</option>
+		<option value="0">Select an option:</option>
+		<option value="1">Option 1</option>
+		<option value="2">Option 2</option>
+		<option value="3">Option 3</option>
+		<option value="4">Option 4</option>
+		<option value="5">Option 5</option>
+		<option value="6">Option 6</option>
+		<option value="7">Option 7</option>
+		<option value="8">Option 8</option>
+		<option value="9">Option 9</option>
+		<option value="10">Option 10</option>
+		<option value="11">Option 10</option>
+		<option value="12">Option 12 very longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</option>
 	</Dropdown>
 	<label for="radio">Checkbox</label>
 	<Checkbox bind:checked>
-		<label for="radio">{checked}</label>
+		<label style="margin-left: 0.5rem;" for="radio">{checked}</label>
 	</Checkbox>
 	<label for="radio">Radio Buttons</label>
 	<form>
 		<Radio bind:group name="hello" value="a">
-			<label for="radio">1</label>
+			<label style="margin-left: 0.5rem;" for="radio">1</label>
 		</Radio>
 		<Radio bind:group name="hello" value="b">
-			<label for="radio">2</label>
+			<label style="margin-left: 0.5rem;" for="radio">2</label>
 		</Radio>
 		<Radio bind:group name="hello" value="c">
-			<label for="radio">3</label>
+			<label style="margin-left: 0.5rem;" for="radio">3</label>
 		</Radio>
 	</form>
 	<label for="radio">Spinner</label>
 	<div style="display: flex; flex-direction:row; align-items:center;">
 		<Spinner bind:loading />
 		<Button 
+			style="margin-left: 1rem;"
 			type="primary" 
 			on:click={()=>{
 				loading=!loading
@@ -144,9 +151,10 @@
 		<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 		<svg on:click={clearInput2} slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 	</Searchbar>
-</div>
+</main>
 
 <style>
+
 	@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap');
 
 	:global(span) {
@@ -172,12 +180,13 @@
 	label {
 		font-family: 'Work Sans', sans-serif;
 		font-size: small;
-		margin: 00.5rem;
+		margin: 0.75rem 0rem;
 	}
 
-	div {
+	main {
 		display: flex;
 		flex-direction: column;
 		width: fit-content;
+		margin: 0.5rem;
 	}
 </style>

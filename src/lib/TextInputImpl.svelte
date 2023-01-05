@@ -102,7 +102,7 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		margin: 0.5rem;
+		
 		width: fit-content;
 	}
 

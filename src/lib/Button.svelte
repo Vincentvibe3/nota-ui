@@ -5,28 +5,56 @@
 
 {#if type == 'secondary'}
 	<button class="secondary" style={$$props.style} bind:this={htmlElement} on:click>
-		<slot />
+		{#if $$slots.icon}
+			<div class="iconWrapper">
+				<slot name="icon"/>
+			</div>
+		{/if}
+		<slot/>
 	</button>
 {:else if type == 'primary'}
 	<button class="primary" style={$$props.style} bind:this={htmlElement} on:click>
-		<slot />
+		{#if $$slots.icon}
+			<div class="iconWrapper">
+				<slot name="icon"/>
+			</div>
+		{/if}
+		<slot/>
 	</button>
 {/if}
 
 <style>
 	button {
 		width: fit-content;
-		margin: 0.5rem;
 		padding: min(0.5rem, 40%) 1.5rem;
 		min-height: 2rem;
 		border-radius: 0.2rem;
 		cursor: pointer;
 		font-weight: 600;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		filter: brightness(100%);
+	}
+
+	.iconWrapper{
+		height: 100%;
+		margin-left: -0.5rem;
+		margin-right: 0.75rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.iconWrapper:global( * ) {
+		height: 50%;
+		width: auto;
 	}
 
 	button.secondary {
 		border: none;
-		/* outline: var(--colorOutline, #bf5383) solid 0.15rem; */
 		color: var(--color, #b3386b);
 		background-color: #00000000;
 	}
