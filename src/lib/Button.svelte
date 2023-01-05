@@ -17,7 +17,8 @@
 	button {
 		width: fit-content;
 		margin: 0.5rem;
-		padding: 1rem 1.5rem;
+		padding: min(0.5rem, 40%) 1.5rem;
+		min-height: 2rem;
 		border-radius: 0.2rem;
 		cursor: pointer;
 		font-weight: 600;
@@ -43,7 +44,7 @@
 		background-color: #b3386b26;
 	}
 
-	button.secondary:focus {
+	button.secondary:focus-visible {
 		transition: all ease-in 0.2s;
 		background-color: #b3386b26;
 		outline: none;
@@ -58,7 +59,7 @@
 		filter: brightness(85%);
 	}
 
-	button.primary:focus {
+	button.primary:focus-visible {
 		transition: all 0.1s;
 		filter: brightness(85%);
 	}
@@ -66,6 +67,6 @@
 	button:active {
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 		transition: all ease-in 0.1s;
-		filter: brightness(65%);
+		filter: brightness(85%);
 	}
 </style>

@@ -25,7 +25,6 @@
 
 	const click = () => {
 		count++;
-		loading = !loading;
 	};
 
 	const searchInput = (event: any) => {
@@ -85,10 +84,8 @@
 	</PasswordInput>
 	<label for="radio">Button</label>
 	<div style="display: flex; flex-direction:row;">
-		<Button type="primary" on:click={click} bind:htmlElement={button}
-			>I was pressed {count} times</Button>
-		<Button type="secondary" on:click={click} bind:htmlElement={button}
-			>I was pressed {count} times</Button>
+		<Button style="height:3rem;" type="primary" on:click={click} bind:htmlElement={button}>I was pressed {count} times</Button>
+		<Button style="height:3rem;" type="secondary" on:click={click} bind:htmlElement={button}>I was pressed {count} times</Button>
 	</div>
 	<label for="radio">Dropdown</label>
 	<Dropdown class="dropdown">
@@ -124,7 +121,17 @@
 		</Radio>
 	</form>
 	<label for="radio">Spinner</label>
-	<Spinner bind:loading />
+	<div style="display: flex; flex-direction:row; align-items:center;">
+		<Spinner bind:loading />
+		<Button 
+			type="primary" 
+			on:click={()=>{
+				loading=!loading
+			}} 
+			bind:htmlElement={button}>
+			Toggle loading
+		</Button>
+	</div>
 	<label for="radio">Search</label>
 	<Searchbar
 		on:submit={() => {

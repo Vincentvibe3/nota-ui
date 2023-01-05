@@ -46,7 +46,6 @@
 
 	const handleKeyPresses = (event: KeyboardEvent) => {
 		//from MDN Docs
-		console.log(`pressed`)
 		switch (event.key) {
 			case 'Down': // IE/Edge specific value
 			case 'ArrowDown':
