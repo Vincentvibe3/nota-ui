@@ -1,40 +1,37 @@
 <script lang="ts">
-
-	export let htmlElement:HTMLInputElement|null=null;
-	export let name:string="";
+	export let htmlElement: HTMLInputElement | null = null;
+	export let name: string = '';
 	export let checked = false;
-	let checkClass = "";
-	let checkMark:HTMLDivElement
+	let checkClass = '';
+	let checkMark: HTMLDivElement;
 
-	$: if (checked){
-		checkClass = "checked"
-		checkMark.classList.add("animate")
-	} else if (checkMark!=null) {
-		checkClass = ""
-		checkMark.classList.remove("animate")
+	$: if (checked) {
+		checkClass = 'checked';
+		checkMark.classList.add('animate');
+	} else if (checkMark != null) {
+		checkClass = '';
+		checkMark.classList.remove('animate');
 	}
 
 	const onClick = () => {
-		checked = !checked
-	}
-
+		checked = !checked;
+	};
 </script>
-<input bind:checked={checked} on:click name={name}  type="checkbox" bind:this={htmlElement}>
+
+<input bind:checked on:click {name} type="checkbox" bind:this={htmlElement} />
 <div style={$$props.style} class="wrapper">
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper {checkClass}">
 		<div bind:this={checkMark} class="customCheckmark">
 			<!-- check icon from phosphor icons -->
-			<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#fafafa" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="216 72 104 184 48 128" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#fafafa" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><polyline points="216 72 104 184 48 128" fill="none" stroke="#fafafa" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		</div>
 	</button>
-	<slot></slot>
+	<slot />
 </div>
 
-
 <style>
-
-	:root{
-		--borderColor: #C0C0C0
+	:root {
+		--borderColor: #c0c0c0;
 	}
 
 	input {
@@ -60,7 +57,7 @@
 		cursor: pointer;
 	}
 
-	.customCheckmark.animate{
+	.customCheckmark.animate {
 		animation: fillAnimation ease-in-out 0.2s;
 	}
 
@@ -89,7 +86,7 @@
 		height: 100%;
 	}
 
-	.wrapper{
+	.wrapper {
 		display: flex;
 		flex-direction: row;
 		align-items: center;

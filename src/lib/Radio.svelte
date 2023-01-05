@@ -1,28 +1,30 @@
 <script lang="ts">
-
-	export let htmlElement:HTMLInputElement|null=null;
-	export let name:string="";
-	export let value:string="";
-	export let group:any;
+	export let htmlElement: HTMLInputElement | null = null;
+	export let name: string = '';
+	export let value: string = '';
+	export let group: any;
 
 	const onClick = () => {
-		if (htmlElement!= null){
-			htmlElement.checked = true
+		if (htmlElement != null) {
+			htmlElement.checked = true;
 		}
-	}
-
+	};
 </script>
+
 <div>
-	<input bind:group={group} value={value} name={name} type="radio" bind:this={htmlElement}>
-	<button type="button" style={$$props.style} tabindex="0" class="radioWrapper" on:click={onClick}></button>
-	<slot></slot>
+	<input bind:group value={value} name={name} type="radio" bind:this={htmlElement} />
+	<button
+		type="button"
+		style={$$props.style}
+		tabindex="0"
+		class="radioWrapper"
+		on:click={onClick} />
+	<slot />
 </div>
 
-
 <style>
-
-	:root{
-		--borderColor: #C0C0C0
+	:root {
+		--borderColor: #c0c0c0;
 	}
 
 	input {
@@ -40,19 +42,19 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		margin:0.5rem
+		margin: 0.5rem;
 	}
 
-	input:checked ~ .radioWrapper{
+	input:checked ~ .radioWrapper {
 		border: #99003b solid 0.2rem;
 		transition: all ease-in-out 0.2s;
 	}
 
 	input:checked ~ .radioWrapper::after {
-		content: "";
+		content: '';
 		width: 100%;
 		height: auto;
-		aspect-ratio: 1	;
+		aspect-ratio: 1;
 		border-radius: 1rem;
 		background-color: #99003b;
 		animation-name: popIn;
@@ -75,5 +77,4 @@
 		flex-direction: row;
 		align-items: center;
 	}
-
 </style>
