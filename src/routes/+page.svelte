@@ -8,6 +8,8 @@
 	import Searchbar from '$lib/Searchbar.svelte';
 	import Spinner from '$lib/Spinner.svelte';
 	import TextInput from '$lib/TextInput.svelte';
+	import Header from '$lib/Header.svelte';
+	import Sidebar from '$lib/Sidebar.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -17,13 +19,14 @@
 	let searchText = '';
 	let placeholder = 'Enter text here';
 	let checked = false;
-	let group = 'a';
+	let group = 'loading';
 	let count = 0;
-	let loading = true;
+	let status:string="loading";
 	let showPassword = false;
 	let searchSuggestAll: string[] = ['abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
 	let searchSuggest: string[] = [];
 	let loadButton1=false;
+	let openSidebar=false;
 
 	const click = () => {
 		count++;
@@ -33,8 +36,6 @@
 	const searchInput = (event: any) => {
 		searchSuggest = searchSuggestAll.filter((value) => value.startsWith(event.detail.text));
 	};
-
-	$:console.log(text)
 
 	$:  if (text==undefined){
 		// Do Nothing
@@ -55,12 +56,20 @@
 	const revealPassword = () => {
 		showPassword = !showPassword;
 	};
+
+	const toggleSidebar = () =>{
+		openSidebar=!openSidebar
+	}
 </script>
-<Navbar style="top:0px; left:0px; z-index:2;">
-	<div style="height: 50%; width:auto; margin:0rem 1rem;">
-		<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="96" y1="128" x2="160" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="96" y1="160" x2="160" y2="160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M56,40H200a8,8,0,0,1,8,8V200a24,24,0,0,1-24,24H72a24,24,0,0,1-24-24V48A8,8,0,0,1,56,40Z" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><line x1="80" y1="24" x2="80" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="128" y1="24" x2="128" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="176" y1="24" x2="176" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+<Sidebar bind:show={openSidebar}></Sidebar>
+<Navbar on:onTitleClick={toggleSidebar} alwaysOpaque={false} style="top:0px; left:0px; z-index:2;">
+	<div slot="icon" style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
+		<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="64" x2="216" y2="64" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="192" x2="216" y2="192" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+		<!-- <svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="96" y1="128" x2="160" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="96" y1="160" x2="160" y2="160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M56,40H200a8,8,0,0,1,8,8V200a24,24,0,0,1-24,24H72a24,24,0,0,1-24-24V48A8,8,0,0,1,56,40Z" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><line x1="80" y1="24" x2="80" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="128" y1="24" x2="128" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="176" y1="24" x2="176" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg> -->
 	</div>
 </Navbar>
+<Header img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb"></Header>
+<!-- <Header></Header> -->
 <main>
 	<label for="label">Input</label>
 	<TextInput
@@ -93,18 +102,27 @@
 		<Button style="height:3rem; margin-right: 1rem;" type="primary" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}
-					<Spinner bind:loading size="1.5rem" style="--spinnerBgComplete:var(--p800); --spinnerBg:var(--n100);"></Spinner>
+					<Spinner bind:status={status} size="1.5rem" style="--spinnerBgError:var(--p800);--spinnerBgComplete:var(--p800); --spinnerBg:var(--n100);"></Spinner>
 				{:else}
 					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
 				{/if}
 			</div>
 			I was pressed {count} times
 		</Button>
-		<Button style="height:3rem; margin:0rem;" type="secondary" on:click={click} bind:htmlElement={button}>
-			<Spinner bind:loading slot="icon" size="1.5rem" ></Spinner>
-			I was pressed {count} times
+		<Button style="height:3rem; margin-right:1rem;" type="secondary" on:click={click} bind:htmlElement={button}>
+			<Spinner bind:status={status} slot="icon" size="1.5rem" ></Spinner>
+			Secondary
 		</Button>
-		<Button style="height:3rem; margin:0rem;" type="icon" on:click={click} bind:htmlElement={button}>
+		<Button style="height:3rem; margin-right:1rem;" type="tertiary" on:click={click} bind:htmlElement={button}>
+			Tertiary
+		</Button>
+		<Button style="height:3rem; margin-right:1rem;" type="danger" on:click={click} bind:htmlElement={button}>
+			Danger
+		</Button>
+		<Button disabled style="height:3rem; margin:0rem;" type="danger" on:click={click} bind:htmlElement={button}>
+			Disabled
+		</Button>
+		<!-- <Button style="height:3rem; margin:0rem;" type="icon" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}
 					<Spinner bind:loading size="1.5rem"></Spinner>
@@ -112,7 +130,7 @@
 					<svg style="width:100%; height:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
 				{/if}
 			</div>
-		</Button>
+		</Button> -->
 	</div>
 	<label for="radio">Dropdown</label>
 	<Dropdown class="dropdown">
@@ -136,27 +154,48 @@
 	</Checkbox>
 	<label for="radio">Radio Buttons</label>
 	<form>
-		<Radio bind:group name="hello" value="a">
-			<label style="margin-left: 0.5rem;" for="radio">1</label>
+		<Radio bind:group={status} name="hello" value="loading">
+			<label style="margin-left: 0.5rem;" for="radio">Loading</label>
 		</Radio>
-		<Radio bind:group name="hello" value="b">
-			<label style="margin-left: 0.5rem;" for="radio">2</label>
+		<Radio bind:group={status} name="hello" value="error">
+			<label style="margin-left: 0.5rem;" for="radio">Error</label>
 		</Radio>
-		<Radio bind:group name="hello" value="c">
-			<label style="margin-left: 0.5rem;" for="radio">3</label>
+		<Radio bind:group={status} name="hello" value="complete">
+			<label style="margin-left: 0.5rem;" for="radio">Complete</label>
 		</Radio>
 	</form>
 	<label for="radio">Spinner</label>
 	<div style="display: flex; flex-direction:row; align-items:center;">
-		<Spinner bind:loading />
+		<Spinner bind:status />
 		<Button 
 			style="margin-left: 1rem;"
 			type="primary" 
 			on:click={()=>{
-				loading=!loading
+				status="loading"
 			}} 
+			disabled={status=="loading"}
 			bind:htmlElement={button}>
-			Toggle loading
+			Set Loading
+		</Button>
+		<Button 
+			style="margin-left: 1rem;"
+			type="primary" 
+			on:click={()=>{
+				status="error"
+			}} 
+			disabled={status=="error"}
+			bind:htmlElement={button}>
+			Set Error
+		</Button>
+		<Button 
+			style="margin-left: 1rem;"
+			type="primary" 
+			on:click={()=>{
+				status="complete"
+			}} 
+			disabled={status=="complete"}
+			bind:htmlElement={button}>
+			Set Complete
 		</Button>
 	</div>
 	<label for="radio">Search Bar</label>
@@ -185,8 +224,10 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		width: fit-content;
-		margin: 0.5rem;
-		margin-top: 5rem;
+		width: 50vw;
+		min-width: 50rem;
+		margin: 2rem;
+		justify-content: center;
+		/* margin-top: 5rem; */
 	}
 </style>
