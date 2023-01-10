@@ -61,13 +61,13 @@
 
 	/* Global Typography */
 	--font-family:'Work Sans', sans-serif;
-	--heading1:700 4rem var(--font-family);
-	--heading2:700 3rem var(--font-family);
-	--heading3:700 2.625rem var(--font-family);
-	--heading4:700 2.25rem var(--font-family);
-	--heading5:700 1.875rem var(--font-family);
-	--heading6:700 1.5rem var(--font-family);
-	--subtitle1:300 1.5rem var(--font-family);
+	--heading1:700 3rem var(--font-family);
+	--heading2:700 2.625rem var(--font-family);
+	--heading3:700 2.25rem var(--font-family);
+	--heading4:700 1.875rem var(--font-family);
+	--heading5:700 1.5rem var(--font-family);
+	--heading6:700 1.25rem var(--font-family);
+	--subtitle1:300 1.25rem var(--font-family);
 	--body:400 1rem var(--font-family);
 	--body2:400 0.75rem var(--font-family);
 	--buttons:600 0.875rem var(--font-family);
@@ -84,8 +84,17 @@
 	--btnPrimaryText: var(--n200);
 
 	--btnSecondaryBg: transparent;
-	--btnSecondaryBgFocus: var(--p100);
+	--btnSecondaryBgFocus: var(--p200);
 	--btnSecondaryText: var(--p800);
+	--btnSecondaryBorder: var(--p800);
+
+	--btnTertiaryBg: transparent;
+	--btnTertiaryBgFocus: var(--p200);
+	--btnTertiaryText: var(--p800);
+
+	--btnDisabledBg:var(--n300);
+	--btnDisabledBorder:var(--n400);
+	--btnDisabledText:var(--n600);
 
 	--inputFont:var(--body2);
 	--inputBg:var(--n300);
@@ -128,4 +137,9 @@
 	--searchBorderFocus:var(--p900);
 	--searchBorderValid:var(--g300);
 	--searchBorderInvalid:var(--e300);
+
+	--headerFont:var(--heading1);
+	--headerBg:var(--n300);
+	--headerTextLight:var(--n700);
+	--headerTextDark:var(--n300);
 }

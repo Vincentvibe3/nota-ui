@@ -7,7 +7,28 @@
 		<link rel="stylesheet" href="./src/global.css">
 		%sveltekit.head%
 	</head>
-	<body style="height:200vh; overflow: scroll; margin: none; background-color: #fafafa;">
-		%sveltekit.body%
+	<body>
+		<div class="svelte-content">
+			%sveltekit.body%
+		</div>
 	</body>
+	<style>
+
+		.svelte-content{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			height:200vh;
+			min-width:100vw;
+			width:fit-content;
+			overflow: scroll;
+			margin: 0px;
+			background-color: #fafafa;
+		}
+	</style>
 </html>
