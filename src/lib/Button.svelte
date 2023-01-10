@@ -21,6 +21,10 @@
 		{/if}
 		<slot/>
 	</button>
+{:else if type=="icon"}
+	<button class="icon" style={$$props.style} bind:this={htmlElement} on:click>
+		<slot name="icon"/>
+	</button>
 {/if}
 
 <style>
@@ -30,11 +34,25 @@
 		min-height: 2rem;
 		border-radius: 0.2rem;
 		cursor: pointer;
-		font-weight: 600;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: center;
+		justify-content: center;		
+		transition: all ease-in-out 0.2s;
+		font: var(--btnFont, 600 1rem sans-serif);
+	}
+
+	button.icon {
+		outline: none;
+		border: none;
+		aspect-ratio: 1;
+		border-radius: 100%;
+		padding: min(0.5rem, 40%);
+		background-color: transparent;
+	}
+
+	button.icon:hover{
+		background-color: #3b3b3b26;
 	}
 
 	.iconWrapper{
@@ -54,46 +72,43 @@
 
 	button.secondary {
 		border: none;
-		color: var(--color, #b3386b);
+		color: var(--btnSecondaryText, #b3386b);
 		background-color: #00000000;
 	}
 
 	button.primary {
 		border: none;
 		outline: none;
-		color: var(--color, #ffffff);
-		background-color: var(--color, #b3386b);
-		border: var(--colorOutline, #bf5383) solid 0.15rem;
+		color: var(--btnPrimaryText, #ffffff);
+		background-color: var(--btnPrimaryBg, #b3386b);
+		border: var(--btnPrimaryBorder, #bf5383) solid 0.15rem;
 	}
 
 	button.secondary:hover {
-		transition: all ease-in 0.2s;
-		background-color: #b3386b26;
+		background-color: var(--btnSecondaryBgFocus, #b3386b26);
 	}
 
 	button.secondary:focus-visible {
-		transition: all ease-in 0.2s;
-		background-color: #b3386b26;
+		background-color: var(--btnSecondaryBgFocus, #b3386b26);
 		outline: none;
 	}
 
 	button.secondary:active {
-		background-color: #b3386b59;
+		background-color: var(--btnSecondaryBgFocus, #b3386b26);
 	}
 
 	button.primary:hover {
-		transition: all 0.1s;
-		filter: brightness(85%);
+		background-color: var(--btnPrimaryBgFocus, #99003b);
+		border: var(--btnPrimaryBorderFocus, #a31c54) solid 0.15rem;
 	}
 
 	button.primary:focus-visible {
-		transition: all 0.1s;
-		filter: brightness(85%);
+		background-color: var(--btnPrimaryBgFocus, #99003b);
+		border: var(--btnPrimaryBorderFocus, #a31c54) solid 0.15rem;
 	}
 
 	button:active {
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
-		transition: all ease-in 0.1s;
 		filter: brightness(85%);
 	}
 </style>

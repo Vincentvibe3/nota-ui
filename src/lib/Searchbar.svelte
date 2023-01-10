@@ -127,28 +127,30 @@
 	{#if active}
 		<div bind:this={optionsWrapper} class="options">
 			{#each suggestions as option}
-				{#if option == suggestions[keyboardNavSelect]}
-					<button
-						on:click={() => {
-							selectOption(option);
-						}}
-						class="option selected">
-						<span>{option}</span>
-					</button>
-				{:else}
-					<button
-						on:click={() => {
-							selectOption(option);
-						}}
-						class="option">
-						<span>{option}</span>
-					</button>
-				{/if}
+				<button
+					on:click={() => {
+						selectOption(option);
+					}}
+					class="option" class:selected={option == suggestions[keyboardNavSelect]}>
+					<span>{option}</span>
+				</button>
 			{/each}
 		</div>
 	{/if}
 	<TextInput
-		style="width:100%;margin:0px;z-index: 1;"
+		style="width:100%;
+		margin:0px;
+		z-index: 1;
+		--inputBg:var(--searchBg);
+		--inputBorder:var(--searchBorder);
+		--inputText:var(--searchText);
+		--inputIconBtnBg:var(--searchIconBtnBg);
+		--inputPlaceholderText:var(--searchPlaceholderText);
+		--inputIconColor:var(--searchIconColor);
+		--inputBorderFocus:var(--searchBorderFocus);
+		--inputBorderValid:var(--searchBorderValid);
+		--inputBorderInvalid:var(--searchBorderInvalid);
+		--inputFont:var(--searchFont);"
 		class="shadow"
 		placeholder={placeholder}
 		on:keydown={handleSubmit}
@@ -168,19 +170,22 @@
 
 <style>
 	.wrapper :global(.shadow:focus) {
-		transition: all ease-in-out 0.2s;
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
+	}
+
+	.wrapper :global(.shadow){
+		transition: all ease-in-out 0.2s;
 	}
 
 	.wrapper {
 		position: relative;
-		
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
 		border-radius: 0.2rem;
 		min-height: 2.5rem;
+		color: var(--searchText, #161616);
 	}
 
 	.options {
@@ -191,15 +196,15 @@
 		width: 100%;
 		padding-bottom: 00.5rem;
 		border-radius: 0.2rem;
-		outline: 0.1rem solid #c0c0c0;
-		background-color: #f0f0f0;
+		outline: 0.1rem solid var(--searchBorder, #c0c0c0);
+		background-color: var(--searchBg, #f0f0f0);
 		padding-top: 0.6rem;
 		z-index: 1;
 	}
 
 	.option {
 		width: 100%;
-		background-color: #f0f0f0;
+		background-color: inherit;
 		outline: none;
 		border: none;
 		padding: 0.75rem;
@@ -208,15 +213,15 @@
 		align-items: center;
 		cursor: pointer;
 		min-height: 2.5rem;
+		transition: all ease-in-out 0.1s;
 	}
 
 	.option.selected {
-		filter: brightness(85%);
+		filter: brightness(75%);
 	}
 
 	.option:hover {
 		filter: brightness(85%);
-		transition: all ease-in-out 0.1s;
 	}
 
 	span {
@@ -229,9 +234,4 @@
 		pointer-events: none;
 	}
 
-	svg {
-		width: 1rem;
-		height: 1rem;
-		pointer-events: none;
-	}
 </style>

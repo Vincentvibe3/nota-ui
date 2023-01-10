@@ -10,19 +10,10 @@
 
 	let iconLeft: HTMLDivElement;
 	let iconRight: HTMLDivElement;
-	let wrapper: HTMLDivElement;
+	let focused:boolean=false;
+
 
 	const dispatch = createEventDispatcher();
-	const validColor = '#36b32b';
-	const invalidColor = '#db3434';
-	const focusColor = '#99003b';
-	const defaultColor = '#C0C0C0';
-
-	$: if (valid) {
-		wrapper.style.setProperty('--borderColor', validColor);
-	} else if (!valid && valid != null) {
-		wrapper.style.setProperty('--borderColor', invalidColor);
-	}
 
 	onMount(() => {
 		if (iconLeft.hasChildNodes() && htmlElement != null) {
@@ -39,14 +30,14 @@
 
 	const onFocus = () => {
 		if (valid == null) {
-			wrapper.style.setProperty('--borderColor', focusColor);
+			focused=true
 		}
 		dispatch('focus');
 	};
 
 	const onFocusOut = () => {
 		if (valid == null) {
-			wrapper.style.setProperty('--borderColor', defaultColor);
+			focused=false
 		}
 	};
 
@@ -55,7 +46,7 @@
 	}
 </script>
 
-<div bind:this={wrapper} style={$$props.style} class="wrapper">
+<div class:valid={valid} class:invalid={!valid&&valid!=null} class:focused={focused&&valid==null} style={$$props.style} class="wrapper">
 	{#if type == 'text'}
 		<input
 			class={$$restProps.class}
@@ -98,16 +89,13 @@
 </div>
 
 <style>
-	:root {
-		--borderColor: #c0c0c0;
-	}
 
 	.wrapper {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		
 		width: fit-content;
+		font: var(--inputFont, 400 1rem sans-serif);
 	}
 
 	.iconWrapperLeft {
@@ -130,9 +118,8 @@
 	}
 
 	.iconWrapperRight:hover {
-		background-color: #ffffff;
+		background-color: var(--inputIconBtnBg, #c0c0c0);
 		border-radius: 100vw;
-		filter: brightness(85%);
 	}
 
 	.iconWrapperRight:global( * ) {
@@ -143,10 +130,10 @@
 	.wrapper {
 		position: relative;
 		outline: none;
-		border: 0.1rem solid var(--borderColor);
-		background-color: #f0f0f0;
+		border: 0.1rem solid var(--inputBorder, #c0c0c0);
+		background-color: var(--inputBg, #f0f0f0);
 		border-radius: 0.2rem;
-		transition: border-bottom ease-in-out 0.2s;
+		transition: all ease-in-out 0.2s;
 	}
 
 	input {
@@ -156,10 +143,24 @@
 		background-color: transparent;
 		border: none;
 		outline: none;
+		color: var(--inputText, #161616);
+		font:inherit;
+	}
+
+	.wrapper.focused{
+		border: 0.1rem solid var(--inputBorderFocus, #99003b);
+	}
+
+	.wrapper.invalid{
+		border: 0.1rem solid var(--inputBorderInvalid, #db3434);
+	}
+
+	.wrapper.valid{
+		border: 0.1rem solid var(--inputBorderValid, #36b32b);
 	}
 
 	input::placeholder {
 		opacity: 1;
-		color: #606060;
+		color: var(--inputPlaceholderText, #606060);
 	}
 </style>

@@ -1,0 +1,127 @@
+/* Define variables */
+
+:root{
+
+	/* Global Colors */
+
+	/* Primary */
+	--p100:#ffdefb;
+	--p200:#f2c2e3;
+	--p300:#e6a7cb;
+	--p400:#d98bb3;
+	--p500:#cc6f9b;
+	--p600:#bf5383;
+	--p700:#b3386b;
+	--p800:#a31c54;
+	--p900:#99003b;
+
+	/* Secondary */
+	--s100:#def3ff;
+	--s200:#c2d5f2;
+	--s300:#a7b8e6;
+	--s400:#8b9ad9;
+	--s500:#6f7ccc;
+	--s600:#535ebf;
+	--s700:#3841b3;
+	--s800:#1c23a6;
+	--s900:#000599;
+
+	/* Neutral */
+	--n100:#ffffff;
+	--n200:#fafafa;
+	--n300:#f0f0f0;
+	--n400:#c0c0c0;
+	--n500:#909090;
+	--n600:#606060;
+	--n700:#303030;
+	--n800:#161616;
+	--n900:#000000;
+
+	/* Error */
+	--e100:#db8484;
+	--e200:#db5c5c;
+	--e300:#db3434;
+
+	/* Warning */
+	--w100:#dbae84;
+	--w200:#db995c;
+	--w300:#db8434;
+
+	/* Info */
+	--i100:#f2da91;
+	--i200:#f2ce60;
+	--i300:#f2c12e;
+
+	/* Success */
+	--g100:#8bdb84;
+	--g200:#61c758;
+	--g300:#36b32b;
+
+	/* Global Typography */
+	--font-family:'Work Sans', sans-serif;
+	--heading1:700 4rem var(--font-family);
+	--heading2:700 3rem var(--font-family);
+	--heading3:700 2.625rem var(--font-family);
+	--heading4:700 2.25rem var(--font-family);
+	--heading5:700 1.875rem var(--font-family);
+	--heading6:700 1.5rem var(--font-family);
+	--subtitle1:300 1.5rem var(--font-family);
+	--body:400 1rem var(--font-family);
+	--buttons:600 0.875rem var(--font-family);
+	--caption:300 0.75rem  var(--font-family);
+
+
+	/* Styles */
+	--btnFont:var(--buttons);
+
+	--btnPrimaryBg: var(--p700);
+	--btnPrimaryBgFocus: var(--p900);
+	--btnPrimaryBorder: var(--p600);
+	--btnPrimaryBorderFocus: var(--p800);
+	--btnPrimaryText: var(--n200);
+
+	--btnSecondaryBg: transparent;
+	--btnSecondaryBgFocus: var(--p100);
+	--btnSecondaryText: var(--p800);
+
+	--inputFont:var(--caption);
+	--inputBg:var(--n300);
+	--inputBorder:var(--n400);
+	--inputText:var(--n800);
+	--inputIconBtnBg:var(--n400);
+	--inputPlaceholderText:var(--n600);
+	--inputIconColor:var(--n600);
+	--inputBorderFocus:var(--p900);
+	--inputBorderValid:var(--g300);
+	--inputBorderInvalid:var(--e300);
+
+	--checkboxSelected:var(--p900);
+	--checkboxUnselected:var(--p600);
+	--checkboxCheck:var(--n100);
+
+	--radioSelected:var(--p900);
+	--radioUnselected:var(--p600);
+
+	--spinnerBg:var(--p900);
+	--spinnerIcon:var(--n100);
+	--spinnerBgComplete:var(--g300);
+	--spinnerBgError:var(--e300);
+
+	--dropdownFont:var(--caption);
+	--dropdownFontOption:var(--caption);
+	--dropdownBg:var(--n300);
+	--dropdownBorder:var(--n400);
+	--dropdownBorderFocus:var(--p900);
+	--dropdownText:var(--n800);
+
+	--searchFont:var(--caption);
+	--searchBg:var(--n300);
+	--searchBorder:var(--n400);
+	--searchText:var(--n800);
+	--searchIconBtnBg:var(--n400);
+	--searchPlaceholderText:var(--n600);
+	--searchIconColor:var(--n600);
+	--searchBorderFocus:var(--p900);
+	--searchBorderValid:var(--g300);
+	--searchBorderInvalid:var(--e300);
+}

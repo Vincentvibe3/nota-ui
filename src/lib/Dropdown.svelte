@@ -100,23 +100,13 @@
 	{#if active}
 		<div bind:this={optionsWrapper} class="options">
 			{#each options as option}
-				{#if option.selected || option.index == keyboardNavSelect}
-					<button
-						on:click={() => {
-							selectOption(option.index);
-						}}
-						class="option selected">
-						<span>{option.text}</span>
-					</button>
-				{:else}
-					<button
-						on:click={() => {
-							selectOption(option.index);
-						}}
-						class="option">
-						<span>{option.text}</span>
-					</button>
-				{/if}
+				<button
+					on:click={() => {
+						selectOption(option.index);
+					}}
+					class="option" class:keyboard-hover={option.index == keyboardNavSelect} class:selected={option.selected}>
+					<span>{option.text}</span>
+				</button>
 			{/each}
 		</div>
 	{/if}
@@ -143,6 +133,7 @@
 		justify-content: space-between;
 		border-radius: 0.2rem;
 		min-height: 2.5rem;
+		color: var(--dropdownText, #161616);
 	}
 
 	.dropdown_impl {
@@ -151,34 +142,34 @@
 		min-height: 2.5rem;
 		height: 100%;
 		padding: 0.75rem;
-		background-color: #f0f0f0;
+		background-color: var(--dropdownBg, #f0f0f0);
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
 		border-radius: 0.2rem;
-		outline: 0.1rem solid #c0c0c0;
+		outline: 0.1rem solid var(--dropdownBorder, #c0c0c0);
 		cursor: pointer;
 		border: none;
 		text-overflow: ellipsis;
 		overflow: hidden;
 		text-align: left;
 		z-index: 1;
+		transition: all ease-in-out 0.2s;
+		font: var(--dropdownFont, 400 1rem sans-serif)
 	}
 
 	.dropdown_impl:focus {
-		outline-color: #bf5383;
+		outline-color: var(--dropdownBorderFocus, #99003b);
 	}
 
 	.dropdown_impl:hover {
-		transition: all ease-in-out 0.1s;
 		filter: brightness(85%);
 	}
 
 	.dropdown_impl.active {
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
-		transition: all ease-in-out 0.2s;
-		outline-color: #bf5383;
+		outline-color: var(--dropdownBorderFocus, #99003b);
 	}
 
 	.options {
@@ -190,15 +181,15 @@
 		width: 100%;
 		padding-bottom: 00.5rem;
 		border-radius: 0.2rem;
-		outline: 0.1rem solid #c0c0c0;
-		background-color: #f0f0f0;
+		outline: 0.1rem solid var(--dropdownBorder, #c0c0c0);
+		background-color: var(--dropdownBg, #f0f0f0);
 		padding-top: 0.6rem;
 		z-index: 1;
 	}
 
 	.option {
 		width: 100%;
-		background-color: #f0f0f0;
+		background-color: inherit;
 		outline: none;
 		border: none;
 		padding: 0.75rem;
@@ -207,25 +198,29 @@
 		align-items: center;
 		cursor: pointer;
 		min-height: 2.5rem;
+		transition: all ease-in-out 0.1s;
 	}
 
 	.option.selected {
-		filter: brightness(85%);
+		filter: brightness(75%);
+	}
+
+	.option.keyboard-hover {
+		filter: brightness(75%);
 	}
 
 	.option:hover {
 		filter: brightness(85%);
-		transition: all ease-in-out 0.1s;
 	}
 
 	span {
 		max-width: calc(100% - 2rem);
-		font-size: 0.8rem;
 		text-overflow: ellipsis;
 		overflow: hidden;
 		text-align: left;
 		white-space: nowrap;
 		pointer-events: none;
+		font: var(--dropdownFontOption, 400 1rem sans-serif)
 	}
 
 	svg {

@@ -23,9 +23,6 @@
 </div>
 
 <style>
-	:root {
-		--borderColor: #c0c0c0;
-	}
 
 	input {
 		display: none;
@@ -36,7 +33,7 @@
 		width: 1.2rem;
 		height: 1.2rem;
 		border-radius: 1.5rem;
-		border: #bf5383 solid 0.2rem;
+		border: var(--radioUnselected, #bf5383) solid 0.2rem;
 		background-color: #00000000;
 		display: flex;
 		flex-direction: column;
@@ -46,7 +43,7 @@
 	}
 
 	input:checked ~ .radioWrapper {
-		border: #99003b solid 0.2rem;
+		border: var(--radioSelected, #99003b) solid 0.2rem;
 		transition: all ease-in-out 0.2s;
 	}
 
@@ -56,7 +53,7 @@
 		height: auto;
 		aspect-ratio: 1;
 		border-radius: 1rem;
-		background-color: #99003b;
+		background-color: var(--radioSelected, #99003b);
 		animation-name: popIn;
 		animation-play-state: running;
 		animation-duration: 0.1s;
