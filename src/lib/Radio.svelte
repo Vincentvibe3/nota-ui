@@ -6,20 +6,24 @@
 
 	const onClick = () => {
 		if (htmlElement != null) {
-			htmlElement.checked = true;
+			htmlElement.click();
 		}
 	};
 </script>
 
-<div>
-	<input bind:group value={value} name={name} type="radio" bind:this={htmlElement} />
-	<button
-		type="button"
-		style={$$props.style}
-		tabindex="0"
-		class="radioWrapper"
-		on:click={onClick} />
-	<slot />
+
+<input bind:group={group} value={value} name={name} type="radio" bind:this={htmlElement} />
+<div>	
+	{#if htmlElement!=null}
+		<button
+			type="button"
+			style={$$props.style}
+			tabindex="0"
+			class:checked={group==value}
+			class="radioWrapper"
+			on:click={onClick} />
+		<slot />
+	{/if}
 </div>
 
 <style>
@@ -30,29 +34,30 @@
 
 	.radioWrapper {
 		cursor: pointer;
-		width: 1.2rem;
-		height: 1.2rem;
-		border-radius: 1.5rem;
+		width: auto;
+		height: 1.25rem;
+		aspect-ratio: 1;
+		border-radius: 100%;
 		border: var(--radioUnselected, #bf5383) solid 0.2rem;
 		background-color: #00000000;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		
 	}
 
-	input:checked ~ .radioWrapper {
+	.radioWrapper.checked {
 		border: var(--radioSelected, #99003b) solid 0.2rem;
 		transition: all ease-in-out 0.2s;
 	}
 
-	input:checked ~ .radioWrapper::after {
+	.radioWrapper.checked::after {
+		display: block;
 		content: '';
-		width: 100%;
-		height: auto;
+		width: auto;
+		height: 50%;
 		aspect-ratio: 1;
-		border-radius: 1rem;
+		border-radius: 100%;
 		background-color: var(--radioSelected, #99003b);
 		animation-name: popIn;
 		animation-play-state: running;
