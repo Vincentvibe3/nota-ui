@@ -156,7 +156,7 @@
 		text-align: left;
 		z-index: 1;
 		transition: all ease-in-out 0.2s;
-		font: var(--dropdownFont, 400 1rem sans-serif)
+		font: var(--dropdownFont, 400 0.75rem sans-serif)
 	}
 
 	.dropdown_impl:focus {
@@ -220,7 +220,7 @@
 		text-align: left;
 		white-space: nowrap;
 		pointer-events: none;
-		font: var(--dropdownFontOption, 400 1rem sans-serif)
+		font: var(--dropdownFontOption, 400 0.75rem sans-serif)
 	}
 
 	svg {

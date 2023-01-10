@@ -1,5 +1,7 @@
-/* Define variables */
 
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap');
+
+/* Define variables */
 :root{
 
 	/* Global Colors */
@@ -67,8 +69,9 @@
 	--heading6:700 1.5rem var(--font-family);
 	--subtitle1:300 1.5rem var(--font-family);
 	--body:400 1rem var(--font-family);
+	--body2:400 0.75rem var(--font-family);
 	--buttons:600 0.875rem var(--font-family);
-	--caption:300 0.75rem  var(--font-family);
+	--caption:400 0.75rem  var(--font-family);
 
 
 	/* Styles */
@@ -84,7 +87,7 @@
 	--btnSecondaryBgFocus: var(--p100);
 	--btnSecondaryText: var(--p800);
 
-	--inputFont:var(--caption);
+	--inputFont:var(--body2);
 	--inputBg:var(--n300);
 	--inputBorder:var(--n400);
 	--inputText:var(--n800);
@@ -107,14 +110,15 @@
 	--spinnerBgComplete:var(--g300);
 	--spinnerBgError:var(--e300);
 
-	--dropdownFont:var(--caption);
-	--dropdownFontOption:var(--caption);
+	--dropdownFont:var(--body2);
+	--dropdownFontOption:var(--body2);
 	--dropdownBg:var(--n300);
 	--dropdownBorder:var(--n400);
 	--dropdownBorderFocus:var(--p900);
 	--dropdownText:var(--n800);
 
-	--searchFont:var(--caption);
+	--searchFont:var(--body2);
+	--searchFontOption:var(--body2);
 	--searchBg:var(--n300);
 	--searchBorder:var(--n400);
 	--searchText:var(--n800);

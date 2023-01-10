@@ -95,7 +95,7 @@
 		flex-direction: row;
 		align-items: center;
 		width: fit-content;
-		font: var(--inputFont, 400 1rem sans-serif);
+		font: var(--inputFont, 400 0.75rem sans-serif);
 	}
 
 	.iconWrapperLeft {

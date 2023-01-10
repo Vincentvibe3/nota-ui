@@ -186,6 +186,7 @@
 		border-radius: 0.2rem;
 		min-height: 2.5rem;
 		color: var(--searchText, #161616);
+		font: var(--searchFontOption, 400 0.75rem sans-serif)
 	}
 
 	.options {
