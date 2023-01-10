@@ -10,7 +10,6 @@
 
 	$: if (showText) {
 		type = 'text';
-		console.log(type);
 	} else {
 		type = 'password';
 	}

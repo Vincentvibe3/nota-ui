@@ -29,7 +29,6 @@
 	})
 
 	$: if (active && mounted) {
-		console.log("àttached")
 		document.addEventListener('keydown', handleKeyPresses);
 		document.addEventListener("click", clickListener)
 	} else if (mounted && !active) {
