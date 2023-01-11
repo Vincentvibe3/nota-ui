@@ -5,6 +5,7 @@
 	export let valid: Boolean | null = null;
 	export let placeholder = '';
 	export let text: string;
+	export let shadowOnFocus:boolean=false;
 </script>
 
 <TextInputImpl
@@ -19,6 +20,7 @@
 	bind:name
 	bind:valid
 	bind:placeholder
+	bind:shadowOnFocus
 	type="text"
 	on:click
 	on:iconRightClick

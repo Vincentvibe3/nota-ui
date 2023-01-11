@@ -150,7 +150,7 @@
 		--inputBorderValid:var(--searchBorderValid);
 		--inputBorderInvalid:var(--searchBorderInvalid);
 		--inputFont:var(--searchFont);"
-		class="shadow"
+		shadowOnFocus={true}
 		placeholder={placeholder}
 		on:keydown={handleSubmit}
 		on:focus={() => {
@@ -168,13 +168,6 @@
 </div>
 
 <style>
-	.wrapper :global(.shadow:focus) {
-		box-shadow: #00000033 0.2rem 0.2rem 1rem;
-	}
-
-	.wrapper :global(.shadow){
-		transition: all ease-in-out 0.2s;
-	}
 
 	.wrapper {
 		position: relative;

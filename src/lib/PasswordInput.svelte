@@ -8,6 +8,8 @@
 	export let showText: boolean = false;
 	let type: string = 'password';
 
+	$:console.log($$slots.iconleft+" pass")
+
 	$: if (showText) {
 		type = 'text';
 	} else {
@@ -29,6 +31,15 @@
 	on:click
 	on:iconRightClick
 	on:input>
-	<slot name="iconleft" slot="iconleft" />
-	<slot name="iconright" slot="iconright" />
+	
+	<svelte:fragment slot="iconleft">
+		{#if $$slots.iconleft}
+			<slot name="iconleft" />
+		{/if}
+	</svelte:fragment>
+	<svelte:fragment slot="iconright">
+		{#if $$slots.iconleft}
+			<slot name="iconright" />
+		{/if}
+	</svelte:fragment>
 </TextInputImpl>

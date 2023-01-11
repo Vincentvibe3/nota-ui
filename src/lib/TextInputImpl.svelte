@@ -8,24 +8,24 @@
 	export let text: string;
 	export let type: string = 'text';
 
-	let iconLeft: HTMLDivElement;
-	let iconRight: HTMLDivElement;
 	let focused:boolean=false;
+	export let shadowOnFocus:boolean=false;
 
 
 	const dispatch = createEventDispatcher();
 
 	onMount(() => {
-		if (iconLeft.hasChildNodes() && htmlElement != null) {
-			htmlElement.style.paddingLeft = '2.5rem';
-		} else {
-			iconLeft.remove();
-		}
-		if (iconRight.hasChildNodes() && htmlElement != null) {
-			htmlElement.style.paddingRight = '2rem';
-		} else {
-			iconRight.remove();
-		}
+		console.log($$slots.iconleft+" "+name+" has icon left")
+		// if (iconLeft.hasChildNodes() && htmlElement != null) {
+		// 	htmlElement.style.paddingLeft = '2.5rem';
+		// } else {
+		// 	iconLeft.remove();
+		// }
+		// if (iconRight.hasChildNodes() && htmlElement != null) {
+		// 	htmlElement.style.paddingRight = '2rem';
+		// } else {
+		// 	iconRight.remove();
+		// }
 	});
 
 	const onFocus = () => {
@@ -46,10 +46,15 @@
 	}
 </script>
 
-<div class:valid={valid} class:invalid={!valid&&valid!=null} class:focused={focused&&valid==null} style={$$props.style} class="wrapper">
+<div class:valid={valid} class:shadow={shadowOnFocus&&focused} class:invalid={!valid&&valid!=null} class:focused={focused&&valid==null} style={$$props.style} class="wrapper {$$restProps.class}">
+	{#if $$slots.iconleft}
+		<div class="iconWrapperLeft">
+			<slot name="iconleft"/>
+		</div>
+	{/if}
 	{#if type == 'text'}
 		<input
-			class={$$restProps.class}
+			class:padLeft={$$slots.iconleft}
 			on:keyup
 			on:keydown
 			on:submit
@@ -64,7 +69,7 @@
 			bind:this={htmlElement} />
 	{:else if type == 'password'}
 		<input
-			class={$$restProps.class}
+			class:padLeft={$$slots.iconleft}
 			on:submit
 			on:focus={onFocus}
 			on:focusout={onFocusOut}
@@ -76,30 +81,17 @@
 			type="password"
 			bind:this={htmlElement} />
 	{/if}
-	{#if $$slots.iconleft}
-		<div bind:this={iconLeft} class="iconWrapperLeft">
-			<slot name="iconleft" />
-		</div>
-	{/if}
 	{#if $$slots.iconright}
-		<div on:click={onIconRightClick} bind:this={iconRight} class="iconWrapperRight">
-			<slot name="iconright" />
+		<div on:click={onIconRightClick} class="iconWrapperRight">
+			<slot name="iconright"/>
 		</div>
 	{/if}
 </div>
 
 <style>
 
-	.wrapper {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		width: fit-content;
-		font: var(--inputFont, 400 0.75rem sans-serif);
-	}
-
 	.iconWrapperLeft {
-		position: absolute;
+		position: relative;
 		height: 1rem;
 		padding: 00.75rem;
 	}
@@ -109,8 +101,16 @@
 		width: auto;
 	}
 
+	.iconWrapperRight:empty{
+		display: none;
+	}
+
+	.iconWrapperLeft:empty{
+		display: none;
+	}
+
 	.iconWrapperRight {
-		position: absolute;
+		position: relative;
 		height: 1rem;
 		right: 0.75rem;
 		padding: 0.25rem;
@@ -134,17 +134,32 @@
 		background-color: var(--inputBg, #f0f0f0);
 		border-radius: 0.2rem;
 		transition: all ease-in-out 0.2s;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		width: fit-content;
+		font: var(--inputFont, 400 0.75rem sans-serif);
+		transition: all ease-in-out 0.2s;
+	}
+
+	.wrapper.shadow{
+		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 	}
 
 	input {
-		width: 100%;
-		height: 100%;
+		flex-grow: 1;
+		height: auto;
 		padding: 0.75rem;
 		background-color: transparent;
 		border: none;
 		outline: none;
 		color: var(--inputText, #161616);
 		font:inherit;
+		padding-left: 0rem;
+	}
+
+	.iconWrapperLeft:empty ~ input {
+		padding-left: 00.75rem;
 	}
 
 	.wrapper.focused{
