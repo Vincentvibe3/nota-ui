@@ -11,6 +11,7 @@
 <TextInputImpl
 	class={$$restProps.class}
 	style={$$props.style}
+	id={$$restProps.id}
 	on:focus
 	on:keydown
 	on:keyup

@@ -1,7 +1,8 @@
 <script lang="ts">
+
 	export let htmlElement: HTMLInputElement | null = null;
 	export let name: string = '';
-	export let checked = false;
+	export let checked:boolean = false;
 
 	const onClick = () => {
 		checked = !checked;
@@ -9,7 +10,7 @@
 </script>
 
 <input bind:checked on:click {name} type="checkbox" bind:this={htmlElement} />
-<div style={$$props.style} class="wrapper">
+<div id={$$restProps.id} style={$$restProps.style} class={$$restProps.class} class:wrapper={true}>
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper" class:checked={checked}>
 		<div class="customCheckmark" class:animate={checked}>
 			<!-- check icon from phosphor icons -->

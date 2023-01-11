@@ -2,9 +2,20 @@
 	export let htmlElement: HTMLButtonElement | null = null;
 	export let type: string = 'primary';
 	export let disabled:boolean=false;
+	
 </script>
 
-<button disabled={disabled} class={type} style={$$props.style} bind:this={htmlElement} on:click>
+<button 
+	class:primary={type=="primary"}
+	class:secondary={type=="secondary"}
+	class:tertiary={type=="tertiary"}
+	class:danger={type=="danger"}
+	id={$$restProps.id} 
+	disabled={disabled} 
+	class={$$restProps.class} 
+	style={$$restProps.style} 
+	bind:this={htmlElement} 
+	on:click>
 	{#if $$slots.icon}
 		<div class="iconWrapper">
 			<slot name="icon"/>
@@ -26,6 +37,7 @@
 		justify-content: center;		
 		transition: all ease-in-out 0.2s;
 		font: var(--btnFont, 600 1rem sans-serif);
+		white-space: nowrap;
 	}
 
 	button.primary:disabled, button.secondary:disabled, 

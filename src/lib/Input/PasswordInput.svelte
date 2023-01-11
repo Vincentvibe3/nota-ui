@@ -8,8 +8,6 @@
 	export let showText: boolean = false;
 	let type: string = 'password';
 
-	$:console.log($$slots.iconleft+" pass")
-
 	$: if (showText) {
 		type = 'text';
 	} else {
@@ -18,7 +16,9 @@
 </script>
 
 <TextInputImpl
-	style={$$props.style}
+	style={$$restProps.style}
+	class={$$restProps.class}
+	id={$$restProps.id}
 	on:focus
 	on:keydown
 	on:keyup
@@ -38,7 +38,7 @@
 		{/if}
 	</svelte:fragment>
 	<svelte:fragment slot="iconright">
-		{#if $$slots.iconleft}
+		{#if $$slots.iconright}
 			<slot name="iconright" />
 		{/if}
 	</svelte:fragment>

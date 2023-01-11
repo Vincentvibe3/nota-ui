@@ -67,7 +67,7 @@
 	--heading4:700 1.875rem var(--font-family);
 	--heading5:700 1.5rem var(--font-family);
 	--heading6:700 1.25rem var(--font-family);
-	--subtitle1:300 1.25rem var(--font-family);
+	--subtitle:300 1.25rem var(--font-family);
 	--body:400 1rem var(--font-family);
 	--body2:400 0.75rem var(--font-family);
 	--buttons:600 0.875rem var(--font-family);
@@ -142,4 +142,6 @@
 	--headerBg:var(--n300);
 	--headerTextLight:var(--n700);
 	--headerTextDark:var(--n300);
+
+	--backdropColor:var(--n900)
 }

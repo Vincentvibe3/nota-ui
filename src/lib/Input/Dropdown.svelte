@@ -14,6 +14,8 @@
 		active = !active;
 	};
 
+	
+
 	onMount(() => {
 		mounted = true;
 		if (htmlElement != null) {
@@ -93,7 +95,7 @@
 	};
 </script>
 
-<div bind:this={dropdownWrapper} style={$$props.style} class="wrapper {$$props.class}">
+<div id={$$restProps.id} bind:this={dropdownWrapper} style={$$restProps.style} class:wrapper={true} class={$$restProps.class}>
 	<select bind:this={htmlElement}>
 		<slot />
 	</select>

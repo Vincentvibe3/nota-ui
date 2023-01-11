@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	export let htmlElement: HTMLInputElement | null = null;
 	export let name: string = '';
@@ -13,20 +13,6 @@
 
 
 	const dispatch = createEventDispatcher();
-
-	onMount(() => {
-		console.log($$slots.iconleft+" "+name+" has icon left")
-		// if (iconLeft.hasChildNodes() && htmlElement != null) {
-		// 	htmlElement.style.paddingLeft = '2.5rem';
-		// } else {
-		// 	iconLeft.remove();
-		// }
-		// if (iconRight.hasChildNodes() && htmlElement != null) {
-		// 	htmlElement.style.paddingRight = '2rem';
-		// } else {
-		// 	iconRight.remove();
-		// }
-	});
 
 	const onFocus = () => {
 		if (valid == null) {
@@ -46,7 +32,15 @@
 	}
 </script>
 
-<div class:valid={valid} class:shadow={shadowOnFocus&&focused} class:invalid={!valid&&valid!=null} class:focused={focused&&valid==null} style={$$props.style} class="wrapper {$$restProps.class}">
+<div 
+	id={$$restProps.id} 
+	class:valid={valid} 
+	class:shadow={shadowOnFocus&&focused} 
+	class:invalid={!valid&&valid!=null} 
+	class:focused={focused&&valid==null} 
+	style={$$restProps.style} 
+	class:wrapper={true} 
+	class={$$restProps.class}>
 	{#if $$slots.iconleft}
 		<div class="iconWrapperLeft">
 			<slot name="iconleft"/>
@@ -137,9 +131,9 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		width: fit-content;
 		font: var(--inputFont, 400 0.75rem sans-serif);
 		transition: all ease-in-out 0.2s;
+		min-width: fit-content;
 	}
 
 	.wrapper.shadow{

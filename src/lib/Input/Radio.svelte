@@ -1,4 +1,5 @@
 <script lang="ts">
+
 	export let htmlElement: HTMLInputElement | null = null;
 	export let name: string = '';
 	export let value: string = '';
@@ -13,11 +14,10 @@
 
 
 <input bind:group={group} value={value} name={name} type="radio" bind:this={htmlElement} />
-<div>	
+<div id={$$restProps.id} style={$$restProps.style} class={$$restProps.class}>	
 	{#if htmlElement!=null}
 		<button
 			type="button"
-			style={$$props.style}
 			tabindex="0"
 			class:checked={group==value}
 			class="radioWrapper"

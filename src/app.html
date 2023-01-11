@@ -19,7 +19,8 @@
 			flex-direction: column;
 			align-items: center;
 			height: 100%;
-			width: 100%;
+			width: fit-content;
+			min-width: 100%;
 		}
 
 		body {
@@ -29,6 +30,10 @@
 			overflow: scroll;
 			margin: 0px;
 			background-color: #fafafa;
+		}
+
+		html {
+			scroll-behavior: smooth;
 		}
 	</style>
 </html>

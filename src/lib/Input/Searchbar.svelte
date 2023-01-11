@@ -15,6 +15,13 @@
 	export let suggestions: Array<any> = [];
 	export let placeholder: string = '';
 	const dispatch = createEventDispatcher();
+	let classStr:string = ""
+
+	onMount(()=>{
+		if ($$restProps.class!=undefined){
+			classStr=$$restProps.class
+		}
+	})
 
 	const selectOption = (optionText: string) => {
 		text = optionText;
@@ -120,9 +127,10 @@
 </script>
 
 <div
+	id={$$restProps.id}
 	bind:this={dropdownWrapper}
-	style={$$props.style}
-	class="wrapper {$$props.class}">
+	style={$$restProps.style}
+	class:wrapper={true} class={$$restProps.class}>
 	{#if active}
 		<div bind:this={optionsWrapper} class="options">
 			{#each suggestions as option}

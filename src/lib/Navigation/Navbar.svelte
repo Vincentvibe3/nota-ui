@@ -9,9 +9,9 @@
 
 	onMount(()=>{
 		lastScrollPosition=window.scrollY
-		window.onscroll = (e)=>{
+		window.addEventListener("scroll", (e)=>{
 			if ((window.scrollY) == 0) {
-        		// you're at the bottom of the page
+        		// you're at the top of the page
 				show=true
 				transparent=true
     		} else {
@@ -19,7 +19,7 @@
 				show=lastScrollPosition>window.scrollY
 			}
 			lastScrollPosition=window.scrollY
-		}
+		})
 	})
 
 	const onTitleClick = (event:MouseEvent) => {
@@ -27,20 +27,14 @@
 	}
 
 </script>
-<div style={$$props.style} class="bar" class:transparent={transparent&&!alwaysOpaque} class:show={show}>
+<div id={$$restProps.id} style={$$restProps.style} class:bar={true} class={$$restProps.class} class:show={show}>
+	<div class:transparent={transparent&&!alwaysOpaque} class="bg"></div>
 	<button on:click={onTitleClick} class="titleWrapper">
 		<slot name="icon"></slot>
 		Website Name
 	</button>
 	<nav class="content">
-		<ul>
-			<li>
-				<a href=".">Page 1</a>
-			</li>
-			<li>
-				<a href=".">Page 2</a>
-			</li>
-		</ul>
+		<slot></slot>
 	</nav>
 </div>
 <style>
@@ -136,26 +130,32 @@
 		position: fixed;
 		width: 100vw;
 		height: 3.5rem;
-		background-color: #a31c54d2;
-		/* background-color: rgba(0, 0, 0, 0.555); */
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
-		box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
-		/* border-bottom: #606060 solid 0.1rem; */
 		z-index: 2;
-		/* pointer-events: none */
 		transition: all ease 0.2s;
 		font: var(--body);
 		transform: translateY(-100%);
+	}
+
+	.bg {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background-color: #b3386b;
+		opacity: 0.95;
+		z-index: -1;
+		box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
+		transition: all ease 0.5s;
 	}
 
 	.bar.show{
 		transform: translateY(0%);
 	}
 
-	.bar.transparent {
+	.bg.transparent {
 		background-color: transparent;
 		box-shadow: none;
 	}

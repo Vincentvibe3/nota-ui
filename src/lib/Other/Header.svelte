@@ -1,16 +1,20 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
+
 	export let img:string="";
 	// Text position
 	export let position:string="left";
+
 </script>
-<div class="wrapper" class:noimage={img==""}>
+<div id={$$restProps.id} class:wrapper={true} class={$$restProps.class} class:noimage={img==""} style={$$restProps.style}>
 	{#if img!=""}
 		<img alt="unsplash" src={img}>
 		<div class="gradient" class:noimage={img==""}></div>
 		<!-- https://unsplash.com/photos/Ivz2wREpKO0 -->
 	{/if}
 	<div class="content {position}">
-		<h1 class:noimage={img==""} >Page Title</h1>
+		<h1 class:noimage={img==""} ><slot></slot></h1>
 	</div>
 </div>
 <style>

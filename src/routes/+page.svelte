@@ -1,15 +1,19 @@
 <script lang="ts">
-	import Button from '$lib/Button.svelte';
-	import Checkbox from '$lib/Checkbox.svelte';
-	import Dropdown from '$lib/Dropdown.svelte';
-	import Navbar from '$lib/Navbar.svelte';
-	import PasswordInput from '$lib/PasswordInput.svelte';
-	import Radio from '$lib/Radio.svelte';
-	import Searchbar from '$lib/Searchbar.svelte';
-	import Spinner from '$lib/Spinner.svelte';
-	import TextInput from '$lib/TextInput.svelte';
-	import Header from '$lib/Header.svelte';
-	import Sidebar from '$lib/Sidebar.svelte';
+	import Button from '$lib/Other/Button.svelte';
+	import Checkbox from '$lib/Input/Checkbox.svelte';
+	import Dropdown from '$lib/Input/Dropdown.svelte';
+	import Navbar from '$lib/Navigation/Navbar.svelte';
+	import PasswordInput from '$lib/Input/PasswordInput.svelte';
+	import Radio from '$lib/Input/Radio.svelte';
+	import Searchbar from '$lib/Input/Searchbar.svelte';
+	import Spinner from '$lib/Other/Spinner.svelte';
+	import TextInput from '$lib/Input/TextInput.svelte';
+	import Header from '$lib/Other/Header.svelte';
+	import Sidebar from '$lib/Navigation/Sidebar.svelte';
+	import SidebarLink from '$lib/Navigation/SidebarLink.svelte';
+	import SidebarSlot from '$lib/Navigation/SidebarSlot.svelte';
+	import Modal from '$lib/Other/Modal.svelte';
+	import BackToTop from '$lib/Navigation/BackToTop.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -27,6 +31,7 @@
 	let searchSuggest: string[] = [];
 	let loadButton1=false;
 	let openSidebar=false;
+	let modalOpen=false;
 
 	const click = () => {
 		count++;
@@ -61,14 +66,80 @@
 		openSidebar=!openSidebar
 	}
 </script>
-<Sidebar bind:show={openSidebar}></Sidebar>
+<Sidebar bind:show={openSidebar}>
+	<SidebarSlot>
+		<div style="width:100%; display:flex;flex-direction:row;align-items:center;justify-content:center;">
+			<span><b>Preset Entries</b></span>
+		</div>
+	</SidebarSlot>
+	<SidebarLink href=".">Home</SidebarLink>
+	<SidebarLink href="#search">Search</SidebarLink>
+	<SidebarSlot>
+		<div style="width:100%; display:flex;flex-direction:row;align-items:center;justify-content:center;">
+			<span><b>Dynamic Entries</b></span>
+		</div>
+	</SidebarSlot>
+	{#each [...Array(5).keys()] as i}
+		<SidebarLink href="#{i}">Page {i}</SidebarLink>
+	{/each}
+	<SidebarLink href="#multi" multiline>multiline aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa b</SidebarLink>
+	<SidebarLink href="#a">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa b</SidebarLink>
+	<SidebarSlot>
+		<div style="width:100%; display:flex;flex-direction:row;align-items:center;justify-content:center;">
+			<span><b>Extra slot</b></span>
+		</div>
+	</SidebarSlot>
+	<SidebarSlot>
+		<p>This is a container in the sidebar</p>
+		<Button on:click={()=>{
+			modalOpen=!modalOpen
+		}}>Hello World</Button>
+		<Searchbar
+			on:submit={() => {
+				alert(`submitted ${searchText}`);
+			}}
+			style="margin-top:1rem;"
+			on:iconRightClick={clearInput2} 
+			bind:text={searchText}
+			on:input={searchInput}
+			placeholder="Search"
+			bind:suggestions={searchSuggest}>
+			<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
+			<svg slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
+		</Searchbar>
+	</SidebarSlot>
+	
+</Sidebar>
 <Navbar on:onTitleClick={toggleSidebar} alwaysOpaque={false} style="top:0px; left:0px; z-index:2;">
 	<div slot="icon" style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
 		<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="64" x2="216" y2="64" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="192" x2="216" y2="192" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 		<!-- <svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="96" y1="128" x2="160" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="96" y1="160" x2="160" y2="160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M56,40H200a8,8,0,0,1,8,8V200a24,24,0,0,1-24,24H72a24,24,0,0,1-24-24V48A8,8,0,0,1,56,40Z" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><line x1="80" y1="24" x2="80" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="128" y1="24" x2="128" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="176" y1="24" x2="176" y2="56" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg> -->
 	</div>
+	<div style="margin:0rem 1.5rem 0rem 1rem; width:100%; display: flex; flex-direction:row; align-items:center; justify-content:space-between;">
+		<Searchbar
+			style="width:20rem;"
+			on:submit={() => {
+				alert(`submitted ${searchText}`);
+			}}
+			on:iconRightClick={clearInput2} 
+			bind:text={searchText}
+			on:input={searchInput}
+			placeholder="Search"
+			bind:suggestions={searchSuggest}>
+			<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
+			<svg slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
+		</Searchbar>
+		<Button style="height:2rem;" type="primary" on:click={click} bind:htmlElement={button}>
+			Login
+		</Button>
+	</div>
 </Navbar>
-<Header img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb"></Header>
+<Header 
+	class="mainheader"
+	position="left"
+	img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb">
+	Component Preview
+</Header>
 <!-- <Header></Header> -->
 <main>
 	<label for="label">Input</label>
@@ -168,7 +239,7 @@
 	</form>
 	<label for="radio">Spinner</label>
 	<div style="display: flex; flex-direction:row; align-items:center;">
-		<Spinner bind:status />
+		<Spinner bind:status id="mainspinner"/>
 		<Button 
 			style="margin-left: 1rem;"
 			type="primary" 
@@ -202,6 +273,7 @@
 	</div>
 	<label for="radio">Search Bar</label>
 	<Searchbar
+		id="search"
 		on:submit={() => {
 			alert(`submitted ${searchText}`);
 		}}
@@ -213,7 +285,23 @@
 		<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 		<svg slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 	</Searchbar>
+	<label for="modal">Modal</label>
+	<Modal bind:open={modalOpen}>
+		<svelte:fragment slot="title">
+			Modal Title
+		</svelte:fragment>
+		<p>Hello from the modal!</p>
+	</Modal>
+	<Button 
+		type="primary" 
+		on:click={()=>{
+			modalOpen=!modalOpen
+		}} 
+		bind:htmlElement={button}>
+		Open Modal
+	</Button>
 	<p style="font:var(--body);">Text</p>
+	<BackToTop></BackToTop>
 </main>
 
 <style>
@@ -226,10 +314,8 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		width: 50vw;
-		min-width: 50rem;
+		width: fit-content;
 		margin: 2rem;
 		justify-content: center;
-		/* margin-top: 5rem; */
 	}
 </style>
