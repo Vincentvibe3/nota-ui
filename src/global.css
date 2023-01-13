@@ -73,7 +73,7 @@
 	--heading6:700 1.25rem var(--font-family);
 	--subtitle:300 1.25rem var(--font-family);
 	--body:400 1rem var(--font-family);
-	--body2:400 0.75rem var(--font-family);
+	--body2:400 0.8125rem var(--font-family);
 	--buttons:600 0.875rem var(--font-family);
 	--caption:400 0.75rem  var(--font-family);
 
@@ -129,6 +129,14 @@
 	--inputBorderFocus:var(--p900);
 	--inputBorderValid:var(--g300);
 	--inputBorderInvalid:var(--e300);
+
+	/* TextArea */
+	--textAreaFont:var(--body);
+	--textAreaBg:var(--n300);
+	--textAreaBorder:var(--n400);
+	--textAreaText:var(--n800);
+	--textAreaPlaceholderText:var(--n600);
+	--textAreaBorderFocus:var(--p900);
 
 	/* Checkbox */
 	--checkboxSelected:var(--p900);

@@ -15,6 +15,7 @@
 	import Modal from '$lib/Other/Modal.svelte';
 	import BackToTop from '$lib/Navigation/BackToTop.svelte';
 	import Separator from '$lib/Other/Separator.svelte';
+	import TextArea from '$lib/Input/TextArea.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -313,6 +314,8 @@
 		bind:htmlElement={button}>
 		Open Modal
 	</Button>
+	<label for="modal">TextArea</label>
+	<TextArea placeholder="Placeholder" bind:text={text}></TextArea>
 	<label for="modal">Typography</label>
 	<h1>Heading 1</h1>
 	<h2>Heading 2</h2>
