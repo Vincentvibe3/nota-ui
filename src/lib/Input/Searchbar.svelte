@@ -15,13 +15,6 @@
 	export let suggestions: Array<any> = [];
 	export let placeholder: string = '';
 	const dispatch = createEventDispatcher();
-	let classStr:string = ""
-
-	onMount(()=>{
-		if ($$restProps.class!=undefined){
-			classStr=$$restProps.class
-		}
-	})
 
 	const selectOption = (optionText: string) => {
 		text = optionText;
@@ -215,6 +208,7 @@
 		cursor: pointer;
 		min-height: 2.5rem;
 		transition: all ease-in-out 0.1s;
+		color: inherit;
 	}
 
 	.option.selected {

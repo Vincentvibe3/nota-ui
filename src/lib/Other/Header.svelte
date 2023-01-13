@@ -29,7 +29,7 @@
 
 	h1 {
 		color: var(--headerTextDark, #f0f0f0);
-		font: var(--heading1, 700 3rem sans-serif);
+		font: var(--headerFont, 700 3rem sans-serif);
 		margin: 3rem;
 	}
 
@@ -67,7 +67,7 @@
 	}
 
 	.wrapper.noimage{
-		border-bottom: #c0c0c0 solid 0.1rem;
+		border-bottom: var(--headerBorderBottom,#c0c0c0) solid 0.1rem;
 	}
 
 	.wrapper {
@@ -78,6 +78,7 @@
 		background-size: cover;
 		background-position: center;
 		margin: 0px;
+		flex-shrink: 0;
 	}
 
 </style>

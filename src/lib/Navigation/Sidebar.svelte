@@ -14,7 +14,7 @@
 	<div style={$$restProps.style} class:content={true} class={$$restProps.class} class:show={show}>
 		<button on:click={close} class="close">
 			<div style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
-				<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+				<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" fill="none" stroke="none"></rect><line x1="200" y1="56" x2="56" y2="200"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 			</div>
 			Close
 		</button>
@@ -31,9 +31,9 @@
 		width: 100%;
 		height: 3.5rem;
 		border:none;
-		background-color: var(--n700);
-		font:var(--buttons);
-		color: white;
+		background-color: var(--sidebarCloseBg, #303030);
+		font:var(--sidebarCloseFont, 600 0.875rem sans-serif);
+		color: var(--sidebarCloseText, #fafafa);
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -42,10 +42,12 @@
 		transition: all ease-in-out 0.2s;
 		cursor: pointer;
 		z-index: 2;
+		transition: all ease-in-out 0.2s;
 	}
 
 	.close:hover{
-		background-color: var(--n800);
+		background-color: var(--sidebarCloseBgFocus, #161616);
+		color: var(--sidebarCloseTextFocus, #fafafa);
 	}
 
 	.wrapper {
@@ -58,9 +60,8 @@
 		left:0px;
 		width:20rem;
 		height: 100vh;
-		color: rgb(0, 0, 0);
 		z-index: inherit;
-		background-color: var(--n200);
+		background-color: var(--sidebarBg, #f0f0f0);
 		transform: translateX(-100%);
 		transition: all ease 0.2s;
 		overflow-y: scroll;
@@ -68,5 +69,16 @@
 
 	.content.show{
 		transform: translateX(0%);
+	}
+
+	.close:hover svg {
+		fill: var(--sidebarCloseIconFocus, #fafafa);
+		stroke: var(--sidebarCloseIconFocus, #fafafa);
+	}
+
+	svg {
+		transition: all ease-in-out 0.2s;
+		fill: var(--sidebarCloseIcon, #fafafa);
+		stroke: var(--sidebarCloseIcon, #fafafa);
 	}
 </style>

@@ -23,12 +23,12 @@
 		justify-content: start;
 		padding: 1rem;
 		height: fit-content;
-		background-color: #f0f0f0;
+		background-color: var(--sidebarLinkBg, #f0f0f0);
 		width: calc(100% - 2rem);
-		border-bottom: #c0c0c0 solid 0.1rem;
+		border-bottom: var(--sidebarLinkBorderBottom, #c0c0c0) solid 0.1rem;
 		text-decoration: none;
-		color: #161616;
-		font: var(--body);
+		color: var(--sidebarLinkText, #161616);
+		font: var(--sidebarLinkFont, 400 1rem sans-serif);
 		transition: all ease-in-out 0.2s;
 	} 
 
@@ -54,12 +54,17 @@
 		display: block;
 		content: "";
 		width:0.6rem;
-		border-bottom: #161616 00.1rem solid;
+		border-bottom: var(--sidebarLinkText, #161616) 00.1rem solid;
+		transition: all ease-in-out 0.2s;
+	}
+
+	a:hover span::after{
+		border-color: var(--sidebarLinkTextFocus, #161616);
 	}
 
 	a:hover {
-		background-color: #c0c0c0;
-		/* border-top: #909090 solid 0.125rem; */
-		border-bottom: #909090 solid 0.1rem;
+		color: var(--sidebarLinkTextFocus, #161616);
+		background-color: var(--sidebarLinkBgFocus, #c0c0c0);
+		border-bottom: var(--sidebarLinkBorderBottomFocus, #909090) solid 0.1rem;
 	}
 </style>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let show:boolean=false;
 </script>
-<div on:click class:show={show} class={$$restProps.class} style={$$restProps.style}></div>
+<div on:click id={$$restProps.id} class:show={show} class={$$restProps.class} style={$$restProps.style}></div>
 <style>
 	div {
 		position: fixed;

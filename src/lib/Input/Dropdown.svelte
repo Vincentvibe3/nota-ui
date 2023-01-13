@@ -115,9 +115,9 @@
 	<button on:click={onClick} class="dropdown_impl" class:active>
 		<span>{optionText}</span>
 		{#if active}
-			<svg on:click={onClick} class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><polyline points="48 160 128 80 208 160" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
+			<svg on:click={onClick} class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="48 160 128 80 208 160" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		{:else}
-			<svg class="arrow active" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><polyline points="208 96 128 176 48 96" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
+			<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="208 96 128 176 48 96" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		{/if}
 	</button>
 </div>
@@ -158,7 +158,8 @@
 		text-align: left;
 		z-index: 1;
 		transition: all ease-in-out 0.2s;
-		font: var(--dropdownFont, 400 0.75rem sans-serif)
+		font: var(--dropdownFont, 400 0.75rem sans-serif);
+		color:inherit;
 	}
 
 	.dropdown_impl:focus {
@@ -201,6 +202,7 @@
 		cursor: pointer;
 		min-height: 2.5rem;
 		transition: all ease-in-out 0.1s;
+		color: inherit;
 	}
 
 	.option.selected {
@@ -222,12 +224,15 @@
 		text-align: left;
 		white-space: nowrap;
 		pointer-events: none;
+		color: inherit;
 		font: var(--dropdownFontOption, 400 0.75rem sans-serif)
 	}
 
-	svg {
+	.arrow {
 		width: 1rem;
 		height: 1rem;
 		pointer-events: none;
+		fill: var(--dropdownText, #161616);
+		stroke: var(--dropdownText, #161616);
 	}
 </style>

@@ -39,62 +39,6 @@
 </div>
 <style>
 
-	h1 {
-		font-weight: normal;
-		margin: none;
-		font-size: 1rem;
-	}
-
-	ul {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-	}
-
-	li {
-		list-style-type: none;
-	}
-
-	li + li {
-		margin: 0rem 2rem;
-	}
-
-	a {
-		color: inherit;
-		text-decoration: none;
-		transition: all ease-in-out 0.2s;
-	}
-
-	a:hover{
-		color: #c2d5f2;
-	}
-
-	a::after{
-		content: "";
-		display: block;
-		opacity: 0;
-		position: relative;
-		top: 0.3rem;
-		width: 10%;
-		/* left: -5%; */
-		height: 00.1rem;
-		background-color: #c2d5f2;
-	}
-
-	a:hover::after{
-		content: "";
-		display: block;
-		position: relative;
-		opacity: 1;
-		top: 0.3rem;
-		width: 110%;
-		/* left: -5%; */
-		height: 00.05rem;
-		background-color: #c2d5f2;
-		transition: all ease-in-out 0.2s;
-	}
-
 	.titleWrapper{
 		height: 100%;
 		padding: 0rem 1.5rem;
@@ -103,7 +47,6 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		/* border-radius: 0rem 0.5rem 0.5rem 0rem; */
 		transition: all ease-in-out 0.2s;
 		border: none;
 		color: inherit;
@@ -112,8 +55,8 @@
 	}
 
 	.titleWrapper:hover{
-		color: #f0f0f0;
-		background-color: #161616;
+		color: var(--navbarTextTitleHover, #f0f0f0);
+		background-color: var(--navBgTitleHover, #161616);
 	}
 
 	.content {
@@ -123,10 +66,11 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
+		color: inherit;
 	}
 
 	.bar {
-		color: #f0f0f0;
+		color: var(--navText, #f0f0f0);
 		position: fixed;
 		width: 100vw;
 		height: 3.5rem;
@@ -136,7 +80,7 @@
 		justify-content: start;
 		z-index: 2;
 		transition: all ease 0.2s;
-		font: var(--body);
+		font: var(--navFont, 400 1rem sans-serif);
 		transform: translateY(-100%);
 	}
 
@@ -144,7 +88,7 @@
 		position: fixed;
 		width: 100%;
 		height: 100%;
-		background-color: #b3386b;
+		background-color: var(--navBg, #b3386b);
 		opacity: 0.95;
 		z-index: -1;
 		box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
@@ -160,7 +104,4 @@
 		box-shadow: none;
 	}
 
-	/* nav:hover{
-		background-color: #a31c54;
-	} */
 </style>

@@ -14,7 +14,7 @@
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper" class:checked={checked}>
 		<div class="customCheckmark" class:animate={checked}>
 			<!-- check icon from phosphor icons -->
-			<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="var(--checkboxCheck, #ffffff)" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><polyline points="216 72 104 184 48 128" fill="none" stroke="var(--checkboxCheck, #ffffff)" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="216 72 104 184 48 128" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		</div>
 	</button>
 	<slot />
@@ -71,6 +71,8 @@
 	svg {
 		width: 100%;
 		height: 100%;
+		fill: var(--checkboxCheck, #ffffff);
+		stroke: var(--checkboxCheck, #ffffff);
 	}
 
 	.wrapper {

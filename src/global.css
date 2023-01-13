@@ -60,7 +60,11 @@
 	--g300:#36b32b;
 
 	/* Global Typography */
+
+	/* Family */
 	--font-family:'Work Sans', sans-serif;
+
+	/* Font Styles */
 	--heading1:700 3rem var(--font-family);
 	--heading2:700 2.625rem var(--font-family);
 	--heading3:700 2.25rem var(--font-family);
@@ -75,27 +79,46 @@
 
 
 	/* Styles */
+
+	/* Button */
 	--btnFont:var(--buttons);
 
+	/* Button Primary */
 	--btnPrimaryBg: var(--p700);
 	--btnPrimaryBgFocus: var(--p900);
 	--btnPrimaryBorder: var(--p600);
 	--btnPrimaryBorderFocus: var(--p800);
 	--btnPrimaryText: var(--n200);
+	--btnPrimaryTextFocus: var(--n200);
 
+	/* Button Secondary */
 	--btnSecondaryBg: transparent;
 	--btnSecondaryBgFocus: var(--p200);
 	--btnSecondaryText: var(--p800);
+	--btnSecondaryTextFocus: var(--p800);
 	--btnSecondaryBorder: var(--p800);
 
+	/* Button Tertiary */
 	--btnTertiaryBg: transparent;
 	--btnTertiaryBgFocus: var(--p200);
+	--btnTertiaryBgFocus: var(--p200);
 	--btnTertiaryText: var(--p800);
+	--btnTertiaryTextFocus: var(--p800);
 
+	/* Button Disabled */
 	--btnDisabledBg:var(--n300);
 	--btnDisabledBorder:var(--n400);
 	--btnDisabledText:var(--n600);
 
+	/* Button Danger */
+	--btnDangerText:var(--n200);
+	--btnDangerTextFocus:var(--n200);
+	--btnDangerBorder:var(--e100);
+	--btnDangerBg:var(--e200);
+	--btnDangerBgFocus:var(--e300);
+	--btnDangerBorderFocus:var(--e200);
+
+	/* TextInput*/
 	--inputFont:var(--body2);
 	--inputBg:var(--n300);
 	--inputBorder:var(--n400);
@@ -107,18 +130,23 @@
 	--inputBorderValid:var(--g300);
 	--inputBorderInvalid:var(--e300);
 
+	/* Checkbox */
 	--checkboxSelected:var(--p900);
 	--checkboxUnselected:var(--p600);
 	--checkboxCheck:var(--n100);
 
+	/* Radio */
 	--radioSelected:var(--p900);
 	--radioUnselected:var(--p600);
 
-	--spinnerBg:var(--p900);
-	--spinnerIcon:var(--n100);
+	/* Spinner */
+	--spinnerIcon:var(--p900);
+	--spinnerIconComplete:var(--n100);
+	--spinnerIconError:var(--n100);
 	--spinnerBgComplete:var(--g300);
 	--spinnerBgError:var(--e300);
 
+	/* Dropdown */
 	--dropdownFont:var(--body2);
 	--dropdownFontOption:var(--body2);
 	--dropdownBg:var(--n300);
@@ -126,6 +154,7 @@
 	--dropdownBorderFocus:var(--p900);
 	--dropdownText:var(--n800);
 
+	/* Search */
 	--searchFont:var(--body2);
 	--searchFontOption:var(--body2);
 	--searchBg:var(--n300);
@@ -138,10 +167,69 @@
 	--searchBorderValid:var(--g300);
 	--searchBorderInvalid:var(--e300);
 
+	/* Header */
 	--headerFont:var(--heading1);
 	--headerBg:var(--n300);
 	--headerTextLight:var(--n700);
 	--headerTextDark:var(--n300);
+	--headerBorderBottom:var(--n400)
 
-	--backdropColor:var(--n900)
+	/* Backdrop */
+	--backdropColor:var(--n900);
+
+	/* Navbar*/
+	--navBg:var(--p700);
+	--navFont:var(--body);
+	--navBgTitleHover:var(--n800);
+	--navTextTitleHover:var(--n200);
+	--navText:var(--n200);
+	--navIcon:var(--n200);
+
+	/* Sidebar */
+	--sidebarCloseFont:var(--buttons);
+	--sidebarCloseBg:var(--n800);
+	--sidebarCloseBgFocus:var(--n900);
+	--sidebarCloseText:var(--n200);
+	--sidebarCloseTextFocus:var(--n200);
+	--sidebarCloseIcon:var(--n200);
+	--sidebarCloseIconFocus:var(--n200);
+	--sidebarBg:var(--n200);
+
+	/* SidebarLink */
+	--sidebarLinkText:var(--n800);
+	--sidebarLinkBg:var(--n300);
+	--sidebarLinkTextFocus:var(--n800);
+	--sidebarLinkBgFocus:var(--n400);
+	--sidebarLinkBorderBottom:var(--n400);
+	--sidebarLinkBorderBottomFocus:var(--n500);
+	--sidebarLinkFont:var(--body);
+
+	/* SidebarSlot */
+	--sidebarSlotBg:var(--n300);
+	--sidebarSlotBorderBottom:var(--n400);
+	--sidebarSlotText:var(--n800);
+	--sidebarSlotFont:var(--body);
+
+	/* Modal */
+	--modalCloseFont:var(--body2);
+	--modalCloseText:var(--n800);
+	--modalTitleFont:var(--heading4);
+	--modalBg:var(--n200);
+	--modalFont:var(--body);
+	--modalText:var(--n800);
+	--modalTitleText:var(--n800);
+
+	/* Separator */
+	--separatorBg:var(--n400);
+
+	/* BackToTop */
+	--backToTopBg:var(--p700);
+	--backToTopBgFocus:var(--p900);
+	--backToTopBorder:var(--p600);
+	--backToTopBorderFocus:var(--p800);
+	--backToTopText:var(--n200);
+	--backToTopTextFocus:var(--n200);
+	--backToTopIcon:var(--n200);
+	--backToTopIconFocus:var(--n200);
+
 }

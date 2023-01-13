@@ -1,0 +1,8 @@
+<span id={$$restProps.id} style={$$restProps.style} class={$$restProps.class}></span>
+<style>
+	span {
+		background-color: var(--separatorBg, #c0c0c0);
+		height: 00.15rem;
+		margin: 1rem 0rem;
+	}
+</style>

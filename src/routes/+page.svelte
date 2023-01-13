@@ -14,6 +14,7 @@
 	import SidebarSlot from '$lib/Navigation/SidebarSlot.svelte';
 	import Modal from '$lib/Other/Modal.svelte';
 	import BackToTop from '$lib/Navigation/BackToTop.svelte';
+	import Separator from '$lib/Other/Separator.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -137,7 +138,8 @@
 <Header 
 	class="mainheader"
 	position="left"
-	img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb">
+	img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
+	>
 	Component Preview
 </Header>
 <!-- <Header></Header> -->
@@ -175,7 +177,7 @@
 		<Button style="height:3rem; margin-right: 1rem;" type="primary" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}
-					<Spinner bind:status={status} size="1.5rem" style="--spinnerBgError:var(--p800);--spinnerBgComplete:var(--p800); --spinnerBg:var(--n100);"></Spinner>
+					<Spinner bind:status={status} size="1.5rem" style="--spinnerBgError:var(--p800);--spinnerBgComplete:var(--p800); --spinnerIcon:var(--n100);"></Spinner>
 				{:else}
 					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
 				{/if}
@@ -282,15 +284,26 @@
 		on:input={searchInput}
 		placeholder="Search"
 		bind:suggestions={searchSuggest}>
-		<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
-		<svg slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
+		<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
+		<svg slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 	</Searchbar>
+	<label for="modal">Separator</label>
+	<Separator></Separator>
 	<label for="modal">Modal</label>
 	<Modal bind:open={modalOpen}>
 		<svelte:fragment slot="title">
 			Modal Title
 		</svelte:fragment>
 		<p>Hello from the modal!</p>
+		<TextInput style="width:30rem;" text=""></TextInput>
+		<div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
+			<Button type="secondary" on:click={()=>{modalOpen=false}}>
+				Cancel
+			</Button>
+			<Button on:click={()=>{modalOpen=false}}>
+				Complete
+			</Button>
+		</div>
 	</Modal>
 	<Button 
 		type="primary" 
@@ -300,15 +313,64 @@
 		bind:htmlElement={button}>
 		Open Modal
 	</Button>
-	<p style="font:var(--body);">Text</p>
-	<BackToTop></BackToTop>
+	<label for="modal">Typography</label>
+	<h1>Heading 1</h1>
+	<h2>Heading 2</h2>
+	<h3>Heading 3</h3>
+	<h4>Heading 4</h4>
+	<h5>Heading 5</h5>
+	<h6>Heading 6</h6>
+	<p class="subtitle">Subtitle</p>
+	<p>Body</p>
+	<p class="body2">Body 2</p>
+	<p class="buttons">Buttons</p>
+	<p class="caption">Caption</p>
+	<BackToTop style="height:3rem;"></BackToTop>
 </main>
 
 <style>
 
-	label {
+	main h1, main h2, main h3, main h4, main h5, main h6, main p {
+		margin: 0.5rem 0rem;
+	}
+
+	main h1 {
+		font: var(--heading1);
+	}
+	main h2 {
+		font: var(--heading2);
+	}
+	main h3 {
+		font: var(--heading3);
+	}
+	main h4 {
+		font: var(--heading4);
+	}
+	main h5 {
+		font: var(--heading5);
+	}
+	main h6 {
+		font: var(--heading6);
+	}
+	main .subtitle {
+		font:var(--subtitle);
+	}
+	main p{
+		font: var(--body);
+	}
+	main .body2 {
+		font:var(--body2)
+	}
+
+	main label {
 		font: var(--caption);
 		margin: 0.75rem 0rem;
+	}
+	main .buttons{
+		font:var(--buttons);
+	}
+	main .caption{
+		font:var(--caption);
 	}
 
 	main {

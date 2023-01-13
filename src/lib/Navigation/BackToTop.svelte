@@ -2,9 +2,14 @@
 	import Button from "$lib/Other/Button.svelte";
 	import { onMount } from "svelte";
 
-	let show:boolean=true;
+	export let position:string="right";
+	let show:boolean=false;
+	let styles=""
 
 	onMount(()=>{
+		if($$restProps.style!==undefined){
+			styles=$$restProps.style
+		}
 		window.addEventListener("scroll", (e)=>{
 			if ((window.scrollY)==0) {
 				show=false
@@ -18,24 +23,62 @@
 		window.scrollTo({top:0,behavior:"smooth"})
 	}
 </script>
-<div class="wrapper" class:show={show}>
-	<Button on:click={toTop}>
+<div 
+	id={$$restProps.id}
+	class:wrapper={true} 
+	class:left={position=="left"} 
+	class:right={position=="right"} 
+	class:center={position=="center"} 
+	class={$$restProps.class}
+	class:show={show}>
+	<Button 
+		style="
+		{styles}
+		--btnPrimaryBg: var(--backToTopBg);
+		--btnPrimaryBgFocus: var(--backToTopBgFocus);
+		--btnPrimaryBorder: var(--backToTopBorder);
+		--btnPrimaryBorderFocus: var(--backToTopBorderFocus);
+		--btnPrimaryText: var(--backToTopText);"
+		on:click={toTop}>
 		Back to top
-		<svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
+		<svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
 	</Button>
 </div>
 <style>
 	.wrapper {
 		position: fixed;
 		bottom: -3rem;
-		right: 2rem;
 		z-index: 2;
 		transition: all ease-in-out 0.2s;
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 	}
 
+	.right {
+		right: 2rem;
+	}
+
+	.center {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.left{
+		left: 2rem;
+	}
+
 	.show {
 		bottom: 2rem;
+	}
+
+	svg{
+		fill: var(--backToTopIcon, #fafafa);
+		stroke: var(--backToTopIcon, #fafafa);
+		transition: all ease-in-out 0.2s;
+	}
+
+	.wrapper:hover svg{
+		fill: var(--backToTopIconFocus, #fafafa);
+		stroke: var(--backToTopIconFocus, #fafafa);
 	}
 
 </style>

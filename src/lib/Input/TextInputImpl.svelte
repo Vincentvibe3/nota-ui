@@ -116,6 +116,16 @@
 		border-radius: 100vw;
 	}
 
+	.iconWrapperLeft:global( svg ){
+		fill: var(--inputIconColor, #606060);
+		stroke: var(--inputIconColor, #606060);
+	}
+
+	.iconWrapperRight:global( svg ){
+		fill: var(--inputIconColor, #606060);
+		stroke: var(--inputIconColor, #606060);
+	}
+
 	.iconWrapperRight:global( * ) {
 		height: 1rem;
 		width: auto;

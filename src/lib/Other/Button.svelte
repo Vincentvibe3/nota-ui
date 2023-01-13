@@ -89,10 +89,12 @@
 	}
 
 	button.tertiary:hover {
+		color: var(--btnTertiaryTextFocus, #b3386b);
 		background-color: var(--btnTertiaryBgFocus, #f2c2e3);
 	}
 
 	button.tertiary:focus-visible {
+		color: var(--btnTertiaryTextFocus, #b3386b);
 		background-color: var(--btnTertiaryBgFocus, #f2c2e3);
 		outline: none;
 	}
@@ -108,10 +110,12 @@
 	}
 
 	button.secondary:hover {
+		color: var(--btnSecondaryTextFocus, #b3386b);
 		background-color: var(--btnSecondaryBgFocus, #f2c2e3);
 	}
 
 	button.secondary:focus-visible {
+		color: var(--btnSecondaryTextFocus, #b3386b);
 		background-color: var(--btnSecondaryBgFocus, #f2c2e3);
 		outline: none;
 	}
@@ -128,11 +132,13 @@
 	}
 
 	button.primary:hover {
+		color: var(--btnPrimaryTextFocus, #ffffff);
 		background-color: var(--btnPrimaryBgFocus, #99003b);
 		border: var(--btnPrimaryBorderFocus, #a31c54) solid 0.15rem;
 	}
 
 	button.primary:focus-visible {
+		color: var(--btnPrimaryTextFocus, #ffffff);
 		background-color: var(--btnPrimaryBgFocus, #99003b);
 		border: var(--btnPrimaryBorderFocus, #a31c54) solid 0.15rem;
 	}
@@ -146,11 +152,13 @@
 	}
 
 	button.danger:hover {
+		color: var(--btnDangerTextFocus, #ffffff);
 		background-color: var(--btnDangeryBgFocus, #db3434);
 		border: var(--btnDangerBorderFocus, #db5c5c) solid 0.15rem;
 	}
 
 	button.danger:focus-visible {
+		color: var(--btnDangerTextFocus, #ffffff);
 		background-color: var(--btnDangerBgFocus, #db3434);
 		border: var(--btnDangerBorderFocus, #db5c5c) solid 0.15rem;
 	}
