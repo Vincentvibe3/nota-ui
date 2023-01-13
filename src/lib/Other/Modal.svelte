@@ -75,7 +75,7 @@
 
 	h4 {
 		color:var(--modalTitleText, #161616);
-		font:var(--modalTitleFont, 700 1.875rem sans-serif);	
+		font:var(--modalTitleFont,300 1.25rem sans-serif);	
 		margin: 0px;
 	}
 

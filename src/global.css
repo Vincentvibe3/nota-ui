@@ -213,7 +213,7 @@
 	/* Modal */
 	--modalCloseFont:var(--body2);
 	--modalCloseText:var(--n800);
-	--modalTitleFont:var(--heading4);
+	--modalTitleFont:var(--subtitle);
 	--modalBg:var(--n200);
 	--modalFont:var(--body);
 	--modalText:var(--n800);
