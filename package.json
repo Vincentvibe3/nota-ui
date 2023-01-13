@@ -1,6 +1,6 @@
 {
 	"name": "nota-ui",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
@@ -25,6 +25,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"prettier-plugin-svelte": "^2.9.0"
+		"prettier-plugin-svelte": "^2.9.0",
+		"svelte": "^3.54.0"
 	}
 }
