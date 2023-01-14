@@ -31,7 +31,7 @@
 	<div class:transparent={transparent&&!alwaysOpaque} class="bg"></div>
 	<button on:click={onTitleClick} class="titleWrapper">
 		<slot name="icon"></slot>
-		Website Name
+		<slot name="title"></slot>
 	</button>
 	<nav class="content">
 		<slot></slot>
