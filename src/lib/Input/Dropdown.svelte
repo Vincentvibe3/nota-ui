@@ -157,7 +157,9 @@
 		overflow: hidden;
 		text-align: left;
 		z-index: 1;
-		transition: all ease-in-out 0.2s;
+		transition-property: outline-color, filter, box-shadow;
+		transition-duration: 00.2s;
+		transition-timing-function: ease-in-out;
 		font: var(--dropdownFont, 400 0.75rem sans-serif);
 		color:inherit;
 	}
@@ -173,6 +175,7 @@
 	.dropdown_impl.active {
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 		outline-color: var(--dropdownBorderFocus, #99003b);
+		z-index: 2;
 	}
 
 	.options {
@@ -187,7 +190,7 @@
 		outline: 0.1rem solid var(--dropdownBorder, #c0c0c0);
 		background-color: var(--dropdownBg, #f0f0f0);
 		padding-top: 0.6rem;
-		z-index: 1;
+		z-index: 2;
 	}
 
 	.option {

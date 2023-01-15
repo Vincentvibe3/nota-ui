@@ -41,7 +41,7 @@
 		padding-left: 1rem;
 		transition: all ease-in-out 0.2s;
 		cursor: pointer;
-		z-index: 2;
+		z-index: 4;
 		transition: all ease-in-out 0.2s;
 	}
 
@@ -51,7 +51,7 @@
 	}
 
 	.wrapper {
-		z-index: 3;
+		z-index: 4;
 	}
 
 	.content {

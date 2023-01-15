@@ -78,7 +78,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
-		z-index: 2;
+		z-index: 3;
 		transition: all ease 0.2s;
 		font: var(--navFont, 400 1rem sans-serif);
 		transform: translateY(-100%);
