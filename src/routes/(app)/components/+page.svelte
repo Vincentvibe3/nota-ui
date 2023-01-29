@@ -3,6 +3,7 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
+<svelte:head><title>Components</title></svelte:head>
 <Header>Components</Header>
 <main>
 	{#each data.names as name}
