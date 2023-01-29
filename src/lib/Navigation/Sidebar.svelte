@@ -1,7 +1,18 @@
 <script lang="ts">
+	import { onDestroy, setContext } from "svelte";
+	import { writable } from "svelte/store";
 	import Backdrop from "../Other/Backdrop.svelte";
 
 	export let show:boolean=true;
+
+	const showStore = writable(show)
+
+	$:showStore.update(_=>show)
+	$:show = $showStore
+
+	setContext("sidebar",{
+		show:showStore
+	})
 
 	const close = () => {
 		show=false
@@ -10,15 +21,17 @@
 </script>
 
 <div id={$$restProps.id} class="wrapper">
-	<Backdrop on:click={close} bind:show={show} style="z-index:inherit;"></Backdrop>
-	<div style={$$restProps.style} class:content={true} class={$$restProps.class} class:show={show}>
+	<Backdrop on:click={close} bind:show={$showStore} style="z-index:inherit;"></Backdrop>
+	<div style={$$restProps.style} class:sidebar={true} class={$$restProps.class} class:show={$showStore}>
 		<button on:click={close} class="close">
 			<div style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
 				<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" fill="none" stroke="none"></rect><line x1="200" y1="56" x2="56" y2="200"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 			</div>
 			Close
 		</button>
-		<slot></slot>
+		<div class="content">
+			<slot></slot>
+		</div>
 	</div>
 </div>
 
@@ -54,7 +67,7 @@
 		z-index: 4;
 	}
 
-	.content {
+	.sidebar {
 		position: fixed;
 		top: 0px;
 		left:0px;
@@ -65,9 +78,19 @@
 		transform: translateX(-100%);
 		transition: all ease 0.2s;
 		overflow-y: scroll;
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		flex-direction: column;
 	}
 
-	.content.show{
+	.content {
+		width:100%;
+		background-color: var(--sidebarBg, #f0f0f0);
+		overflow-y: scroll;
+	}
+
+	.sidebar.show{
 		transform: translateX(0%);
 	}
 

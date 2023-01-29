@@ -39,7 +39,7 @@
 		padding: 00.5rem;
 		background-color: transparent;
 		border: none;
-		border-radius: 0.2rem;
+		border-radius: var(--borderRadius, 0.2rem);
 		transition: all ease-in-out 0.2s;
 		cursor: pointer;
 		font: var(--modalCloseFont, 400 0.75rem sans-serif);
@@ -100,7 +100,7 @@
 		padding: 1.5rem;
 		padding-top: 1rem;
 		padding-left: 1rem;
-		border-radius: 0.2rem;
+		border-radius: var(--borderRadius, 0.2rem);
 		min-width: 15rem;
 		min-height: 10rem;
 		display: flex;

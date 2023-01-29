@@ -136,7 +136,7 @@
 		outline: none;
 		border: 0.1rem solid var(--inputBorder, #c0c0c0);
 		background-color: var(--inputBg, #f0f0f0);
-		border-radius: 0.2rem;
+		border-radius: var(--borderRadius, 0.2rem);
 		transition: all ease-in-out 0.2s;
 		display: flex;
 		flex-direction: row;

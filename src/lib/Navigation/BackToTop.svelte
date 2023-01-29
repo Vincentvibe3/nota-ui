@@ -51,6 +51,7 @@
 		z-index: 2;
 		transition: all ease-in-out 0.2s;
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
+		border-radius: var(--borderRadius, 0.2rem);
 	}
 
 	.right {

@@ -1,5 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap');
+/* Import into html when developing */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&display=swap');
 
 /* Define variables */
 :root{
@@ -62,7 +63,7 @@
 	/* Global Typography */
 
 	/* Family */
-	--font-family:'Work Sans', sans-serif;
+	--font-family: 'Figtree', sans-serif;
 
 	/* Font Styles */
 	--heading1:700 3rem var(--font-family);
@@ -79,6 +80,8 @@
 
 
 	/* Styles */
+
+	--borderRadius: 0.5rem;
 
 	/* Button */
 	--btnFont:var(--buttons);
@@ -107,7 +110,8 @@
 
 	/* Button Disabled */
 	--btnDisabledBg:var(--n300);
-	--btnDisabledBorder:var(--n400);
+	/* --btnDisabledBorder:var(--n400); */
+	--btnDisabledBorder:transparent;
 	--btnDisabledText:var(--n600);
 
 	/* Button Danger */
@@ -121,7 +125,8 @@
 	/* TextInput*/
 	--inputFont:var(--body2);
 	--inputBg:var(--n300);
-	--inputBorder:var(--n400);
+	--inputBorder:transparent;
+	/* --inputBorder:var(--n400); */
 	--inputText:var(--n800);
 	--inputIconBtnBg:var(--n400);
 	--inputPlaceholderText:var(--n600);
@@ -133,7 +138,8 @@
 	/* TextArea */
 	--textAreaFont:var(--body);
 	--textAreaBg:var(--n300);
-	--textAreaBorder:var(--n400);
+	/* --textAreaBorder: var(--n400); */
+	--textAreaBorder: transparent;
 	--textAreaText:var(--n800);
 	--textAreaPlaceholderText:var(--n600);
 	--textAreaBorderFocus:var(--p900);
@@ -158,7 +164,8 @@
 	--dropdownFont:var(--body2);
 	--dropdownFontOption:var(--body2);
 	--dropdownBg:var(--n300);
-	--dropdownBorder:var(--n400);
+	/* --dropdownBorder:var(--n400); */
+	--dropdownBorder:transparent;
 	--dropdownBorderFocus:var(--p900);
 	--dropdownText:var(--n800);
 
@@ -166,7 +173,8 @@
 	--searchFont:var(--body2);
 	--searchFontOption:var(--body2);
 	--searchBg:var(--n300);
-	--searchBorder:var(--n400);
+	/* --searchBorder:var(--n400); */
+	--searchBorder:transparent;
 	--searchText:var(--n800);
 	--searchIconBtnBg:var(--n400);
 	--searchPlaceholderText:var(--n600);
@@ -240,4 +248,31 @@
 	--backToTopIcon:var(--n200);
 	--backToTopIconFocus:var(--n200);
 
+}
+
+h1 {
+	font: var(--heading1);
+}
+h2 {
+	font: var(--heading2);
+}
+h3 {
+	font: var(--heading3);
+}
+h4 {
+	font: var(--heading4);
+}
+h5 {
+	font: var(--heading5);
+}
+h6 {
+	font: var(--heading6);
+}
+
+p{
+	font: var(--body);
+}
+
+a {
+	font: var(--body);
 }

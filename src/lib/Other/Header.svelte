@@ -3,6 +3,7 @@
 
 
 	export let img:string="";
+	export let alt:string="";
 	// Text position
 	export let position:string="left";
 

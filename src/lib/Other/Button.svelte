@@ -1,10 +1,17 @@
 <script lang="ts">
+	/** Button Html Element */
 	export let htmlElement: HTMLButtonElement | null = null;
-	export let type: string = 'primary';
+	/** Button type */
+	export let type: "primary" | "secondary" | "tertiary" | "danger" = "primary";
+	/** Disabled state of the button */
 	export let disabled:boolean=false;
 	
 </script>
+<!-- 
+	@component Button 
 
+	- type: "primary | secondary | tertitary | danger"
+-->
 <button 
 	class:primary={type=="primary"}
 	class:secondary={type=="secondary"}
@@ -12,8 +19,7 @@
 	class:danger={type=="danger"}
 	id={$$restProps.id} 
 	disabled={disabled} 
-	class={$$restProps.class} 
-	style={$$restProps.style} 
+	{...$$restProps}
 	bind:this={htmlElement} 
 	on:click>
 	{#if $$slots.icon}
@@ -29,7 +35,7 @@
 		width: fit-content;
 		padding: min(0.5rem, 40%) 1.5rem;
 		min-height: 2rem;
-		border-radius: 0.2rem;
+		border-radius: var(--borderRadius, 0.2rem);
 		cursor: pointer;
 		display: flex;
 		flex-direction: row;
@@ -51,6 +57,7 @@
 		background-color: var(--btnDisabledBg, #f0f0f0);
 		border: var(--btnDisabledBorder, #c0c0c0) solid 0.15rem;
 		color: var(--btnDisabledText, #909090);
+		cursor:not-allowed;
 	}
 
 

@@ -87,8 +87,8 @@
 		}
 	};
 
-	export let handleSubmit = (event: KeyboardEvent) => {
-		if (event.key == 'Enter' && text.trim() != '' && keyboardNavSelect == -1) {
+	const handleSubmit = (event: KeyboardEvent) => {
+		if (event.key == 'Enter' && text.trim() != "" && keyboardNavSelect == -1) {
 			submit = true;
 			active = false;
 			selectionChosen = false;
@@ -176,7 +176,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-		border-radius: 0.2rem;
+		border-radius: var(--borderRadius, 0.2rem);
 		min-height: 2.5rem;
 		color: var(--searchText, #161616);
 		font: var(--searchFontOption, 400 0.75rem sans-serif)
@@ -189,11 +189,12 @@
 		top: calc(100% - 0.6rem);
 		width: 100%;
 		padding-bottom: 00.5rem;
-		border-radius: 0.2rem;
+		border-radius: 0 0 var(--borderRadius, 0.2rem) var(--borderRadius, 0.2rem);
 		outline: 0.1rem solid var(--searchBorder, #c0c0c0);
 		background-color: var(--searchBg, #f0f0f0);
 		padding-top: 0.6rem;
 		z-index: 1;
+		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 	}
 
 	.option {
