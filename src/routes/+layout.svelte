@@ -8,7 +8,6 @@
 	import { sidebarState } from "$lib/stores";
 	import { writable } from "svelte/store";
 
-
 	let button: HTMLButtonElement;
 	let searchText = '';
 	let searchSuggestAll: string[] = ['abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
@@ -33,6 +32,11 @@
 	}
 
 </script>
+<svelte:head>
+	{#if import.meta.env.DEV}
+		<link rel="stylesheet" href="/src/global.css">
+	{/if}
+</svelte:head>
 <Sidebar bind:show={openSidebar}>
 	<SidebarSlot>
 		<div style="width:100%; display:flex;flex-direction:row;align-items:center;justify-content:start;">
