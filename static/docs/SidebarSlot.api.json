@@ -1,9 +1,0 @@
-{
-  "moduleName": "SidebarSlot",
-  "filePath": "src/lib/Navigation/SidebarSlot.svelte",
-  "props": [],
-  "moduleExports": [],
-  "slots": [{ "name": "__default__", "default": true, "slot_props": "{}" }],
-  "events": [],
-  "typedefs": []
-}
