@@ -1,8 +1,8 @@
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
  
-export const load =  (async ({ url, params }) => {
-  let response = await fetch(`${url.origin}/docs/${params.id}.api.json`);
+export const load =  (async ({ params, fetch }) => {
+  let response = await fetch(`/docs/${params.id}.api.json`);
   if (response.status==200){
     const data = await response.json();
     return {
@@ -10,4 +10,4 @@ export const load =  (async ({ url, params }) => {
     };
   }
   throw error(404, 'Not found')
-}) satisfies PageLoad;
+}) satisfies PageServerLoad;
