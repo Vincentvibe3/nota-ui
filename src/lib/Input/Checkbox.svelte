@@ -20,7 +20,7 @@
 	<slot />
 </div>
 
-<style>
+<style lang="scss">
 
 	input {
 		display: none;
@@ -52,8 +52,11 @@
 		padding: 0.2rem;
 	}
 
-	.customCheckmark.animate {
-		animation: fillAnimation ease-in-out 0.2s;
+		&.checked {
+			background-color: var(--checkboxSelected, #99003b);
+			border: none;
+		}
+
 	}
 
 	.customCheckmark {
@@ -64,6 +67,15 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+
+		&.animate {
+			animation: fillAnimation ease-in-out 0.2s;
+		}
+		
+		svg{
+			fill: transparent;
+			stroke: transparent;
+		}
 	}
 
 	@keyframes fillAnimation {
@@ -75,11 +87,6 @@
 			opacity: 1;
 			transform: rotate(0deg);
 		}
-	}
-
-	.customCheckmark svg{
-		fill: transparent;
-		stroke: transparent;
 	}
 
 	.checked svg {
