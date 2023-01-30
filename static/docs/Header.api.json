@@ -14,6 +14,17 @@
       "reactive": false
     },
     {
+      "name": "video",
+      "kind": "let",
+      "type": "string",
+      "value": "\"\"",
+      "isFunction": false,
+      "isFunctionDeclaration": false,
+      "isRequired": false,
+      "constant": false,
+      "reactive": false
+    },
+    {
       "name": "alt",
       "kind": "let",
       "type": "string",

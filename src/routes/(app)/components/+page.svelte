@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/Other/Header.svelte';	
+	import Link from '$lib/Other/Link.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
@@ -7,7 +8,7 @@
 <Header>Components</Header>
 <main>
 	{#each data.names as name}
-		<a href="/components/{name}">{name}</a>
+		<Link href="/components/{name}">{name}</Link>
 	{/each}
 </main>
 <style>
@@ -20,8 +21,7 @@
 		justify-content: start;
 	}
 
-	a {
-		width:fit-content;
+	:global( a ) {
 		margin:0.5rem 0rem;
 	}
 

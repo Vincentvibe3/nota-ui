@@ -1,26 +1,88 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-
 
 	export let img:string="";
+	export let video:string=""
 	export let alt:string="";
 	// Text position
 	export let position:string="left";
 
+	let videoElement:HTMLVideoElement|null=null;
+	let videoPaused = false
+
+	const pausePlay = async () => {
+		if (videoElement!=null){
+			if (videoElement.paused){
+				await videoElement.play()
+			} else{
+				await videoElement.pause()
+			}
+		}
+	}
+
 </script>
 <div id={$$restProps.id} class:wrapper={true} class={$$restProps.class} class:noimage={img==""} style={$$restProps.style}>
 	{#if img!=""}
-		<img alt="unsplash" src={img}>
+		<img alt={alt} src={img}>
 		<div class="gradient" class:noimage={img==""}></div>
-		<!-- https://unsplash.com/photos/Ivz2wREpKO0 -->
+	{/if}
+	{#if video!=""}
+		<video bind:paused={videoPaused} bind:this={videoElement} autoplay muted loop>
+			<source src={video}>
+		</video>
+		<div class="gradient" class:noimage={img==""}></div>
 	{/if}
 	<div class="content {position}">
-		<h1 class:noimage={img==""} ><slot></slot></h1>
+		<h1 class:noimage={img==""&&video==""} ><slot></slot></h1>
+		{#if video!=""}
+			<button on:click={pausePlay}>
+				{#if videoPaused}
+					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="16"></circle><polygon points="160 128 112 96 112 160 160 128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon></svg>
+					<span>Play</span>
+				{:else}
+					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="16"></circle><line x1="104" y1="96" x2="104" y2="160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="152" y1="96" x2="152" y2="160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+					<span>Pause</span>
+				{/if}
+			</button>
+		{/if}
 	</div>
 </div>
 <style>
 
+	svg {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+
+	button span {
+		margin: 0rem 0.25rem;
+	}
+
+	button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		padding: 0.2rem;
+		bottom:0px;
+		right:0px;
+		margin: 1rem;
+		background-color: #00000050;
+		border-radius: 5rem;
+		border: none;
+		cursor: pointer;
+		color: white;
+		font:var(--caption);
+	}
+
 	img {
+		position: absolute;
+		width: 100%;
+		height: inherit;
+		object-fit: cover;
+		pointer-events: none;
+	}
+
+	video {
 		position: absolute;
 		width: 100%;
 		height: inherit;

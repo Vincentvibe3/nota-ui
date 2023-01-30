@@ -10,6 +10,11 @@ export interface HeaderProps {
   /**
    * @default ""
    */
+  video?: string;
+
+  /**
+   * @default ""
+   */
   alt?: string;
 
   /**
