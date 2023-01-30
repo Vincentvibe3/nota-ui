@@ -76,9 +76,9 @@
 			bind:this={htmlElement} />
 	{/if}
 	{#if $$slots.iconright}
-		<div on:click={onIconRightClick} class="iconWrapperRight">
+		<button on:click={onIconRightClick} class="iconWrapperRight">
 			<slot name="iconright"/>
-		</div>
+		</button>
 	{/if}
 </div>
 
@@ -105,10 +105,17 @@
 
 	.iconWrapperRight {
 		position: relative;
-		height: 1rem;
+		height: 1.5rem;
 		right: 0.75rem;
-		padding: 0.25rem;
+		padding: 0rem;
 		cursor: pointer;
+		background-color: transparent;
+		border: none;
+		aspect-ratio: 1;
+		width: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.iconWrapperRight:hover {

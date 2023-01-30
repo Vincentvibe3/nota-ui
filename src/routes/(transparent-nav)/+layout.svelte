@@ -40,14 +40,3 @@
 </Navbar>
 <slot></slot>
 
-<style>
-	.contentWrapper {
-		position: absolute;
-		top:3.5rem;
-		width: 100%;
-		height: fit-content;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-</style>

@@ -66,11 +66,14 @@
 		display: inline-block;
 		width: 100%;
 		height:0.05rem;
-		background-color: black;
+		background-color: var(--s600);
 		bottom: 0rem;
 		transform: translateY(0.2rem);
 		left: 0%;
-		transition: all ease-in-out 0.2s;
+	}
+
+	a:hover span:not(.arrowWrapper)::after{
+		background-color: var(--p900);
 	}
 
 	a:hover, a:visited:hover{
