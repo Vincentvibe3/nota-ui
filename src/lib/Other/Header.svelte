@@ -74,6 +74,10 @@
 		font:var(--caption);
 	}
 
+	.right button{
+		left:0px
+	}
+
 	img {
 		position: absolute;
 		width: 100%;
@@ -135,7 +139,7 @@
 
 	.wrapper {
 		position:relative;
-		width: 100%;
+		width: 100vw;
 		height: 25rem;
 		background-color: var(--headerBg, #f0f0f0);;
 		background-size: cover;

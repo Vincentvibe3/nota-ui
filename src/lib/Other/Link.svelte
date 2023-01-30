@@ -1,8 +1,22 @@
 <script lang="ts">
 	export let href:string;
 	export let arrow:boolean=false;
+	export let target:string|undefined = undefined
+	export let rel:string|undefined = undefined
+	export let referrerpolicy:ReferrerPolicy|undefined = undefined
+	export let ping:string|undefined = undefined
+	export let hreflang:string|undefined = undefined
+	export let download:string|undefined = undefined
 </script>
-<a href={href}>
+<a 
+	target={target}
+	href={href}
+	rel={rel}
+	referrerpolicy={referrerpolicy}
+	ping={ping}
+	hreflang={hreflang}
+	download={download}
+	{...$$restProps} >
 	<span><slot></slot></span>
 	{#if arrow}
 		<span class="arrowWrapper">

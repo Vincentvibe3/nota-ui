@@ -80,6 +80,7 @@ export interface ParsedComponent {
 	import CodeBlock from '$lib/Other/CodeBlock.svelte';
 	import Header from '$lib/Other/Header.svelte';	
 	import Separator from '$lib/Other/Separator.svelte';	
+	import Link from '$lib/Other/Link.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
 	let componentData:ParsedComponent = data.componentData
@@ -87,6 +88,9 @@ export interface ParsedComponent {
 </script>
 <Header>{componentData.moduleName}</Header>
 <main>
+	<p class="subtitle">Preview</p>
+	<iframe src="/previews/{componentData.moduleName}" title="Preview for {componentData.moduleName}"></iframe>
+	<Link arrow style="margin:1rem 0rem;" target="_blank" href="/previews/{componentData.moduleName}">Open preview in new tab</Link>
 	<p class="subtitle">Props</p>
 	{#each componentData.props as prop}
 		<p>Name: {prop.name}
@@ -131,21 +135,12 @@ export interface ParsedComponent {
 	
 </main>
 <style>
-
-	.preview{
-		position: relative;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: start;
+	iframe {
+		height: 30rem;
+		border: var(--n300) solid 0.2rem;
+		border-radius: var(--borderRadius);
 	}
 
-	.preview .buttonContainer {
-		display: flex;
-		flex-direction: column;
-		margin-right: 1rem;
-	}
 
 	label {
 		font: var(--caption);
