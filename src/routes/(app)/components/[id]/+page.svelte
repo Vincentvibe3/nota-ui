@@ -82,14 +82,29 @@ export interface ParsedComponent {
 	import Separator from '$lib/Other/Separator.svelte';	
 	import Link from '$lib/Other/Link.svelte';
 	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
 	export let data: PageData;
 	let componentData:ParsedComponent = data.componentData
+	let iframe:HTMLIFrameElement;
+
+
+	onMount(()=>{
+		resizeIFrameToFitContent(iframe)
+	})
+	
+	function resizeIFrameToFitContent( iFrame:HTMLIFrameElement ) {
+		let contentWindow = iFrame.contentWindow
+		if (contentWindow != null){
+			iFrame.height = contentWindow.document.body.scrollHeight.toString();
+			console.log(contentWindow.document.body.scrollHeight.toString())
+		}
+	}
 
 </script>
 <Header>{componentData.moduleName}</Header>
 <main>
 	<p class="subtitle">Preview</p>
-	<iframe src="/previews/{componentData.moduleName}" title="Preview for {componentData.moduleName}"></iframe>
+	<iframe bind:this={iframe} src="/previews/{componentData.moduleName}" title="Preview for {componentData.moduleName}"></iframe>
 	<Link arrow style="margin:1rem 0rem;" target="_blank" href="/previews/{componentData.moduleName}">Open preview in new tab</Link>
 	<p class="subtitle">Props</p>
 	{#each componentData.props as prop}
@@ -136,9 +151,11 @@ export interface ParsedComponent {
 </main>
 <style>
 	iframe {
-		height: 30rem;
+		/* height: 30rem; */
 		border: var(--n300) solid 0.2rem;
 		border-radius: var(--borderRadius);
+		overflow: scroll;
+		min-height: 15rem;
 	}
 
 

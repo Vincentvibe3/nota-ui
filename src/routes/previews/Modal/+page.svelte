@@ -8,38 +8,44 @@ import TextInput from "$lib/Input/TextInput.svelte";
     let strict:boolean=false
 
 </script>
-<div class="controls">
-    <Button on:click={()=> modalOpen = !modalOpen}>Open Modal</Button>
-    <div class="strictControl">
-        <Checkbox bind:checked={strict}></Checkbox>
-        <p>
-            Strict is
-            {#if strict}
-                on
-            {:else}
-                off
-            {/if}
-        </p>
+<div class="preview">
+    <div class="controls">
+        <Button on:click={()=> modalOpen = !modalOpen}>Open Modal</Button>
+        <div class="strictControl">
+            <Checkbox bind:checked={strict}></Checkbox>
+            <p>
+                Strict is
+                {#if strict}
+                    on
+                {:else}
+                    off
+                {/if}
+            </p>
+        </div>
     </div>
+    
+    
+    <Modal bind:open={modalOpen} bind:strict={strict}>
+        <svelte:fragment slot="title">
+            Title
+        </svelte:fragment>
+        <p>Hello from the modal!</p>
+        <TextInput style="width:30rem;" text="" placeholder="placeholder"></TextInput>
+        <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
+            <Button type="secondary" on:click={()=>{modalOpen=false}}>
+                Cancel
+            </Button>
+            <Button on:click={()=>{modalOpen=false}}>
+                Complete
+            </Button>
+        </div>
+    </Modal>
 </div>
-
-
-<Modal bind:open={modalOpen} bind:strict={strict}>
-    <svelte:fragment slot="title">
-        Title
-    </svelte:fragment>
-    <p>Hello from the modal!</p>
-    <TextInput style="width:30rem;" text="" placeholder="placeholder"></TextInput>
-    <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
-        <Button type="secondary" on:click={()=>{modalOpen=false}}>
-            Cancel
-        </Button>
-        <Button on:click={()=>{modalOpen=false}}>
-            Complete
-        </Button>
-    </div>
-</Modal>
 <style>
+
+    .preview {
+        height: 20rem;
+    }
 
     .controls{
         display: flex;
@@ -57,6 +63,7 @@ import TextInput from "$lib/Input/TextInput.svelte";
         align-items: center;
         justify-content: center;
         margin: 1rem;
+        margin-left: 3rem;
     }
 
 </style>

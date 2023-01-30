@@ -6,47 +6,51 @@
     let position="left"
 </script>
 <div class="bg"></div>
-{#if status=="video"}
-<Header position={position} video="/video2.mp4">
-	Header Title
-</Header>
-{:else if status=="image"}
-    <Header 
-        position={position}
-        img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
-        >
+<div class="preview">
+
+    {#if status=="video"}
+        <Header position={position} video="/video2.mp4">
+            Header Title
+        </Header>
+    {:else if status=="image"}
+        <Header 
+            position={position}
+            img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
+            >
+            Component Preview
+        </Header>
+    {:else}
+        <Header position={position}>
         Component Preview
-    </Header>
-{:else}
-    <Header position={position}>
-    Component Preview
-    </Header>
-{/if}
-<div class="controls"> 
-	<form>
-        <label for="radio">Header types</label>
-		<Radio bind:group={status} name="hello" value="image">
-			<label style="margin-left: 0.5rem;" for="radio">Image</label>
-		</Radio>
-		<Radio bind:group={status} name="hello" value="video">
-			<label style="margin-left: 0.5rem;" for="radio">Video</label>
-		</Radio>
-		<Radio bind:group={status} name="hello" value="none">
-			<label style="margin-left: 0.5rem;" for="radio">None</label>
-		</Radio>
-	</form>
-    <form>
-        <label for="radio">Positions</label>
-		<Radio bind:group={position} name="hello" value="left">
-			<label style="margin-left: 0.5rem;" for="radio">Left</label>
-		</Radio>
-		<Radio bind:group={position} name="hello" value="center">
-			<label style="margin-left: 0.5rem;" for="radio">Center</label>
-		</Radio>
-		<Radio bind:group={position} name="hello" value="right">
-			<label style="margin-left: 0.5rem;" for="radio">Right</label>
-		</Radio>
-	</form>
+        </Header>
+    {/if}
+    <div class="controls"> 
+        <form>
+            <label for="radio">Header types</label>
+            <Radio bind:group={status} name="hello" value="image">
+                <label style="margin-left: 0.5rem;" for="radio">Image</label>
+            </Radio>
+            <Radio bind:group={status} name="hello" value="video">
+                <label style="margin-left: 0.5rem;" for="radio">Video</label>
+            </Radio>
+            <Radio bind:group={status} name="hello" value="none">
+                <label style="margin-left: 0.5rem;" for="radio">None</label>
+            </Radio>
+        </form>
+        <form>
+            <label for="radio">Positions</label>
+            <Radio bind:group={position} name="hello" value="left">
+                <label style="margin-left: 0.5rem;" for="radio">Left</label>
+            </Radio>
+            <Radio bind:group={position} name="hello" value="center">
+                <label style="margin-left: 0.5rem;" for="radio">Center</label>
+            </Radio>
+            <Radio bind:group={position} name="hello" value="right">
+                <label style="margin-left: 0.5rem;" for="radio">Right</label>
+            </Radio>
+        </form>
+    </div>
+
 </div>
 
 <style>

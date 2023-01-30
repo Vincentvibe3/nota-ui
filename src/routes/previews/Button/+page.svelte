@@ -53,5 +53,6 @@
         display: flex;
         flex-wrap: wrap;
         margin: 3rem;
+        height: fit-content;
     }
 </style>
