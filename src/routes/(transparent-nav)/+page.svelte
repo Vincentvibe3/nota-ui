@@ -77,7 +77,7 @@
 	>
 	Component Preview
 </Header> -->
-<Header video="/video2.mp4">
+<Header style="width:100%;" video="/video2.mp4">
 	Component Preview
 </Header>
 <!-- <Header>Component Preview</Header> -->
@@ -292,9 +292,9 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		width: fit-content;
-		margin: 2rem;
+		/* align-items: flex-start; */
+		/* width: fit-content; */
+		padding: 3rem;
 		justify-content: center;
-		float: left;
 	}
 </style>

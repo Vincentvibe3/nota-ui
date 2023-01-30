@@ -83,6 +83,7 @@ export interface ParsedComponent {
 	import Link from '$lib/Other/Link.svelte';
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
+	import Checkbox from '$lib/Input/Checkbox.svelte';
 	export let data: PageData;
 	let componentData:ParsedComponent = data.componentData
 	let iframe:HTMLIFrameElement;
@@ -93,10 +94,10 @@ export interface ParsedComponent {
 	})
 	
 	function resizeIFrameToFitContent( iFrame:HTMLIFrameElement ) {
+		console.log("resizing")
 		let contentWindow = iFrame.contentWindow
 		if (contentWindow != null){
 			iFrame.height = contentWindow.document.body.scrollHeight.toString();
-			console.log(contentWindow.document.body.scrollHeight.toString())
 		}
 	}
 
@@ -107,6 +108,31 @@ export interface ParsedComponent {
 	<iframe bind:this={iframe} src="/previews/{componentData.moduleName}" title="Preview for {componentData.moduleName}"></iframe>
 	<Link arrow style="margin:1rem 0rem;" target="_blank" href="/previews/{componentData.moduleName}">Open preview in new tab</Link>
 	<p class="subtitle">Props</p>
+	<div class="tablewrapper">
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Required</th>
+				<th>reactive</th>
+				<th>type</th>
+				<th>default</th>
+			</tr>
+			{#each componentData.props as prop}
+			<tr>
+				<th>{prop.name}</th>
+				<th>{prop.description}</th>
+				<th>{prop.isRequired}</th>
+				<th>{prop.reactive}</th>
+				<th><CodeBlock>{prop.type}</CodeBlock></th>
+				<th>{prop.value}</th>
+			</tr>
+				
+			{/each}
+		</table>
+	</div>
+	
+
 	{#each componentData.props as prop}
 		<p>Name: {prop.name}
 			{#if prop.isRequired}
@@ -159,9 +185,40 @@ export interface ParsedComponent {
 	}
 
 
-	label {
-		font: var(--caption);
-		margin: 0.75rem 0rem;
+	.tablewrapper {
+		width:100%;
+		overflow: scroll;
+	}
+
+	table {
+		font: var(--body);
+		border-radius: var(--borderRadius);
+		background-color: var(--n300);
+		border-collapse: collapse;
+		width: fit-content;
+		/* min-width: fit-content; */
+	}
+
+	tr {
+		background-color: var(--n400);
+	}
+
+	th {
+		text-align: start;
+		/* white-space: nowrap; */
+		padding: 1rem;
+		font-weight: 400;
+	}
+
+	tr + tr {
+		background-color: var(--n300);
+		border-top: none;
+		border-top: var(--n400) solid 0.1rem;
+		border-bottom: none;
+	}
+
+	th + th{
+		/* border-left: var(--n400) solid 0.15rem; */
 	}
 
 	.subtitle {

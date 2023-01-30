@@ -54,6 +54,11 @@
 </div>
 
 <style>
+
+    .preview {
+        width: 100vw;
+    }
+
     .bg {
         position: fixed;
         z-index: 0;
