@@ -9,7 +9,7 @@
 	};
 </script>
 
-<input bind:checked on:click {name} type="checkbox" bind:this={htmlElement} />
+<input bind:checked {name} type="checkbox" bind:this={htmlElement} />
 <div id={$$restProps.id} style={$$restProps.style} class={$$restProps.class} class:wrapper={true}>
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper" class:checked={checked}>
 		<div class="customCheckmark" class:animate={checked}>
@@ -34,6 +34,10 @@
 		border: none;
 	}
 
+	.checkboxWrapper:not(.checked):hover{
+		border: var(--checkboxSelected, #bf5383) solid 0.2rem;
+	}
+
 	.checkboxWrapper {
 		width: 1.2rem;
 		height: 1.2rem;
@@ -42,6 +46,10 @@
 		background-color: transparent;
 		cursor: pointer;
 		transition: all linear 0.2s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.2rem;
 	}
 
 	.customCheckmark.animate {
@@ -49,8 +57,9 @@
 	}
 
 	.customCheckmark {
-		width: 100%;
+		width: auto;
 		height: 100%;
+		aspect-ratio: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
