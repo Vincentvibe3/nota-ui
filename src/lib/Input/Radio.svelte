@@ -44,11 +44,15 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		transition: all ease-in-out 0.2s;
+	}
+
+	.radioWrapper:hover{
+		border: var(--radioSelected, #99003b) solid 0.2rem;
 	}
 
 	.radioWrapper.checked {
 		border: var(--radioSelected, #99003b) solid 0.2rem;
-		transition: all ease-in-out 0.2s;
 	}
 
 	.radioWrapper.checked::after {
