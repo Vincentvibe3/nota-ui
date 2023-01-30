@@ -10,4 +10,5 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .npmrc
 /types
-/static/docs
+/static/docs/
+/static/components.json
