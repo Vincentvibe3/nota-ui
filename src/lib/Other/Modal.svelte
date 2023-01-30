@@ -93,10 +93,11 @@
 		justify-content: center;
 		opacity: 0;
 		transition: all ease-in-out 0.2s;
+		overflow: scroll;
 	}
 
 	.container{
-		position: fixed;
+		position: absolute;
 		background-color: var(--modalBg ,#fafafa);
 		padding: 1.5rem;
 		padding-top: 1rem;
@@ -110,6 +111,7 @@
 		justify-content: center;
 		transform: translateY(3rem);
 		transition: all ease-in-out 0.25s;
+		margin: 2rem;
 	}
 
 	.content{
