@@ -46,32 +46,37 @@
 		{/if}
 	</div>
 </div>
-<style>
+<style lang="scss">
 
 	svg {
 		width: 1.25rem;
 		height: 1.25rem;
 	}
 
-	button span {
-		margin: 0rem 0.25rem;
-	}
-
 	button {
+		position: absolute;
+		bottom:0px;
+		right:0px;
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		position: absolute;
+
 		padding: 0.2rem;
-		bottom:0px;
-		right:0px;
 		margin: 1rem;
+
+		font:var(--caption, 400 0.75rem sans-serif);
+		color: white;
 		background-color: #00000050;
+
 		border-radius: 5rem;
 		border: none;
+
 		cursor: pointer;
-		color: white;
-		font:var(--caption);
+
+		span {
+			margin: 0rem 0.25rem;
+		}
 	}
 
 	.right button{
@@ -98,31 +103,31 @@
 		color: var(--headerTextDark, #f0f0f0);
 		font: var(--headerFont, 700 3rem sans-serif);
 		margin: 3rem;
-	}
 
-	h1.noimage {
-		color: var(--headerTextLight, #303030);
+		&.noimage {
+			color: var(--headerTextLight, #303030);
+		}
 	}
 
 	.content{
 		position: absolute;
+		width: 100%;
+		height: 100%;
 		display: flex;
 		flex-direction: row;
 		align-items: flex-end;
-		width: 100%;
-		height: 100%;
-	}
 
-	.content.left{
-		justify-content: start;
-	}
+		&.left{
+			justify-content: start;
+		}
 
-	.content.right{
-		justify-content: end;
-	}
+		&.right{
+			justify-content: end;
+		}
 
-	.content.center{
-		justify-content: center;
+		&.center{
+			justify-content: center;
+		}
 	}
 
 	.gradient{
@@ -133,19 +138,19 @@
 		pointer-events: none;
 	}
 
-	.wrapper.noimage{
-		border-bottom: var(--headerBorderBottom,#c0c0c0) solid 0.1rem;
-	}
-
 	.wrapper {
 		position:relative;
 		width: 100%;
 		height: 25rem;
+		margin: 0px;
 		background-color: var(--headerBg, #f0f0f0);;
 		background-size: cover;
 		background-position: center;
-		margin: 0px;
 		flex-shrink: 0;
+
+		&.noimage{
+			border-bottom: var(--headerBorderBottom,#c0c0c0) solid 0.1rem;
+		}
 	}
 
 </style>

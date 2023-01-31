@@ -33,7 +33,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 
 	@keyframes spin {
         0% { transform: rotate(0deg); }
@@ -55,34 +55,38 @@
 
 	.spinnerSvg {
 		position: relative;
-		animation: spin 0.8s ease-in-out infinite;
+
 		fill: var(--spinnerIcon, #99003b);
 		stroke: var(--spinnerIcon, #99003b);
+
+		animation: spin 0.8s ease-in-out infinite;
 	}
 
 	.custom {
+		display: none;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+
 		border-radius: 100vw;
-		display: none;
+
 		aspect-ratio:1;
-	}
 
-	.custom.show{
-		display: flex;
-		opacity: 1;
-		animation-name: fillAnimation;
-		animation-timing-function: ease-in-out;
-		animation-duration: 0.2s;
-	}
+		&.show{
+			display: flex;
 
-	.custom.checkmark{
-		background-color: var(--spinnerBgComplete, #36b32b);
-	}
+			opacity: 1;
 
-	.custom.error{
-		background-color: var(--spinnerBgError, #db3434);
+			animation: fillAnimation ease-in-out 0.2s;
+		}
+
+		&.checkmark{
+			background-color: var(--spinnerBgComplete, #36b32b);
+		}
+
+		&.error{
+			background-color: var(--spinnerBgError, #db3434);
+		}
 	}
 
 	.checkmarkSvg, .errorSvg{

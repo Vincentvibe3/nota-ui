@@ -1,5 +1,5 @@
 <span id={$$restProps.id} style={$$restProps.style} class={$$restProps.class}></span>
-<style>
+<style lang="scss">
 	span {
 		background-color: var(--separatorBg, #c0c0c0);
 		height: 00.125rem;

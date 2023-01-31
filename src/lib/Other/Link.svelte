@@ -24,11 +24,7 @@
 		</span>
 	{/if}
 </a>
-<style>
-
-	a:hover .arrowWrapper{
-		transform: rotate(-45deg);
-	}
+<style lang="scss">
 
 	span {
 		position: relative;
@@ -37,65 +33,81 @@
 	}
 
 	.arrowWrapper {
-		background-color: var(--p900);
-		border-radius: 5rem;
-		aspect-ratio: 1;
-		padding: 0.25em;
-		vertical-align: bottom;
 		height: 0.75em;
+		
 		display: inline-flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		transition: all ease-in-out 0.2s;
+
 		margin-left: 00.4rem;
+		padding: 0.25em;
+
+		background-color: var(--p900);
+		border-radius: 5rem;
+
+		aspect-ratio: 1;
+		
+		transition: all ease-in-out 0.2s;
 	}
 
 	svg {
 		width: 100%;
 		height: inherit;
+
 		fill: white;
 		stroke: white;
 	}
 
 	a {
 		position: relative;
+
+		width:fit-content;
+		height: inherit;
+
 		display: inline-flex;
 		flex-direction: row;
-		width: inherit;
-		height: inherit;
 		align-items: center;
 		justify-content: center;
+
 		text-decoration: none;
-		/* transition: all ease-in-out 0.2s; */
+
+		padding-bottom: 00.1rem;
+		
 		font-weight: bold;
 		color: black;
-		width:fit-content;
-		padding-bottom: 00.1rem;
-	}
 
-	a span:not(.arrowWrapper)::after{
-		position: absolute;
-		content: "";
-		display: inline-block;
-		width: 100%;
-		height:0.05rem;
-		background-color: var(--s600);
-		bottom: 0rem;
-		transform: translateY(0.2rem);
-		left: 0%;
-	}
+		span:not( .arrowWrapper )::after{
+			position: absolute;
+			bottom: 0rem;
+			left: 0%;
+			content: "";
 
-	a:hover span:not(.arrowWrapper)::after{
-		background-color: var(--p900);
-	}
+			width: 100%;
+			height:0.05rem;
 
-	a:hover, a:visited:hover{
-		color: var(--p900);
-	}
+			display: inline-block;
 
-	a:visited{
-		color: var(--s600);
-		/* transition: all ease-in-out 0.2s; */
+			background-color: var(--s600);
+			
+			transform: translateY(0.2rem);
+		}
+
+		&:hover span:not(.arrowWrapper)::after{
+			background-color: var(--p900);
+		}
+
+		&:hover .arrowWrapper{
+			transform: rotate(-45deg);
+		}
+
+		&:hover, &:visited:hover{
+			color: var(--p900);
+		}
+
+		&:visited{
+			color: var(--s600);
+			/* transition: all ease-in-out 0.2s; */
+		}
 	}
 </style>

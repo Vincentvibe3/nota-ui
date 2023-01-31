@@ -9,7 +9,7 @@
 		<slot></slot>
 	</div>
 </div>
-<style>
+<style lang="scss">
 
 	h1 {
 		color: var(--footerText, #f0f0f0);
@@ -24,10 +24,11 @@
 		align-items: flex-end;
 		width: 100%;
 		height: 100%;
-	}
 
-	.content.left{
-		justify-content: start;
+
+		&.left{
+			justify-content: start;
+		}
 	}
 
 	.content.right{

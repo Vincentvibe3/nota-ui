@@ -28,90 +28,114 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 
 	.closeButton {
+		width: fit-content;
+		height: 2rem;
+
 		display: flex;
 		align-items: center;
 		justify-content: start;
-		width: fit-content;
-		height: 2rem;
+		
 		padding: 00.5rem;
-		background-color: transparent;
-		border: none;
-		border-radius: var(--borderRadius, 0.2rem);
-		transition: all ease-in-out 0.2s;
-		cursor: pointer;
+
 		font: var(--modalCloseFont, 400 0.75rem sans-serif);
 		color: var(--modalCloseText,#161616);
-	}
+		background-color: transparent;
 
-	.closeButton svg{
-		fill:var(--modalCloseText,#161616);
-		stroke:var(--modalCloseText,#161616);
-	}
+		border: none;
+		border-radius: var(--borderRadius, 0.2rem);
 
-	.closeButton span{
-		margin-left: 0.2rem;
-	}
-
-	.closeButton:hover span::after{
-		position: relative;
-		display: block;
-		top: 00.2s;
-		content: "";
-		width:100%;
-		border-bottom: var(--modalCloseText,#161616) 00.1rem solid;
-	}
-
-	.closeButton span::after{
-		position: relative;
-		display: block;
-		content: "";
-		width:0%;
-		border-bottom: var(--modalCloseText,#161616) 00.1rem solid;
 		transition: all ease-in-out 0.2s;
+
+		cursor: pointer;
+
+		svg{
+			fill:var(--modalCloseText,#161616);
+			stroke:var(--modalCloseText,#161616);
+		}
+
+		.span{
+			margin-left: 0.2rem;
+		}
+
+		&:hover span::after{
+			width:100%;
+		}
+
+		& span::after{
+			position: relative;
+			display: block;
+			content: "";
+			width:0%;
+			border-bottom: var(--modalCloseText,#161616) 00.1rem solid;
+			transition: all ease-in-out 0.2s;
+		}
 	}
 
 	h4 {
+		margin: 0px;
 		color:var(--modalTitleText, #161616);
 		font:var(--modalTitleFont,300 1.25rem sans-serif);	
-		margin: 0px;
 	}
 
 	.wrapper {
 		position: fixed;
 		top:0px;
 		left:0px;
+		z-index: 3;
+
 		width: 100vw;
 		height: 100vh;
-		z-index: 3;
-		pointer-events: none;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		opacity: 0;
-		transition: all ease-in-out 0.2s;
+
 		overflow: scroll;
+
+		opacity: 0;
+
+		pointer-events: none;
+		
+		transition: all ease-in-out 0.2s;
+		
+
+		&.show {
+			opacity: 1;
+			pointer-events: unset;
+		}
 	}
 
 	.container{
 		position: absolute;
-		background-color: var(--modalBg ,#fafafa);
-		padding: 1.5rem;
-		padding-top: 1rem;
-		padding-left: 1rem;
-		border-radius: var(--borderRadius, 0.2rem);
+
 		min-width: 15rem;
 		min-height: 10rem;
+
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
 		justify-content: center;
-		transform: translateY(3rem);
-		transition: all ease-in-out 0.25s;
+
+		background-color: var(--modalBg ,#fafafa);
+
 		margin: 2rem;
+		padding: 1.5rem;
+		padding-top: 1rem;
+		padding-left: 1rem;
+
+		border-radius: var(--borderRadius, 0.2rem);
+		
+		transform: translateY(3rem);
+
+		transition: all ease-in-out 0.2s;
+
+		&.show{
+			transform: translateY(0rem);
+		}
 	}
 
 	.content{
@@ -121,12 +145,4 @@
 		color:var(--modalText, #161616)
 	}
 
-	.container.show{
-		transform: translateY(0rem);
-	}
-
-	.wrapper.show {
-		opacity: 1;
-		pointer-events: unset;
-	}
 </style>

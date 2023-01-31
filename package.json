@@ -31,8 +31,11 @@
 	"type": "module",
 	"dependencies": {
 		"@types/marked": "^4.0.8",
+		"autoprefixer": "^10.4.13",
 		"color-contrast-checker": "^2.1.0",
 		"marked": "^4.2.12",
+		"postcss": "^8.4.21",
+		"postcss-cli": "^10.1.0",
 		"prettier-plugin-svelte": "^2.9.0"
 	}
 }
