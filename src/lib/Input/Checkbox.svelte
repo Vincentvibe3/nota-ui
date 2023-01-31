@@ -1,7 +1,12 @@
 <script lang="ts">
 
-	export let htmlElement: HTMLInputElement | null = null;
-	export let name: string = '';
+	/** Native checkbox type <input> element */
+	export let htmlElement: HTMLInputElement | undefined = undefined;
+
+	/** Name of the checkbox for forms*/
+	export let name: string = "";
+
+	/** Checked status of the checkbox */
 	export let checked:boolean = false;
 
 	const onClick = () => {

@@ -8,6 +8,8 @@
 	let active = false;
 	let options: Array<HTMLOptionElement> = [];
 	let optionsWrapper: HTMLDivElement;
+
+	/** Native <select> element */
 	export let htmlElement: HTMLSelectElement | null = null;
 
 	const onClick = () => {

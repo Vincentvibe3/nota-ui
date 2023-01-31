@@ -113,42 +113,32 @@ export interface ParsedComponent {
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
+				<th>type</th>
 				<th>Required</th>
 				<th>reactive</th>
-				<th>type</th>
 				<th>default</th>
 			</tr>
 			{#each componentData.props as prop}
 			<tr>
 				<th>{prop.name}</th>
-				<th>{prop.description}</th>
+				{#if prop.description==undefined}
+					<th></th>
+				{:else}
+					<th>{prop.description}</th>
+				{/if}
+				<th class="type"><CodeBlock>{prop.type}</CodeBlock></th>
 				<th>{prop.isRequired}</th>
 				<th>{prop.reactive}</th>
-				<th><CodeBlock>{prop.type}</CodeBlock></th>
-				<th>{prop.value}</th>
+				{#if prop.value==undefined || prop.value=="\"\"" || prop.value=="\'\'"}
+					<th></th>
+				{:else}
+					<th>{prop.value}</th>
+				{/if}
 			</tr>
 				
 			{/each}
 		</table>
 	</div>
-	
-
-	{#each componentData.props as prop}
-		<p>Name: {prop.name}
-			{#if prop.isRequired}
-				<CodeBlock>Required</CodeBlock>
-			{/if}
-			{#if prop.reactive}
-				<CodeBlock>Reactive</CodeBlock>
-			{/if}
-		</p>
-		<p>Type: {prop.type}</p>
-		{#if prop.description != undefined}
-			<p>{prop.description}</p>
-		{/if}
-		<p>Default value: {prop.value}</p>
-		<Separator></Separator>
-	{/each}
 	
 	{#if componentData.rest_props !=undefined}
 		<p class="subtitle">$$restProps</p>
@@ -215,6 +205,10 @@ export interface ParsedComponent {
 		border-top: none;
 		border-top: var(--n400) solid 0.1rem;
 		border-bottom: none;
+	}
+
+	.type{
+		white-space:pre;
 	}
 
 	th + th{

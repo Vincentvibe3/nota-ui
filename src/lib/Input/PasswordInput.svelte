@@ -1,11 +1,31 @@
 <script lang="ts">
 	import TextInputImpl from './TextInputImpl.svelte';
-	export let htmlElement: HTMLInputElement | null = null;
-	export let name: string = '';
-	export let valid: Boolean | null = null;
+
+	/**
+	 * Native password type <input> element 
+	 */
+	export let htmlElement: HTMLInputElement | undefined = undefined;
+	/**
+	 * Name of the input for forms.
+	 */
+	export let name: string = "";
+	/**
+	 * Boolean to style input field when contents are valid.
+	 */
+	export let valid: Boolean | undefined = undefined;
+	/**
+	 * Placeholder text when nothing was typed.
+	 */
 	export let placeholder = '';
+	/**
+	 * Text contained in the field
+	 */
 	export let text: string;
+	/**
+	 * Toggle to switch to plain text instead of password input.
+	 */
 	export let showText: boolean = false;
+
 	let type: string = 'password';
 
 	$: if (showText) {

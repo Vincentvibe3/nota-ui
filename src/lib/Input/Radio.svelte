@@ -1,8 +1,20 @@
 <script lang="ts">
 
-	export let htmlElement: HTMLInputElement | null = null;
+	/**
+	 * Native radio type <input> element.
+	 */
+	export let htmlElement: HTMLInputElement | undefined = undefined;
+	/**
+	 * Name of the input for forms
+	 */
 	export let name: string = "";
+	/**
+	 * Value of the radio button for forms.
+	 */
 	export let value: string = "";
+	/**
+	 * Current value of radio button group will be stored here.
+	 */
 	export let group: any;
 
 	const onClick = () => {
