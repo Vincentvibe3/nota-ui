@@ -1,6 +1,6 @@
 // Reexport your entry components here
 export { default as Button } from './Other/Button.svelte'
-export { default as Spinner } from './Other/Spinner.svelte'
+export { default as ProgressRing } from './Other/ProgressRing.svelte'
 export { default as Header } from './Other/Header.svelte'
 export { default as Backdrop } from './Other/Backdrop.svelte'
 export { default as Dropdown } from './Input/Dropdown.svelte'

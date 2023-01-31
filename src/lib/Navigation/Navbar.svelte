@@ -99,7 +99,8 @@
 
 		transform: translateY(-100%);
 
-		&.show{
+		&.show, &:focus-visible, &:focus-within{
+			transform: translateY(0%);
 			transform: translateY(0%);
 		}
 	}

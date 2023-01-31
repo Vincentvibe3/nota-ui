@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 
 	export let img:string="";
 	export let video:string=""
@@ -6,18 +7,24 @@
 	// Text position
 	export let position:string="left";
 
-	let videoElement:HTMLVideoElement|null=null;
+	let videoElement:HTMLVideoElement|undefined = undefined;
 	let videoPaused = false
 
 	const pausePlay = async () => {
 		if (videoElement!=null){
 			if (videoElement.paused){
-				await videoElement.play()
+				videoElement.play()
 			} else{
-				await videoElement.pause()
+				videoElement.pause()
 			}
 		}
 	}
+
+	onMount(()=>{
+		if (videoElement!=undefined){
+			videoPaused=videoElement.paused
+		}
+	})
 
 </script>
 <div id={$$restProps.id} class:wrapper={true} class={$$restProps.class} class:noimage={img==""} style={$$restProps.style}>

@@ -2,6 +2,7 @@
 	import { setContext } from "svelte";
 	import { writable } from "svelte/store";
 	import Backdrop from "../Other/Backdrop.svelte";
+	import { fade } from "svelte/transition";
 
 	export let show:boolean=true;
 
@@ -29,14 +30,14 @@
 <div id={$$restProps.id} class="wrapper" class:show={show}>
 	<Backdrop on:click={close} bind:show={$showStore} style="z-index:inherit;"></Backdrop>
 	<div style={$$restProps.style} class:sidebar={true}  class={$$restProps.class} class:show={$showStore}>
-		<button bind:this={sidebar} on:click={close} class="close" disabled={!show}>
-			<div style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
-				<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" fill="none" stroke="none"></rect><line x1="200" y1="56" x2="56" y2="200"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
-			</div>
-			Close
-		</button>
 		{#if show}
-			<div class="content">
+			<button out:fade="{{duration:300}}" bind:this={sidebar} on:click={close} class="close" disabled={!show}>
+				<div style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
+					<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" fill="none" stroke="none"></rect><line x1="200" y1="56" x2="56" y2="200"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+				</div>
+				Close
+			</button>
+			<div out:fade="{{duration:300}}" class="content">
 				<slot></slot>
 			</div>
 		{/if}
