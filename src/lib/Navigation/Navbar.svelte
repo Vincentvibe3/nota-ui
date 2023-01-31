@@ -37,71 +37,94 @@
 		<slot></slot>
 	</nav>
 </div>
-<style>
+<style lang="scss">
 
 	.titleWrapper{
 		height: 100%;
-		padding: 0rem 1.5rem;
-		background-color: transparent;
+		
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		transition: all ease-in-out 0.2s;
-		border: none;
-		color: inherit;
-		font: inherit;
-		cursor: pointer;
-	}
 
-	.titleWrapper:hover{
-		color: var(--navbarTextTitleHover, #f0f0f0);
-		background-color: var(--navBgTitleHover, #161616);
+		padding: 0rem 1.5rem;
+
+		border: none;
+
+		color: inherit;
+		background-color: transparent;
+		
+		transition: all ease-in-out 0.2s;
+
+		font: inherit;
+
+		cursor: pointer;
+
+		&:hover{
+			color: var(--navbarTextTitleHover, #f0f0f0);
+			background-color: var(--navBgTitleHover, #161616);
+		}
 	}
 
 	.content {
 		width: auto;
-		flex-grow: 1;
+
 		display: flex;
 		flex-direction: row;
+		flex-grow: 1;
 		align-items: center;
 		justify-content: start;
+
 		color: inherit;
 	}
 
 	.bar {
-		color: var(--navText, #f0f0f0);
 		position: fixed;
+
 		width: 100vw;
 		height: 3.5rem;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
+
 		z-index: 3;
+
+		color: var(--navText, #f0f0f0);
+
 		transition: all ease 0.2s;
+
 		font: var(--navFont, 400 1rem sans-serif);
+
 		transform: translateY(-100%);
+
+		&.show{
+			transform: translateY(0%);
+		}
 	}
 
 	.bg {
 		position: fixed;
+
 		width: 100%;
 		height: 100%;
+
 		background-color: var(--navBg, #b3386b);
+
 		opacity: 0.95;
+
 		z-index: -1;
+
 		box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
+
 		transition: all ease 0.5s;
-	}
 
-	.bar.show{
-		transform: translateY(0%);
-	}
+		&.transparent {
+			background-color: transparent;
+			box-shadow: none;
+		}
 
-	.bg.transparent {
-		background-color: transparent;
-		box-shadow: none;
 	}
 
 </style>

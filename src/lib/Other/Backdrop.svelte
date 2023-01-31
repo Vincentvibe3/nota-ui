@@ -1,23 +1,30 @@
 <script lang="ts">
 	export let show:boolean=false;
 </script>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div on:click id={$$restProps.id} class:show={show} class={$$restProps.class} style={$$restProps.style}></div>
-<style>
+<style lang="scss">
 	div {
 		position: fixed;
 		top:0px;
 		left:0px;
+
 		width: 100vw;
 		height: 100vh;
+
+		display: block;
+
 		background-color: var(--backdropColor, #000000);
 		opacity: 0;
+
 		transition: opacity ease-in-out 0.2s;
-		display: block;
+		
 		pointer-events: none;
+
+		&.show{
+			opacity: 0.7;
+			pointer-events: unset;
+		}
 	}
 
-	div.show{
-		opacity: 0.7;
-		pointer-events: unset;
-	}
 </style>

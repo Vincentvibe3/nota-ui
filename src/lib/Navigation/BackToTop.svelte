@@ -34,24 +34,40 @@
 	<Button 
 		style="
 		{styles}
-		--btnPrimaryBg: var(--backToTopBg);
-		--btnPrimaryBgFocus: var(--backToTopBgFocus);
-		--btnPrimaryBorder: var(--backToTopBorder);
-		--btnPrimaryBorderFocus: var(--backToTopBorderFocus);
-		--btnPrimaryText: var(--backToTopText);"
+		"
 		on:click={toTop}>
 		Back to top
 		<svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
 	</Button>
 </div>
-<style>
+<style lang="scss">
+
+	.wrapper :global( button ){
+		--btnPrimaryBg: var(--backToTopBg);
+		--btnPrimaryBgFocus: var(--backToTopBgFocus);
+		--btnPrimaryBorder: var(--backToTopBorder);
+		--btnPrimaryBorderFocus: var(--backToTopBorderFocus);
+		--btnPrimaryText: var(--backToTopText);
+	}
+
 	.wrapper {
 		position: fixed;
 		bottom: -3rem;
 		z-index: 2;
 		transition: all ease-in-out 0.2s;
-		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 		border-radius: var(--borderRadius, 0.2rem);
+		box-shadow: #00000033 0.2rem 0.2rem 1rem;
+		
+		svg{
+			fill: var(--backToTopIcon, #fafafa);
+			stroke: var(--backToTopIcon, #fafafa);
+			transition: all ease-in-out 0.2s;
+		}
+
+		&:hover svg{
+			fill: var(--backToTopIconFocus, #fafafa);
+			stroke: var(--backToTopIconFocus, #fafafa);
+		}
 	}
 
 	.right {
@@ -69,17 +85,6 @@
 
 	.show {
 		bottom: 2rem;
-	}
-
-	svg{
-		fill: var(--backToTopIcon, #fafafa);
-		stroke: var(--backToTopIcon, #fafafa);
-		transition: all ease-in-out 0.2s;
-	}
-
-	.wrapper:hover svg{
-		fill: var(--backToTopIconFocus, #fafafa);
-		stroke: var(--backToTopIconFocus, #fafafa);
 	}
 
 </style>

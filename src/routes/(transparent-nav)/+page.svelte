@@ -31,7 +31,7 @@
 	let count = 0;
 	let status:string="loading";
 	let showPassword = false;
-	let searchSuggestAll: string[] = ['abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
+	let searchSuggestAll: string[] = ['Option 1','abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
 	let searchSuggest: string[] = [];
 	let loadButton1=false;
 	let openSidebar=false;

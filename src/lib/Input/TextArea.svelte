@@ -49,45 +49,57 @@
 			bind:this={htmlElement} />
 </div>
 
-<style>
+<style lang="scss">
 
 	.wrapper {
 		position: relative;
-		outline: none;
-		border: 0.1rem solid var(--textAreaBorder, #c0c0c0);
-		background-color: var(--textAreaBg, #f0f0f0);
-		border-radius: var(--borderRadius, 0.2rem);
-		transition: all ease-in-out 0.2s;
+		
+		min-width: fit-content;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		font: var(--textAreaFont, 400 0.75rem sans-serif);
-		transition: all ease-in-out 0.2s;
-		min-width: fit-content;
-	}
 
-	.wrapper.shadow{
-		box-shadow: #00000033 0.2rem 0.2rem 1rem;
+		font: var(--textAreaFont, 400 0.75rem sans-serif);
+
+		outline: none;
+		border: 0.1rem solid var(--textAreaBorder, #c0c0c0);
+		border-radius: var(--borderRadius, 0.2rem);
+
+		background-color: var(--textAreaBg, #f0f0f0);
+
+		transition: all ease-in-out 0.2s;
+
+		&.shadow{
+			box-shadow: #00000033 0.2rem 0.2rem 1rem;
+		}
+
+		&.focused{
+			border: 0.1rem solid var(--textAreaBorderFocus, #99003b);
+		}
+
 	}
 
 	textarea {
-		flex-grow: 1;
+		
 		height: auto;
+		
+		flex-grow: 1;
+
 		padding: 0.75rem;
+		
+		font:inherit;
+
+		color: var(--textAreaText, #161616);
 		background-color: transparent;
+
 		border: none;
 		outline: none;
-		color: var(--textAreaText, #161616);
-		font:inherit;
+
+		&::placeholder {
+			opacity: 1;
+			color: var(--textAreaPlaceholderText, #606060);
+		}
 	}
 
-	.wrapper.focused{
-		border: 0.1rem solid var(--textAreaBorderFocus, #99003b);
-	}
-
-
-	textarea::placeholder {
-		opacity: 1;
-		color: var(--textAreaPlaceholderText, #606060);
-	}
 </style>

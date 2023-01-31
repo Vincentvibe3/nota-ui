@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getStores } from "$app/stores";
-	import { getContext, onMount } from "svelte";
+	import { getContext } from "svelte";
 	import type { Writable } from "svelte/store";
 
 	export let htmlElement:HTMLAnchorElement|null=null
@@ -28,7 +28,7 @@
 	<div class="indicator" class:show={currentPage}></div>
 	<span class:currentPage class:multiline><slot></slot></span>
 </a>
-<style>
+<style lang="scss">
 
 	.indicator {
 		width: 0.3rem;
@@ -44,21 +44,31 @@
 	}
 
 	a{
+		width: calc(100% - 5rem);
+		height: fit-content;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
+
+		margin: 0rem 1rem 1rem 1rem;
 		padding: 1rem;
-		height: fit-content;
+		
 		background-color: var(--sidebarLinkBg, #f0f0f0);
-		width: calc(100% - 5rem);
+		
 		border-radius: var(--borderRadius);
-		/* border-bottom: var(--sidebarLinkBorderBottom, #c0c0c0) solid 0.1rem; */
+
+		font: var(--sidebarLinkFont, 400 1rem sans-serif);
 		text-decoration: none;
 		color: var(--sidebarLinkText, #161616);
-		font: var(--sidebarLinkFont, 400 1rem sans-serif);
+		
 		transition: all ease-in-out 0.2s;
-		margin: 0rem 1rem 1rem 1rem;
+
+		&:hover {
+			color: var(--sidebarLinkTextFocus, #161616);
+			background-color: var(--sidebarLinkBgFocus, #c0c0c0);
+		}
 	} 
 
 	span{
@@ -66,34 +76,10 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		/* padding-bottom: 00.2rem; */
+		
+		&.multiline{
+			white-space:normal;
+		}
 	}
 
-	span.multiline{
-		white-space:normal;
-	}
-
-	/* span.currentPage::after{
-		width: 100%;
-	}
-
-	span::after{
-		position: relative;
-		top: 0.2rem;
-		display: block;
-		content: "";
-		width:0.6rem;
-		border-bottom: var(--sidebarLinkText, #161616) 00.1rem solid;
-		transition: all ease-in-out 0.2s;
-	}
-
-	a:hover span::after{
-		border-color: var(--sidebarLinkTextFocus, #161616);
-	} */
-
-	a:hover {
-		color: var(--sidebarLinkTextFocus, #161616);
-		background-color: var(--sidebarLinkBgFocus, #c0c0c0);
-		/* border-bottom: var(--sidebarLinkBorderBottomFocus, #909090) solid 0.1rem; */
-	}
 </style>

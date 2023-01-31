@@ -1,14 +1,20 @@
 <script lang="ts">
-	import { onDestroy, setContext } from "svelte";
+	import { setContext } from "svelte";
 	import { writable } from "svelte/store";
 	import Backdrop from "../Other/Backdrop.svelte";
 
 	export let show:boolean=true;
 
+	let sidebar:HTMLButtonElement;
+
 	const showStore = writable(show)
 
 	$:showStore.update(_=>show)
 	$:show = $showStore
+
+	$:if (show){
+		sidebar?.focus()
+	}
 
 	setContext("sidebar",{
 		show:showStore
@@ -20,49 +26,70 @@
 
 </script>
 
-<div id={$$restProps.id} class="wrapper">
+<div id={$$restProps.id} class="wrapper" class:show={show}>
 	<Backdrop on:click={close} bind:show={$showStore} style="z-index:inherit;"></Backdrop>
-	<div style={$$restProps.style} class:sidebar={true} class={$$restProps.class} class:show={$showStore}>
-		{#if show}
-			<button on:click={close} class="close">
+	<div style={$$restProps.style} class:sidebar={true}  class={$$restProps.class} class:show={$showStore}>
+		<button bind:this={sidebar} on:click={close} class="close" disabled={!show}>
 			<div style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
 				<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" fill="none" stroke="none"></rect><line x1="200" y1="56" x2="56" y2="200"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 			</div>
 			Close
 		</button>
-		<div class="content">
-			<slot></slot>
-		</div>
+		{#if show}
+			<div class="content">
+				<slot></slot>
+			</div>
 		{/if}
 	</div>
 </div>
 
 
-<style>
+<style lang="scss">
 
 	.close{
 		position: sticky;
 		top:0px;
+
 		width: 100%;
 		height: 3.5rem;
-		border:none;
-		background-color: var(--sidebarCloseBg, #303030);
-		font:var(--sidebarCloseFont, 600 0.875rem sans-serif);
-		color: var(--sidebarCloseText, #fafafa);
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
-		padding-left: 1rem;
-		transition: all ease-in-out 0.2s;
-		cursor: pointer;
-		z-index: 4;
-		transition: all ease-in-out 0.2s;
-	}
 
-	.close:hover{
-		background-color: var(--sidebarCloseBgFocus, #161616);
-		color: var(--sidebarCloseTextFocus, #fafafa);
+		padding-left: 1rem;
+
+		z-index: 4;
+
+		border:none;
+
+		font:var(--sidebarCloseFont, 600 0.875rem sans-serif);
+		color: var(--sidebarCloseText, #fafafa);
+
+		background-color: var(--sidebarCloseBg, #303030);
+
+		transition: all ease-in-out 0.2s;
+
+		cursor: pointer;
+
+		transition: all ease-in-out 0.2s;
+
+		&:hover{
+			background-color: var(--sidebarCloseBgFocus, #161616);
+			color: var(--sidebarCloseTextFocus, #fafafa);
+
+			svg {
+				fill: var(--sidebarCloseIconFocus, #fafafa);
+				stroke: var(--sidebarCloseIconFocus, #fafafa);
+			}
+		}
+
+		svg {
+			fill: var(--sidebarCloseIcon, #fafafa);
+			stroke: var(--sidebarCloseIcon, #fafafa);
+			transition: all ease-in-out 0.2s;
+		}
 	}
 
 	.wrapper {
@@ -73,37 +100,36 @@
 		position: fixed;
 		top: 0px;
 		left:0px;
+
 		width:20rem;
 		height: 100vh;
-		z-index: inherit;
-		background-color: var(--sidebarBg, #f0f0f0);
-		transform: translateX(-100%);
-		transition: all ease 0.2s;
-		overflow-y: scroll;
+
 		display: flex;
 		align-items: center;
 		justify-content: start;
 		flex-direction: column;
-	}
 
-	.content {
-		width:100%;
-		background-color: var(--sidebarBg, #f0f0f0);
+		z-index: inherit;
+		
 		overflow-y: scroll;
+
+		background-color: var(--sidebarBg, #f0f0f0);
+
+		transform: translateX(-100%);
+		
+		transition: all ease 0.2s;
+
+		.content {
+			width:100%;
+			background-color: var(--sidebarBg, #f0f0f0);
+			overflow-y: scroll;
+		}
+
+		&.show{
+			transform: translateX(0%);
+		}
 	}
 
-	.sidebar.show{
-		transform: translateX(0%);
-	}
 
-	.close:hover svg {
-		fill: var(--sidebarCloseIconFocus, #fafafa);
-		stroke: var(--sidebarCloseIconFocus, #fafafa);
-	}
 
-	svg {
-		transition: all ease-in-out 0.2s;
-		fill: var(--sidebarCloseIcon, #fafafa);
-		stroke: var(--sidebarCloseIcon, #fafafa);
-	}
 </style>

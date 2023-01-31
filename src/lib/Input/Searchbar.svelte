@@ -138,19 +138,7 @@
 		</div>
 	{/if}
 	<TextInput
-		style="width:100%;
-		margin:0px;
-		z-index: 1;
-		--inputBg:var(--searchBg);
-		--inputBorder:var(--searchBorder);
-		--inputText:var(--searchText);
-		--inputIconBtnBg:var(--searchIconBtnBg);
-		--inputPlaceholderText:var(--searchPlaceholderText);
-		--inputIconColor:var(--searchIconColor);
-		--inputBorderFocus:var(--searchBorderFocus);
-		--inputBorderValid:var(--searchBorderValid);
-		--inputBorderInvalid:var(--searchBorderInvalid);
-		--inputFont:var(--searchFont);"
+		style=""
 		shadowOnFocus={true}
 		placeholder={placeholder}
 		on:keydown={handleSubmit}
@@ -168,66 +156,101 @@
 	</TextInput>
 </div>
 
-<style>
+<style lang="scss">
+
+	.wrapper :global( div.wrapper ){
+		width:100%;
+		margin:0px;
+		z-index: 1;
+		--inputBg:var(--searchBg);
+		--inputBorder:var(--searchBorder);
+		--inputText:var(--searchText);
+		--inputIconBtnBg:var(--searchIconBtnBg);
+		--inputPlaceholderText:var(--searchPlaceholderText);
+		--inputIconColor:var(--searchIconColor);
+		--inputBorderFocus:var(--searchBorderFocus);
+		--inputBorderValid:var(--searchBorderValid);
+		--inputBorderInvalid:var(--searchBorderInvalid);
+		--inputFont:var(--searchFont);
+	}
+
+	span {
+		max-width: calc(100% - 2rem);
+
+		font: var(--searchFontOption, 400 0.75rem sans-serif);
+		text-align: left;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		
+		pointer-events: none;
+	}
 
 	.wrapper {
 		position: relative;
+
+		min-height: 2.5rem;
+
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
+
 		border-radius: var(--borderRadius, 0.2rem);
-		min-height: 2.5rem;
+
+		font: var(--searchFontOption, 400 0.75rem sans-serif);
 		color: var(--searchText, #161616);
-		font: var(--searchFontOption, 400 0.75rem sans-serif)
 	}
 
 	.options {
-		max-height: 20rem;
-		overflow-y: scroll;
 		position: absolute;
 		top: calc(100% - 0.6rem);
+
 		width: 100%;
+		max-height: 20rem;
+
+		z-index: 1;
+
+		overflow-y: scroll;
+
 		padding-bottom: 00.5rem;
+		padding-top: 0.6rem;
+		
 		border-radius: 0 0 var(--borderRadius, 0.2rem) var(--borderRadius, 0.2rem);
 		outline: 0.1rem solid var(--searchBorder, #c0c0c0);
+
 		background-color: var(--searchBg, #f0f0f0);
-		padding-top: 0.6rem;
-		z-index: 1;
+		
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 	}
 
 	.option {
 		width: 100%;
-		background-color: inherit;
-		outline: none;
-		border: none;
-		padding: 0.75rem;
+		min-height: 2.5rem;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		cursor: pointer;
-		min-height: 2.5rem;
-		transition: all ease-in-out 0.1s;
+
+		padding: 0.75rem;
+
 		color: inherit;
-	}
+		background-color: inherit;
 
-	.option.selected {
-		filter: brightness(75%);
-	}
+		outline: none;
+		border: none;
+		
+		cursor: pointer;
+		
+		transition: all ease-in-out 0.1s;
 
-	.option:hover {
-		filter: brightness(85%);
-	}
+		&.selected {
+			filter: brightness(75%);
+		}
 
-	span {
-		max-width: calc(100% - 2rem);
-		font-size: 0.8rem;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		text-align: left;
-		white-space: nowrap;
-		pointer-events: none;
+		&:hover {
+			filter: brightness(85%);
+		}
 	}
 
 </style>

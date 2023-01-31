@@ -82,111 +82,131 @@
 	{/if}
 </div>
 
-<style>
+<style lang="scss">
+
+	input {
+		height: auto;
+
+		flex-grow: 1;
+
+		padding: 0.75rem;
+		padding-left: 0rem;
+
+		color: var(--inputText, #161616);
+		background-color: transparent;
+
+		border: none;
+		outline: none;
+
+		font:inherit;
+		
+		&::placeholder {
+			opacity: 1;
+			color: var(--inputPlaceholderText, #606060);
+		}
+	}
 
 	.iconWrapperLeft {
 		position: relative;
 		height: 1rem;
 		padding: 00.75rem;
-	}
 
-	.iconWrapperLeft:global( * ) {
-		height: 1rem;
-		width: auto;
-	}
+		:global( * ) {
+			height: 1rem;
+			width: auto;
+		}
 
-	.iconWrapperRight:empty{
-		display: none;
-	}
+		&:empty{
+			display: none;
+		}
 
-	.iconWrapperLeft:empty{
-		display: none;
+		&:empty ~ input {
+			padding-left: 00.75rem;
+		}
+
+		:global( svg ){
+			fill: var(--inputIconColor, #606060);
+			stroke: var(--inputIconColor, #606060);
+		}
 	}
 
 	.iconWrapperRight {
 		position: relative;
-		height: 1.5rem;
 		right: 0.75rem;
-		padding: 0rem;
-		cursor: pointer;
-		background-color: transparent;
-		border: none;
-		aspect-ratio: 1;
+
 		width: auto;
+		height: 1.5rem;
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
 
-	.iconWrapperRight:hover {
-		background-color: var(--inputIconBtnBg, #c0c0c0);
-		border-radius: 100vw;
-	}
+		padding: 0rem;
 
-	.iconWrapperLeft:global( svg ){
-		fill: var(--inputIconColor, #606060);
-		stroke: var(--inputIconColor, #606060);
-	}
+		border: none;
+		outline: none;
 
-	.iconWrapperRight:global( svg ){
-		fill: var(--inputIconColor, #606060);
-		stroke: var(--inputIconColor, #606060);
-	}
+		cursor: pointer;
 
-	.iconWrapperRight:global( * ) {
-		height: 1rem;
-		width: auto;
+		background-color: transparent;
+
+		aspect-ratio: 1;
+		
+		&:empty{
+			display: none;
+		}
+
+		&:hover {
+			background-color: var(--inputIconBtnBg, #c0c0c0);
+			border-radius: 100vw;
+		}
+
+		:global( svg ) {
+			fill: var(--inputIconColor, #606060);
+			stroke: var(--inputIconColor, #606060);
+		}
+
+		:global( * ) {
+			height: 1rem;
+			width: auto;
+		}
 	}
 
 	.wrapper {
 		position: relative;
-		outline: none;
-		border: 0.1rem solid var(--inputBorder, #c0c0c0);
-		background-color: var(--inputBg, #f0f0f0);
-		border-radius: var(--borderRadius, 0.2rem);
-		transition: all ease-in-out 0.2s;
+
+		min-width: fit-content;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		font: var(--inputFont, 400 0.75rem sans-serif);
-		transition: all ease-in-out 0.2s;
-		min-width: fit-content;
-	}
 
-	.wrapper.shadow{
-		box-shadow: #00000033 0.2rem 0.2rem 1rem;
-	}
-
-	input {
-		flex-grow: 1;
-		height: auto;
-		padding: 0.75rem;
-		background-color: transparent;
-		border: none;
 		outline: none;
-		color: var(--inputText, #161616);
-		font:inherit;
-		padding-left: 0rem;
+		border: 0.1rem solid var(--inputBorder, #c0c0c0);
+		border-radius: var(--borderRadius, 0.2rem);
+
+		background-color: var(--inputBg, #f0f0f0);
+		
+		transition: all ease-in-out 0.2s;
+		
+		font: var(--inputFont, 400 0.75rem sans-serif);
+		
+		&.shadow{
+			box-shadow: #00000033 0.2rem 0.2rem 1rem;
+		}
+
+		&.focused{
+			border: 0.1rem solid var(--inputBorderFocus, #99003b);
+		}
+
+		&.invalid{
+			border: 0.1rem solid var(--inputBorderInvalid, #db3434);
+		}
+
+		&.valid{
+			border: 0.1rem solid var(--inputBorderValid, #36b32b);
+		}
+
 	}
 
-	.iconWrapperLeft:empty ~ input {
-		padding-left: 00.75rem;
-	}
-
-	.wrapper.focused{
-		border: 0.1rem solid var(--inputBorderFocus, #99003b);
-	}
-
-	.wrapper.invalid{
-		border: 0.1rem solid var(--inputBorderInvalid, #db3434);
-	}
-
-	.wrapper.valid{
-		border: 0.1rem solid var(--inputBorderValid, #36b32b);
-	}
-
-	input::placeholder {
-		opacity: 1;
-		color: var(--inputPlaceholderText, #606060);
-	}
 </style>

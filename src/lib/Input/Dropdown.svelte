@@ -122,121 +122,160 @@
 	</button>
 </div>
 
-<style>
+<style lang="scss">
+
+
 	select {
 		display: none;
 	}
 
+	span {
+		max-width: calc(100% - 2rem);
+
+		font: var(--dropdownFontOption, 400 0.75rem sans-serif);
+		color: inherit;
+		text-align: left;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		overflow: hidden;
+		
+		pointer-events: none;
+	}
+
 	.wrapper {
 		position: relative;
+
+		min-height: 2.5rem;
+
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
+
 		border-radius: var(--borderRadius, 0.2rem);
-		min-height: 2.5rem;
+
 		color: var(--dropdownText, #161616);
 	}
 
 	.dropdown_impl {
 		position: absolute;
+
 		width: 100%;
-		min-height: 2.5rem;
 		height: 100%;
-		padding: 0.75rem;
-		background-color: var(--dropdownBg, #f0f0f0);
+		min-height: 2.5rem;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+
+		overflow: hidden;
+
+		z-index: 1;
+
+		padding: 0.75rem;
+
+		border: none;
 		border-radius: var(--borderRadius, 0.2rem);
 		outline: 0.1rem solid var(--dropdownBorder, #c0c0c0);
-		cursor: pointer;
-		border: none;
+
+		color:inherit;
+		font: var(--dropdownFont, 400 0.75rem sans-serif);
 		text-overflow: ellipsis;
-		overflow: hidden;
 		text-align: left;
-		z-index: 1;
+
 		transition-property: outline-color, filter, box-shadow;
 		transition-duration: 00.2s;
 		transition-timing-function: ease-in-out;
-		font: var(--dropdownFont, 400 0.75rem sans-serif);
-		color:inherit;
-	}
 
-	.dropdown_impl:focus {
-		outline-color: var(--dropdownBorderFocus, #99003b);
-	}
+		background-color: var(--dropdownBg, #f0f0f0);
 
-	.dropdown_impl:hover {
-		filter: brightness(85%);
-	}
+		cursor: pointer;
 
-	.dropdown_impl.active {
-		box-shadow: #00000033 0.2rem 0.2rem 1rem;
-		outline-color: var(--dropdownBorderFocus, #99003b);
-		z-index: 2;
+		&:focus {
+			outline-color: var(--dropdownBorderFocus, #99003b);
+		}
+
+		&:hover {
+			filter: brightness(85%);
+		}
+
+		&.active {
+			z-index: 2;
+			box-shadow: #00000033 0.2rem 0.2rem 1rem;
+			outline-color: var(--dropdownBorderFocus, #99003b);
+		}
+
+		.arrow {
+			width: 1rem;
+			height: 1rem;
+
+			fill: var(--dropdownText, #161616);
+			stroke: var(--dropdownText, #161616);
+
+			pointer-events: none;
+		}
 	}
 
 	.options {
 		position: absolute;
-		max-height: 20rem;
-		overflow-y: scroll;
-		position: absolute;
 		top: calc(100% - 0.6rem);
+		
 		width: 100%;
-		padding-bottom: 00.5rem;
-		border-radius: 0 0 var(--borderRadius, 0.2rem) var(--borderRadius, 0.2rem);
-		outline: 0.1rem solid var(--dropdownBorder, #c0c0c0);
-		background-color: var(--dropdownBg, #f0f0f0);
-		padding-top: 0.6rem;
+		max-height: 20rem;
+
+		overflow-y: scroll;
+
 		z-index: 2;
+
+		padding: {
+			bottom: 00.5rem;
+			top: 0.6rem;
+		}
+		
+		border-bottom-right-radius: var(--borderRadius, 0.2rem);
+		border-bottom-left-radius: var(--borderRadius, 0.2rem);
+
+		outline: 0.1rem solid var(--dropdownBorder, #c0c0c0);
+
+		background-color: var(--dropdownBg, #f0f0f0);
+
 		box-shadow: #00000033 0.2rem 0.2rem 1rem;
 	}
 
 	.option {
 		width: 100%;
-		background-color: inherit;
-		outline: none;
-		border: none;
-		padding: 0.75rem;
+		min-height: 2.5rem;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+
+		padding: 0.75rem;
+
+		background-color: inherit;
+		color: inherit;
+
+		outline: none;
+		border: none;
+		
 		cursor: pointer;
-		min-height: 2.5rem;
+		
 		transition: all ease-in-out 0.1s;
-		color: inherit;
+
+		&.selected {
+			filter: brightness(75%);
+		}
+
+		&.keyboard-hover {
+			filter: brightness(75%);
+		}
+
+		&:hover {
+			filter: brightness(85%);
+		}
 	}
 
-	.option.selected {
-		filter: brightness(75%);
-	}
 
-	.option.keyboard-hover {
-		filter: brightness(75%);
-	}
-
-	.option:hover {
-		filter: brightness(85%);
-	}
-
-	span {
-		max-width: calc(100% - 2rem);
-		text-overflow: ellipsis;
-		overflow: hidden;
-		text-align: left;
-		white-space: nowrap;
-		pointer-events: none;
-		color: inherit;
-		font: var(--dropdownFontOption, 400 0.75rem sans-serif)
-	}
-
-	.arrow {
-		width: 1rem;
-		height: 1rem;
-		pointer-events: none;
-		fill: var(--dropdownText, #161616);
-		stroke: var(--dropdownText, #161616);
-	}
 </style>

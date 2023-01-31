@@ -22,62 +22,6 @@
 
 <style lang="scss">
 
-	input {
-		display: none;
-	}
-
-	.checkboxWrapper.checked {
-		width: 1.2rem;
-		height: 1.2rem;
-		border-radius: 1.5rem;
-		background-color: var(--checkboxSelected, #99003b);
-		border: none;
-	}
-
-	.checkboxWrapper:not(.checked):hover{
-		border: var(--checkboxSelected, #bf5383) solid 0.2rem;
-	}
-
-	.checkboxWrapper {
-		width: 1.2rem;
-		height: 1.2rem;
-		border-radius: 1.5rem;
-		border: var(--checkboxUnselected, #bf5383) solid 0.2rem;
-		background-color: transparent;
-		cursor: pointer;
-		transition: all linear 0.2s;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0.2rem;
-	}
-
-		&.checked {
-			background-color: var(--checkboxSelected, #99003b);
-			border: none;
-		}
-
-	}
-
-	.customCheckmark {
-		width: auto;
-		height: 100%;
-		aspect-ratio: 1;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-
-		&.animate {
-			animation: fillAnimation ease-in-out 0.2s;
-		}
-		
-		svg{
-			fill: transparent;
-			stroke: transparent;
-		}
-	}
-
 	@keyframes fillAnimation {
 		0% {
 			opacity: 0.5;
@@ -89,11 +33,8 @@
 		}
 	}
 
-	.checked svg {
-		width: 100%;
-		height: 100%;
-		fill: var(--checkboxCheck, #ffffff);
-		stroke: var(--checkboxCheck, #ffffff);
+	input {
+		display: none;
 	}
 
 	.wrapper {
@@ -101,4 +42,64 @@
 		flex-direction: row;
 		align-items: center;
 	}
+
+	.checkboxWrapper {
+		width: 1.2rem;
+		height: 1.2rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		padding: 0.2rem;
+
+		background-color: transparent;
+
+		border-radius: 1.5rem;
+		border: var(--checkboxUnselected, #bf5383) solid 0.2rem;
+
+		cursor: pointer;
+
+		transition: all linear 0.2s;
+		
+		&:not(.checked):hover {
+			border: var(--checkboxSelected, #bf5383) solid 0.2rem;
+		}
+
+		&.checked {
+			background-color: var(--checkboxSelected, #99003b);
+			border: none;
+
+			svg {
+				fill: var(--checkboxCheck, #ffffff);
+				stroke: var(--checkboxCheck, #ffffff);
+			}
+		}
+
+	}
+
+	.customCheckmark {
+		width: auto;
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		aspect-ratio: 1;
+
+		&.animate {
+			animation: fillAnimation ease-in-out 0.2s;
+		}
+		
+		svg{
+			width: 100%;
+			height: 100%;
+
+			fill: transparent;
+			stroke: transparent;
+		}
+	}
+
 </style>
