@@ -38,18 +38,4 @@
 	<div style="margin:0rem 1.5rem 0rem 1rem; width:100%; display: flex; flex-direction:row; align-items:center; justify-content:space-between;">
 	</div>
 </Navbar>
-<div class="contentWrapper">
-	<slot></slot>
-</div>
-
-<style>
-	.contentWrapper {
-		position: absolute;
-		top:3.5rem;
-		width: 100%;
-		height: fit-content;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-</style>
+<slot></slot>
