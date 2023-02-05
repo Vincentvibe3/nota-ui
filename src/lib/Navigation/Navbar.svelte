@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from "svelte";
-	let transparent:boolean = true;
-	let show:boolean=true;
+	let transparent = true;
+	let show=true;
 	let lastScrollPosition=0;
-	export let alwaysOpaque:boolean=true;
+	export let alwaysOpaque=true;
 
 	const dispatch = createEventDispatcher();
 
 	onMount(()=>{
 		lastScrollPosition=window.scrollY
-		window.addEventListener("scroll", (e)=>{
+		window.addEventListener("scroll", (_)=>{
 			if ((window.scrollY) == 0) {
         		// you're at the top of the page
 				show=true

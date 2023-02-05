@@ -4,10 +4,10 @@
 	export let htmlElement: HTMLInputElement | undefined = undefined;
 
 	/** Name of the checkbox for forms*/
-	export let name: string = "";
+	export let name = "";
 
 	/** Checked status of the checkbox */
-	export let checked:boolean = false;
+	export let checked = false;
 
 	const onClick = () => {
 		checked = !checked;

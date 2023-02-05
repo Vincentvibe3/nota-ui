@@ -7,15 +7,15 @@
 	/**
 	 * Name of the input for forms
 	 */
-	export let name: string = "";
+	export let name = "";
 	/**
 	 * Value of the radio button for forms.
 	 */
-	export let value: string = "";
+	export let value = "";
 	/**
 	 * Current value of radio button group will be stored here.
 	 */
-	export let group: any;
+	export let group: unknown;
 
 	const onClick = () => {
 		if (htmlElement != null) {

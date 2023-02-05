@@ -7,7 +7,7 @@ interface ComponentProp {
   kind: "let" | "const" | "function";
   constant: boolean;
   type?: string;
-  value?: any;
+  value?: unknown;
   description?: string;
   isFunction: boolean;
   isFunctionDeclaration: boolean;
@@ -32,7 +32,7 @@ interface ForwardedEvent {
 interface DispatchedEvent {
   type: "dispatched";
   name: string;
-  detail?: any;
+  detail?: unknown;
   description?: string;
 }
 
@@ -79,11 +79,9 @@ export interface ParsedComponent {
 <script lang="ts">
 	import CodeBlock from '$lib/Other/CodeBlock.svelte';
 	import Header from '$lib/Other/Header.svelte';	
-	import Separator from '$lib/Other/Separator.svelte';	
 	import Link from '$lib/Other/Link.svelte';
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
-	import Checkbox from '$lib/Input/Checkbox.svelte';
 	import BackToTop from '$lib/Navigation/BackToTop.svelte';
 	export let data: PageData;
 	let componentData:ParsedComponent = data.componentData
@@ -110,7 +108,7 @@ export interface ParsedComponent {
 		<li><Link href="#preview">Preview</Link></li>
 		<li><Link href="#props">Props</Link></li>
 		<li><Link href="#restprops">$$RestProps</Link></li>
-		<li><Link href="#slots">Slots</Link></li>
+		<li><Link href="#slots">Sls</Link></li>
 		<li><Link href="#events">Events</Link></li>
 	</ul>
 	
@@ -139,7 +137,7 @@ export interface ParsedComponent {
 				<th class="type"><CodeBlock>{prop.type}</CodeBlock></th>
 				<th>{prop.isRequired}</th>
 				<th>{prop.reactive}</th>
-				{#if prop.value==undefined || prop.value=="\"\"" || prop.value=="\'\'"}
+				{#if prop.value==undefined || prop.value=="\"\"" || prop.value=="''"}
 					<th></th>
 				{:else}
 					<th>{prop.value}</th>
@@ -219,10 +217,6 @@ export interface ParsedComponent {
 
 	.type{
 		white-space:pre;
-	}
-
-	th + th{
-		/* border-left: var(--n400) solid 0.15rem; */
 	}
 
 	.subtitle {

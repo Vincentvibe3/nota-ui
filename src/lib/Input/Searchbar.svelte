@@ -8,12 +8,11 @@
 	let optionsWrapper: HTMLDivElement;
 	let active = false;
 	let dropdownWrapper:HTMLDivElement;
-	let selectionChosen: boolean = false;
-	let submit: boolean = false;
+	let selectionChosen = false;
+	let submit = false;
 	let textInputHtmlElement: HTMLInputElement;
-	export let htmlElement: HTMLSelectElement | null = null;
-	export let suggestions: Array<any> = [];
-	export let placeholder: string = '';
+	export let suggestions: Array<string> = [];
+	export let placeholder = '';
 	const dispatch = createEventDispatcher();
 
 	const selectOption = (optionText: string) => {

@@ -2,15 +2,15 @@
 	import { onMount } from "svelte";
 
 	// either loading, complete or error
-	export let status:string="loading";
+	export let status="loading";
 
-	export let indeterminate:boolean=true;
+	export let indeterminate=true;
 	/**
 	 * Progress expressed as a number between 0 and 1
 	 */
-	export let progress:number = 0.5;
+	export let progress = 0.5;
 
-	let loaded:boolean = false
+	let loaded = false
 
 	const animateCallback = () => {
 		if (progress==1){

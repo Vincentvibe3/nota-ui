@@ -4,7 +4,7 @@
 	import Backdrop from "../Other/Backdrop.svelte";
 	import { fade } from "svelte/transition";
 
-	export let show:boolean=true;
+	export let show=true;
 
 	let sidebar:HTMLButtonElement;
 

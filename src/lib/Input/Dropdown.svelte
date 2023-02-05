@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	let mounted = false;
-	let optionText: string = '';
+	let optionText = '';
 	let dropdownWrapper: HTMLDivElement;
 	let keyboardNavSelect = 0;
 	let active = false;
@@ -117,7 +117,7 @@
 	<button on:click={onClick} class="dropdown_impl" class:active>
 		<span>{optionText}</span>
 		{#if active}
-			<svg on:click={onClick} class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="48 160 128 80 208 160" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
+			<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="48 160 128 80 208 160" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		{:else}
 			<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="208 96 128 176 48 96" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		{/if}
@@ -194,6 +194,10 @@
 		background-color: var(--dropdownBg, #f0f0f0);
 
 		cursor: pointer;
+
+		svg {
+			pointer-events: none;
+		}
 
 		&:focus {
 			outline-color: var(--dropdownBorderFocus, #99003b);

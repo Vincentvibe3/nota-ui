@@ -4,7 +4,7 @@
 	/** Button type for styling. Can be either "primary", "secondary", "tertiary" or "danger" */
 	export let type: "primary" | "secondary" | "tertiary" | "danger" = "primary";
 	/** Disabled state of the button */
-	export let disabled:boolean=false;
+	export let disabled=false;
 	
 </script>
 <!-- 

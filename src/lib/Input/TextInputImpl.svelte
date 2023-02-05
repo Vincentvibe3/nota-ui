@@ -2,14 +2,14 @@
 	import { createEventDispatcher } from 'svelte';
 
 	export let htmlElement: HTMLInputElement | null = null;
-	export let name: string = '';
-	export let valid: Boolean | null = null;
+	export let name = '';
+	export let valid: boolean | null = null;
 	export let placeholder = '';
 	export let text: string;
-	export let type: string = 'text';
+	export let type = 'text';
 
-	let focused:boolean=false;
-	export let shadowOnFocus:boolean=false;
+	let focused=false;
+	export let shadowOnFocus=false;
 
 
 	const dispatch = createEventDispatcher();

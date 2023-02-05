@@ -52,7 +52,7 @@
 		let c = v - Math.min(r, g, b)
 		let l = v - (c / 2)
 
-		let hue: number=0;
+		let hue=0;
 		if (c === 0) {
 			hue = 0
 		} else if (v === r) {

@@ -18,19 +18,17 @@
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
 	let passwordInput: HTMLInputElement;
-	let validInput: Boolean | undefined = undefined;
+	let validInput: boolean | undefined = undefined;
 	let text: string;
 	let searchText = '';
 	let placeholder = 'Enter text here';
 	let checked = false;
-	let group = 'loading';
 	let count = 0;
-	let status:string="loading";
+	let status="loading";
 	let showPassword = false;
 	let searchSuggestAll: string[] = ['Option 1','abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
 	let searchSuggest: string[] = [];
 	let loadButton1=false;
-	let openSidebar=false;
 	let modalOpen=false;
 
 	const click = () => {
@@ -38,7 +36,7 @@
 		loadButton1=!loadButton1
 	};
 
-	const searchInput = (event: any) => {
+	const searchInput = (event: CustomEvent<{text:string}>) => {
 		searchSuggest = searchSuggestAll.filter((value) => value.startsWith(event.detail.text));
 	};
 
@@ -62,9 +60,6 @@
 		showPassword = !showPassword;
 	};
 
-	const toggleSidebar = () =>{
-		openSidebar=!openSidebar
-	}
 </script>
 <!-- <Header 
 	class="mainheader"

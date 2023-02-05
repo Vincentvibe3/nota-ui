@@ -8,11 +8,11 @@
 	/**
 	 * Name of the input for forms.
 	 */
-	export let name: string = "";
+	export let name = "";
 	/**
 	 * Boolean to style input field when contents are valid.
 	 */
-	export let valid: Boolean | undefined = undefined;
+	export let valid: boolean | undefined = undefined;
 	/**
 	 * Placeholder text when nothing was typed.
 	 */
@@ -24,9 +24,9 @@
 	/**
 	 * Toggle to switch to plain text instead of password input.
 	 */
-	export let showText: boolean = false;
+	export let showText = false;
 
-	let type: string = 'password';
+	let type = 'password';
 
 	$: if (showText) {
 		type = 'text';

@@ -5,7 +5,7 @@
 
 	export let htmlElement:HTMLAnchorElement|null=null
 	export let href:string;
-	export let multiline:boolean = false;
+	export let multiline = false;
 	export let closeOnClick = true;
 
 	const {page} = getStores()

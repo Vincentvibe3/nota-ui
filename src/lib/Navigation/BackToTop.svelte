@@ -2,15 +2,15 @@
 	import Button from "$lib/Other/Button.svelte";
 	import { onMount } from "svelte";
 
-	export let position:string="right";
-	let show:boolean=false;
+	export let position="right";
+	let show=false;
 	let styles=""
 
 	onMount(()=>{
 		if($$restProps.style!==undefined){
 			styles=$$restProps.style
 		}
-		window.addEventListener("scroll", (e)=>{
+		window.addEventListener("scroll", (_)=>{
 			if ((window.scrollY)==0) {
 				show=false
     		} else {
