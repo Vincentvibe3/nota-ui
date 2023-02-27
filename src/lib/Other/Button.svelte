@@ -17,13 +17,14 @@
 	class:secondary={type=="secondary"&&!disabled}
 	class:tertiary={type=="tertiary"&&!disabled}
 	class:danger={type=="danger"&&!disabled}
+	class:consistentPadding={!$$slots.default&&$$slots.icon}
 	id={$$restProps.id} 
 	disabled={disabled} 
 	{...$$restProps}
 	bind:this={htmlElement} 
 	on:click>
 	{#if $$slots.icon}
-		<div class="iconWrapper">
+		<div class="iconWrapper" class:iconOnly={!$$slots.default}>
 			<slot name="icon"/>
 		</div>
 	{/if}
@@ -59,6 +60,14 @@
 		cursor: pointer;
 
 		transition: all ease-in-out 0.2s;
+
+		&.consistentPadding {
+			width: fit-content;
+			height: fit-content;
+			padding:  min(0.5rem, 40%);
+			aspect-ratio: 1 / 1;
+			border-radius: 50%;
+		}
 	
 		&:disabled {
 			background-color: var(--btnDisabledBg, #f0f0f0);
@@ -99,6 +108,10 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
+
+		&.iconOnly {
+			margin: 0px;
+		}
 	
 		& :global( * ) {
 			height: auto;
