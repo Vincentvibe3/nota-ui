@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let noPadding:boolean = false;
+	export let noPadding = false;
 </script>
 <slot name="header"></slot>
 <section class:noPadding class="container">
