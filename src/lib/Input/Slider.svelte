@@ -21,14 +21,15 @@
 
 </script>
 <div class="wrapper">
-	<div class="bg">
+	<div class="inputWrapper">
+		<div class="bg"></div>
 		<div class="fg" style:width="{percentage}%"></div>
 		<input 
-		class="slider"
-		type="range" 
-		min={min} 
-		max={max}
-		bind:value={value}>
+			class="slider"
+			type="range" 
+			min={min} 
+			max={max}
+			bind:value={value}>
 	</div>
 	<NumberInput bind:text={value} maxDigits={max.toString().length}></NumberInput>
 </div>
@@ -42,25 +43,65 @@
 		margin: 1rem 0rem;
 	}
 
-	.bg {
+	.inputWrapper {
 		position: relative;
 		display: block;
 		width: 100%;
 		height: 0.25rem;
-		background: #f0f0f0;
-		border-radius: 1rem;
 		margin-right: 1rem;
+		transition: transform 0.2s ease-in-out, height 0.2s ease-in-out, top 0.2s ease-in-out;
+
+		&:hover {
+
+			.bg, .fg {
+				height: 300%;
+			}
+
+			// .bg {
+			// 	border-radius: 300vh;
+			// }
+
+			// .fg {
+			// 	border-radius: 300vh 0rem 0rem 300vh;
+			// }
+
+			input {
+
+				height: 300%;
+
+				&::-webkit-slider-thumb, &::-moz-range-thumb{
+					height: 150%;
+					width: 1.5rem;
+					// border-radius: 1.5vh 0rem 0rem 1.5vh;
+				}
+			}
+			
+		}
+	}
+
+	.bg {
+		position: absolute;
+		top:0px;
+		display: block;
+		width: 100%;
+		height: 0.25rem;
+		background: #f0f0f0;
+		border-radius: 100vh;
+		transition: inherit;
 	}
 
 	.fg {
 		position: absolute;
+		top:0px;
 		height: 100%;
 		background: #c0c0c0;
-		border-radius: 1rem 0rem 0rem 1rem;
+		border-radius: 100vh 0rem 0rem 100vh;
+		transition: inherit;
 	}
 
 	.slider {
 		position: absolute;
+		top:0px;
 		margin: 0px;
 		-webkit-appearance: none;
 		appearance: noneXX;
@@ -68,8 +109,10 @@
 		width:100%;
 		background-color: #00000000;
 		outline: none;
+		transition: transform 0.2s ease-in-out, height 0.2s ease-in-out, top 0.2s ease-in-out, width 0.2s ease-in-out;
 
 		&:hover{
+
 			&::-webkit-slider-thumb {
 				background: var(--p800);
 				border: 0.15rem solid var(--p700);
@@ -93,6 +136,7 @@
 			cursor: pointer;
 			border: 0.15rem solid var(--p600);
 			border-radius: 2rem;
+			transition: inherit;
 		}
 
 		&::-moz-range-thumb {
@@ -104,6 +148,7 @@
 			cursor: pointer;
 			border: 0.15rem solid var(--p600);
 			border-radius: 2rem;
+			transition: inherit;
 		}
 	}
 </style>
