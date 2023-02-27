@@ -14,6 +14,7 @@
 	import TextArea from '$lib/Input/TextArea.svelte';
 	import Footer from '$lib/Other/Footer.svelte';
 	import Link from '$lib/Other/Link.svelte';
+	import Slider from '$lib/Input/Slider.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -262,6 +263,7 @@
 	</Button>
 	<label for="modal">TextArea</label>
 	<TextArea placeholder="Placeholder" bind:text={text}></TextArea>
+	<Slider min={0} max={1000000} value={10}></Slider>
 	<BackToTop style="height:3rem;"></BackToTop>
 	<p>This is a paragraph with a link to the 
 		<Link href="/components" arrow>components</Link>

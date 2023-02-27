@@ -4,8 +4,9 @@
 	export let name = '';
 	export let valid: boolean | null = null;
 	export let placeholder = '';
-	export let text: string;
+	export let text: number;
 	export let shadowOnFocus=false;
+	export let maxDigits:number;
 </script>
 
 <TextInputImpl
@@ -20,9 +21,10 @@
 	bind:text
 	bind:name
 	bind:valid
+	bind:maxLength={maxDigits}
 	bind:placeholder
 	bind:shadowOnFocus
-	type="text"
+	type="number"
 	on:click
 	on:iconRightClick
 	on:input>

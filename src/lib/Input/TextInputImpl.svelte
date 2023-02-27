@@ -5,9 +5,9 @@
 	export let name = '';
 	export let valid: boolean | null = null;
 	export let placeholder = '';
-	export let text: string;
+	export let text: string | number;
 	export let type = 'text';
-
+	export let maxLength = -1;
 	let focused=false;
 	export let shadowOnFocus=false;
 
@@ -61,6 +61,22 @@
 			name={name}
 			type="text"
 			bind:this={htmlElement} />
+	{:else if type == 'number'}
+		<input
+			class:padLeft={$$slots.iconleft}
+			on:keyup
+			on:keydown
+			on:submit
+			on:focus={onFocus}
+			on:focusout={onFocusOut}
+			bind:value={text}
+			placeholder={placeholder}
+			on:input
+			on:click
+			name={name}
+			style:width="{maxLength+1}em"
+			type="number"
+			bind:this={htmlElement} />
 	{:else if type == 'password'}
 		<input
 			class:padLeft={$$slots.iconleft}
@@ -105,6 +121,12 @@
 			color: var(--inputPlaceholderText, #606060);
 		}
 	}
+
+	input[type='number']{
+    	width: 4em;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+	} 
 
 	.iconWrapperLeft {
 		position: relative;
@@ -175,7 +197,7 @@
 	.wrapper {
 		position: relative;
 
-		min-width: fit-content;
+		// min-width: fit-content;
 
 		display: flex;
 		flex-direction: row;
