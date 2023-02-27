@@ -47,14 +47,16 @@
 		position: relative;
 		display: block;
 		width: 100%;
-		height: 0.25rem;
+		height: 0.4rem;
 		margin-right: 1rem;
 		transition: transform 0.2s ease-in-out, height 0.2s ease-in-out, top 0.2s ease-in-out;
 
 		&:hover {
 
+			transform: translateY(-50%);
+
 			.bg, .fg {
-				height: 300%;
+				height: 200%;
 			}
 
 			// .bg {
@@ -67,11 +69,10 @@
 
 			input {
 
-				height: 300%;
+				height: 200%;
 
 				&::-webkit-slider-thumb, &::-moz-range-thumb{
 					height: 150%;
-					width: 1.5rem;
 					// border-radius: 1.5vh 0rem 0rem 1.5vh;
 				}
 			}
@@ -84,7 +85,7 @@
 		top:0px;
 		display: block;
 		width: 100%;
-		height: 0.25rem;
+		height: 100%;
 		background: #f0f0f0;
 		border-radius: 100vh;
 		transition: inherit;
@@ -95,7 +96,7 @@
 		top:0px;
 		height: 100%;
 		background: #c0c0c0;
-		border-radius: 100vh 0rem 0rem 100vh;
+		border-radius: 100vh 100vh;
 		transition: inherit;
 	}
 
@@ -128,7 +129,7 @@
 	
 
 		&::-webkit-slider-thumb {
-			width: 1rem;
+			width: auto;
 			display: block;
 			aspect-ratio: 1;
 			height: 300%;
@@ -140,10 +141,10 @@
 		}
 
 		&::-moz-range-thumb {
-			width: 1rem;
+			width: auto;
 			display: block;
-			aspect-ratio: 1;
-			height: 300%;
+			aspect-ratio: 5 / 4;
+			height: 250%;
 			background: var(--p700);
 			cursor: pointer;
 			border: 0.15rem solid var(--p600);
