@@ -10,7 +10,7 @@
 		width: calc(100% - 6rem);
 		display: flex;
 		flex-direction: row;
-		padding: 3rem;
+		padding: var(--contentPadding, 3rem);
 		justify-content: space-between;
 		flex-wrap: wrap;
 		gap: 3rem;

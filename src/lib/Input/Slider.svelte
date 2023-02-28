@@ -31,7 +31,9 @@
 			max={max}
 			bind:value={value}>
 	</div>
-	<NumberInput bind:text={value} maxDigits={max.toString().length}></NumberInput>
+	{#if showValue}
+		<NumberInput bind:text={value} maxDigits={max.toString().length}></NumberInput>
+	{/if}
 </div>
 <style lang="scss">
 
@@ -96,7 +98,7 @@
 		top:0px;
 		height: 100%;
 		background: #c0c0c0;
-		border-radius: 100vh 100vh;
+		border-radius: 100vh 0px 0px 100vh;
 		transition: inherit;
 	}
 

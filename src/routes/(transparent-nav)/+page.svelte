@@ -279,7 +279,8 @@
 	</Button>
 	<label for="modal">TextArea</label>
 	<TextArea placeholder="Placeholder" bind:text={text}></TextArea>
-	<Slider min={0} max={1000000} value={10}></Slider>
+	<Slider min={0} max={10} value={5}></Slider>
+	<Slider min={0} max={1000000} value={8000} showValue></Slider>
 	<BackToTop style="height:3rem;"></BackToTop>
 	<p>This is a paragraph with a link to the 
 		<Link href="/components" arrow>components</Link>

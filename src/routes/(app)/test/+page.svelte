@@ -6,7 +6,7 @@
 </script>
 <Header></Header>
 <ContentGrid>
-	<ContentContainer type="column">
+	<ContentContainer direction="column">
 		<p>Paragraph</p>
 		<p>Paragraph</p>
 		<p>Paragraph</p>
