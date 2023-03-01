@@ -2,18 +2,19 @@
 	export let noPadding = false;
 </script>
 <slot name="header"></slot>
-<section class:noPadding class="container">
+<div class:noPadding class="container">
 	<slot></slot>
-</section>
+</div>
 <style lang="scss">
 	.container {
-		width: calc(100% - 6rem);
+		width: 100%;
 		display: flex;
 		flex-direction: row;
 		padding: var(--contentPadding, 3rem);
 		justify-content: space-between;
 		flex-wrap: wrap;
 		gap: 3rem;
+		box-sizing: border-box;
 
 		&.noPadding{
 			padding: 0px;

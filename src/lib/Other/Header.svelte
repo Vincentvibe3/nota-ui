@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-	export let img:string="";
-	export let video:string=""
-	export let alt:string="";
+	export let img="";
+	export let video=""
+	export let alt="";
 	// Text position
-	export let position:string="left";
+	export let position="left";
 
 	let videoElement:HTMLVideoElement|undefined = undefined;
 	let videoPaused = false

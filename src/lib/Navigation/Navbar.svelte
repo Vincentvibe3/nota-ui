@@ -89,6 +89,8 @@
 		align-items: center;
 		justify-content: start;
 
+		backdrop-filter: blur(10px);
+
 		z-index: 3;
 
 		color: var(--navText, #f0f0f0);
@@ -113,7 +115,7 @@
 
 		background-color: var(--navBg, #b3386b);
 
-		opacity: 0.95;
+		opacity: 0.85;
 
 		z-index: -1;
 

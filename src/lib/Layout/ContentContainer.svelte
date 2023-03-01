@@ -9,12 +9,17 @@
 		width:100%;
         flex-grow: 1;
         flex-basis: 0;
+		display: flex;
 		align-content: space-between;
 		justify-content: space-between;
+		align-items: start;
+		justify-items: start;
+		flex-direction: column;
 
 		&.row {
 			width:100%;
 			flex-basis: unset;
+			flex-direction: row;
 		}
     }
 </style>

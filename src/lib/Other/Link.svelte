@@ -1,9 +1,10 @@
 <script lang="ts">
 	export let href:string;
-	export let arrow:boolean=false;
+	export let arrow = false;
 	export let target:string|undefined = undefined
 	export let rel:string|undefined = undefined
-	export let referrerpolicy:ReferrerPolicy|undefined = undefined
+	export let referrerpolicy: "" | "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "same-origin" | "strict-origin" | "strict-origin-when-cross-origin" | "unsafe-url" 
+		= ""
 	export let ping:string|undefined = undefined
 	export let hreflang:string|undefined = undefined
 	export let download:string|undefined = undefined

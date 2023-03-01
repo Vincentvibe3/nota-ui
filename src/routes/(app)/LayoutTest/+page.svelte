@@ -1,6 +1,8 @@
 <script lang="ts">
     import TextInput from '$lib/Input/TextInput.svelte';
 	import Card from '$lib/Layout/Card.svelte';
+    import CardLink from '$lib/Layout/CardLink.svelte';
+    import CardButton from '$lib/Layout/CardButton.svelte';
 	import ContentContainer from '$lib/Layout/ContentContainer.svelte';
     import ContentGrid from '$lib/Layout/ContentGrid.svelte';
 	import Header from '$lib/Other/Header.svelte';
@@ -14,9 +16,24 @@
             <p>Hello</p>
             <Link href="/">This is a link</Link>
         </Card>
-        <Card --cardMargin="2rem">
+        <CardLink
+        href="/"
+        --cardMargin="2rem">
             <img style="height:10rem;" slot="image" src="https://images.unsplash.com/photo-1677530248533-59eb53c30df5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"/>
             <p style="margin-top:0px;">Hello</p>
+            <Link href="/" arrow>This is a link</Link>
+        </CardLink>
+        <CardButton 
+        --cardMargin="2rem" 
+        on:click={()=>{
+            alert("card clicked")
+        }}
+        >
+            <p>Hello</p>
+            <Link href="/">This is a link</Link>
+        </CardButton>
+        <Card>
+            <p>Hello</p>
             <Link href="/">This is a link</Link>
         </Card>
     </ContentContainer>
