@@ -16,14 +16,13 @@
 	}|undefined = undefined
 	export let margin:string
 </script>
+<!-- Do not insert another anchor in if tag is <a> it will break -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <svelte:element {...anchorConfig} style:margin on:click this={tag} class="bg" class:highlightable>
 	<slot name="image"></slot>
-	<ContentGrid --contentPadding="1.5rem">
-		<ContentContainer direction={direction}>
+		<ContentContainer --margin="1.5rem" direction={direction}>
 			<slot></slot>
 		</ContentContainer>
-	</ContentGrid>
 </svelte:element>
 
 <style lang="scss">
