@@ -4,16 +4,28 @@
 
 	export let direction: "row"|"column" = "column"
 	export let highlightable = false
-
+	export let tag:"button"|"div"|"a"="div"
+	export let anchorConfig:{
+		href:string,
+		target:string|undefined,
+		rel:string|undefined,
+		referrerpolicy: "" | "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "same-origin" | "strict-origin" | "strict-origin-when-cross-origin" | "unsafe-url" ,
+		ping:string|undefined,
+		hreflang:string|undefined,
+		download:string|undefined, 
+	}|undefined = undefined
+	export let margin:string
 </script>
-<div class="bg" class:highlightable>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<svelte:element {...anchorConfig} style:margin on:click this={tag} class="bg" class:highlightable>
 	<slot name="image"></slot>
 	<ContentGrid --contentPadding="1.5rem">
 		<ContentContainer direction={direction}>
 			<slot></slot>
 		</ContentContainer>
 	</ContentGrid>
-</div>
+</svelte:element>
+
 <style lang="scss">
 
 	.highlightable {
@@ -23,6 +35,12 @@
 		&:hover{
 			background-color: var(--n400);
 		}
+	}
+
+	a.bg{
+		display:block;
+		text-decoration: none;
+		color: inherit;
 	}
 	
 	.bg {

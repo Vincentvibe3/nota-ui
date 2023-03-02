@@ -1,17 +1,8 @@
 <script>
 	import CardImpl from "./CardImpl.svelte";
-
+	export let margin = ""
 </script>
-<button on:click>
-	<CardImpl highlightable>
-		<slot name="image" slot="image"></slot>
-		<slot></slot>
-	</CardImpl>
-</button>
-<style lang="scss">
-	button {
-		border: 0px;
-		width: 100%;
-		background-color: transparent;
-	}
-</style>
+<CardImpl margin={margin} on:click highlightable tag="button">
+	<slot name="image" slot="image" />
+	<slot/>
+</CardImpl>

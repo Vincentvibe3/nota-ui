@@ -15,6 +15,8 @@
 		align-items: start;
 		justify-items: start;
 		flex-direction: column;
+		box-sizing: border-box;
+		padding: var(--margin, 0rem);
 
 		&.row {
 			width:100%;
