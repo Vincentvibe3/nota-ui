@@ -19,7 +19,6 @@
 	ping:ping,
 	hreflang:hreflang,
 	download:download}} 
-	margin={margin}
 	highlightable tag="a">
 		<slot name="image" slot="image" />
 		<slot/>
