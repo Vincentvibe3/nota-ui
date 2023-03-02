@@ -1,7 +1,7 @@
 <script>
 	import { Header } from "$lib";
 	import ContentContainer from "$lib/Layout/ContentContainer.svelte";
-	import ContentGrid from "$lib/Layout/ContentGrid.svelte";
+	import ContentGrid from "$lib/Layout/PageContentLayout.svelte";
 
 </script>
 <Header></Header>

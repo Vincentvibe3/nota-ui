@@ -1,6 +1,5 @@
 <script lang="ts">
 	import ContentContainer from "./ContentContainer.svelte";
-	import ContentGrid from "./ContentGrid.svelte";
 
 	export let direction: "row"|"column" = "column"
 	export let highlightable = false

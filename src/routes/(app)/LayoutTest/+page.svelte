@@ -4,7 +4,7 @@
     import CardLink from '$lib/Layout/CardLink.svelte';
     import CardButton from '$lib/Layout/CardButton.svelte';
 	import ContentContainer from '$lib/Layout/ContentContainer.svelte';
-    import ContentGrid from '$lib/Layout/ContentGrid.svelte';
+    import ContentGrid from '$lib/Layout/PageContentLayout.svelte';
 	import Header from '$lib/Other/Header.svelte';
 	import Link from '$lib/Other/Link.svelte';
 
