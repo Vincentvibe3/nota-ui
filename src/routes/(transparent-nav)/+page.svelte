@@ -1,21 +1,15 @@
 <script lang="ts">
-	import Button from '$lib/Other/Button.svelte';
-	import Checkbox from '$lib/Input/Checkbox.svelte';
-	import Dropdown from '$lib/Input/Dropdown.svelte';
-	import PasswordInput from '$lib/Input/PasswordInput.svelte';
-	import Radio from '$lib/Input/Radio.svelte';
-	import Searchbar from '$lib/Input/Searchbar.svelte';
-	import ProgressRing from '$lib/Other/ProgressRing.svelte';
-	import TextInput from '$lib/Input/TextInput.svelte';
-	import Header from '$lib/Other/Header.svelte';
-	import Modal from '$lib/Other/Modal.svelte';
-	import BackToTop from '$lib/Navigation/BackToTop.svelte';
-	import Separator from '$lib/Other/Separator.svelte';
-	import TextArea from '$lib/Input/TextArea.svelte';
-	import Footer from '$lib/Other/Footer.svelte';
-	import Link from '$lib/Other/Link.svelte';
-	import Slider from '$lib/Input/Slider.svelte';
-	import IconButton from '$lib/Other/IconButton.svelte';
+	import Button from '../../lib/Button/Button.svelte';
+	import Checkbox from '$lib/Checkbox/Checkbox.svelte';
+	import Dropdown from '$lib/Dropdown/Dropdown.svelte';
+	import PasswordInput from '$lib/TextInput/PasswordInput.svelte';
+	import Radio from '$lib/Radio/Radio.svelte';
+	import {TextInput, Searchbar, BackToTop, Separator, TextArea, Header, Modal} from '$lib';
+	import Footer from '$lib/Layout/Footer.svelte';
+	import ProgressRing from '$lib/ProgressRing/ProgressRing.svelte';
+	import Link from '$lib/Text/Link.svelte';
+	import Slider from '$lib/Slider/Slider.svelte';
+	import IconButton from '../../lib/Button/IconButton.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -107,7 +101,7 @@
 	</PasswordInput>
 	<label for="radio">Button</label>
 	<div style="display: flex; flex-direction:row;">
-		<Button class="preview-primary" style="height:3rem; margin-right: 1rem;" type="primary" on:click={click} bind:htmlElement={button}>
+		<Button class="preview-primary" style="height:3rem; margin-right: 1rem;" buttonStyle="primary" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}
 					<ProgressRing bind:status={status} style="--spinnerBgError:var(--p800);--spinnerBgComplete:var(--p800); --spinnerIcon:var(--n100);"></ProgressRing>
@@ -117,17 +111,17 @@
 			</div>
 			I was pressed {count} times
 		</Button>
-		<Button style="height:3rem; margin-right:1rem;" type="secondary" on:click={click} bind:htmlElement={button}>
+		<Button style="height:3rem; margin-right:1rem;" buttonStyle="secondary" on:click={click} bind:htmlElement={button}>
 			<ProgressRing bind:status={status} slot="icon" size="1.5rem" ></ProgressRing>
 			Secondary
 		</Button>
-		<Button style="height:3rem; margin-right:1rem;" type="tertiary" on:click={click} bind:htmlElement={button}>
+		<Button style="height:3rem; margin-right:1rem;" buttonStyle="tertiary" on:click={click} bind:htmlElement={button}>
 			Tertiary
 		</Button>
-		<Button style="height:3rem; margin-right:1rem;" type="danger" on:click={click} bind:htmlElement={button}>
+		<Button style="height:3rem; margin-right:1rem;" buttonStyle="danger" on:click={click} bind:htmlElement={button}>
 			Danger
 		</Button>
-		<Button disabled style="height:3rem; margin:0rem;" type="danger" on:click={click} bind:htmlElement={button}>
+		<Button disabled style="height:3rem; margin:0rem;" buttonStyle="danger" on:click={click} bind:htmlElement={button}>
 			Disabled
 		</Button>
 		<IconButton on:click={click}>
@@ -208,7 +202,7 @@
 		<ProgressRing bind:status id="mainspinner"/>
 		<Button 
 			style="margin-left: 1rem;"
-			type="primary" 
+			buttonStyle="primary" 
 			on:click={()=>{
 				status="loading"
 			}} 
@@ -218,7 +212,7 @@
 		</Button>
 		<Button 
 			style="margin-left: 1rem;"
-			type="primary" 
+			buttonStyle="primary" 
 			on:click={()=>{
 				status="error"
 			}} 
@@ -228,7 +222,7 @@
 		</Button>
 		<Button 
 			style="margin-left: 1rem;"
-			type="primary" 
+			buttonStyle="primary" 
 			on:click={()=>{
 				status="complete"
 			}} 
@@ -261,7 +255,7 @@
 		<p>Hello from the modal!</p>
 		<TextInput style="width:30rem;" text=""></TextInput>
 		<div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
-			<Button type="secondary" on:click={()=>{modalOpen=false}}>
+			<Button style="secondary" on:click={()=>{modalOpen=false}}>
 				Cancel
 			</Button>
 			<Button on:click={()=>{modalOpen=false}}>
@@ -270,7 +264,7 @@
 		</div>
 	</Modal>
 	<Button 
-		type="primary" 
+		style="primary" 
 		on:click={()=>{
 			modalOpen=!modalOpen
 		}} 

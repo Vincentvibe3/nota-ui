@@ -1,6 +1,6 @@
 <script lang="ts">
-	import TextInput from "$lib/Input/TextInput.svelte";
-    import Button from '$lib/Other/Button.svelte'
+	import TextInput from "$lib/TextInput/TextInput.svelte";
+    import Button from '../../../lib/Button/Button.svelte'
     let text = ""
     let valid:boolean|undefined;
     

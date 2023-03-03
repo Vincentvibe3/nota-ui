@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ContentContainer from "./ContentContainer.svelte";
+	import ContentContainer from "../Layout/ContentContainer.svelte";
 
 	export let direction: "row"|"column" = "column"
 	export let highlightable = false

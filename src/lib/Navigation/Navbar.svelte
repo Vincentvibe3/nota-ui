@@ -27,7 +27,7 @@
 	}
 
 </script>
-<div id={$$restProps.id} style={$$restProps.style} class:bar={true} class={$$restProps.class} class:show={show}>
+<div id={$$restProps.id} style={$$restProps.style} class:bar={true} class={$$restProps.class} class:transparent={transparent&&!alwaysOpaque} class:show={show}>
 	<div class:transparent={transparent&&!alwaysOpaque} class="bg"></div>
 	<button on:click={onTitleClick} class="titleWrapper">
 		<slot name="icon"></slot>
@@ -101,6 +101,10 @@
 
 		transform: translateY(-100%);
 
+		&.transparent{
+			backdrop-filter: unset;
+		}
+
 		&.show, &:focus-visible, &:focus-within{
 			transform: translateY(0%);
 			transform: translateY(0%);
@@ -115,7 +119,7 @@
 
 		background-color: var(--navBg, #b3386b);
 
-		opacity: 0.85;
+		opacity: 0.8;
 
 		z-index: -1;
 

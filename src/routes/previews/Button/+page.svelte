@@ -1,6 +1,6 @@
 <script>
 
-	import Button from "$lib/Other/Button.svelte";
+	import Button from "../../../lib/Button/Button.svelte";
 
     let count = 0
 
@@ -16,17 +16,17 @@
     </div>
     <div class="buttonContainer">
         <p>Secondary</p>
-        <Button on:click={onClick} type="secondary">Clicked {count} times</Button>
+        <Button on:click={onClick} buttonStyle="secondary">Clicked {count} times</Button>
     </div>
 
     <div class="buttonContainer">
         <p>Tertiary</p>
-        <Button on:click={onClick} type="tertiary">Clicked {count} times</Button>
+        <Button on:click={onClick} buttonStyle="tertiary">Clicked {count} times</Button>
     </div>
 
     <div class="buttonContainer">
         <p>Danger</p>
-        <Button on:click={onClick} type="danger">Clicked {count} times</Button>
+        <Button on:click={onClick} buttonStyle="danger">Clicked {count} times</Button>
     </div>
 
     <div class="buttonContainer">

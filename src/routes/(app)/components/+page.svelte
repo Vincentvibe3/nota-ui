@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Header from '$lib/Other/Header.svelte';	
-	import Link from '$lib/Other/Link.svelte';
+	import {Header} from '$lib';	
+	import Link from '$lib/Text/Link.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>

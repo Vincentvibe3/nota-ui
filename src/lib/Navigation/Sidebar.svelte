@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from "svelte";
 	import { writable } from "svelte/store";
-	import Backdrop from "../Other/Backdrop.svelte";
+	import {Backdrop} from "../Backdrop";
 	import { fade } from "svelte/transition";
 
 	export let show=true;

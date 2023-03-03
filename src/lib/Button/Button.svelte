@@ -2,9 +2,12 @@
 	/** Native <button> element */
 	export let htmlElement: HTMLButtonElement | undefined = undefined;
 	/** Button type for styling. Can be either "primary", "secondary", "tertiary" or "danger" */
-	export let type: "primary" | "secondary" | "tertiary" | "danger" = "primary";
+	export let buttonStyle: "primary" | "secondary" | "tertiary" | "danger" = "primary";
 	/** Disabled state of the button */
 	export let disabled=false;
+	/** <button> element's type */
+	export let type:"button" | "reset" | "submit" | null | undefined
+		="button"
 	
 </script>
 <!-- 
@@ -13,13 +16,14 @@
 	- type: "primary | secondary | tertitary | danger"
 -->
 <button 
-	class:primary={type=="primary"&&!disabled}
-	class:secondary={type=="secondary"&&!disabled}
-	class:tertiary={type=="tertiary"&&!disabled}
-	class:danger={type=="danger"&&!disabled}
+	class:primary={buttonStyle=="primary"&&!disabled}
+	class:secondary={buttonStyle=="secondary"&&!disabled}
+	class:tertiary={buttonStyle=="tertiary"&&!disabled}
+	class:danger={buttonStyle=="danger"&&!disabled}
 	class:consistentPadding={!$$slots.default&&$$slots.icon}
 	id={$$restProps.id} 
 	disabled={disabled} 
+	type={type}
 	{...$$restProps}
 	bind:this={htmlElement} 
 	on:click>

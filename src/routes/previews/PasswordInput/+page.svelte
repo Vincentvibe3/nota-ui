@@ -1,6 +1,6 @@
 <script lang="ts">
-	import PasswordInput from "$lib/Input/PasswordInput.svelte";
-    import Button from '$lib/Other/Button.svelte'
+	import PasswordInput from "$lib/TextInput/PasswordInput.svelte";
+    import Button from '../../../lib/Button/Button.svelte'
     let text = ""
     let valid:boolean|undefined;
     let showPassword=false;

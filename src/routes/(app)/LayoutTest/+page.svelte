@@ -1,12 +1,12 @@
 <script lang="ts">
-    import TextInput from '$lib/Input/TextInput.svelte';
-	import Card from '$lib/Layout/Card.svelte';
-    import CardLink from '$lib/Layout/CardLink.svelte';
-    import CardButton from '$lib/Layout/CardButton.svelte';
+    import {TextInput} from '$lib';
+	import Card from '$lib/Card/Card.svelte';
+    import CardLink from '$lib/Card/CardLink.svelte';
+    import CardButton from '$lib/Card/CardButton.svelte';
 	import ContentContainer from '$lib/Layout/ContentContainer.svelte';
     import ContentGrid from '$lib/Layout/PageContentLayout.svelte';
-	import Header from '$lib/Other/Header.svelte';
-	import Link from '$lib/Other/Link.svelte';
+	import {Header} from '$lib';
+	import Link from '$lib/Text/Link.svelte';
 
 </script>
 <ContentGrid>
@@ -24,7 +24,6 @@
             <p style="margin-top:0px;">Hello</p>
         </CardLink>
         <CardButton 
-        margin="2rem" 
         on:click={()=>{
             alert("card clicked")
         }}

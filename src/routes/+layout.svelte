@@ -1,12 +1,10 @@
 <script lang="ts">
-	import Searchbar from "$lib/Input/Searchbar.svelte";
-	import Navbar from "$lib/Navigation/Navbar.svelte";
+	import {Searchbar} from "$lib";
 	import Sidebar from "$lib/Navigation/Sidebar.svelte";
 	import SidebarLink from "$lib/Navigation/SidebarLink.svelte";
 	import SidebarSlot from "$lib/Navigation/SidebarSlot.svelte";
-	import Button from "$lib/Other/Button.svelte";
+	import Button from "../lib/Button/Button.svelte";
 	import { sidebarState } from "$lib/stores";
-	import { writable } from "svelte/store";
 
 	let button: HTMLButtonElement;
 	let searchText = '';

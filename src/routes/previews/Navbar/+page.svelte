@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Checkbox from "$lib/Input/Checkbox.svelte";
+	import Checkbox from "$lib/Checkbox/Checkbox.svelte";
     import Navbar from "$lib/Navigation/Navbar.svelte";
 
     let icon:boolean = true

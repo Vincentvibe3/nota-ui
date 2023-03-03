@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from '$lib/Other/Header.svelte';
+	import {Header} from '$lib';
 </script>
 <Header>Typography</Header>
 <main>

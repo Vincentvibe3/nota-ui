@@ -1,5 +1,5 @@
 <script lang="ts">
-	import NumberInput from "./NumberInput.svelte";
+	import {NumberInput} from "../TextInput";
 
 	export let min:number
 	export let max:number

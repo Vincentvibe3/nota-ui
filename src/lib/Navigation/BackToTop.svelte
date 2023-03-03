@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from "$lib/Other/Button.svelte";
+	import {Button}from "../Button";
 	import { onMount } from "svelte";
 
 	export let position="right";

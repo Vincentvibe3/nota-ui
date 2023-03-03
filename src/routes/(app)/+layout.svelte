@@ -1,10 +1,5 @@
 <script lang="ts">
-	import Searchbar from "$lib/Input/Searchbar.svelte";
 	import Navbar from "$lib/Navigation/Navbar.svelte";
-	import Sidebar from "$lib/Navigation/Sidebar.svelte";
-	import SidebarLink from "$lib/Navigation/SidebarLink.svelte";
-	import SidebarSlot from "$lib/Navigation/SidebarSlot.svelte";
-	import Button from "$lib/Other/Button.svelte";
 	import { sidebarState } from "$lib/stores";
 
 

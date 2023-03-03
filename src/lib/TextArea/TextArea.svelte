@@ -6,7 +6,6 @@
 	export let valid: boolean | null = null;
 	export let placeholder = '';
 	export let text: string;
-	export let type = 'text';
 
 	let focused=false;
 	export let shadowOnFocus=false;

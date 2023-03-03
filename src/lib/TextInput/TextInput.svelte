@@ -1,12 +1,11 @@
 <script lang="ts">
-	import TextInputImpl from './TextInputImpl.svelte';
+	import TextInputImpl from "./TextInputImpl.svelte"
 	export let htmlElement: HTMLInputElement | null = null;
 	export let name = '';
 	export let valid: boolean | null = null;
 	export let placeholder = '';
-	export let text: number;
+	export let text: string;
 	export let shadowOnFocus=false;
-	export let maxDigits:number;
 </script>
 
 <TextInputImpl
@@ -21,10 +20,9 @@
 	bind:text
 	bind:name
 	bind:valid
-	bind:maxLength={maxDigits}
 	bind:placeholder
 	bind:shadowOnFocus
-	type="number"
+	type="text"
 	on:click
 	on:iconRightClick
 	on:input>

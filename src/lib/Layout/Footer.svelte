@@ -1,7 +1,7 @@
 <script lang="ts">
 
 	// Text position
-	export let position:string="left";
+	export let position="left";
 
 </script>
 <div id={$$restProps.id} class:wrapper={true} class={$$restProps.class} style={$$restProps.style}>

@@ -10,7 +10,7 @@
 
 </script>
 <Button
-	bind:type
+	bind:buttonStyle={type}
 	bind:disabled
 	bind:htmlElement
 	on:click>

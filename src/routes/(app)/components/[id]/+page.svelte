@@ -77,9 +77,9 @@ export interface ParsedComponent {
 }
 </script>
 <script lang="ts">
-	import CodeBlock from '$lib/Other/CodeBlock.svelte';
-	import Header from '$lib/Other/Header.svelte';	
-	import Link from '$lib/Other/Link.svelte';
+	import CodeBlock from '$lib/Text/CodeBlock.svelte';
+	import { Header }from '$lib';	
+	import Link from '$lib/Text/Link.svelte';
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
 	import BackToTop from '$lib/Navigation/BackToTop.svelte';

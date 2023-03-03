@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Backdrop from "./Backdrop.svelte";
+	import {Backdrop} from "../Backdrop";
 
-	export let open:boolean=false;
-	export let strict:boolean=false;
+	export let open=false;
+	export let strict=false;
 
 </script>
 <div class="wrapper" class:show={open}>

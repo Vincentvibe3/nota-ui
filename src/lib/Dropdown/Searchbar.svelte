@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import TextInput from './TextInput.svelte';
+	import {TextInput} from '../TextInput';
 
 	let mounted = false;
 	export let text = '';
