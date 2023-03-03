@@ -16,7 +16,14 @@
 	$: if (value.toString() == ""){
 		percentage=50
 	} else {
-		percentage = (value-min)/(max-min)*100
+		let truePercentage = (value-min)/(max-min)*100
+		// Prevent the edge of the value indicator from 
+		// showing under the thumb
+		if (truePercentage<50){
+			percentage = truePercentage+1
+		} else {
+			percentage = truePercentage-1
+		}
 	}
 
 </script>
