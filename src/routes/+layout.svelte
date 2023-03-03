@@ -6,7 +6,6 @@
 	import Button from "../lib/Button/Button.svelte";
 	import { sidebarState } from "$lib/stores";
 
-	let button: HTMLButtonElement;
 	let searchText = '';
 	let searchSuggestAll: string[] = ['abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
 	let searchSuggest: string[] = [];
@@ -17,17 +16,13 @@
 	$:openSidebar=$sidebarState
 
 
-	const searchInput = (event: any) => {
+	const searchInput = (event: {detail:{text:string}}) => {
 		searchSuggest = searchSuggestAll.filter((value) => value.startsWith(event.detail.text));
 	};
 
 	const clearInput2 = () => {
 		searchText = '';
 	};
-
-	const toggleSidebar = () =>{
-		openSidebar=!openSidebar
-	}
 
 </script>
 <svelte:head>

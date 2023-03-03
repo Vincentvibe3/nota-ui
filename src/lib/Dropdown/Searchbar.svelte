@@ -1,3 +1,6 @@
+<script context="module" lang="ts">
+	
+</script>
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
 	import {TextInput} from '../TextInput';
@@ -13,7 +16,12 @@
 	let textInputHtmlElement: HTMLInputElement;
 	export let suggestions: Array<string> = [];
 	export let placeholder = '';
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<
+		{
+			input:{text:string}, 
+			optionClick:{text:string},
+			submit:{text:string}
+	}>();
 
 	const selectOption = (optionText: string) => {
 		text = optionText;

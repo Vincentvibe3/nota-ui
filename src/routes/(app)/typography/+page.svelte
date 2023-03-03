@@ -48,10 +48,6 @@
 		font:var(--body2)
 	}
 
-	main label {
-		font: var(--caption);
-		margin: 0.75rem 0rem;
-	}
 	main .buttons{
 		font:var(--buttons);
 	}

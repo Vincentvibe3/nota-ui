@@ -2,23 +2,6 @@
 	import Navbar from "$lib/Navigation/Navbar.svelte";
 	import { sidebarState } from "$lib/stores";
 
-
-	let button: HTMLButtonElement;
-	let searchText = '';
-	let searchSuggestAll: string[] = ['abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
-	let searchSuggest: string[] = [];
-	let openSidebar=false;
-	let modalOpen=false;
-
-
-	const searchInput = (event: any) => {
-		searchSuggest = searchSuggestAll.filter((value) => value.startsWith(event.detail.text));
-	};
-
-	const clearInput2 = () => {
-		searchText = '';
-	};
-
 	const toggleSidebar = () =>{
 		$sidebarState = !$sidebarState
 	}

@@ -16,8 +16,6 @@
 		active = !active;
 	};
 
-	
-
 	onMount(() => {
 		mounted = true;
 		if (htmlElement != null) {
