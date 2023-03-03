@@ -102,7 +102,7 @@
 	</PasswordInput>
 	<label for="radio">Button</label>
 	<div style="display: flex; flex-direction:row;">
-		<Button class="preview-primary" style="height:3rem; margin-right: 1rem;" buttonStyle="primary" on:click={click} bind:htmlElement={button}>
+		<Button  class="preview-primary" style="height:3rem; margin-right: 1rem;" buttonStyle="primary" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}
 					<ProgressRing bind:status={status} style="--spinnerBgError:var(--p800);--spinnerBgComplete:var(--p800); --spinnerIcon:var(--n100);"></ProgressRing>

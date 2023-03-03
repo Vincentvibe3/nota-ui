@@ -2,7 +2,7 @@
 	import Checkbox from "$lib/Checkbox/Checkbox.svelte";
     import Navbar from "$lib/Navigation/Navbar.svelte";
 
-    let icon:boolean = true
+    let icon = true
     let opaque = false
 </script>
 {#if icon}

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Radio } from "$lib";
-    import Header from "$lib/Other/Header.svelte";
+    import {Header} from "$lib";
 
-    let status:string="video"
+    let status="video"
     let position="left"
 </script>
 <div class="bg"></div>

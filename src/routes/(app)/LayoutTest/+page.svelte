@@ -1,16 +1,65 @@
 <script lang="ts">
-    import {TextInput} from '$lib';
+    import { TextInput, Header } from '$lib';
 	import Card from '$lib/Card/Card.svelte';
     import CardLink from '$lib/Card/CardLink.svelte';
     import CardButton from '$lib/Card/CardButton.svelte';
 	import ContentContainer from '$lib/Layout/ContentContainer.svelte';
     import ContentGrid from '$lib/Layout/PageContentLayout.svelte';
-	import {Header} from '$lib';
 	import Link from '$lib/Text/Link.svelte';
+	import { Table } from '$lib/Table';
+	import TableRow from '$lib/Table/TableRow.svelte';
+	import TableCell from '$lib/Table/TableCell.svelte';
+	import TableHeader from '$lib/Table/TableHeader.svelte';
+
+    let tableData = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
 
 </script>
 <ContentGrid>
     <Header slot="header">Test page</Header>
+    <ContentContainer direction="row">
+        <Table>
+            <TableHeader>
+                <TableCell isHeader>
+                    Header
+                </TableCell>
+                <TableCell isHeader>
+                    Header
+                </TableCell>
+            </TableHeader>
+            <TableRow>
+                <TableCell>
+                    Hello
+                </TableCell>
+                <TableCell>
+                    World
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>
+                    Hello
+                </TableCell>
+                <TableCell>
+                    World
+                </TableCell>
+            </TableRow>
+        </Table>
+        <Table data={tableData}>
+            <TableHeader slot="header">
+                <TableCell isHeader>
+                    Header
+                </TableCell>
+                <TableCell isHeader>
+                    Header
+                </TableCell>
+                <TableCell isHeader>
+                    Header
+                </TableCell>
+            </TableHeader>
+        </Table>
+    </ContentContainer>
     <ContentContainer>
         <Card>
             <p>Hello</p>

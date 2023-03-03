@@ -1,11 +1,10 @@
 <script lang="ts">
 	import Checkbox from "$lib/Checkbox/Checkbox.svelte";
-import TextInput from "$lib/TextArea/TextInput.svelte";
 	import Button from "../../../lib/Button/Button.svelte";
-	import Modal from "$lib/Other/Modal.svelte";
+	import {Modal, TextInput} from "$lib";
 
-    let modalOpen:boolean = false;
-    let strict:boolean=false
+    let modalOpen = false;
+    let strict=false
 
 </script>
 <div class="preview">

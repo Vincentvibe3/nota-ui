@@ -21,6 +21,7 @@ export {
 export { Modal } from './Modal'
 export { Separator } from './Separator'
 export { TextArea } from './TextArea'
+
 // Export Types
 export type {
 	SearchInputEvent,
