@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {Searchbar} from "$lib";
+	import {Searchbar, type SearchInputEvent} from "$lib";
 	import Sidebar from "$lib/Navigation/Sidebar.svelte";
 	import SidebarLink from "$lib/Navigation/SidebarLink.svelte";
 	import SidebarSlot from "$lib/Navigation/SidebarSlot.svelte";
@@ -16,7 +16,7 @@
 	$:openSidebar=$sidebarState
 
 
-	const searchInput = (event: {detail:{text:string}}) => {
+	const searchInput = (event: CustomEvent<SearchInputEvent>) => {
 		searchSuggest = searchSuggestAll.filter((value) => value.startsWith(event.detail.text));
 	};
 

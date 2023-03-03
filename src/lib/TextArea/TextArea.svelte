@@ -11,7 +11,7 @@
 	export let shadowOnFocus=false;
 
 
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{focus:void}>();
 
 	const onFocus = () => {
 		if (valid == null) {

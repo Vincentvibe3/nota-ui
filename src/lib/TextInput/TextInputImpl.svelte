@@ -12,7 +12,7 @@
 	export let shadowOnFocus=false;
 
 
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{focus:void, iconRightClick:void}>();
 
 	const onFocus = () => {
 		if (valid == null) {

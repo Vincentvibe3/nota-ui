@@ -1,5 +1,13 @@
 <script context="module" lang="ts">
-	
+	export interface SearchSubmitEvent {
+		text:string
+	}
+	export interface SearchOptionClickEvent {
+		text:string
+	}
+	export interface SearchInputEvent {
+		text:string
+	}
 </script>
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
@@ -18,9 +26,9 @@
 	export let placeholder = '';
 	const dispatch = createEventDispatcher<
 		{
-			input:{text:string}, 
-			optionClick:{text:string},
-			submit:{text:string}
+			input:SearchInputEvent, 
+			optionClick:SearchOptionClickEvent,
+			submit:SearchSubmitEvent
 	}>();
 
 	const selectOption = (optionText: string) => {

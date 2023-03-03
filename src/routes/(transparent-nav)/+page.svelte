@@ -10,6 +10,7 @@
 	import Link from '$lib/Text/Link.svelte';
 	import Slider from '$lib/Slider/Slider.svelte';
 	import IconButton from '../../lib/Button/IconButton.svelte';
+	import type { SearchInputEvent } from '$lib';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -32,7 +33,7 @@
 		loadButton1=!loadButton1
 	};
 
-	const searchInput = (event: CustomEvent<{text:string}>) => {
+	const searchInput = (event: CustomEvent<SearchInputEvent>) => {
 		searchSuggest = searchSuggestAll.filter((value) => value.startsWith(event.detail.text));
 	};
 

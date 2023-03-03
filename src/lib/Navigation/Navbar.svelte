@@ -1,3 +1,4 @@
+
 <script lang="ts">
 	import { createEventDispatcher, onMount } from "svelte";
 	let transparent = true;
@@ -5,7 +6,9 @@
 	let lastScrollPosition=0;
 	export let alwaysOpaque=true;
 
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<
+		{onTitleClick:void}
+	>();
 
 	onMount(()=>{
 		lastScrollPosition=window.scrollY
@@ -22,8 +25,8 @@
 		})
 	})
 
-	const onTitleClick = (event:MouseEvent) => {
-		dispatch("onTitleClick", {event:event})
+	const onTitleClick = () => {
+		dispatch("onTitleClick")
 	}
 
 </script>
