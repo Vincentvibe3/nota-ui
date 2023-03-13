@@ -4,7 +4,7 @@
     import CardLink from '$lib/Card/CardLink.svelte';
     import CardButton from '$lib/Card/CardButton.svelte';
 	import ContentContainer from '$lib/Layout/ContentContainer.svelte';
-    import ContentGrid from '$lib/Layout/PageContentLayout.svelte';
+    import Scaffold from '$lib/Layout/Scaffold.svelte';
 	import Link from '$lib/Text/Link.svelte';
 	import { Table } from '$lib/Table';
 	import TableRow from '$lib/Table/TableRow.svelte';
@@ -17,7 +17,7 @@
     ]
 
 </script>
-<ContentGrid>
+<Scaffold>
     <Header slot="header">Test page</Header>
     <ContentContainer direction="row">
         <Table>
@@ -115,7 +115,7 @@
         <p>Hello long text here</p>
         <TextInput text="" placeholder="p"></TextInput>    
     </ContentContainer>
-</ContentGrid>
+</Scaffold>
 <style>
 
 </style>

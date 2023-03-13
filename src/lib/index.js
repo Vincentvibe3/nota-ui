@@ -13,7 +13,7 @@ export { Checkbox } from './Checkbox'
 export { Dropdown, Searchbar } from './Dropdown'
 export {
 	ContentContainer,
-	PageContentLayout,
+	Scaffold,
 	Header,
 	Footer
 } from './Layout'
