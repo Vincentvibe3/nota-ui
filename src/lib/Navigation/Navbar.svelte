@@ -30,7 +30,7 @@
 	}
 
 </script>
-<div id={$$restProps.id} style={$$restProps.style} class:bar={true} class={$$restProps.class} class:transparent={transparent&&!alwaysOpaque} class:show={show}>
+<div class:bar={true} class:transparent={transparent&&!alwaysOpaque} class:show={show}>
 	<div class:transparent={transparent&&!alwaysOpaque} class="bg"></div>
 	<button on:click={onTitleClick} class="titleWrapper">
 		<slot name="icon"></slot>
@@ -86,6 +86,8 @@
 
 		width: 100vw;
 		height: 3.5rem;
+
+		top:0px;
 
 		display: flex;
 		flex-direction: row;

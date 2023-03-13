@@ -26,7 +26,7 @@
 
 
 <input bind:group={group} value={value} name={name} type="radio" bind:this={htmlElement} />
-<div id={$$restProps.id} style={$$restProps.style} class={$$restProps.class}>	
+<div>	
 	{#if htmlElement!=null}
 		<button
 			type="button"

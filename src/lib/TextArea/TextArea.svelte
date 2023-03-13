@@ -29,12 +29,9 @@
 </script>
 
 <div 
-	id={$$restProps.id} 
 	class:shadow={shadowOnFocus&&focused} 
 	class:focused={focused&&valid==null} 
-	style={$$restProps.style} 
-	class:wrapper={true} 
-	class={$$restProps.class}>
+	class:wrapper={true} >
 		<textarea
 			on:keyup
 			on:keydown

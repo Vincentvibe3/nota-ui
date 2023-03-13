@@ -2,7 +2,7 @@
 	export let show=false;
 </script>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div on:click id={$$restProps.id} class:show={show} class={$$restProps.class} style={$$restProps.style}></div>
+<div on:click class:show={show}></div>
 <style lang="scss">
 	div {
 		position: fixed;

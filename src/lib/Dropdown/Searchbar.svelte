@@ -135,10 +135,8 @@
 </script>
 
 <div
-	id={$$restProps.id}
 	bind:this={dropdownWrapper}
-	style={$$restProps.style}
-	class:wrapper={true} class={$$restProps.class}>
+	class:wrapper={true} >
 	{#if active}
 		<div bind:this={optionsWrapper} class="options">
 			{#each suggestions as option}
@@ -153,7 +151,6 @@
 		</div>
 	{/if}
 	<TextInput
-		style=""
 		shadowOnFocus={true}
 		placeholder={placeholder}
 		on:keydown={handleSubmit}

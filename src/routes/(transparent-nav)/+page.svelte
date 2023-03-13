@@ -65,14 +65,13 @@
 	>
 	Component Preview
 </Header> -->
-<Header style="width:100%;" video="/video2.mp4">
+<Header video="/video2.mp4">
 	Component Preview
 </Header>
 <!-- <Header>Component Preview</Header> -->
 <main>
 	<label for="label">Input</label>
 	<TextInput
-		style="width:100%;"
 		name="input"
 		bind:text
 		bind:placeholder
@@ -85,7 +84,6 @@
 	<label for="label">Password</label>
 	<PasswordInput
 		name="password"
-		style="width:100%;"
 		bind:showText={showPassword}
 		bind:text
 		placeholder="Password"
@@ -102,27 +100,27 @@
 	</PasswordInput>
 	<label for="radio">Button</label>
 	<div style="display: flex; flex-direction:row; align-items:center;w">
-		<Button  class="preview-primary" style="height:3rem; margin-right: 1rem;" buttonStyle="primary" on:click={click} bind:htmlElement={button}>
+		<Button buttonStyle="primary" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}
-					<ProgressRing bind:status={status} style="--spinnerBgError:var(--p800);--spinnerBgComplete:var(--p800); --spinnerIcon:var(--n100);"></ProgressRing>
+					<ProgressRing bind:status={status} --spinnerBgError="var(--p800)" --spinnerBgComplete="var(--p800)" --spinnerIcon="var(--n100)"></ProgressRing>
 				{:else}
 					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
 				{/if}
 			</div>
 			I was pressed {count} times
 		</Button>
-		<Button style="height:3rem; margin-right:1rem;" buttonStyle="secondary" on:click={click} bind:htmlElement={button}>
-			<ProgressRing bind:status={status} slot="icon" size="1.5rem" ></ProgressRing>
+		<Button buttonStyle="secondary" on:click={click} bind:htmlElement={button}>
+			<ProgressRing bind:status={status} slot="icon" ></ProgressRing>
 			Secondary
 		</Button>
-		<Button style="height:3rem; margin-right:1rem;" buttonStyle="tertiary" on:click={click} bind:htmlElement={button}>
+		<Button buttonStyle="tertiary" on:click={click} bind:htmlElement={button}>
 			Tertiary
 		</Button>
-		<Button style="height:3rem; margin-right:1rem;" buttonStyle="danger" on:click={click} bind:htmlElement={button}>
+		<Button buttonStyle="danger" on:click={click} bind:htmlElement={button}>
 			Danger
 		</Button>
-		<Button disabled style="height:3rem; margin:0rem;" buttonStyle="danger" on:click={click} bind:htmlElement={button}>
+		<Button disabled  buttonStyle="danger" on:click={click} bind:htmlElement={button}>
 			Disabled
 		</Button>
 		<IconButton on:click={click}>
@@ -151,7 +149,7 @@
 		</Button> -->
 	</div>
 	<label for="radio">Dropdown</label>
-	<Dropdown class="dropdown">
+	<Dropdown>
 		<option value="0">Select an option:</option>
 		<option value="1">Option 1</option>
 		<option value="2">Option 2</option>
@@ -167,7 +165,7 @@
 		<option value="12">Option 12 very longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</option>
 	</Dropdown>
 	<Separator></Separator>
-	<Dropdown class="dropdown">
+	<Dropdown>
 		<option value="0">Select an option:</option>
 		<option value="1">Option 1</option>
 		<option value="2">Option 2</option>
@@ -200,9 +198,9 @@
 	</form>
 	<label for="radio">Spinner</label>
 	<div style="display: flex; flex-direction:row; align-items:center;">
-		<ProgressRing bind:status id="mainspinner"/>
+		<ProgressRing bind:status/>
 		<Button 
-			style="margin-left: 1rem;"
+			
 			buttonStyle="primary" 
 			on:click={()=>{
 				status="loading"
@@ -212,7 +210,7 @@
 			Set Loading
 		</Button>
 		<Button 
-			style="margin-left: 1rem;"
+			
 			buttonStyle="primary" 
 			on:click={()=>{
 				status="error"
@@ -222,7 +220,7 @@
 			Set Error
 		</Button>
 		<Button 
-			style="margin-left: 1rem;"
+			
 			buttonStyle="primary" 
 			on:click={()=>{
 				status="complete"
@@ -234,7 +232,7 @@
 	</div>
 	<label for="radio">Search Bar</label>
 	<Searchbar
-		id="search"
+		
 		on:submit={() => {
 			alert(`submitted ${searchText}`);
 		}}
@@ -254,9 +252,9 @@
 			Modal Title
 		</svelte:fragment>
 		<p>Hello from the modal!</p>
-		<TextInput style="width:30rem;" text=""></TextInput>
+		<TextInput text=""></TextInput>
 		<div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
-			<Button style="secondary" on:click={()=>{modalOpen=false}}>
+			<Button buttonStyle="secondary" on:click={()=>{modalOpen=false}}>
 				Cancel
 			</Button>
 			<Button on:click={()=>{modalOpen=false}}>
@@ -265,7 +263,7 @@
 		</div>
 	</Modal>
 	<Button 
-		style="primary" 
+		buttonStyle="primary" 
 		on:click={()=>{
 			modalOpen=!modalOpen
 		}} 
@@ -276,17 +274,12 @@
 	<TextArea placeholder="Placeholder" bind:text={text}></TextArea>
 	<Slider min={0} max={10} value={5}></Slider>
 	<Slider min={0} max={1000000} value={8000} showValue></Slider>
-	<BackToTop style="height:3rem;"></BackToTop>
+	<BackToTop></BackToTop>
 	<p>This is a paragraph with a link to the 
 		<Link href="/components" arrow>components</Link>
 		here.
 	</p>
 </main>
-<Footer>
-
-	<h1>Copyright Info</h1>
-
-</Footer>
 <style>
 
 	main label {

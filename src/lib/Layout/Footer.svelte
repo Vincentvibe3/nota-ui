@@ -4,7 +4,7 @@
 	export let position="left";
 
 </script>
-<div id={$$restProps.id} class:wrapper={true} class={$$restProps.class} style={$$restProps.style}>
+<div class:wrapper={true}>
 	<div class="content {position}">
 		<slot></slot>
 	</div>

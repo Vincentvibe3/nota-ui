@@ -1,4 +1,4 @@
-<span id={$$restProps.id} style={$$restProps.style} class={$$restProps.class}></span>
+<span></span>
 <style lang="scss">
 	span {
 		background-color: var(--separatorBg, #c0c0c0);

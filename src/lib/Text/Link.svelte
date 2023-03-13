@@ -16,8 +16,7 @@
 	referrerpolicy={referrerpolicy}
 	ping={ping}
 	hreflang={hreflang}
-	download={download}
-	{...$$restProps} >
+	download={download}>
 	<span><slot></slot></span>
 	{#if arrow}
 		<span class="arrowWrapper">

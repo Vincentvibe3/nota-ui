@@ -27,9 +27,9 @@
 
 </script>
 
-<div id={$$restProps.id} class="wrapper" class:show={show}>
-	<Backdrop on:click={close} bind:show={$showStore} style="z-index:inherit;"></Backdrop>
-	<div style={$$restProps.style} class:sidebar={true}  class={$$restProps.class} class:show={$showStore}>
+<div class="wrapper" class:show={show}>
+	<Backdrop on:click={close} bind:show={$showStore}></Backdrop>
+	<div class:sidebar={true} class:show={$showStore}>
 		{#if show}
 			<button out:fade="{{duration:300}}" bind:this={sidebar} on:click={close} class="close" disabled={!show}>
 				<div style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">

@@ -15,7 +15,7 @@
 </script>
 
 <input bind:checked {name} type="checkbox" bind:this={htmlElement} />
-<div id={$$restProps.id} style={$$restProps.style} class={$$restProps.class} class:wrapper={true}>
+<div class:wrapper={true}>
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper" class:checked={checked}>
 		<div class="customCheckmark" class:animate={checked}>
 			<!-- check icon from phosphor icons -->

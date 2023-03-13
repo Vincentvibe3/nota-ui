@@ -24,7 +24,7 @@
 	$: currentPage=$page.url.href==htmlElement?.href
 
 </script>
-<a id={$$restProps.id} style={$$restProps.style} class={$$restProps.class} on:click={onClick} bind:this={htmlElement} href={href}>
+<a on:click={onClick} bind:this={htmlElement} href={href}>
 	<div class="indicator" class:show={currentPage}></div>
 	<span class:currentPage class:multiline><slot></slot></span>
 </a>

@@ -36,9 +36,6 @@
 </script>
 
 <TextInputImpl
-	style={$$restProps.style}
-	class={$$restProps.class}
-	id={$$restProps.id}
 	on:focus
 	on:keydown
 	on:keyup

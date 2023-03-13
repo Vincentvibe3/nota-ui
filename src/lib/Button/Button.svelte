@@ -21,10 +21,8 @@
 	class:tertiary={buttonStyle=="tertiary"&&!disabled}
 	class:danger={buttonStyle=="danger"&&!disabled}
 	class:consistentPadding={!$$slots.default&&$$slots.icon}
-	id={$$restProps.id} 
 	disabled={disabled} 
 	type={type}
-	{...$$restProps}
 	bind:this={htmlElement} 
 	on:click>
 	{#if $$slots.icon}

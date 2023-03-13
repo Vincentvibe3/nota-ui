@@ -33,14 +33,11 @@
 </script>
 
 <div 
-	id={$$restProps.id} 
 	class:valid={valid} 
 	class:shadow={shadowOnFocus&&focused} 
 	class:invalid={!valid&&valid!=null} 
 	class:focused={focused&&valid==null} 
-	style={$$restProps.style} 
-	class:wrapper={true} 
-	class={$$restProps.class}>
+	class:wrapper={true} >
 	{#if $$slots.iconleft}
 		<div class="iconWrapperLeft">
 			<slot name="iconleft"/>

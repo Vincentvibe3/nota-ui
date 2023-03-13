@@ -27,7 +27,7 @@
 	})
 
 </script>
-<div id={$$restProps.id} class:wrapper={true} class={$$restProps.class} class:noimage={img==""} style={$$restProps.style}>
+<div class:wrapper={true}  class:noimage={img==""} >
 	{#if img!=""}
 		<img alt={alt} src={img}>
 		<div class="gradient" class:noimage={img==""}></div>

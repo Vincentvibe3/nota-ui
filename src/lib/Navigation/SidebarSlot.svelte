@@ -1,4 +1,4 @@
-<div id={$$restProps.id} style={$$restProps.style} class:container={true} class={$$restProps.class}>
+<div class:container={true}>
 	<slot></slot>
 </div>
 <style lang="scss">

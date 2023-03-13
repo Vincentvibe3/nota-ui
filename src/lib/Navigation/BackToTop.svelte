@@ -4,12 +4,8 @@
 
 	export let position="right";
 	let show=false;
-	let styles=""
 
 	onMount(()=>{
-		if($$restProps.style!==undefined){
-			styles=$$restProps.style
-		}
 		window.addEventListener("scroll", (_)=>{
 			if ((window.scrollY)==0) {
 				show=false
@@ -24,17 +20,12 @@
 	}
 </script>
 <div 
-	id={$$restProps.id}
 	class:wrapper={true} 
 	class:left={position=="left"} 
 	class:right={position=="right"} 
 	class:center={position=="center"} 
-	class={$$restProps.class}
 	class:show={show}>
 	<Button 
-		style="
-		{styles}
-		"
 		on:click={toTop}>
 		Back to top
 		<svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>

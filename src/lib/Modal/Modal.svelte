@@ -14,7 +14,7 @@
 			}
 		}}>
 	</Backdrop>
-	<div class:container={true} class:show={open} id={$$restProps.id} class={$$restProps.class} style={$$restProps.style}>
+	<div class:container={true} class:show={open}>
 		{#if !strict}
 			<button class="closeButton" on:click={()=>{open=false}}>
 				<svg style="height:1rem; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>

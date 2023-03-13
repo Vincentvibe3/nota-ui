@@ -95,7 +95,7 @@
 	};
 </script>
 
-<div id={$$restProps.id} bind:this={dropdownWrapper} style={$$restProps.style} class:wrapper={true} class={$$restProps.class}>
+<div bind:this={dropdownWrapper} class:wrapper={true}>
 	<select bind:this={htmlElement}>
 		<slot />
 	</select>

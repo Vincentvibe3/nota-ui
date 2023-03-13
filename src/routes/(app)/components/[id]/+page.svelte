@@ -114,7 +114,7 @@ export interface ParsedComponent {
 	
 	<p id="preview" class="subtitle">Preview</p>
 	<iframe bind:this={iframe} src="/previews/{componentData.moduleName}" title="Preview for {componentData.moduleName}"></iframe>
-	<Link arrow style="margin:1rem 0rem;" target="_blank" href="/previews/{componentData.moduleName}">Open preview in new tab</Link>
+	<Link arrow target="_blank" href="/previews/{componentData.moduleName}">Open preview in new tab</Link>
 	<p id="props" class="subtitle">Props</p>
 	<div class="tablewrapper">
 		<table>

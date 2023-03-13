@@ -32,11 +32,7 @@
 	})
 	
 </script>
-<div 
-	id={$$restProps.id}
-	style={$$restProps.style}
-	class:wrapper={true}
-	class={$$restProps.class}>
+<div class:wrapper={true}>
 	{#if status=="loading"}
 		<div class="spinnerWrapper">
 			<svg class="spinner" class:spin={indeterminate}>
