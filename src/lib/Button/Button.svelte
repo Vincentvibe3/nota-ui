@@ -13,7 +13,7 @@
 <!-- 
 	@component Button 
 
-	- type: "primary | secondary | tertitary | danger"
+	- buttonStyle: "primary | secondary | tertiary | danger"
 -->
 <button 
 	class:primary={buttonStyle=="primary"&&!disabled}
@@ -79,27 +79,16 @@
 
 			border: var(--btnDisabledBorder, #c0c0c0) solid 0.15rem;
 			cursor:not-allowed;
+
+			.iconOnly :global( svg ){
+				fill: var(--btnTertiaryIconFill, #909090);
+				stroke: var(--btnTertiaryIconStroke, #909090);
+			}
 		}
 
 		&:active:not(:disabled) {
 			box-shadow: #00000033 0.2rem 0.2rem 1rem;
 			filter: brightness(85%);
-		}
-
-		&.icon {
-			padding: min(0.5rem, 40%);
-
-			outline: none;
-			border: none;
-			border-radius: 100%;
-
-			background-color: transparent;
-
-			aspect-ratio: 1;
-
-			&:hover{
-				background-color: #3b3b3b26;
-			}
 		}
 		
 	}
@@ -123,6 +112,22 @@
 		}
 	}
 
+	button.icon {
+		padding: min(0.5rem, 40%);
+
+		outline: none;
+		border: none;
+		border-radius: 100%;
+
+		background-color: transparent;
+
+		aspect-ratio: 1;
+
+		&:hover{
+			background-color: #3b3b3b26;
+		}
+	}
+
 	button.tertiary {
 		border: none;
 		color: var(--btnTertiaryText, #b3386b);
@@ -142,12 +147,22 @@
 		&:active {
 			background-color: $tertiaryBgFocus;
 		}
+
+		.iconOnly :global( svg ){
+			fill: var(--btnTertiaryIconFill, #b3386b);
+			stroke: var(--btnTertiaryIconStroke, #b3386b);
+		}
 	}
 
 	button.secondary {
 		border: var(--btnSecondaryBorder, #a31c54) solid 0.1rem;
 		color: var(--btnSecondaryText, #a31c54);
 		background-color: var(--btnSecondaryBg, transparent);
+
+		.iconOnly :global( svg ){
+			fill: var(--btnSecondaryIconFill, #a31c54);
+			stroke: var(--btnSecondaryIconStroke, #a31c54);
+		}
 
 		&:hover {
 			color: $secondaryTextFocus;
@@ -177,6 +192,11 @@
 			background-color: var(--btnPrimaryBgFocus, #99003b);;
 			border: var(--btnPrimaryBorderFocus, #a31c54) solid 0.15rem;
 		}
+
+		.iconOnly :global( svg ){
+			fill: var(--btnPrimaryIconFill, #ffffff);
+			stroke: var(--btnPrimaryIconStroke, #ffffff);
+		}
 	}
 
 	button.danger {
@@ -190,6 +210,11 @@
 			color: var(--btnDangerTextFocus, #ffffff);
 			background-color: var(--btnDangerBgFocus, #db3434);
 			border: var(--btnDangerBorderFocus, #db5c5c) solid 0.15rem;
+		}
+
+		.iconOnly :global( svg ){
+			fill: var(--btnTertiaryIconFill, #ffffff);
+			stroke: var(--btnTertiaryIconStroke, #ffffff);
 		}
 	}
 
