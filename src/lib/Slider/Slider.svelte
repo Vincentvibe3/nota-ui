@@ -68,21 +68,12 @@
 				height: 200%;
 			}
 
-			// .bg {
-			// 	border-radius: 300vh;
-			// }
-
-			// .fg {
-			// 	border-radius: 300vh 0rem 0rem 300vh;
-			// }
-
 			input {
 
 				height: 200%;
 
 				&::-webkit-slider-thumb, &::-moz-range-thumb{
 					height: 150%;
-					// border-radius: 1.5vh 0rem 0rem 1.5vh;
 				}
 			}
 			
@@ -95,7 +86,7 @@
 		display: block;
 		width: 100%;
 		height: 100%;
-		background: #f0f0f0;
+		background: var(--sliderTrackBg, #f0f0f0);
 		border-radius: 100vh;
 		transition: inherit;
 	}
@@ -104,7 +95,7 @@
 		position: absolute;
 		top:0px;
 		height: 100%;
-		background: #c0c0c0;
+		background: var(--sliderTrackBgActive, #c0c0c0);
 		border-radius: 100vh 0px 0px 100vh;
 		transition: inherit;
 	}
@@ -114,24 +105,24 @@
 		top:0px;
 		margin: 0px;
 		-webkit-appearance: none;
-		appearance: noneXX;
+		appearance: none;
 		height: 100%;
 		width:100%;
-		background-color: #00000000;
+		background-color: transparent;
 		outline: none;
 		transition: transform 0.2s ease-in-out, height 0.2s ease-in-out, top 0.2s ease-in-out, width 0.2s ease-in-out;
 
 		&:hover{
 
 			&::-webkit-slider-thumb {
-				background: var(--p800);
-				border: 0.15rem solid var(--p700);
+				background: var(--sliderThumbBgFocus, #b3386b);
+				border: 0.15rem solid var(--sliderThumbBorderFocus, #a31c54);
 				cursor: pointer;
 			}
 
 			&::-moz-range-thumb {
-				background: var(--p800);
-				border: 0.15rem solid var(--p700);
+				background: var(--sliderThumbBgFocus, #b3386b);
+				border: 0.15rem solid var(--sliderThumbBorderFocus, #a31c54);
 				border-radius: 2rem;
 			}
 		}
@@ -142,9 +133,9 @@
 			display: block;
 			aspect-ratio: 1;
 			height: 300%;
-			background: var(--p700);
+			background: var(--sliderThumbBg, #bf5383);
 			cursor: pointer;
-			border: 0.15rem solid var(--p600);
+			border: 0.15rem solid var(--sliderThumbBorder, #b3386b);
 			border-radius: 2rem;
 			transition: inherit;
 		}
@@ -154,9 +145,9 @@
 			display: block;
 			aspect-ratio: 5 / 4;
 			height: 250%;
-			background: var(--p700);
+			background: var(--sliderThumbBg, #bf5383);
 			cursor: pointer;
-			border: 0.15rem solid var(--p600);
+			border: 0.15rem solid var(--sliderThumbBorder, #b3386b);
 			border-radius: 2rem;
 			transition: inherit;
 		}

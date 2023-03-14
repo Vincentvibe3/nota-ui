@@ -10,7 +10,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: row;
-		padding: var(--contentPadding, 3rem);
+		padding: var(--scaffoldPadding, 3rem);
 		justify-content: space-between;
 		flex-wrap: wrap;
 		gap: 3rem;

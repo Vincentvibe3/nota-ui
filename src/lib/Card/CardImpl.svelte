@@ -20,7 +20,7 @@
 	<div class="image-wrapper">
 		<slot name="image"></slot>
 	</div>
-	<ContentContainer --margin="1.5rem" direction={direction}>
+	<ContentContainer --contentContainerPadding="1.5rem" direction={direction}>
 		<slot></slot>
 	</ContentContainer>
 </svelte:element>
@@ -45,7 +45,7 @@
 	.bg {
 		position: relative;
 		background-color: var(--cardBg, #f0f0f0);
-		border-radius: 0.5rem;
+		border-radius: var(--borderRadius, 0.5rem);
 		margin: var(--cardMargin, 1rem);
 		border: 0px;
 		padding: 0px;
@@ -59,7 +59,7 @@
 		.image-wrapper :global( img ){
 			width:100%;
 			object-fit: cover;
-			border-radius: 0.5rem;
+			border-radius: var(--borderRadius, 0.5rem);
 		}
 	}
 </style>

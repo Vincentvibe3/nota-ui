@@ -43,7 +43,7 @@
 		margin-left: 00.4rem;
 		padding: 0.25em;
 
-		background-color: var(--p900);
+		background-color: var(--linkArrowBg, #99003b);
 		border-radius: 5rem;
 
 		aspect-ratio: 1;
@@ -55,8 +55,8 @@
 		width: 100%;
 		height: inherit;
 
-		fill: white;
-		stroke: white;
+		fill: var(--linkArrowFg, white);
+		stroke: var(--linkArrowFg, white);
 	}
 
 	a {
@@ -75,7 +75,7 @@
 		padding-bottom: 00.1rem;
 		
 		font-weight: bold;
-		color: black;
+		color: var(--linkFg, black);
 
 		span:not( .arrowWrapper )::after{
 			position: absolute;
@@ -88,13 +88,13 @@
 
 			display: inline-block;
 
-			background-color: var(--s600);
+			background-color: var(--linkVisitedFg, #535ebf);
 			
 			transform: translateY(0.2rem);
 		}
 
 		&:hover span:not(.arrowWrapper)::after{
-			background-color: var(--p900);
+			background-color: var(--linkFgFocus, #99003b);
 		}
 
 		&:hover .arrowWrapper{
@@ -102,12 +102,11 @@
 		}
 
 		&:hover, &:visited:hover{
-			color: var(--p900);
+			color: var(--linkFgFocus, #99003b);
 		}
 
 		&:visited{
-			color: var(--s600);
-			/* transition: all ease-in-out 0.2s; */
+			color: var(--linkVisitedFg, #535ebf);
 		}
 	}
 </style>

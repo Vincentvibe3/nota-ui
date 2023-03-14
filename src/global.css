@@ -252,6 +252,37 @@
 	--cardBg:var(--n300);
 	--cardBgFocus:var(--n400);
 
+	/* Scaffold */
+	--scaffoldPadding:3rem;
+
+	/* ContentContainer */
+	--contentContainerPadding:0rem;
+
+	/* Slider */
+	--sliderThumbBg:var(--p600);
+	--sliderThumbBgFocus:var(--p700);
+	--sliderThumbBorder:var(--p700);
+	--sliderThumbBorderFocus:var(--p800);
+	--sliderTrackBg:var(--n300);
+	--sliderTrackBgActive:var(--n400);
+
+	/* Table */
+	--tableFont:var(--body);
+	--tableBg:var(-n300);
+	--tableHeaderBg:var(--n400);
+	--tableBorder:var(--n400)
+
+	/* CodeBlock */
+	--codeblockBg:var(--n400);
+
+	/* Link */
+	--linkArrowBg:var(--p900);
+	--linkArrowFg:var(--n100);
+	--linkFg:var(--n900);
+	--linkVisitedFg:var(--s600);
+	--linkFgFocus:var(--p900)
+
+
 }
 
 h1 {

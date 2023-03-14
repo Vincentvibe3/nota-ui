@@ -16,9 +16,9 @@
 </table>
 <style lang="scss">
 	table {
-		font: var(--body);
-		border-radius: var(--borderRadius);
-		background-color: var(--n300);
+		font: var(--tableFont, 400 1rem sans-serif);
+		border-radius: var(--borderRadius, 0.5rem);
+		background-color: var(--tableBg, #f0f0f0);
 		border-collapse: collapse;
 		width: fit-content;
 	}

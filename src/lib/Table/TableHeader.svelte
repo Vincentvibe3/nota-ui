@@ -3,6 +3,6 @@
 </tr>
 <style>
 	tr {
-		background-color: var(--n400);
+		background-color: var(--tableHeaderBg, #c0c0c0);
 	}
 </style>

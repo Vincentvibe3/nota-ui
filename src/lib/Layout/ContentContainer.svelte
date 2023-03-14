@@ -17,7 +17,7 @@
 		justify-items: start;
 		flex-direction: column;
 		box-sizing: border-box;
-		padding: var(--margin, 0rem);
+		padding: var(--contentContainerPadding, 0rem);
 
 		&.reverse{
 			flex-direction: column-reverse;

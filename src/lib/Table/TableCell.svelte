@@ -13,7 +13,6 @@
 <style lang="scss">
 	th, td {
 		text-align: start;
-		/* white-space: nowrap; */
 		padding: 1rem;
 		font-weight: 400;
 	}
