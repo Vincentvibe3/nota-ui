@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Card from "$lib/Card/Card.svelte";
 	import { ContentContainer } from "$lib/Layout";
+	import { fly } from "svelte/transition";
 import {Backdrop} from "../Backdrop";
 
 	export let open=false;
@@ -16,24 +17,26 @@ import {Backdrop} from "../Backdrop";
 			}
 		}}>
 	</Backdrop>
-	<div class="cardWrapper">
-		<Card --cardBg="var(--modalBg)" direction="column">
-			<!-- <div class:container={true} class:show={open}> -->
-				{#if !strict}
-					<ContentContainer reverse --margin="0rem" direction="row">
-						<button class="closeButton" on:click={()=>{open=false}}>
-							<svg style="height:1rem; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
-							<span>Close</span>
-						</button>
+	{#if open}
+		<div transition:fly="{{ y: 100, duration: 500 }}" class="cardWrapper">
+			<Card --cardBg="var(--modalBg)" direction="column">
+				<!-- <div class:container={true} class:show={open}> -->
+					{#if !strict}
+						<ContentContainer reverse --margin="0rem" direction="row">
+							<button class="closeButton" on:click={()=>{open=false}}>
+								<svg style="height:1rem; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+								<span>Close</span>
+							</button>
+						</ContentContainer>
+					{/if}
+					<ContentContainer --margin="0rem">
+						<h4><slot name="title"></slot></h4>
+						<slot></slot>
 					</ContentContainer>
-				{/if}
-				<ContentContainer --margin="0rem">
-					<h4><slot name="title"></slot></h4>
-					<slot></slot>
-				</ContentContainer>
-			<!-- </div> -->
-		</Card>
-	</div>
+				<!-- </div> -->
+			</Card>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -42,6 +45,11 @@ import {Backdrop} from "../Backdrop";
 		// To adjust size and fix stacking context
 		position: absolute;
 		width: 50%;
+		
+		margin-top: 0.5rem;
+		margin-left: 0.5rem;
+		font:var(--modalFont, 400 1rem sans-serif);
+		color:var(--modalText, #161616)
 	}
 
 	.closeButton {
@@ -69,10 +77,6 @@ import {Backdrop} from "../Backdrop";
 		svg{
 			fill:var(--modalCloseText,#161616);
 			stroke:var(--modalCloseText,#161616);
-		}
-
-		.span{
-			margin-left: 0.2rem;
 		}
 
 		&:hover span::after{
@@ -122,42 +126,6 @@ import {Backdrop} from "../Backdrop";
 			opacity: 1;
 			pointer-events: unset;
 		}
-	}
-
-	.container{
-		position: absolute;
-
-		min-width: 15rem;
-		min-height: 10rem;
-
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		justify-content: center;
-
-		background-color: var(--modalBg ,#fafafa);
-
-		margin: 2rem;
-		padding: 1.5rem;
-		padding-top: 1rem;
-		padding-left: 1rem;
-
-		border-radius: var(--borderRadius, 0.2rem);
-		
-		transform: translateY(3rem);
-
-		transition: all ease-in-out 0.2s;
-
-		&.show{
-			transform: translateY(0rem);
-		}
-	}
-
-	.content{
-		margin-top: 0.5rem;
-		margin-left: 0.5rem;
-		font:var(--modalFont, 400 1rem sans-serif);
-		color:var(--modalText, #161616)
 	}
 
 </style>
