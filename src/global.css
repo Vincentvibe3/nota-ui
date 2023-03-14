@@ -248,6 +248,10 @@
 	--backToTopIcon:var(--n200);
 	--backToTopIconFocus:var(--n200);
 
+	/* Card */
+	--cardBg:var(--n300);
+	--cardBgFocus:var(--n400);
+
 }
 
 h1 {

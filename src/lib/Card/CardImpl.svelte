@@ -14,13 +14,15 @@
 		download:string|undefined, 
 	}|undefined = undefined
 </script>
-<!-- Do not insert another anchor in if tag is <a> it will break -->
+<!-- Do not insert another anchor in, if tag is <a> it will break -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <svelte:element {...anchorConfig} on:click this={tag} class="bg" class:highlightable>
-	<slot name="image"></slot>
-		<ContentContainer --margin="1.5rem" direction={direction}>
-			<slot></slot>
-		</ContentContainer>
+	<div class="image-wrapper">
+		<slot name="image"></slot>
+	</div>
+	<ContentContainer --margin="1.5rem" direction={direction}>
+		<slot></slot>
+	</ContentContainer>
 </svelte:element>
 
 <style lang="scss">
@@ -30,7 +32,7 @@
 		cursor: pointer;
 
 		&:hover{
-			background-color: var(--n400);
+			background-color: var(--cardBgFocus, #c0c0c0);
 		}
 	}
 
@@ -41,19 +43,20 @@
 	}
 	
 	.bg {
-		background-color: var(--n300);
+		position: relative;
+		background-color: var(--cardBg, #f0f0f0);
 		border-radius: 0.5rem;
 		margin: var(--cardMargin, 1rem);
 		border: 0px;
 		padding: 0px;
-		width: calc(100% - var(--cardMargin, 1rem));
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: start;
 		
 
-		:global( img ){
+		.image-wrapper :global( img ){
 			width:100%;
 			object-fit: cover;
 			border-radius: 0.5rem;

@@ -20,7 +20,7 @@
 		transition: opacity ease-in-out 0.2s;
 		
 		pointer-events: none;
-
+		
 		&.show{
 			opacity: 0.7;
 			pointer-events: unset;

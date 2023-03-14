@@ -37,6 +37,7 @@
 	class:shadow={shadowOnFocus&&focused} 
 	class:invalid={!valid&&valid!=null} 
 	class:focused={focused&&valid==null} 
+	class:notNumber={maxLength==-1}
 	class:wrapper={true} >
 	{#if $$slots.iconleft}
 		<div class="iconWrapperLeft">
@@ -99,7 +100,6 @@
 
 	input {
 		height: auto;
-
 		flex-grow: 1;
 
 		padding: 0.75rem;
@@ -194,8 +194,6 @@
 	.wrapper {
 		position: relative;
 
-		// min-width: fit-content;
-
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -209,6 +207,10 @@
 		transition: all ease-in-out 0.2s;
 		
 		font: var(--inputFont, 400 0.75rem sans-serif);
+
+		&.notNumber {
+			width: 100%;
+		}
 		
 		&.shadow{
 			box-shadow: #00000033 0.2rem 0.2rem 1rem;

@@ -29,8 +29,8 @@
             Title
         </svelte:fragment>
         <p>Hello from the modal!</p>
-        <TextInput style="width:30rem;" text="" placeholder="placeholder"></TextInput>
-        <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
+        <TextInput text="" placeholder="placeholder"></TextInput>
+        <div style="display:flex; width:100%; flex-direction:row; justify-content:space-between; margin-top:1rem;">
             <Button buttonStyle="secondary" on:click={()=>{modalOpen=false}}>
                 Cancel
             </Button>

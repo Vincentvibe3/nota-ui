@@ -9,7 +9,7 @@
 	export let ping:string|undefined = undefined
 	export let hreflang:string|undefined = undefined
 	export let download:string|undefined = undefined
-	export let margin=""
+	export let direction: "row"|"column" = "column"
 </script>
 <CardImpl anchorConfig={{
 	href:href,
@@ -19,6 +19,7 @@
 	ping:ping,
 	hreflang:hreflang,
 	download:download}} 
+	bind:direction
 	highlightable tag="a">
 		<slot name="image" slot="image" />
 		<slot/>

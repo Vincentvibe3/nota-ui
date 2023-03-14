@@ -253,7 +253,7 @@
 		</svelte:fragment>
 		<p>Hello from the modal!</p>
 		<TextInput text=""></TextInput>
-		<div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
+		<div style="width:100%; display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
 			<Button buttonStyle="secondary" on:click={()=>{modalOpen=false}}>
 				Cancel
 			</Button>
