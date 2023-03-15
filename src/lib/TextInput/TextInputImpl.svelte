@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	export let htmlElement: HTMLInputElement | null = null;
 	export let name = '';
@@ -8,11 +8,27 @@
 	export let text: string | number;
 	export let type = 'text';
 	export let maxLength = -1;
+	export let captureEnter=false
 	let focused=false;
 	export let shadowOnFocus=false;
 
+	const dispatch = createEventDispatcher<{focus:void, iconRightClick:void, enterPressed:void}>();
 
-	const dispatch = createEventDispatcher<{focus:void, iconRightClick:void}>();
+	onMount(()=>{
+		if (htmlElement !== null){
+			htmlElement.onkeyup = onEnterPressed
+		}
+	})
+
+	$: if (!captureEnter){
+		htmlElement?.removeEventListener("keyup")
+	}
+
+	const onEnterPressed = (event:KeyboardEvent)=>{
+		if (event.key === 'Enter' && captureEnter) {
+        	dispatch("enterPressed")
+    	}
+	}
 
 	const onFocus = () => {
 		if (valid == null) {
@@ -30,6 +46,7 @@
 	const onIconRightClick = () => {
 		dispatch('iconRightClick')
 	}
+
 </script>
 
 <div 

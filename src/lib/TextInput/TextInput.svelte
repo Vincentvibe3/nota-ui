@@ -6,6 +6,7 @@
 	export let placeholder = '';
 	export let text: string;
 	export let shadowOnFocus=false;
+	export let captureEnter=false
 </script>
 
 <TextInputImpl
@@ -19,10 +20,12 @@
 	bind:valid
 	bind:placeholder
 	bind:shadowOnFocus
+	bind:captureEnter
 	type="text"
 	on:click
 	on:iconRightClick
-	on:input>
+	on:input
+	on:enterPressed>
 	<slot name="iconleft" slot="iconleft" />
 	<slot name="iconright" slot="iconright" />
 </TextInputImpl>

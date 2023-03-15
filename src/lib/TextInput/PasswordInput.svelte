@@ -33,6 +33,8 @@
 	} else {
 		type = 'password';
 	}
+
+	export let captureEnter=false
 </script>
 
 <TextInputImpl
@@ -44,6 +46,8 @@
 	bind:name
 	bind:valid
 	bind:placeholder
+	bind:captureEnter
+	on:enterPressed
 	type={type}
 	on:click
 	on:iconRightClick
