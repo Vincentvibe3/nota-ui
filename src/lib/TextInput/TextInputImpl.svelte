@@ -21,7 +21,7 @@
 	})
 
 	$: if (!captureEnter){
-		htmlElement?.removeEventListener("keyup")
+		htmlElement?.removeEventListener("keyup", onEnterPressed)
 	}
 
 	const onEnterPressed = (event:KeyboardEvent)=>{
