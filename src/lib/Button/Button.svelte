@@ -1,11 +1,22 @@
 <script lang="ts">
-	/** Native <button> element */
+	/** 
+	 * The underlying <button> 
+	*/
 	export let htmlElement: HTMLButtonElement | undefined = undefined;
-	/** Button type for styling. Can be either "primary", "secondary", "tertiary" or "danger" */
+
+	/** 
+	 * Controls the button's style. Can be either "primary", "secondary", "tertiary" or "danger" 
+	*/
 	export let buttonStyle: "primary" | "secondary" | "tertiary" | "danger" = "primary";
-	/** Disabled state of the button */
+	
+	/** 
+	 * Controls the button's disabled state 
+	 * */
 	export let disabled=false;
-	/** <button> element's type */
+
+	/** 
+	 * Sets the type of the <button> 
+	 * */
 	export let type:"button" | "reset" | "submit" | null | undefined
 		="button"
 	
@@ -13,7 +24,63 @@
 <!-- 
 	@component Button 
 
-	- buttonStyle: "primary | secondary | tertiary | danger"
+	a button for use in forms or with an event
+
+	Props:
+	- buttonStyle ("primary | secondary | tertiary | danger"): Controls the button's style
+	- disabled (boolean): Controls the button's disabled state
+	- type ("button" | "reset" | "submit" | null | undefined): Sets the type of the `<button>`
+	- htmlElement (HTMLButtonElement | undefined): The underlying `<button>`
+
+	Slots:
+	- default: Adds text inside the button
+	- icon: Adds an icon to the left of the text
+
+	Events:
+	- click: passed from the `<button element>`
+
+	Css Variables:
+	- btnFont (default: 600 1rem sans-serif):
+	 
+	- btnPrimaryBg (default: #b3386b):
+	- btnPrimaryBgFocus (default: #99003b):
+	- btnPrimaryBorder (default: #bf5383):
+	- btnPrimaryBorderFocus (default: #a31c54):
+	- btnPrimaryText (default: #ffffff):
+	- btnPrimaryTextFocus (default: #ffffff):
+	- btnPrimaryIconFill (default: #ffffff):
+	- btnPrimaryIconStroke (default: #ffffff):
+ 
+	- btnSecondaryBg (default: transparent):
+	- btnSecondaryBgFocus (default: #f2c2e3):
+	- btnSecondaryText (default: #a31c54):
+	- btnSecondaryTextFocus (default: #b3386b):
+	- btnSecondaryBorder (default: #a31c54):
+	- btnSecondaryIconFill (default: #a31c54):
+	- btnSecondaryIconStroke (default: #a31c54):
+ 
+	- btnTertiaryBg (default: transparent):
+	- btnTertiaryBgFocus (default: #f2c2e3):
+	- btnTertiaryText (default: #b3386b):
+	- btnTertiaryTextFocus (default: #b3386b):
+	- btnTertiaryIconFill (default: #a31c54):
+	- btnTertiaryIconStroke (default: #a31c54):
+ 
+	- btnDisabledBg (default: #f0f0f0):
+	- btnDisabledBorder (default: #c0c0c0):
+	- btnDisabledText (default: #909090):
+	- btnDisabledIconFill (default: #909090):
+	- btnDisabledIconStroke (default: #909090):
+ 
+	- btnDangerText (default: #ffffff):
+	- btnDangerTextFocus (default: #ffffff):
+	- btnDangerBorder (default: #db8484):
+	- btnDangerBg (default: #db5c5c):
+	- btnDangerBgFocus (default: #db3434):
+	- btnDangerBorderFocus (default: #db5c5c):
+	- btnDangerIconFill (default: #ffffff):
+	- btnDangerIconStroke (default: #ffffff):
+ 
 -->
 <button 
 	class:primary={buttonStyle=="primary"&&!disabled}
@@ -79,8 +146,8 @@
 			cursor:not-allowed;
 
 			.iconOnly :global( svg ){
-				fill: var(--btnTertiaryIconFill, #909090);
-				stroke: var(--btnTertiaryIconStroke, #909090);
+				fill: var(--btnDisabledIconFill, #909090);
+				stroke: var(--btnDisabledIconStroke, #909090);
 			}
 		}
 
@@ -131,8 +198,8 @@
 		}
 
 		.iconOnly :global( svg ){
-			fill: var(--btnTertiaryIconFill, #b3386b);
-			stroke: var(--btnTertiaryIconStroke, #b3386b);
+			fill: var(--btnTertiaryIconFill, #a31c54);
+			stroke: var(--btnTertiaryIconStroke, #a31c54);
 		}
 	}
 
@@ -171,7 +238,7 @@
 
 		&:hover, &:focus-visible {
 			color: var(--btnPrimaryTextFocus, #ffffff);
-			background-color: var(--btnPrimaryBgFocus, #99003b);;
+			background-color: var(--btnPrimaryBgFocus, #99003b);
 			border: var(--btnPrimaryBorderFocus, #a31c54) solid 0.15rem;
 		}
 
@@ -195,8 +262,8 @@
 		}
 
 		.iconOnly :global( svg ){
-			fill: var(--btnTertiaryIconFill, #ffffff);
-			stroke: var(--btnTertiaryIconStroke, #ffffff);
+			fill: var(--btnDangerIconFill, #ffffff);
+			stroke: var(--btnDangerIconStroke, #ffffff);
 		}
 	}
 

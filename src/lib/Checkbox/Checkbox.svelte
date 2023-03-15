@@ -1,12 +1,18 @@
 <script lang="ts">
 
-	/** Native checkbox type <input> element */
+	/** 
+	 * Native checkbox type <input> element
+	 */
 	export let htmlElement: HTMLInputElement | undefined = undefined;
 
-	/** Name of the checkbox for forms*/
+	/** 
+	 * Name of the checkbox for forms
+	*/
 	export let name = "";
 
-	/** Checked status of the checkbox */
+	/** 
+	 * Checked status of the checkbox 
+	*/
 	export let checked = false;
 
 	const onClick = () => {
@@ -14,6 +20,22 @@
 	};
 </script>
 
+<!-- 
+	@component Checkbox
+	
+	Checkbox component
+
+	Props:
+	- htmlElement (HTMLInputElement | undefined): Underlying `<input>` element
+	- name (string): Sets the name of the checkbox for forms
+	- checked (boolean): Sets the checked status of the checkbox
+
+	Slots:
+	- default: Sets a label on the right of the checkbox
+
+	Css Variables
+	
+ -->
 <input bind:checked {name} type="checkbox" bind:this={htmlElement} />
 <div class:wrapper={true}>
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper" class:checked={checked}>

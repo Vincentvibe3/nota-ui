@@ -51,3 +51,7 @@ export type {
 	SearchOptionClickEvent,
 	SearchSubmitEvent
 } from "./Dropdown"
+export type {
+	AnchorConfig,
+	ReferrerPolicy
+} from "./Card"

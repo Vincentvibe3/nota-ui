@@ -1,9 +1,24 @@
 <script lang="ts">
 	import ContentContainer from "../Layout/ContentContainer.svelte";
 
+	/**
+	 * Sets the direction of the Card's contents 
+	 */
 	export let direction: "row"|"column" = "column"
+
+	/**
+	 * Controls whether the card can be highlighted on hover
+	 */
 	export let highlightable = false
+
+	/**
+	 * Sets the tag necessary for the various Card variations
+	 */
 	export let tag:"button"|"div"|"a"="div"
+
+	/** 
+	 * Configures the <a> when it it a CardLink 
+	 * */
 	export let anchorConfig:{
 		href:string,
 		target:string|undefined,
@@ -16,6 +31,28 @@
 </script>
 <!-- Do not insert another anchor in, if tag is <a> it will break -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- 
+	@component CardImpl
+
+	Implementation of the various card variants (Card, CardButton, CardLink)
+
+	Props:
+	- direction ("row"|"column"): Sets the direction of the Card's contents 
+	- highlightable (boolean): Controls whether the card can be highlighted on hover
+	- anchorConfig (AnchorConfig|undefined): Configures the `<a>` when it it a CardLink
+	- tag ("button"|"div"|"a"): Sets the tag necessary for the various Card variations
+
+	Slots:
+	- default: Sets the content of the card
+	- image: Sets a header image for the card
+
+	CSS Variables:
+	- cardBg(default:#f0f0f0): Sets the card's background color
+	- cardBgFocus(default:#c0c0c0): Sets the card's background color on hover/focus
+	- borderRadius(default:0.5rem): Sets the border radius of the card
+	- cardMargin(default:1rem): Sets the margin for the card
+
+ -->
 <svelte:element {...anchorConfig} on:click this={tag} class="bg" class:highlightable>
 	<div class="image-wrapper">
 		<slot name="image"></slot>

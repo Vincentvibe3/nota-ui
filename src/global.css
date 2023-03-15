@@ -93,6 +93,8 @@
 	--btnPrimaryBorderFocus: var(--p800);
 	--btnPrimaryText: var(--n200);
 	--btnPrimaryTextFocus: var(--n200);
+	--btnPrimaryIconFill:var(--n100);
+	--btnPrimaryIconStroke:var(--n100);
 
 	/* Button Secondary */
 	--btnSecondaryBg: transparent;
@@ -100,19 +102,23 @@
 	--btnSecondaryText: var(--p800);
 	--btnSecondaryTextFocus: var(--p800);
 	--btnSecondaryBorder: var(--p800);
+	--btnSecondaryIconFill:var(--p800);
+	--btnSecondaryIconStroke:var(--p800);
 
 	/* Button Tertiary */
 	--btnTertiaryBg: transparent;
 	--btnTertiaryBgFocus: var(--p200);
-	--btnTertiaryBgFocus: var(--p200);
 	--btnTertiaryText: var(--p800);
 	--btnTertiaryTextFocus: var(--p800);
+	--btnTertiaryIconFill:var(--p800);
+	--btnTertiaryIconStroke:var(--p800);
 
 	/* Button Disabled */
 	--btnDisabledBg:var(--n300);
-	/* --btnDisabledBorder:var(--n400); */
 	--btnDisabledBorder:transparent;
 	--btnDisabledText:var(--n600);
+	--btnDisabledIconFill:var(--n500);
+	--btnDisabledIconStroke:var(--n500);
 
 	/* Button Danger */
 	--btnDangerText:var(--n200);
@@ -121,12 +127,13 @@
 	--btnDangerBg:var(--e200);
 	--btnDangerBgFocus:var(--e300);
 	--btnDangerBorderFocus:var(--e200);
+	--btnDangerIconFill:var(--n100);
+	--btnDangerIconStroke:var(--n100);
 
 	/* TextInput*/
 	--inputFont:var(--body2);
 	--inputBg:var(--n300);
 	--inputBorder:transparent;
-	/* --inputBorder:var(--n400); */
 	--inputText:var(--n800);
 	--inputIconBtnBg:var(--n400);
 	--inputPlaceholderText:var(--n600);
@@ -138,7 +145,6 @@
 	/* TextArea */
 	--textAreaFont:var(--body);
 	--textAreaBg:var(--n300);
-	/* --textAreaBorder: var(--n400); */
 	--textAreaBorder: transparent;
 	--textAreaText:var(--n800);
 	--textAreaPlaceholderText:var(--n600);
