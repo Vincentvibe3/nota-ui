@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@playwright/test': ^1.31.2
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/kit': ^1.11.0
   '@sveltejs/package': ^2.0.2
@@ -17,6 +18,7 @@ specifiers:
   postcss-cli: ^10.1.0
   prettier: ^2.8.4
   prettier-plugin-svelte: ^2.9.0
+  publint: ^0.1.9
   sass: ^1.59.3
   sveld: ^0.18.0
   svelte: ^3.56.0
@@ -30,6 +32,7 @@ dependencies:
   svelte: 3.56.0
 
 devDependencies:
+  '@playwright/test': 1.31.2
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.11.0
   '@sveltejs/kit': 1.11.0_svelte@3.56.0+vite@4.1.4
   '@sveltejs/package': 2.0.2_rx3ssngbibhj4vpczagsdyy47u
@@ -46,6 +49,7 @@ devDependencies:
   postcss-cli: 10.1.0_postcss@8.4.21
   prettier: 2.8.4
   prettier-plugin-svelte: 2.9.0_gan2xfhhcbz3kbkivttwsjndea
+  publint: 0.1.10
   sass: 1.59.3
   sveld: 0.18.0_postcss@8.4.21+sass@1.59.3
   svelte-check: 3.1.4_yhvy4yi2prhuovgn2kq54qssrm
@@ -346,6 +350,17 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: true
+
+  /@playwright/test/1.31.2:
+    resolution: {integrity: sha512-BYVutxDI4JeZKV1+ups6dt5WiqKhjBtIYowyZIJ3kBDmJgsuPKsqqKNIMFbUePLSCmp2cZu+BDL427RcNKTRYw==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.15.3
+      playwright-core: 1.31.2
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -712,6 +727,12 @@ packages:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
+    dev: true
+
+  /brace-expansion/2.0.1:
+    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
+    dependencies:
+      balanced-match: 1.0.2
     dev: true
 
   /braces/3.0.2:
@@ -1198,6 +1219,17 @@ packages:
       path-is-absolute: 1.0.1
     dev: true
 
+  /glob/8.1.0:
+    resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 5.1.6
+      once: 1.4.0
+    dev: true
+
   /globals/13.20.0:
     resolution: {integrity: sha512-Qg5QtVkCy/kv3FUSlu4ukeZDVf9ee0iXLAUYX13gbR17bnejFTzr4iS9bY7kwCf1NztRNm1t91fjOiyx4CSwPQ==}
     engines: {node: '>=8'}
@@ -1254,6 +1286,13 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /ignore-walk/5.0.1:
+    resolution: {integrity: sha512-yemi4pMf51WKT7khInJqAvsIGzoqYXblnsz0ql8tM+yi1EKYTY1evX4NAbJrLL/Aanr2HyZeluqU+Oi7MGHokw==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    dependencies:
+      minimatch: 5.1.6
     dev: true
 
   /ignore/5.2.4:
@@ -1480,6 +1519,13 @@ packages:
       brace-expansion: 1.1.11
     dev: true
 
+  /minimatch/5.1.6:
+    resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
   /minimist/1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
@@ -1538,6 +1584,29 @@ packages:
   /normalize-range/0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /npm-bundled/2.0.1:
+    resolution: {integrity: sha512-gZLxXdjEzE/+mOstGDqR6b0EkhJ+kM6fxM6vUuckuctuVPh80Q6pw/rSZj9s4Gex9GxWtIicO1pc8DB9KZWudw==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    dependencies:
+      npm-normalize-package-bin: 2.0.0
+    dev: true
+
+  /npm-normalize-package-bin/2.0.0:
+    resolution: {integrity: sha512-awzfKUO7v0FscrSpRoogyNm0sajikhBWpU0QMrW09AMi9n1PoKU6WaIqUzuJSQnpciZZmJ/jMZ2Egfmb/9LiWQ==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    dev: true
+
+  /npm-packlist/5.1.3:
+    resolution: {integrity: sha512-263/0NGrn32YFYi4J533qzrQ/krmmrWwhKkzwTuM4f/07ug51odoaNjUexxO4vxlzURHcmYMH1QjvHjsNDKLVg==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      glob: 8.1.0
+      ignore-walk: 5.0.1
+      npm-bundled: 2.0.1
+      npm-normalize-package-bin: 2.0.0
     dev: true
 
   /once/1.4.0:
@@ -1622,6 +1691,12 @@ packages:
   /pify/2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /playwright-core/1.31.2:
+    resolution: {integrity: sha512-a1dFgCNQw4vCsG7bnojZjDnPewZcw7tZUNFN0ZkcLYKj+mPmXvg4MpaaKZ5SgqPsOmqIf2YsVRkgqiRDxD+fDQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /postcss-cli/10.1.0_postcss@8.4.21:
@@ -1713,6 +1788,16 @@ packages:
   /pretty-hrtime/1.0.3:
     resolution: {integrity: sha512-66hKPCr+72mlfiSjlEB1+45IjXSqvVAIy6mocupoww4tBFE9R9IhwwUGoI4G++Tc9Aq+2rxOt0RFU6gPcrte0A==}
     engines: {node: '>= 0.8'}
+    dev: true
+
+  /publint/0.1.10:
+    resolution: {integrity: sha512-maW+K+S1cN7//l3dfZjgVKczDRyytMNeFryp7TyFJMmqAq6dQRycTyT9x5/Nc8N5yIeSc6G2H96iOShKW1M4mQ==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      npm-packlist: 5.1.3
+      picocolors: 1.0.0
+      sade: 1.8.1
     dev: true
 
   /punycode/2.3.0:

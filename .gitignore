@@ -14,3 +14,7 @@ vite.config.ts.timestamp-*
 /static/components.json
 /dist
 temp-index.js
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/tests-examples
