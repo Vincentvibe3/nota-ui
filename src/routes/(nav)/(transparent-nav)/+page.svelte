@@ -106,6 +106,12 @@
 	</PasswordInput>
 	<label for="radio">Button</label>
 	<ContentContainer direction="row">
+		<TextInput bind:text></TextInput>
+		<Button>Test</Button>
+	</ContentContainer>
+	<Separator/>
+	<ContentContainer direction="row">
+		<TextInput bind:text></TextInput>
 		<Button buttonStyle="primary" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}

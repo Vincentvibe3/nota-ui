@@ -226,7 +226,8 @@
 		font: var(--inputFont, 400 0.75rem sans-serif);
 
 		&.notNumber {
-			width: 100%;
+			// width: 100%;
+			flex-grow: 1;
 		}
 		
 		&.shadow{

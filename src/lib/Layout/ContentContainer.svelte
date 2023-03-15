@@ -11,10 +11,8 @@
         flex-grow: 1;
         flex-basis: 0;
 		display: flex;
-		align-content: flex-start;
-		justify-content: flex-start;
-		align-items: start;
-		justify-items: start;
+		align-content: center;
+		justify-items: flex-start;
 		flex-direction: column;
 		box-sizing: border-box;
 		padding: var(--contentContainerPadding, 0rem);
@@ -29,6 +27,8 @@
 			width:100%;
 			flex-basis: unset;
 			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
 
 			&.reverse{
 				flex-direction: row-reverse;
