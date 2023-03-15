@@ -11,8 +11,7 @@
         flex-grow: 1;
         flex-basis: 0;
 		display: flex;
-		align-content: center;
-		justify-items: flex-start;
+		align-content: flex-start;
 		flex-direction: column;
 		box-sizing: border-box;
 		padding: var(--contentContainerPadding, 0rem);
