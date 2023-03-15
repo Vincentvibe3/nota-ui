@@ -5,10 +5,7 @@ import sveldProcess from './sveld-process';
 const config = {
 	plugins: [
 		sveltekit(), 
-		{
-			...sveldProcess("static"),
-			enforce:"post",
-		}
+		sveldProcess({path:"static"}),
 	]
 };
 

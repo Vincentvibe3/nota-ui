@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { TextInput, Header } from '../../../../..';
+    import { TextInput, Header } from '$lib';
 	import Card from '$lib/Card/Card.svelte';
     import CardLink from '$lib/Card/CardLink.svelte';
     import CardButton from '$lib/Card/CardButton.svelte';

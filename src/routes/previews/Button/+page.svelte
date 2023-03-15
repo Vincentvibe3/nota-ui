@@ -1,6 +1,6 @@
 <script>
 
-	import Button from "../../../lib/Button/Button.svelte";
+	import Button from "$lib/Button/Button.svelte";
 
     let count = 0
 

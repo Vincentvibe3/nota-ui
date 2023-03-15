@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Checkbox from "$lib/Checkbox/Checkbox.svelte";
-	import Button from "../../../lib/Button/Button.svelte";
-	import {Modal, TextInput} from "../../../..";
+	import Button from "$lib/Button/Button.svelte";
+	import {Modal, TextInput} from "$lib";
 
     let modalOpen = false;
     let strict=false

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import {Navbar, Searchbar, type SearchInputEvent} from "../../..";
+	import {Navbar, Searchbar, type SearchInputEvent} from "$lib";
 	import Sidebar from "$lib/Navigation/Sidebar.svelte";
 	import SidebarLink from "$lib/Navigation/SidebarLink.svelte";
 	import SidebarSlot from "$lib/Navigation/SidebarSlot.svelte";
 	import { writable } from "svelte/store";
-	import Button from "../../lib/Button/Button.svelte";
+	import Button from "$lib/Button/Button.svelte";
 	import { isNavTransparent } from "../stores";
 	
 	const sidebarState = writable(false)
