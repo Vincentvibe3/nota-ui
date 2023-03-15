@@ -1,16 +1,6 @@
-<script context="module" lang="ts">
-	export interface SearchSubmitEvent {
-		text:string
-	}
-	export interface SearchOptionClickEvent {
-		text:string
-	}
-	export interface SearchInputEvent {
-		text:string
-	}
-</script>
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
+	import type { SearchInputEvent, SearchOptionClickEvent, SearchSubmitEvent } from '.';
 	import {TextInput} from '../TextInput';
 
 	let mounted = false;

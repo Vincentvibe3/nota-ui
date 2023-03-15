@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '../../lib/Button/Button.svelte';
+	import Button from '$lib/Button/Button.svelte';
 	import Checkbox from '$lib/Checkbox/Checkbox.svelte';
 	import Dropdown from '$lib/Dropdown/Dropdown.svelte';
 	import PasswordInput from '$lib/TextInput/PasswordInput.svelte';
@@ -9,7 +9,7 @@
 	import ProgressRing from '$lib/ProgressRing/ProgressRing.svelte';
 	import Link from '$lib/Text/Link.svelte';
 	import Slider from '$lib/Slider/Slider.svelte';
-	import IconButton from '../../lib/Button/IconButton.svelte';
+	import IconButton from '$lib/Button/IconButton.svelte';
 	import type { SearchInputEvent } from '$lib';
 
 	let button: HTMLButtonElement;

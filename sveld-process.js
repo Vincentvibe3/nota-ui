@@ -5,15 +5,16 @@ import { sveld } from "sveld"
 export default async function sveldProcess(path) {
 	await sveld({
 		json: true,
+		glob: true,
 		jsonOptions: {
-			outDir: "static/docs",
+			outDir: `${path}/docs`,
 		},
 		})
 	console.log("Sveld done")
 	let components = []
-	let files = await readdir("./static/docs");
+	let files = await readdir(`./${path}/docs`);
 	while (files.length==0){
-		files = await readdir("./static/docs");	
+		files = await readdir(`./${path}/docs`);	
 	}
 	
 	for (const file of files){

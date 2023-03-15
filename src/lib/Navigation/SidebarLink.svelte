@@ -8,7 +8,7 @@
 	export let multiline = false;
 	export let closeOnClick = true;
 
-	const {page} = getStores()
+	const { page } = getStores()
 
 	const sidebarContext:{[key:string]:Writable<boolean>}= getContext("sidebar")
 	const sidebarStore = sidebarContext["show"]
