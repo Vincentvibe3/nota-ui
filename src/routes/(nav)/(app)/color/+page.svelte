@@ -150,7 +150,7 @@
 </script>
 
 <script lang="ts">
-	import { Header } from '$lib'
+	import { Header } from '../../../../..'
 	import { onMount } from 'svelte';
 
 

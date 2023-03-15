@@ -12,7 +12,6 @@
 </script>
 <div class="preview">
     <PasswordInput  
-        style="width:100%;"
         bind:text={text} 
         bind:valid={valid} 
         placeholder="Placeholder Text">
@@ -20,7 +19,6 @@
     <p>With icon</p>
     <PasswordInput
 		name="password"
-		style="width:100%;"
 		bind:showText={showPassword}
 		bind:text
 		placeholder="Password"
@@ -36,9 +34,9 @@
 	</PasswordInput>
     <p>Typed text: {text}</p>
     <div class="controls">
-        <Button style="margin-right: 1rem;" on:click={()=>{valid=true}} disabled={valid==true} >Set Valid</Button>
-        <Button style="margin: 1rem;" on:click={()=>{valid=false}} disabled={valid==false} >Set Invalid</Button>
-        <Button style="margin-left: 1rem;" on:click={()=>{valid=undefined}} disabled={valid==undefined} >Reset</Button>
+        <Button on:click={()=>{valid=true}} disabled={valid==true} >Set Valid</Button>
+        <Button on:click={()=>{valid=false}} disabled={valid==false} >Set Invalid</Button>
+        <Button on:click={()=>{valid=undefined}} disabled={valid==undefined} >Reset</Button>
     </div>
 </div>
 <style>

@@ -12,3 +12,5 @@ vite.config.ts.timestamp-*
 /types
 /static/docs
 /static/components.json
+/dist
+temp-index.js

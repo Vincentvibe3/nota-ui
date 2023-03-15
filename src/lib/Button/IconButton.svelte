@@ -1,6 +1,6 @@
 <script lang="ts">
 
-	import { Button } from "$lib";
+	import { Button } from "../../..";
 	/** Native <button> element */
 	export let htmlElement: HTMLButtonElement | undefined = undefined;
 	/** Button type for styling. Can be either "primary", "secondary", "tertiary" or "danger" */

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {Navbar, Searchbar, type SearchInputEvent} from "$lib";
+	import {Navbar, Searchbar, type SearchInputEvent} from "../../..";
 	import Sidebar from "$lib/Navigation/Sidebar.svelte";
 	import SidebarLink from "$lib/Navigation/SidebarLink.svelte";
 	import SidebarSlot from "$lib/Navigation/SidebarSlot.svelte";

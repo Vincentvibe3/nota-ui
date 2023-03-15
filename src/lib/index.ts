@@ -46,3 +46,8 @@ export {
 } from './TextInput'
 
 
+export type {
+	SearchInputEvent,
+	SearchOptionClickEvent,
+	SearchSubmitEvent
+} from "./Dropdown"

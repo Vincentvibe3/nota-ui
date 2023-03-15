@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Radio } from "$lib";
-    import {Header} from "$lib";
+	import { Radio } from "../../../..";
+    import {Header} from "../../../..";
 
     let status="video"
     let position="left"

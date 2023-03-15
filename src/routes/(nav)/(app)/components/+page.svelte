@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {Header} from '$lib';	
+	import { Header } from '$lib';
 	import Link from '$lib/Text/Link.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;

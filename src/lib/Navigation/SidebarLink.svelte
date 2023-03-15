@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { getStores } from "$app/stores";
-	import { getContext } from "svelte";
+	import { getContext, onMount } from "svelte";
 	import type { Writable } from "svelte/store";
 
 	export let htmlElement:HTMLAnchorElement|null=null
@@ -8,8 +7,7 @@
 	export let multiline = false;
 	export let closeOnClick = true;
 
-	const { page } = getStores()
-
+	let currentHref=""
 	const sidebarContext:{[key:string]:Writable<boolean>}= getContext("sidebar")
 	const sidebarStore = sidebarContext["show"]
 
@@ -20,8 +18,12 @@
 		}
 	}
 
+	onMount(()=>{
+		currentHref = window.location.href
+	})
+
 	let currentPage=false;
-	$: currentPage=$page.url.href==htmlElement?.href
+	$: currentPage=currentHref==htmlElement?.href
 
 </script>
 <a on:click={onClick} bind:this={htmlElement} href={href}>
