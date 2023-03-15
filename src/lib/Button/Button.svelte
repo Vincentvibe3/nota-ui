@@ -110,22 +110,6 @@
 		}
 	}
 
-	button.icon {
-		padding: min(0.5rem, 40%);
-
-		outline: none;
-		border: none;
-		border-radius: 100%;
-
-		background-color: transparent;
-
-		aspect-ratio: 1;
-
-		&:hover{
-			background-color: #3b3b3b26;
-		}
-	}
-
 	button.tertiary {
 		border: none;
 		color: var(--btnTertiaryText, #b3386b);
