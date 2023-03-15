@@ -257,6 +257,7 @@
 
 	/* ContentContainer */
 	--contentContainerPadding:0rem;
+	--contentContainerGap:1rem;
 
 	/* Slider */
 	--sliderThumbBg:var(--p600);

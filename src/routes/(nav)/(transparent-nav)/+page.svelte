@@ -4,7 +4,7 @@
 	import Dropdown from '$lib/Dropdown/Dropdown.svelte';
 	import PasswordInput from '$lib/TextInput/PasswordInput.svelte';
 	import Radio from '$lib/Radio/Radio.svelte';
-	import {TextInput, Searchbar, BackToTop, Separator, TextArea, Header, Modal} from '$lib';
+	import {TextInput, Searchbar, BackToTop, Separator, TextArea, Header, Modal, ContentContainer} from '$lib';
 	import Footer from '$lib/Layout/Footer.svelte';
 	import ProgressRing from '$lib/ProgressRing/ProgressRing.svelte';
 	import Link from '$lib/Text/Link.svelte';
@@ -105,7 +105,7 @@
 		</svelte:fragment>
 	</PasswordInput>
 	<label for="radio">Button</label>
-	<div style="display: flex; flex-direction:row; align-items:center;w">
+	<ContentContainer direction="row">
 		<Button buttonStyle="primary" on:click={click} bind:htmlElement={button}>
 			<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 				{#if loadButton1}
@@ -153,6 +153,9 @@
 				{/if}
 			</div>
 		</Button> -->
+	</ContentContainer>
+	<div style="display: flex; flex-direction:row; align-items:center;w">
+		
 	</div>
 	<label for="radio">Dropdown</label>
 	<Dropdown>

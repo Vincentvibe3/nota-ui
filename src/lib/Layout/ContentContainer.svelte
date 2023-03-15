@@ -11,13 +11,15 @@
         flex-grow: 1;
         flex-basis: 0;
 		display: flex;
-		align-content: space-between;
-		justify-content: space-between;
+		align-content: flex-start;
+		justify-content: flex-start;
 		align-items: start;
 		justify-items: start;
 		flex-direction: column;
 		box-sizing: border-box;
 		padding: var(--contentContainerPadding, 0rem);
+		gap: var(--contentContainerGap, 1rem);
+		flex-wrap: wrap;
 
 		&.reverse{
 			flex-direction: column-reverse;
