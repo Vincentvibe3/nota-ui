@@ -94,6 +94,7 @@
 	}
 
 	.wrapper {
+		position: fixed;
 		z-index: 4;
 	}
 
