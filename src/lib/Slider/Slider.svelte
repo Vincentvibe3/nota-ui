@@ -13,7 +13,7 @@
 		value=min
 	} 
 
-	$: if (value.toString() == ""){
+	$: if (value.toString() === ""){
 		percentage=50
 	} else {
 		let truePercentage = (value-min)/(max-min)*100

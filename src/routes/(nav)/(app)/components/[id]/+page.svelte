@@ -101,7 +101,7 @@ export interface ParsedComponent {
 	}
 
 </script>
-<Header>{componentData.moduleName}</Header>
+<Header compact>{componentData.moduleName}</Header>
 <main>
 	<p class="subtitle">Contents</p>
 	<ul>
@@ -129,7 +129,7 @@ export interface ParsedComponent {
 			{#each componentData.props as prop}
 			<tr>
 				<th>{prop.name}</th>
-				{#if prop.description==undefined}
+				{#if prop.description === undefined}
 					<th></th>
 				{:else}
 					<th>{prop.description}</th>
@@ -137,7 +137,7 @@ export interface ParsedComponent {
 				<th class="type"><CodeBlock>{prop.type}</CodeBlock></th>
 				<th>{prop.isRequired}</th>
 				<th>{prop.reactive}</th>
-				{#if prop.value==undefined || prop.value=="\"\"" || prop.value=="''"}
+				{#if prop.value === undefined || prop.value === "\"\"" || prop.value === "''"}
 					<th></th>
 				{:else}
 					<th>{prop.value}</th>

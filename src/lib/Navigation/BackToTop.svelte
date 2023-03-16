@@ -7,7 +7,7 @@
 
 	onMount(()=>{
 		window.addEventListener("scroll", (_)=>{
-			if ((window.scrollY)==0) {
+			if ((window.scrollY) === 0) {
 				show=false
     		} else {
 				show=true
@@ -21,9 +21,9 @@
 </script>
 <div 
 	class:wrapper={true} 
-	class:left={position=="left"} 
-	class:right={position=="right"} 
-	class:center={position=="center"} 
+	class:left={position === "left"} 
+	class:right={position === "right"} 
+	class:center={position === "center"} 
 	class:show={show}>
 	<Button 
 		on:click={toTop}>

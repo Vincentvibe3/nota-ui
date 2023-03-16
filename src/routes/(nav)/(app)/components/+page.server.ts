@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
  
 export const load =  (async ({ fetch }) => {
   const response = await fetch(`/components.json`);
-  if (response.status==200){
+  if (response.status === 200){
     const data = await response.json();
     return {
       names:data

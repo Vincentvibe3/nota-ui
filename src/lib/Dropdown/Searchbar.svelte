@@ -93,7 +93,7 @@
 	};
 
 	const handleSubmit = (event: KeyboardEvent) => {
-		if (event.key == 'Enter' && text.trim() != "" && keyboardNavSelect == -1) {
+		if (event.key === 'Enter' && text.trim() != "" && keyboardNavSelect === -1) {
 			submit = true;
 			active = false;
 			selectionChosen = false;
@@ -106,7 +106,7 @@
 
 	const handleInput = (type: string) => {
 		submit = false;
-		if (type == 'input') {
+		if (type === 'input') {
 			keyboardNavSelect = -1;
 			selectionChosen = false;
 		} else {
@@ -134,7 +134,7 @@
 					on:click={() => {
 						selectOption(option);
 					}}
-					class="option" class:selected={option == suggestions[keyboardNavSelect]}>
+					class="option" class:selected={option === suggestions[keyboardNavSelect]}>
 					<span>{option}</span>
 				</button>
 			{/each}

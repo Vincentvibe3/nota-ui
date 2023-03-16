@@ -25,7 +25,7 @@ export default function sveldProcess({path}) {
 			console.log("Sveld done")
 			let components = []
 			let files = await readdir(`./${path}/docs`);
-			while (files.length==0){
+			while (files.length===0){
 				files = await readdir(`./${path}/docs`);	
 			}
 			for (const file of files){

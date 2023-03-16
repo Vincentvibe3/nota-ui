@@ -13,17 +13,17 @@
 	let loaded = false
 
 	const animateCallback = () => {
-		if (progress==1){
+		if (progress === 1){
 			progress=0
 		} else {
 			progress+=0.01
 		}
-		if (indeterminate&&status=="loading"){
+		if (indeterminate&&status === "loading"){
 			requestAnimationFrame(animateCallback)
 		}
 	}
 
-	$:if (indeterminate&&status=="loading"&&loaded){
+	$:if (indeterminate&&status === "loading"&&loaded){
 		requestAnimationFrame(animateCallback)
 	}
 
@@ -33,7 +33,7 @@
 	
 </script>
 <div class:wrapper={true}>
-	{#if status=="loading"}
+	{#if status === "loading"}
 		<div class="spinnerWrapper">
 			<svg class="spinner" class:spin={indeterminate}>
 				<circle class="progressRail" 
@@ -55,12 +55,12 @@
 		</div>
 	{/if}
 	<div 
-		class="custom checkmark" class:show={status=="complete"}>
+		class="custom checkmark" class:show={status === "complete"}>
 		<!-- check icon from phosphor icons -->
 		<svg class="checkmarkSvg" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><polyline points="216 72 104 184 48 128" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
 	</div>
 	<div 
-		class="custom error" class:show={status=="error"}>
+		class="custom error" class:show={status === "error"}>
 		<!-- check icon from phosphor icons -->
 		<svg class="errorSvg" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 	</div>

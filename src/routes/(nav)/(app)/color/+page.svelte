@@ -80,7 +80,7 @@
 	}
 
 	export function HSV2RGB(color: HSVColor): RGBColor {
-		let hue = (color.h == 360 ? 0 : color.h)
+		let hue = (color.h === 360 ? 0 : color.h)
 		let sat = color.s
 		let val = color.v
 

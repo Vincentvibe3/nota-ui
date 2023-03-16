@@ -83,10 +83,10 @@
  
 -->
 <button 
-	class:primary={buttonStyle=="primary"&&!disabled}
-	class:secondary={buttonStyle=="secondary"&&!disabled}
-	class:tertiary={buttonStyle=="tertiary"&&!disabled}
-	class:danger={buttonStyle=="danger"&&!disabled}
+	class:primary={buttonStyle==="primary"&&!disabled}
+	class:secondary={buttonStyle==="secondary"&&!disabled}
+	class:tertiary={buttonStyle==="tertiary"&&!disabled}
+	class:danger={buttonStyle==="danger"&&!disabled}
 	class:consistentPadding={!$$slots.default&&$$slots.icon}
 	disabled={disabled} 
 	type={type}

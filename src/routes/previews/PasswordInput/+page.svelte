@@ -34,9 +34,9 @@
 	</PasswordInput>
     <p>Typed text: {text}</p>
     <div class="controls">
-        <Button on:click={()=>{valid=true}} disabled={valid==true} >Set Valid</Button>
-        <Button on:click={()=>{valid=false}} disabled={valid==false} >Set Invalid</Button>
-        <Button on:click={()=>{valid=undefined}} disabled={valid==undefined} >Reset</Button>
+        <Button on:click={()=>{valid=true}} disabled={valid === true} >Set Valid</Button>
+        <Button on:click={()=>{valid=false}} disabled={valid === false} >Set Invalid</Button>
+        <Button on:click={()=>{valid=undefined}} disabled={valid === undefined} >Reset</Button>
     </div>
 </div>
 <style>

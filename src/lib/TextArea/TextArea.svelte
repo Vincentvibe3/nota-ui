@@ -14,14 +14,14 @@
 	const dispatch = createEventDispatcher<{focus:void}>();
 
 	const onFocus = () => {
-		if (valid == null) {
+		if (valid === null) {
 			focused=true
 		}
 		dispatch('focus');
 	};
 
 	const onFocusOut = () => {
-		if (valid == null) {
+		if (valid === null) {
 			focused=false
 		}
 	};
@@ -30,7 +30,7 @@
 
 <div 
 	class:shadow={shadowOnFocus&&focused} 
-	class:focused={focused&&valid==null} 
+	class:focused={focused&&valid === null} 
 	class:wrapper={true} >
 		<textarea
 			on:keyup

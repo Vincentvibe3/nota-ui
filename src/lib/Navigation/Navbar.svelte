@@ -5,6 +5,7 @@
 	let show=true;
 	let lastScrollPosition=0;
 	export let alwaysOpaque=true;
+	export let navStyle:"shadow"|"border" = "border"
 
 	const dispatch = createEventDispatcher<
 		{onTitleClick:void}
@@ -13,7 +14,7 @@
 	onMount(()=>{
 		lastScrollPosition=window.scrollY
 		window.addEventListener("scroll", (_)=>{
-			if ((window.scrollY) == 0) {
+			if ((window.scrollY) === 0) {
         		// you're at the top of the page
 				show=true
 				transparent=true
@@ -31,7 +32,7 @@
 
 </script>
 <div class:bar={true} class:transparent={transparent&&!alwaysOpaque} class:show={show}>
-	<div class:transparent={transparent&&!alwaysOpaque} class="bg"></div>
+	<div class:transparent={transparent&&!alwaysOpaque} class="bg" class:shadow={navStyle === "shadow"}></div>
 	<button on:click={onTitleClick} class="titleWrapper">
 		<slot name="icon"></slot>
 		<slot name="title"></slot>
@@ -151,7 +152,10 @@
 
 		transition: all ease 0.2s;
 
-		// box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
+		&.shadow{
+			border-bottom: none;
+			box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
+		}
 
 		transition: all ease 0.5s;
 

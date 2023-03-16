@@ -2,7 +2,7 @@
 	export let direction:"row"|"column"="column"
 	export let reverse=false
 </script>
-<div class:row={direction=="row"} class:reverse class="contentContainer">
+<div class:row={direction === "row"} class:reverse class="contentContainer">
 	<slot></slot>
 </div>
 <style lang="scss">

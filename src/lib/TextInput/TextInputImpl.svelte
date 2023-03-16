@@ -31,14 +31,14 @@
 	}
 
 	const onFocus = () => {
-		if (valid == null) {
+		if (valid === null) {
 			focused=true
 		}
 		dispatch('focus');
 	};
 
 	const onFocusOut = () => {
-		if (valid == null) {
+		if (valid === null) {
 			focused=false
 		}
 	};
@@ -52,16 +52,16 @@
 <div 
 	class:valid={valid} 
 	class:shadow={shadowOnFocus&&focused} 
-	class:invalid={!valid&&valid!=null} 
-	class:focused={focused&&valid==null} 
-	class:notNumber={maxLength==-1}
+	class:invalid={!valid&&valid !== null} 
+	class:focused={focused&&valid === null} 
+	class:notNumber={maxLength === -1}
 	class:wrapper={true} >
 	{#if $$slots.iconleft}
 		<div class="iconWrapperLeft">
 			<slot name="iconleft"/>
 		</div>
 	{/if}
-	{#if type == 'text'}
+	{#if type === 'text'}
 		<input
 			class:padLeft={$$slots.iconleft}
 			on:keyup
@@ -76,7 +76,7 @@
 			name={name}
 			type="text"
 			bind:this={htmlElement} />
-	{:else if type == 'number'}
+	{:else if type === 'number'}
 		<input
 			class:padLeft={$$slots.iconleft}
 			on:keyup
@@ -92,7 +92,7 @@
 			style:width="{maxLength+1}em"
 			type="number"
 			bind:this={htmlElement} />
-	{:else if type == 'password'}
+	{:else if type === 'password'}
 		<input
 			class:padLeft={$$slots.iconleft}
 			on:submit

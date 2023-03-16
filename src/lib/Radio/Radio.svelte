@@ -31,7 +31,7 @@
 		<button
 			type="button"
 			tabindex="0"
-			class:checked={group==value}
+			class:checked={group === value}
 			class="radioWrapper"
 			on:click={onClick} />
 		<slot />

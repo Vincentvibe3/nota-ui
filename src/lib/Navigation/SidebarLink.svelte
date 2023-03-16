@@ -23,7 +23,7 @@
 	})
 
 	let currentPage=false;
-	$: currentPage=currentHref==htmlElement?.href
+	$: currentPage=currentHref === htmlElement?.href
 
 </script>
 <a on:click={onClick} bind:this={htmlElement} href={href}>

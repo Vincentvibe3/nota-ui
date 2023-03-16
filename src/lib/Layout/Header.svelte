@@ -6,6 +6,7 @@
 	export let alt="";
 	// Text position
 	export let position="left";
+	export let compact=false
 
 	let videoElement:HTMLVideoElement|undefined = undefined;
 	let videoPaused = false
@@ -27,19 +28,19 @@
 	})
 
 </script>
-<div class:wrapper={true}  class:noimage={img==""} >
-	{#if img!=""}
+<div class:wrapper={true} class:compact class:noimage={img === ""} >
+	{#if img !== ""}
 		<img alt={alt} src={img}>
-		<div class="gradient" class:noimage={img==""}></div>
+		<div class="gradient" class:noimage={img === ""}></div>
 	{/if}
-	{#if video!=""}
+	{#if video !== ""}
 		<video bind:paused={videoPaused} bind:this={videoElement} autoplay muted loop>
 			<source src={video}>
 		</video>
-		<div class="gradient" class:noimage={img==""}></div>
+		<div class="gradient" class:noimage={img === ""}></div>
 	{/if}
 	<div class="content {position}">
-		<h1 class:noimage={img==""&&video==""} ><slot></slot></h1>
+		<h1 class:noimage={img === ""&&video === ""} ><slot></slot></h1>
 		{#if video!=""}
 			<button on:click={pausePlay}>
 				{#if videoPaused}
@@ -110,6 +111,7 @@
 		color: var(--headerTextDark, #f0f0f0);
 		font: var(--headerFont, 700 3rem sans-serif);
 		margin: 3rem;
+		// margin-right: 5.5rem;
 
 		&.noimage {
 			color: var(--headerTextLight, #303030);
@@ -148,12 +150,21 @@
 	.wrapper {
 		position:relative;
 		width: 100%;
+		min-height: fit-content;
 		height: 25rem;
 		margin: 0px;
 		background-color: var(--headerBg, #f0f0f0);;
 		background-size: cover;
 		background-position: center;
 		flex-shrink: 0;
+
+		&.compact {
+			height: 12rem;
+
+			h1 {
+				margin-bottom: 1.5rem;
+			}
+		}
 
 		&.noimage{
 			border-bottom: var(--headerBorderBottom,#c0c0c0) solid 0.1rem;

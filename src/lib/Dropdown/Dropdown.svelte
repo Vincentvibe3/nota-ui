@@ -53,7 +53,7 @@
 
 	const handleKeyPresses = (event: KeyboardEvent) => {
 		//from MDN Docs
-		if (htmlElement == null) {
+		if (htmlElement === null) {
 			return;
 		}
 		switch (event.key) {
@@ -106,7 +106,7 @@
 					on:click={() => {
 						selectOption(option.index);
 					}}
-					class="option" class:keyboard-hover={option.index == keyboardNavSelect} class:selected={option.selected}>
+					class="option" class:keyboard-hover={option.index === keyboardNavSelect} class:selected={option.selected}>
 					<span>{option.text}</span>
 				</button>
 			{/each}

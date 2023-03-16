@@ -8,11 +8,11 @@
 <div class="bg"></div>
 <div class="preview">
 
-    {#if status=="video"}
+    {#if status === "video"}
         <Header position={position} video="/video2.mp4">
             Header Title
         </Header>
-    {:else if status=="image"}
+    {:else if status === "image"}
         <Header 
             position={position}
             img="https://images.unsplash.com/photo-1673247463250-835991994a3d?ixlib=rb-4.0.3&dl=pramod-tiwari-Ivz2wREpKO0-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
