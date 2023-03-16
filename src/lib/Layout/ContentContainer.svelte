@@ -3,6 +3,7 @@
 	export let reverse=false
 	export let fillWidth=true;
 	export let fillHeight=true;
+	export let alignment="left"
 </script>
 <div class:row={direction === "row"} class:fillWidth class:fillHeight class:reverse class="contentContainer">
 	<slot></slot>

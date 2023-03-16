@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { TextInput, Header } from '$lib';
+    import { TextInput, Header, Button } from '$lib';
 	import Card from '$lib/Card/Card.svelte';
     import CardLink from '$lib/Card/CardLink.svelte';
     import CardButton from '$lib/Card/CardButton.svelte';
@@ -10,6 +10,9 @@
 	import TableRow from '$lib/Table/TableRow.svelte';
 	import TableCell from '$lib/Table/TableCell.svelte';
 	import TableHeader from '$lib/Table/TableHeader.svelte';
+	import Row from '$lib/Layout/Row.svelte';
+	import Column from '$lib/Layout/Column.svelte';
+	import NewContentContainer from '$lib/Layout/NewContentContainer.svelte';
 
     let tableData = [
         [1, 2, 3],
@@ -19,102 +22,38 @@
 </script>
 <Scaffold>
     <Header slot="header">Test page</Header>
-    <ContentContainer direction="row">
-        <Table>
-            <TableHeader>
-                <TableCell isHeader>
-                    Header
-                </TableCell>
-                <TableCell isHeader>
-                    Header
-                </TableCell>
-            </TableHeader>
-            <TableRow>
-                <TableCell>
-                    Hello
-                </TableCell>
-                <TableCell>
-                    World
-                </TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>
-                    Hello
-                </TableCell>
-                <TableCell>
-                    World
-                </TableCell>
-            </TableRow>
-        </Table>
-        <Table data={tableData}>
-            <TableHeader slot="header">
-                <TableCell isHeader>
-                    Header
-                </TableCell>
-                <TableCell isHeader>
-                    Header
-                </TableCell>
-                <TableCell isHeader>
-                    Header
-                </TableCell>
-            </TableHeader>
-        </Table>
-    </ContentContainer>
-    <ContentContainer>
-        <Card>
-            <p>Hello</p>
-            <Link href="/">This is a link</Link>
-        </Card>
-        <CardLink 
-        --cardMargin="2rem"
-        href="/"
-       >
-            <img style="height:10rem;" slot="image" src="https://images.unsplash.com/photo-1677530248533-59eb53c30df5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"/>
-            <p style="margin-top:0px;">Hello</p>
-        </CardLink>
-        <CardButton 
-        on:click={()=>{
-            alert("card clicked")
-        }}
-        >
-            <p>Hello</p>
-            <Link href="/">This is a link</Link>
-        </CardButton>
-        <Card>
-            <p>Hello</p>
-            <Link href="/">This is a link</Link>
-        </Card>
-    </ContentContainer>
-    <ContentContainer>
-        <Card><p>Hello</p></Card>
-        <p>Hello long text here</p>
-        <TextInput text="" placeholder="p"></TextInput>    
-    </ContentContainer>
-    <ContentContainer direction="row">
-        <ul style="width:40rem;">
-            {#each [...Array(100).keys()] as i} 
-                <li style="margin:1rem; width:fit-content;">
-                    Entry {i}
-                </li>
-            {/each}
-        </ul>
-    </ContentContainer>
-    <ContentContainer>
-        <p>Hello long text here</p>
-        <TextInput text="" placeholder="p"></TextInput>    
-    </ContentContainer>
-    <ContentContainer direction="row">
-        <p>Hello long text here</p>
-        <TextInput text="" placeholder="p"></TextInput>    
-    </ContentContainer>
-    <ContentContainer>
-        <p>Hello long text here</p>
-        <TextInput text="" placeholder="p"></TextInput>    
-    </ContentContainer>
-    <ContentContainer>
-        <p>Hello long text here</p>
-        <TextInput text="" placeholder="p"></TextInput>    
-    </ContentContainer>
+    <NewContentContainer>
+        <Button>
+            Text 1
+        </Button>
+        <Button>
+            Text 2
+        </Button>
+    </NewContentContainer>
+    <NewContentContainer>
+        <NewContentContainer direction="column">
+            <Card>
+                <p>Text in a card</p>
+            </Card>
+            <Button>
+                Text 3
+            </Button>
+            <Button>
+                Text 4
+            </Button>
+        </NewContentContainer>
+        <NewContentContainer direction="column">
+            <Card>
+                <p>Text in a card</p>
+            </Card>
+            <Button>
+                Text 5
+            </Button>
+            <Button>
+                Text 6
+            </Button>
+        </NewContentContainer>
+    </NewContentContainer>
 </Scaffold>
 <style>
 
