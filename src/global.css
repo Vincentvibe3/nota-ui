@@ -287,7 +287,7 @@
 	--linkArrowFg:var(--n100);
 	--linkFg:var(--n900);
 	--linkVisitedFg:var(--s600);
-	--linkFgFocus:var(--p900)
+	--linkFgFocus:var(--p900);
 
 	/* Fixed Grid */
 	--fixedGridGap: 2rem;

@@ -1,11 +1,13 @@
 
 <script lang="ts">
+	import { ContentContainer } from "$lib/Layout";
 	import { createEventDispatcher, onMount } from "svelte";
 	let transparent = true;
 	let show=true;
 	let lastScrollPosition=0;
 	export let alwaysOpaque=true;
 	export let navStyle:"shadow"|"border" = "border"
+	export let reverse= false
 
 	const dispatch = createEventDispatcher<
 		{onTitleClick:void}
@@ -33,17 +35,21 @@
 </script>
 <div class:bar={true} class:transparent={transparent&&!alwaysOpaque} class:show={show}>
 	<div class:transparent={transparent&&!alwaysOpaque} class="bg" class:shadow={navStyle === "shadow"}></div>
-	<button on:click={onTitleClick} class="titleWrapper">
-		<slot name="icon"></slot>
-		<slot name="title"></slot>
-	</button>
-	<nav class="content">
-		<slot></slot>
-	</nav>
+	<ContentContainer direction="row">
+		<button on:click={onTitleClick} class="titleWrapper">
+			<slot name="icon"></slot>
+			<slot name="title"></slot>
+		</button>
+		<ContentContainer --contentContainerPadding="1rem" fillWidth={false} bind:reverse  direction="row">
+			<slot></slot>
+		</ContentContainer>
+	</ContentContainer>
+	
 </div>
 <style lang="scss">
 
 	.titleWrapper{
+		width: fit-content;
 		height: 100%;
 		
 		display: flex;
@@ -81,18 +87,6 @@
 		}
 	}
 
-	.content {
-		width: auto;
-
-		display: flex;
-		flex-direction: row;
-		flex-grow: 1;
-		align-items: center;
-		justify-content: start;
-
-		color: inherit;
-	}
-
 	.bar {
 		position: fixed;
 
@@ -106,7 +100,11 @@
 		align-items: center;
 		justify-content: start;
 
+		padding-right: 2rem;
+
 		backdrop-filter: blur(10px);
+
+		gap: 1rem;
 
 		z-index: 3;
 

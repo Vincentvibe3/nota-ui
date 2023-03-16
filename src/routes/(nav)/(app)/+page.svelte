@@ -4,7 +4,7 @@
 
 </script>
 <Scaffold>
-	<Header --headerBg="linear-gradient(180deg, rgba(163,28,84,1) 0%, rgba(255,255,255,1) 100%)" --headerTextLight="var(--n700)" slot="header">
+	<Header position="center" slot="header">
 		Nota-ui Docs
 	</Header>
 	<ContentContainer>
@@ -21,10 +21,12 @@
 		<p>
 			run <CodeBlock>npm install 0.0.12-alpha</CodeBlock> to install
 		</p>
+	</ContentContainer>
+	<ContentContainer>
 		<Text tag="h2" heading6>
 			Explore Nota-ui
 		</Text>
-		<FixedGrid rows={2} columns={2}>
+		<FixedGrid --cardBg="var(--p400)" rows={2} columns={2}>
 			<CardLink direction="row" --cardMargin="0rem" href="/components">
 				<p>Components</p>
 				<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->

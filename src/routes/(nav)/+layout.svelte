@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {Navbar, Searchbar, type SearchInputEvent} from "$lib";
+	import {ContentContainer, Link, Navbar, Searchbar, type SearchInputEvent} from "$lib";
 	import Sidebar from "$lib/Navigation/Sidebar.svelte";
 	import SidebarLink from "$lib/Navigation/SidebarLink.svelte";
 	import SidebarSlot from "$lib/Navigation/SidebarSlot.svelte";
@@ -78,12 +78,12 @@
 		</Searchbar>
 	</SidebarSlot>
 </Sidebar>
-<Navbar on:onTitleClick={toggleSidebar} alwaysOpaque={!$isNavTransparent}>
-	<div slot="icon" style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
+<Navbar on:onTitleClick={toggleSidebar} reverse alwaysOpaque={!$isNavTransparent}>
+	<div slot="icon" style="height: 30%; width:auto; margin:0rem; margin-right:1rem;">
+		<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 		<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="64" x2="216" y2="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="192" x2="216" y2="192" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 	</div>
 	<svelte:fragment slot="title">Nota-ui</svelte:fragment>
-	<div style="margin:0rem 1.5rem 0rem 1rem; width:100%; display: flex; flex-direction:row; align-items:center; justify-content:space-between;">
-	</div>
+	<Link arrow href="https://github.com/Vincentvibe3/nota-ui">Source</Link>
 </Navbar>
 <slot></slot>

@@ -61,10 +61,11 @@
 	}
 
 	a {
+		
 		position: relative;
 
 		width:fit-content;
-		height: inherit;
+		height: fit-content;
 
 		display: inline-flex;
 		flex-direction: row;

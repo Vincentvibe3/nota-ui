@@ -91,6 +91,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: start;
+		text-align: start;
 
 		.image-wrapper :global( img ){
 			width:100%;
