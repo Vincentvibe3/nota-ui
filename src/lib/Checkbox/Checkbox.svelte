@@ -40,7 +40,7 @@
 <div class:wrapper={true}>
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper" class:checked={checked}>
 		<div class="customCheckmark" class:animate={checked}>
-			<!-- check icon from phosphor icons -->
+			<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 			<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="216 72 104 184 48 128" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		</div>
 	</button>

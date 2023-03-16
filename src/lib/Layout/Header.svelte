@@ -44,9 +44,11 @@
 		{#if video!=""}
 			<button on:click={pausePlay}>
 				{#if videoPaused}
+					<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="16"></circle><polygon points="160 128 112 96 112 160 160 128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon></svg>
 					<span>Play</span>
 				{:else}
+					<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="16"></circle><line x1="104" y1="96" x2="104" y2="160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="152" y1="96" x2="152" y2="160" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 					<span>Pause</span>
 				{/if}
@@ -111,7 +113,6 @@
 		color: var(--headerTextDark, #f0f0f0);
 		font: var(--headerFont, 700 3rem sans-serif);
 		margin: 3rem;
-		// margin-right: 5.5rem;
 
 		&.noimage {
 			color: var(--headerTextLight, #303030);
@@ -153,7 +154,7 @@
 		min-height: fit-content;
 		height: 25rem;
 		margin: 0px;
-		background-color: var(--headerBg, #f0f0f0);;
+		background: var(--headerBg, #f0f0f0);;
 		background-size: cover;
 		background-position: center;
 		flex-shrink: 0;

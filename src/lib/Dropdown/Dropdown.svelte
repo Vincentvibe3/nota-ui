@@ -115,8 +115,10 @@
 	<button on:click={onClick} class="dropdown_impl" class:active>
 		<span>{optionText}</span>
 		{#if active}
+			<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 			<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="48 160 128 80 208 160" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		{:else}
+			<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 			<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256" ><rect width="256" height="256" stroke="none" fill="none" /><polyline points="208 96 128 176 48 96" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24" /></svg>
 		{/if}
 	</button>

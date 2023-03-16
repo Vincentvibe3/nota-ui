@@ -25,6 +25,7 @@
 		on:iconRightClick={revealPassword}
 		bind:valid={valid}>
 		<svelte:fragment slot="iconright">
+            <!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 			{#if text != null && !showPassword}
 				<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="var(--inputIconColor)" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><circle cx="128" cy="128" r="40" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 			{:else if text != null && showPassword}

@@ -15,7 +15,8 @@ export {
 	ContentContainer,
 	Scaffold,
 	Header,
-	Footer
+	Footer,
+	FixedGrid
 } from './Layout'
 export { Modal } from './Modal'
 export { 
@@ -37,7 +38,11 @@ export {
 	TableHeader,
 	TableRow
 } from './Table'
-
+export {
+	Link, 
+	CodeBlock,
+	Text
+} from "./Text"
 export { TextArea } from './TextArea'
 export { 
 	TextInput, 

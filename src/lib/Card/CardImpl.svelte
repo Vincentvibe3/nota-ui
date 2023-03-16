@@ -86,12 +86,11 @@
 		margin: var(--cardMargin, 1rem);
 		border: 0px;
 		padding: 0px;
-		width: 100%;
+		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: start;
-		
 
 		.image-wrapper :global( img ){
 			width:100%;

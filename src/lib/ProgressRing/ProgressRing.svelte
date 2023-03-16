@@ -35,6 +35,7 @@
 <div class:wrapper={true}>
 	{#if status === "loading"}
 		<div class="spinnerWrapper">
+			<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 			<svg class="spinner" class:spin={indeterminate}>
 				<circle class="progressRail" 
 					class:show={!indeterminate}
@@ -56,12 +57,12 @@
 	{/if}
 	<div 
 		class="custom checkmark" class:show={status === "complete"}>
-		<!-- check icon from phosphor icons -->
+		<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 		<svg class="checkmarkSvg" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><polyline points="216 72 104 184 48 128" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></polyline></svg>
 	</div>
 	<div 
 		class="custom error" class:show={status === "error"}>
-		<!-- check icon from phosphor icons -->
+		<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 		<svg class="errorSvg" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 	</div>
 </div>

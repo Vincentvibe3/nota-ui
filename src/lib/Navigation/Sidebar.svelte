@@ -33,6 +33,7 @@
 		{#if show}
 			<button out:fade="{{duration:300}}" bind:this={sidebar} on:click={close} class="close" disabled={!show}>
 				<div style="height: 40%; width:auto; margin:0rem; margin-right:1rem;">
+					<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 					<svg style="height:100%; width:auto;" xmlns="http://www.w3.org/2000/svg" width="192" height="192"  viewBox="0 0 256 256"><rect width="256" height="256" fill="none" stroke="none"></rect><line x1="200" y1="56" x2="56" y2="200"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56"  stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
 				</div>
 				Close

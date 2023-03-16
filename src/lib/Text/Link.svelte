@@ -20,6 +20,7 @@
 	<span><slot></slot></span>
 	{#if arrow}
 		<span class="arrowWrapper">
+			<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 			<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></line><polyline points="144 56 216 128 144 200" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></polyline></svg>
 		</span>
 	{/if}
