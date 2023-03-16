@@ -29,7 +29,8 @@
     "url": "https://github.com/Vincentvibe3/nota-ui/issues"
   },
   "files": [
-    "dist"
+    "dist",
+    "NOTICE.txt"
   ],
   "svelte": "./dist/index.js",
   "module": "./dist/index.js",
