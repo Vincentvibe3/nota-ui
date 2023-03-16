@@ -111,7 +111,9 @@
 
 	button {
 		width: fit-content;
-		min-height: 2rem;
+		min-height: 1rem;
+
+		box-sizing: content-box;
 
 		display: flex;
 		flex-direction: row;
@@ -178,22 +180,25 @@
 	}
 
 	button.tertiary {
-		border: none;
+		border: var(--btnTertiaryBg, transparent) solid 0.15rem;
 		color: var(--btnTertiaryText, #b3386b);
 		background-color: var(--btnTertiaryBg, transparent);
 
 		&:hover {
+			border: $tertiaryBgFocus solid 0.15rem;
 			color: $tertiaryTextFocus;
 			background-color: $tertiaryBgFocus;
 		}
 
 		&:focus-visible {
 			outline: none;
+			border: $tertiaryBgFocus solid 0.15rem;
 			color: $tertiaryTextFocus;
 			background-color: $tertiaryBgFocus;
 		}
 
 		&:active {
+			border: $tertiaryBgFocus solid 0.15rem;
 			background-color: $tertiaryBgFocus;
 		}
 

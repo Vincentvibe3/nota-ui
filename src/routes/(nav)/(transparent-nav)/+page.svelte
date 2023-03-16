@@ -5,7 +5,6 @@
 	import PasswordInput from '$lib/TextInput/PasswordInput.svelte';
 	import Radio from '$lib/Radio/Radio.svelte';
 	import {TextInput, Searchbar, BackToTop, Separator, TextArea, Header, Modal, ContentContainer} from '$lib';
-	import Footer from '$lib/Layout/Footer.svelte';
 	import ProgressRing from '$lib/ProgressRing/ProgressRing.svelte';
 	import Link from '$lib/Text/Link.svelte';
 	import Slider from '$lib/Slider/Slider.svelte';
@@ -66,7 +65,7 @@
 	>
 	Component Preview
 </Header> -->
-<Header video="/video2.mp4">
+<Header video="/video.mp4">
 	Component Preview
 </Header>
 <!-- <Header>Component Preview</Header> -->

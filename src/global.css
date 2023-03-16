@@ -170,7 +170,6 @@
 	--dropdownFont:var(--body2);
 	--dropdownFontOption:var(--body2);
 	--dropdownBg:var(--n300);
-	/* --dropdownBorder:var(--n400); */
 	--dropdownBorder:transparent;
 	--dropdownBorderFocus:var(--p900);
 	--dropdownText:var(--n800);
@@ -179,7 +178,6 @@
 	--searchFont:var(--body2);
 	--searchFontOption:var(--body2);
 	--searchBg:var(--n300);
-	/* --searchBorder:var(--n400); */
 	--searchBorder:transparent;
 	--searchText:var(--n800);
 	--searchIconBtnBg:var(--n400);
@@ -200,15 +198,12 @@
 	--backdropColor:var(--n900);
 
 	/* Navbar*/
-	/* --navBg:var(--p700); */
 	--navBg:var(--n200);
 	--navFont:var(--body);
 	--navBgTitleHover:var(--n800);
 	--navTextTitleHover:var(--n200);
 	--navTextTransparent:var(--n100);
 	--navIconTransparent:var(--n100);
-	/* --navText:var(--n200); */
-	/* --navIcon:var(--n200); */
 	--navText:var(--n800);
 	--navIcon:var(--n800);
 

@@ -17,7 +17,7 @@
 	--p700:#b3386b;
 	--p800:#a31c54;
 	--p900:#99003b;
-
+	
 	/* Secondary */
 	--s100:#def3ff;
 	--s200:#c2d5f2;
@@ -28,7 +28,7 @@
 	--s700:#3841b3;
 	--s800:#1c23a6;
 	--s900:#000599;
-
+	
 	/* Neutral */
 	--n100:#ffffff;
 	--n200:#fafafa;
@@ -93,6 +93,8 @@
 	--btnPrimaryBorderFocus: var(--p800);
 	--btnPrimaryText: var(--n200);
 	--btnPrimaryTextFocus: var(--n200);
+	--btnPrimaryIconFill:var(--n100);
+	--btnPrimaryIconStroke:var(--n100);
 
 	/* Button Secondary */
 	--btnSecondaryBg: transparent;
@@ -100,19 +102,23 @@
 	--btnSecondaryText: var(--p800);
 	--btnSecondaryTextFocus: var(--p800);
 	--btnSecondaryBorder: var(--p800);
+	--btnSecondaryIconFill:var(--p800);
+	--btnSecondaryIconStroke:var(--p800);
 
 	/* Button Tertiary */
 	--btnTertiaryBg: transparent;
 	--btnTertiaryBgFocus: var(--p200);
-	--btnTertiaryBgFocus: var(--p200);
 	--btnTertiaryText: var(--p800);
 	--btnTertiaryTextFocus: var(--p800);
+	--btnTertiaryIconFill:var(--p800);
+	--btnTertiaryIconStroke:var(--p800);
 
 	/* Button Disabled */
 	--btnDisabledBg:var(--n300);
-	/* --btnDisabledBorder:var(--n400); */
 	--btnDisabledBorder:transparent;
 	--btnDisabledText:var(--n600);
+	--btnDisabledIconFill:var(--n500);
+	--btnDisabledIconStroke:var(--n500);
 
 	/* Button Danger */
 	--btnDangerText:var(--n200);
@@ -121,12 +127,13 @@
 	--btnDangerBg:var(--e200);
 	--btnDangerBgFocus:var(--e300);
 	--btnDangerBorderFocus:var(--e200);
+	--btnDangerIconFill:var(--n100);
+	--btnDangerIconStroke:var(--n100);
 
 	/* TextInput*/
 	--inputFont:var(--body2);
 	--inputBg:var(--n300);
 	--inputBorder:transparent;
-	/* --inputBorder:var(--n400); */
 	--inputText:var(--n800);
 	--inputIconBtnBg:var(--n400);
 	--inputPlaceholderText:var(--n600);
@@ -138,7 +145,6 @@
 	/* TextArea */
 	--textAreaFont:var(--body);
 	--textAreaBg:var(--n300);
-	/* --textAreaBorder: var(--n400); */
 	--textAreaBorder: transparent;
 	--textAreaText:var(--n800);
 	--textAreaPlaceholderText:var(--n600);
@@ -164,7 +170,6 @@
 	--dropdownFont:var(--body2);
 	--dropdownFontOption:var(--body2);
 	--dropdownBg:var(--n300);
-	/* --dropdownBorder:var(--n400); */
 	--dropdownBorder:transparent;
 	--dropdownBorderFocus:var(--p900);
 	--dropdownText:var(--n800);
@@ -173,7 +178,6 @@
 	--searchFont:var(--body2);
 	--searchFontOption:var(--body2);
 	--searchBg:var(--n300);
-	/* --searchBorder:var(--n400); */
 	--searchBorder:transparent;
 	--searchText:var(--n800);
 	--searchIconBtnBg:var(--n400);
@@ -194,12 +198,14 @@
 	--backdropColor:var(--n900);
 
 	/* Navbar*/
-	--navBg:var(--p700);
+	--navBg:var(--n200);
 	--navFont:var(--body);
 	--navBgTitleHover:var(--n800);
 	--navTextTitleHover:var(--n200);
-	--navText:var(--n200);
-	--navIcon:var(--n200);
+	--navTextTransparent:var(--n100);
+	--navIconTransparent:var(--n100);
+	--navText:var(--n800);
+	--navIcon:var(--n800);
 
 	/* Sidebar */
 	--sidebarCloseFont:var(--buttons);
@@ -247,6 +253,42 @@
 	--backToTopTextFocus:var(--n200);
 	--backToTopIcon:var(--n200);
 	--backToTopIconFocus:var(--n200);
+
+	/* Card */
+	--cardBg:var(--n300);
+	--cardBgFocus:var(--n400);
+
+	/* Scaffold */
+	--scaffoldPadding:3rem;
+
+	/* ContentContainer */
+	--contentContainerPadding:0rem;
+	--contentContainerGap:1rem;
+
+	/* Slider */
+	--sliderThumbBg:var(--p600);
+	--sliderThumbBgFocus:var(--p700);
+	--sliderThumbBorder:var(--p700);
+	--sliderThumbBorderFocus:var(--p800);
+	--sliderTrackBg:var(--n300);
+	--sliderTrackBgActive:var(--n400);
+
+	/* Table */
+	--tableFont:var(--body);
+	--tableBg:var(-n300);
+	--tableHeaderBg:var(--n400);
+	--tableBorder:var(--n400)
+
+	/* CodeBlock */
+	--codeblockBg:var(--n400);
+
+	/* Link */
+	--linkArrowBg:var(--p900);
+	--linkArrowFg:var(--n100);
+	--linkFg:var(--n900);
+	--linkVisitedFg:var(--s600);
+	--linkFgFocus:var(--p900)
+
 
 }
 
