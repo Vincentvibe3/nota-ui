@@ -19,7 +19,7 @@
 			Get Started
 		</Text>
 		<p>
-			run <CodeBlock>npm install 0.0.11-alpha</CodeBlock> to install
+			run <CodeBlock>npm install 0.0.12-alpha</CodeBlock> to install
 		</p>
 		<Text tag="h2" heading6>
 			Explore Nota-ui
