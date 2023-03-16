@@ -63,6 +63,17 @@
 
 		cursor: pointer;
 
+		& :global( svg ){
+			fill: var(--navIcon, #f0f0f0);
+			stroke: var(--navIcon, #f0f0f0);
+			transition: all ease-in-out 0.2s;
+		}
+
+		&:hover :global( svg ){
+			fill: var(--navIconHover, #f0f0f0);
+			stroke: var(--navIconHover, #f0f0f0)
+		}
+
 		&:hover{
 			color: var(--navbarTextTitleHover, #f0f0f0);
 			background-color: var(--navBgTitleHover, #161616);
@@ -108,6 +119,12 @@
 
 		&.transparent{
 			backdrop-filter: unset;
+			color: var(--navTextTransparent, #f0f0f0);
+			
+			.titleWrapper :global( svg ){
+				fill: var(--navIconTransparent, #f0f0f0);
+				stroke: var(--navIconTransparent, #f0f0f0)
+			}
 		}
 
 		&.show, &:focus-visible, &:focus-within{
@@ -128,11 +145,18 @@
 
 		z-index: -1;
 
-		box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
+		border-bottom: var(--n400) solid 0.1rem;
+
+		box-sizing: border-box;
+
+		transition: all ease 0.2s;
+
+		// box-shadow: #00000021 0.2rem 0.2rem 0.3rem;
 
 		transition: all ease 0.5s;
 
 		&.transparent {
+			border-bottom: transparent solid 0.1rem;
 			background-color: transparent;
 			box-shadow: none;
 		}

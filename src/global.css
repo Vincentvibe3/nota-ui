@@ -200,12 +200,17 @@
 	--backdropColor:var(--n900);
 
 	/* Navbar*/
-	--navBg:var(--p700);
+	/* --navBg:var(--p700); */
+	--navBg:var(--n200);
 	--navFont:var(--body);
 	--navBgTitleHover:var(--n800);
 	--navTextTitleHover:var(--n200);
-	--navText:var(--n200);
-	--navIcon:var(--n200);
+	--navTextTransparent:var(--n100);
+	--navIconTransparent:var(--n100);
+	/* --navText:var(--n200); */
+	/* --navIcon:var(--n200); */
+	--navText:var(--n800);
+	--navIcon:var(--n800);
 
 	/* Sidebar */
 	--sidebarCloseFont:var(--buttons);
