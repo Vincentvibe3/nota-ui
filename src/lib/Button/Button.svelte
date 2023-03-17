@@ -118,7 +118,9 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: center;		
+		justify-content: center;
+		
+		gap: 0.75rem;
 
 		padding: min(0.5rem, 40%) 1.5rem;
 
@@ -162,16 +164,10 @@
 
 	.iconWrapper{
 		height: 100%;
-		margin-left: -0.5rem;
-		margin-right: 0.75rem;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-
-		&.iconOnly {
-			margin: 0px;
-		}
 	
 		& :global( * ) {
 			height: auto;

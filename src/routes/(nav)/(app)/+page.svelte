@@ -7,7 +7,7 @@
 	<Header position="center" slot="header">
 		Nota-ui Docs
 	</Header>
-	<ContentContainer>
+	<ContentContainer direction="column">
 		<Text tag="h2" heading6>
 			Welcome to the Nota-ui docs
 		</Text>
@@ -22,7 +22,7 @@
 			run <CodeBlock>npm install 0.0.12-alpha</CodeBlock> to install
 		</p>
 	</ContentContainer>
-	<ContentContainer>
+	<ContentContainer direction="column" alignment="flex-start">
 		<Text tag="h2" heading6>
 			Explore Nota-ui
 		</Text>

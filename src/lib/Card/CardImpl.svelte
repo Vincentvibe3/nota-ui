@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ContentContainer from "../Layout/ContentContainer.svelte";
-
+	import { ContentContainer } from "$lib/Layout";
+	
 	/**
 	 * Sets the direction of the Card's contents 
 	 */
@@ -57,7 +57,7 @@
 	<div class="image-wrapper">
 		<slot name="image"></slot>
 	</div>
-	<ContentContainer --contentContainerPadding="1.5rem" direction={direction}>
+	<ContentContainer fillWidth --contentContainerPaddingx="1.5rem" --contentContainerPaddingy="1.5rem" direction={direction}>
 		<slot></slot>
 	</ContentContainer>
 </svelte:element>
@@ -74,7 +74,7 @@
 	}
 
 	a.bg{
-		display:block;
+		display: block;
 		text-decoration: none;
 		color: inherit;
 	}

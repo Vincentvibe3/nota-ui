@@ -3,7 +3,6 @@
 	import Card from '$lib/Card/Card.svelte';
     import CardLink from '$lib/Card/CardLink.svelte';
     import CardButton from '$lib/Card/CardButton.svelte';
-	import ContentContainer from '$lib/Layout/ContentContainer.svelte';
     import Scaffold from '$lib/Layout/Scaffold.svelte';
 	import Link from '$lib/Text/Link.svelte';
 	import { Table } from '$lib/Table';
@@ -12,7 +11,7 @@
 	import TableHeader from '$lib/Table/TableHeader.svelte';
 	import Row from '$lib/Layout/Row.svelte';
 	import Column from '$lib/Layout/Column.svelte';
-	import NewContentContainer from '$lib/Layout/NewContentContainer.svelte';
+	import ContentContainer from '$lib/Layout/ContentContainer.svelte';
 
     let tableData = [
         [1, 2, 3],
@@ -22,16 +21,16 @@
 </script>
 <Scaffold>
     <Header slot="header">Test page</Header>
-    <NewContentContainer>
+    <ContentContainer>
         <Button>
             Text 1
         </Button>
         <Button>
             Text 2
         </Button>
-    </NewContentContainer>
-    <NewContentContainer>
-        <NewContentContainer direction="column">
+    </ContentContainer>
+    <ContentContainer>
+        <ContentContainer direction="column">
             <Card>
                 <p>Text in a card</p>
             </Card>
@@ -41,8 +40,8 @@
             <Button>
                 Text 4
             </Button>
-        </NewContentContainer>
-        <NewContentContainer direction="column">
+        </ContentContainer>
+        <ContentContainer direction="column">
             <Card>
                 <p>Text in a card</p>
             </Card>
@@ -52,8 +51,8 @@
             <Button>
                 Text 6
             </Button>
-        </NewContentContainer>
-    </NewContentContainer>
+        </ContentContainer>
+    </ContentContainer>
 </Scaffold>
 <style>
 

@@ -8,12 +8,15 @@
 <style lang="scss">
 	
 	div {
-		width:100%;
 		display: flex;
 		flex-direction: row;
-		gap:1rem;
+		gap:var(--contentContainerGap, 1rem);
+		flex-grow: 1;
 		align-items: center;
 		flex-wrap: wrap;
+		align-self: stretch;
+		padding: var(--contentContainerPaddingy, 0rem) var(--contentContainerPaddingx, 0rem);
+		box-sizing: border-box;
 
 		&.reverse{
 			flex-direction: row-reverse;

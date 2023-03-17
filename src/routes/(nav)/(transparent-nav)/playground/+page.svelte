@@ -108,7 +108,9 @@
 	</PasswordInput>
 	<label for="radio">Button</label>
 	<ContentContainer direction="row">
-		<TextInput bind:text></TextInput>
+		<div style="flex-grow:1;">
+			<TextInput bind:text></TextInput>
+		</div>
 		<Button>Test</Button>
 	</ContentContainer>
 	<Separator/>

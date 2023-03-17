@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	import { Button } from "$lib/Button";
 	import { ContentContainer } from "$lib/Layout";
 	import { createEventDispatcher, onMount } from "svelte";
 	let transparent = true;
@@ -37,54 +38,70 @@
 	<div class:transparent={transparent&&!alwaysOpaque} class="bg" class:shadow={navStyle === "shadow"}></div>
 	<ContentContainer direction="row">
 		<button on:click={onTitleClick} class="titleWrapper">
-			<slot name="icon"></slot>
+			<div class="iconWrapper" class:iconOnly={!$$slots.default}>
+				<slot name="icon"/>
+			</div>
 			<slot name="title"></slot>
 		</button>
-		<ContentContainer --contentContainerPadding="1rem" fillWidth={false} bind:reverse  direction="row">
+		<ContentContainer --contentContainerPaddingx="1rem" bind:reverse direction="row">
 			<slot></slot>
 		</ContentContainer>
 	</ContentContainer>
-	
 </div>
 <style lang="scss">
 
-	.titleWrapper{
+	button {
 		width: fit-content;
 		height: 100%;
-		
+
+		box-sizing: content-box;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
+		gap:1rem;		
 
-		padding: 0rem 1.5rem;
+		padding: 0 1.5rem;
 
-		border: none;
+		font: inherit;
+		
+		white-space: nowrap;
 
 		color: inherit;
 		background-color: transparent;
-		
-		transition: all ease-in-out 0.2s;
-
-		font: inherit;
+		border: none;
 
 		cursor: pointer;
 
-		& :global( svg ){
-			fill: var(--navIcon, #f0f0f0);
-			stroke: var(--navIcon, #f0f0f0);
-			transition: all ease-in-out 0.2s;
-		}
-
-		&:hover :global( svg ){
-			fill: var(--navIconHover, #f0f0f0);
-			stroke: var(--navIconHover, #f0f0f0)
-		}
+		transition: all ease-in-out 0.2s;
 
 		&:hover{
 			color: var(--navbarTextTitleHover, #f0f0f0);
 			background-color: var(--navBgTitleHover, #161616);
 		}
+
+		&:hover :global( svg ) {
+			fill: var(--navIconHover, #f0f0f0);
+			stroke: var(--navIconHover, #f0f0f0);
+		}
+	}
+
+	.iconWrapper{
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	
+		& :global( svg ) {
+			height: auto;
+			width: 1.5rem;
+			fill: var(--navIcon, #f0f0f0);
+			stroke: var(--navIcon, #f0f0f0);
+			transition: all ease-in-out 0.2s;
+		}
+		
 	}
 
 	.bar {
