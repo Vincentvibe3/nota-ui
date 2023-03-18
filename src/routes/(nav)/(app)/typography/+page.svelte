@@ -1,8 +1,8 @@
 <script lang="ts">
-	import {Header} from '$lib';
+	import {Header, Scaffold} from '$lib';
 </script>
-<Header>Typography</Header>
-<main>
+<Scaffold --scaffoldGap="0rem">
+	<Header slot="header">Typography</Header>
 	<h1>Heading 1</h1>
 	<h2>Heading 2</h2>
 	<h3>Heading 3</h3>
@@ -14,44 +14,45 @@
 	<p class="body2">Body 2</p>
 	<p class="buttons">Buttons</p>
 	<p class="caption">Caption</p>
-</main>
+</Scaffold>
+
 <style>
-	main h1, main h2, main h3, main h4, main h5, main h6, main p {
+	 h1,  h2,  h3,  h4,  h5,  h6,  p {
 		margin: 0.5rem 0rem;
 	}
 
-	main h1 {
+	 h1 {
 		font: var(--heading1);
 	}
-	main h2 {
+	 h2 {
 		font: var(--heading2);
 	}
-	main h3 {
+	 h3 {
 		font: var(--heading3);
 	}
-	main h4 {
+	 h4 {
 		font: var(--heading4);
 	}
-	main h5 {
+	 h5 {
 		font: var(--heading5);
 	}
-	main h6 {
+	 h6 {
 		font: var(--heading6);
 	}
-	main .subtitle {
+	 .subtitle {
 		font:var(--subtitle);
 	}
-	main p{
+	 p{
 		font: var(--body);
 	}
-	main .body2 {
+	 .body2 {
 		font:var(--body2)
 	}
 
-	main .buttons{
+	 .buttons{
 		font:var(--buttons);
 	}
-	main .caption{
+	 .caption{
 		font:var(--caption);
 	}
 

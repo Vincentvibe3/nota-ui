@@ -5,6 +5,7 @@
 	export let max:number
 	export let value:number
 	export let showValue=false
+	export let showGradations=false
 	let percentage:number
 
 	$: if (value>max){
@@ -30,6 +31,13 @@
 <div class="wrapper">
 	<div class="inputWrapper">
 		<div class="bg"></div>
+		{#if showGradations}
+			<div class="gradations">
+				{#each [...Array(max-min-1).keys()] as index}
+					<div class="gradation" style:left="calc({100/(max-min)*(index+1)}%)"></div>
+				{/each}
+			</div>
+		{/if}
 		<div class="fg" style:width="{percentage}%"></div>
 		<input 
 			class="slider"
@@ -43,6 +51,29 @@
 	{/if}
 </div>
 <style lang="scss">
+
+	.gradations{
+		position: absolute;
+		top:0px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+		height: 100%;
+		background: var(--sliderTrackBg, #f0f0f0);
+		border-radius: 100vh;
+		transition: inherit;
+
+		.gradation {
+			position: absolute;
+			height: 50%;
+			width:auto;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			background-color: #a31c54;
+		}
+	}
 
 	.wrapper {	
 		display: flex;
@@ -64,7 +95,7 @@
 
 			transform: translateY(-50%);
 
-			.bg, .fg {
+			.bg, .fg, .gradations {
 				height: 200%;
 			}
 

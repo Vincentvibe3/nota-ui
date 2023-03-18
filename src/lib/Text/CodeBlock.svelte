@@ -5,5 +5,6 @@
 		padding: 00.2rem 0.3rem;
 		border-radius: 0.2rem;
 		font-family: monospace;
+		white-space:pre;
 	}
 </style>

@@ -1,16 +1,17 @@
 <script lang="ts">
-	import { Header } from '$lib';
+	import { Header, Scaffold } from '$lib';
 	import Link from '$lib/Text/Link.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
 <svelte:head><title>Components</title></svelte:head>
-<Header>Components</Header>
-<main>
+<Scaffold --scaffoldGap="0rem">
+	<Header slot="header">Components</Header>
 	{#each data.names as name}
 		<Link href="/components/{name}">{name}</Link>
 	{/each}
-</main>
+</Scaffold>
+
 <style>
 	main {
 		display: flex;

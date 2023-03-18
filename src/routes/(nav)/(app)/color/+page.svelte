@@ -150,7 +150,7 @@
 </script>
 
 <script lang="ts">
-	import { Header } from '$lib'
+	import { BackToTop, ContentContainer, Header, Scaffold } from '$lib'
 	import { onMount } from 'svelte';
 
 
@@ -189,17 +189,20 @@
 	})
 
 </script>
-<Header>Color</Header>
-<main>
-	{#each categories as c}
-		<div class="colorRow">
-			<p>{c.prettyName}</p>
-			{#each [...Array(c.colorCount).keys()] as i}
-				<div bind:this={c.elements[i]} class="colorChip" style="background-color: var(--{c.prefix}{i+1}00);"><span>{i+1}00</span></div>
-			{/each}
-		</div>
-	{/each}
-</main>
+<Scaffold>
+	<Header slot="header">Color</Header>
+	<ContentContainer direction="column">
+		{#each categories as c}
+			<div class="colorRow">
+				<p>{c.prettyName}</p>
+				{#each [...Array(c.colorCount).keys()] as i}
+					<div bind:this={c.elements[i]} class="colorChip" style="background-color: var(--{c.prefix}{i+1}00);"><span>{i+1}00</span></div>
+				{/each}
+			</div>
+		{/each}
+	</ContentContainer>
+</Scaffold>
+<BackToTop></BackToTop>
 <style>
 
 	.colorRow {

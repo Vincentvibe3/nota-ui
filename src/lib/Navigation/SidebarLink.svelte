@@ -1,32 +1,37 @@
+<script context="module" lang="ts">
+	export const currentHref = writable()
+</script>
 <script lang="ts">
 	import { getContext, onMount } from "svelte";
-	import type { Writable } from "svelte/store";
+	import { writable, type Writable } from "svelte/store";
 
 	export let htmlElement:HTMLAnchorElement|null=null
 	export let href:string;
 	export let multiline = false;
 	export let closeOnClick = true;
 
-	let currentHref=""
 	const sidebarContext:{[key:string]:Writable<boolean>}= getContext("sidebar")
 	const sidebarStore = sidebarContext["show"]
 
 	const onClick = () => {
-
+		
 		if (closeOnClick){
 			sidebarStore.update(_=>false)
+			// currentHref = window.location.href
+			setTimeout(()=>{$currentHref = window.location.href}, 100)
 		}
 	}
 
 	onMount(()=>{
-		currentHref = window.location.href
+		$currentHref = window.location.href
 	})
 
 	let currentPage=false;
-	$: currentPage=currentHref === htmlElement?.href
+	$: currentPage=$currentHref === htmlElement?.href
 
 </script>
-<a on:click={onClick} bind:this={htmlElement} href={href}>
+<!-- <svelte:window on:click={(_)=>{console.log("hash vhanges");currentHref = window.location.href}}></svelte:window> -->
+<a on:click={onClick} bind:this={htmlElement} href={href} class:currentPage>
 	<div class="indicator" class:show={currentPage}></div>
 	<span class:currentPage class:multiline><slot></slot></span>
 </a>
@@ -46,7 +51,7 @@
 	}
 
 	a{
-		width: calc(100% - 5rem);
+		width: 100%;
 		height: fit-content;
 
 		display: flex;
@@ -54,18 +59,23 @@
 		align-items: center;
 		justify-content: start;
 
-		margin: 0rem 1rem 1rem 1rem;
-		padding: 1rem;
-		
-		background-color: var(--sidebarLinkBg, #f0f0f0);
+		padding: 0.75rem;
+		margin: 0px;
+
+		box-sizing: border-box;
+	
 		
 		border-radius: var(--borderRadius);
 
-		font: var(--sidebarLinkFont, 400 1rem sans-serif);
+		font: var(--sidebarLinkFont, 600 0.875rem sans-serif);
 		text-decoration: none;
 		color: var(--sidebarLinkText, #161616);
 		
 		transition: all ease-in-out 0.2s;
+
+		&.currentPage{
+			background-color: var(--sidebarLinkBgFocus, #c0c0c0);
+		}
 
 		&:hover {
 			color: var(--sidebarLinkTextFocus, #161616);
@@ -81,6 +91,10 @@
 		
 		&.multiline{
 			white-space:normal;
+		}
+
+		&.currentPage {
+			color: var(--p600);
 		}
 	}
 

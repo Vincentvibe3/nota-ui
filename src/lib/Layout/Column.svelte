@@ -4,7 +4,14 @@
 	export let fillWidth = false
 </script>
 <div class="column" class:fillWidth class:reverse style:align-items={alignment}>
-	<slot/>
+	<!-- Resets variables so nested containers arent affected -->
+	<div 
+	style:display= "contents" 
+	style:--contentContainerGap="initial"
+	style:--contentContainerPaddingx="initial"
+	style:--contentContainerPaddingy="initial">
+		<slot/>
+	</div>
 </div>
 <style lang="scss">
 	
@@ -12,7 +19,9 @@
 		display: flex;
 		flex-direction: column;
 		gap:var(--contentContainerGap, 1rem);
-		min-width: 300px;
+		flex-grow: 1;
+		min-width: 200px;
+		max-width: 100%;
 		padding: var(--contentContainerPaddingy, 0rem) var(--contentContainerPaddingx, 0rem);
 		box-sizing: border-box;
 

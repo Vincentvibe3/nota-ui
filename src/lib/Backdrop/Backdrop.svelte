@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { fade } from "svelte/transition";
+
+
 	/**
 	 * controls the visibility of the backdrop
 	 */
@@ -17,7 +20,9 @@
 	
  -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div on:click class:show={show}></div>
+{#if show}
+	<div transition:fade="{{duration:300}}" on:click class:show={show}></div>
+{/if}
 <style lang="scss">
 	div {
 		position: fixed;

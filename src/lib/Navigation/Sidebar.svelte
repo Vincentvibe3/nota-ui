@@ -114,7 +114,7 @@
 
 		z-index: inherit;
 		
-		overflow-y: scroll;
+		// overflow-y: scroll;
 
 		background-color: var(--sidebarBg, #f0f0f0);
 

@@ -81,7 +81,7 @@
 
 	/* Styles */
 
-	--borderRadius: 0.5rem;
+	--borderRadius: 1.25rem;
 
 	/* Button */
 	--btnFont:var(--buttons);
@@ -189,8 +189,10 @@
 
 	/* Header */
 	--headerFont:var(--heading1);
-	--headerBg:var(--n300);
+	/* --headerBg:var(--n300); */
+	--headerBg:var(--p800);
 	--headerTextLight:var(--n700);
+	--headerTextLight:var(--n100);
 	--headerTextDark:var(--n300);
 	--headerBorderBottom:var(--n400)
 
@@ -206,6 +208,7 @@
 	--navIconTransparent:var(--n100);
 	--navText:var(--n800);
 	--navIcon:var(--n800);
+	--navBottomBorder:var(--n400);
 
 	/* Sidebar */
 	--sidebarCloseFont:var(--buttons);
@@ -216,15 +219,26 @@
 	--sidebarCloseIcon:var(--n200);
 	--sidebarCloseIconFocus:var(--n200);
 	--sidebarBg:var(--n200);
+	/* --sidebarCloseFont:var(--buttons);
+	--sidebarCloseBg:var(--n800);
+	--sidebarCloseBgFocus:var(--n900);
+	--sidebarCloseText:var(--n200);
+	--sidebarCloseTextFocus:var(--n200);
+	--sidebarCloseIcon:var(--n200);
+	--sidebarCloseIconFocus:var(--n200);
+	--sidebarBg:var(--n800); */
 
 	/* SidebarLink */
 	--sidebarLinkText:var(--n800);
+	/* --sidebarLinkText:var(--n100); */
 	--sidebarLinkBg:var(--n300);
 	--sidebarLinkTextFocus:var(--n800);
-	--sidebarLinkBgFocus:var(--n400);
+	/* --sidebarLinkTextFocus:var(--n100); */
+	--sidebarLinkBgFocus:var(--n300);
+	/* --sidebarLinkBgFocus:var(--n700); */
 	--sidebarLinkBorderBottom:var(--n400);
 	--sidebarLinkBorderBottomFocus:var(--n500);
-	--sidebarLinkFont:var(--body);
+	--sidebarLinkFont:var(--buttons);
 
 	/* SidebarSlot */
 	--sidebarSlotBg:var(--n300);
@@ -276,7 +290,7 @@
 	/* Table */
 	--tableFont:var(--body);
 	--tableBg:var(-n300);
-	--tableHeaderBg:var(--n400);
+	--tableHeaderBg:var(--p400);
 	--tableBorder:var(--n400)
 
 	/* CodeBlock */

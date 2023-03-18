@@ -50,6 +50,18 @@
 </div>
 <style lang="scss">
 
+	@media only screen and (min-width: 1000px) {
+		.iconWrapper {
+			display: none;
+		}
+	}
+
+	@media only screen and (max-width: 1000px) {
+		.iconWrapper {
+			display: flex;
+		}
+	}
+
 	button {
 		width: fit-content;
 		height: 100%;
@@ -89,7 +101,6 @@
 
 	.iconWrapper{
 		height: 100%;
-		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
@@ -123,7 +134,7 @@
 
 		gap: 1rem;
 
-		z-index: 3;
+		z-index: 2;
 
 		color: var(--navText, #f0f0f0);
 
@@ -161,7 +172,7 @@
 
 		z-index: -1;
 
-		border-bottom: var(--n400) solid 0.1rem;
+		border-bottom: var(--navBottomBorder, #c0c0c0) solid 0.1rem;
 
 		box-sizing: border-box;
 

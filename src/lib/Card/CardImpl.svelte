@@ -83,7 +83,7 @@
 		position: relative;
 		background-color: var(--cardBg, #f0f0f0);
 		border-radius: var(--borderRadius, 0.5rem);
-		margin: var(--cardMargin, 1rem);
+		margin: var(--cardMargin, 0rem);
 		border: 0px;
 		padding: 0px;
 		flex-grow: 1;

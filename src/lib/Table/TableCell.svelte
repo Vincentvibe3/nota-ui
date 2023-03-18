@@ -15,6 +15,7 @@
 		text-align: start;
 		padding: 1rem;
 		font-weight: 400;
+		
 	}
 	
 </style>
