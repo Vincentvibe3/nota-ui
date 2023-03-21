@@ -12,9 +12,9 @@
 
 	@media only screen and (min-width: 1000px) {
 		.contentMiddle {
-			display: grid;
-			grid-template-columns: 20rem 1fr;
-			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
 		}
 
 		.contentMiddle:not( .hasSidebar ){

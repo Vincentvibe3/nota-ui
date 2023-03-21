@@ -31,13 +31,13 @@
 <div class="wrapper">
 	<div class="inputWrapper">
 		<div class="bg"></div>
-		{#if showGradations}
+		<!-- {#if showGradations}
 			<div class="gradations">
 				{#each [...Array(max-min-1).keys()] as index}
 					<div class="gradation" style:left="calc({100/(max-min)*(index+1)}%)"></div>
 				{/each}
 			</div>
-		{/if}
+		{/if} -->
 		<div class="fg" style:width="{percentage}%"></div>
 		<input 
 			class="slider"
@@ -81,6 +81,7 @@
 		align-items: center;
 		justify-content: center;
 		margin: 1rem 0rem;
+		width: 100%;
 	}
 
 	.inputWrapper {

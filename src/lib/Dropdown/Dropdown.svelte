@@ -149,6 +149,7 @@
 		position: relative;
 
 		min-height: 2.5rem;
+		width:100%;
 
 		display: flex;
 		flex-direction: column;
