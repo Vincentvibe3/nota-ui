@@ -54,7 +54,7 @@
 		</button>
 	
 	<div class="content" class:desktop>
-		<ContentContainer --contentContainerGap="0.25rem" --contentContainerPaddingx="1rem"  direction="column">
+		<ContentContainer --contentContainerGap="0.25rem" --contentContainerPaddingx="1rem" --contentContainerPaddingy="0.2rem" direction="column">
 			<slot></slot>
 		</ContentContainer>
 	</div>

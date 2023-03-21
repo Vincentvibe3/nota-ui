@@ -43,9 +43,16 @@
 	<div class:transparent={transparent&&!alwaysOpaque} class:opaque={alwaysOpaque&&opaque} class="bg" class:shadow={navStyle === "shadow"}></div>
 	<ContentContainer direction="row">
 		<button on:click={onTitleClick} class="titleWrapper">
-			<div class="iconWrapper" class:iconOnly={!$$slots.default}>
-				<slot name="icon"/>
-			</div>
+			{#if $$slots.menuIcon}
+				<div class="iconWrapper menuIcon" class:iconOnly={!$$slots.default}>
+					<slot name="menuIcon"/>
+				</div>
+			{/if}
+			{#if $$slots.icon}
+				<div class="iconWrapper" class:iconOnly={!$$slots.default}>
+					<slot name="icon"/>
+				</div>
+			{/if}
 			<slot name="title"></slot>
 		</button>
 		<ContentContainer --contentContainerPaddingx="1rem" bind:reverse direction="row">
@@ -56,13 +63,13 @@
 <style lang="scss">
 
 	@media only screen and (min-width: 1000px) {
-		.iconWrapper {
+		.menuIcon {
 			display: none;
 		}
 	}
 
 	@media only screen and (max-width: 1000px) {
-		.iconWrapper {
+		.menuIcon{
 			display: flex;
 		}
 	}
@@ -81,7 +88,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		gap:1rem;		
+		gap:0.5rem;		
 
 		padding: 0 1.5rem;
 
@@ -102,24 +109,29 @@
 			background-color: var(--navBgTitleHover, #161616);
 		}
 
-		&:hover :global( svg ) {
+		&:hover .menuIcon :global( svg ) {
 			fill: var(--navIconHover, #f0f0f0);
 			stroke: var(--navIconHover, #f0f0f0);
 		}
 	}
 
 	.iconWrapper{
+		display: flex;
 		height: 100%;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-	
-		& :global( svg ) {
-			height: auto;
-			width: 1.5rem;
-			fill: var(--navIcon, #f0f0f0);
-			stroke: var(--navIcon, #f0f0f0);
-			transition: all ease-in-out 0.2s;
+
+		&.menuIcon {
+			margin-right: 0.5rem;
+
+			& :global( svg ) {
+				height: auto;
+				width: 1.5rem;
+				fill: var(--navIcon, #f0f0f0);
+				stroke: var(--navIcon, #f0f0f0);
+				transition: all ease-in-out 0.2s;
+			}
 		}
 		
 	}
@@ -157,7 +169,7 @@
 			backdrop-filter: unset;
 			color: var(--navTextTransparent, #f0f0f0);
 			
-			.titleWrapper :global( svg ){
+			.menuIcon :global( svg ){
 				fill: var(--navIconTransparent, #f0f0f0);
 				stroke: var(--navIconTransparent, #f0f0f0)
 			}
