@@ -18,7 +18,7 @@
 </div>
 <style lang="scss">
 	.wrapper{
-		overflow-x:auto;
+		overflow-x:scroll;
 		max-width:100%;
 		border-radius: var(--borderRadius, 0.2rem);
 	}

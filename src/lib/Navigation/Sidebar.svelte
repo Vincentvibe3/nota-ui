@@ -121,6 +121,7 @@
 		align-items: center;
 		justify-content: start;
 		flex-direction: column;
+		flex-shrink: 0;
 		
 		overflow-y: scroll;
 

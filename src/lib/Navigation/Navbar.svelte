@@ -62,18 +62,6 @@
 </div>
 <style lang="scss">
 
-	@media only screen and (min-width: 1000px) {
-		.menuIcon {
-			display: none;
-		}
-	}
-
-	@media only screen and (max-width: 1000px) {
-		.menuIcon{
-			display: flex;
-		}
-	}
-
 	.bg.opaque {
 		opacity: 1;
 	}
@@ -123,6 +111,7 @@
 		justify-content: center;
 
 		&.menuIcon {
+			display: flex;
 			margin-right: 0.5rem;
 
 			& :global( svg ) {
@@ -212,6 +201,26 @@
 			box-shadow: none;
 		}
 
+	}
+
+	@media only screen and (min-width: 1000px) {
+		.iconWrapper.menuIcon {
+			display: none;
+		}
+
+		button {
+			&:hover{
+				color: inherit;
+				background-color: inherit;
+			}
+
+			&:hover .menuIcon :global( svg ) {
+				fill: inherit;
+				stroke: inherit;
+			}
+		}
+
+		
 	}
 
 </style>

@@ -14,6 +14,7 @@
 		.contentMiddle {
 			display: grid;
 			grid-template-columns: 20rem 1fr;
+			box-sizing: border-box;
 		}
 
 		.contentMiddle:not( .hasSidebar ){

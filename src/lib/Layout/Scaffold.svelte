@@ -14,12 +14,12 @@
 		flex-grow: 1;
 		flex-shrink: 1;
 		width:100%;
-		max-width: 100%;
+		min-width: 0;
 	}
 
 	.container {
 		width: 100%;
-		max-width: 100%;
+		min-width: 0;
 		display: flex;
 		flex-direction: column;
 		padding: var(--scaffoldPadding, 3rem);
