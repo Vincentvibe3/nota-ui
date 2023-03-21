@@ -9,6 +9,7 @@
 	export let alwaysOpaque=true;
 	export let navStyle:"shadow"|"border" = "border"
 	export let reverse= false
+	export let opaque = false
 
 	const dispatch = createEventDispatcher<
 		{onTitleClick:void}
@@ -21,8 +22,10 @@
         		// you're at the top of the page
 				show=true
 				transparent=true
+				opaque = true
     		} else {
 				transparent=false
+				opaque = false
 				show=lastScrollPosition>window.scrollY
 			}
 			lastScrollPosition=window.scrollY
@@ -34,8 +37,8 @@
 	}
 
 </script>
-<div class:bar={true} class:transparent={transparent&&!alwaysOpaque} class:show={show}>
-	<div class:transparent={transparent&&!alwaysOpaque} class="bg" class:shadow={navStyle === "shadow"}></div>
+<div class:bar={true} class:transparent={transparent&&!alwaysOpaque} class:opaque={!transparent&&opaque} class:show={show}>
+	<div class:transparent={transparent&&!alwaysOpaque} class:opaque={!transparent&&opaque} class="bg" class:shadow={navStyle === "shadow"}></div>
 	<ContentContainer direction="row">
 		<button on:click={onTitleClick} class="titleWrapper">
 			<div class="iconWrapper" class:iconOnly={!$$slots.default}>
@@ -60,6 +63,10 @@
 		.iconWrapper {
 			display: flex;
 		}
+	}
+
+	.opaque {
+		opacity: 1;
 	}
 
 	button {

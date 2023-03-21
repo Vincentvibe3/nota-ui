@@ -1,13 +1,33 @@
 <div class="siteContent">
 	<slot name="navbar"></slot>
-	<slot name="leftSidebar"></slot>
-	<slot></slot>
+	<div class="contentMiddle" class:hasSidebar={$$slots.leftSidebar}>
+		{#if $$slots.leftSidebar}
+			<slot name="leftSidebar"></slot>
+		{/if}
+		<slot></slot>
+	</div>
 	<slot name="footer"></slot>
 </div>
 <style lang="scss">
+
+	@media only screen and (min-width: 1000px) {
+		.contentMiddle {
+			display: grid;
+			grid-template-columns: 20rem 1fr;
+		}
+
+		.contentMiddle:not( .hasSidebar ){
+			display: flex;
+		}
+	}
+
+	.contentMiddle {
+		min-height: 100vh;
+	}
+
 	.siteContent {
-		display: grid;
-		grid-template-rows: 3.5rem 1fr 1fr;
-		grid-template-columns: 20rem 1fr;
+		display: flex;
+		flex-direction: column;
+		height: fit-content;
 	}
 </style>
