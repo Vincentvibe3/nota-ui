@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { ContentContainer } from "$lib/Layout";
+
 
 	/**
 	 * Native radio type <input> element.
@@ -26,7 +28,7 @@
 
 
 <input bind:group={group} value={value} name={name} type="radio" bind:this={htmlElement} />
-<div>	
+<ContentContainer>
 	{#if htmlElement!=null}
 		<button
 			type="button"
@@ -34,9 +36,9 @@
 			class:checked={group === value}
 			class="radioWrapper"
 			on:click={onClick} />
-		<slot />
+		<slot/>
 	{/if}
-</div>
+</ContentContainer>
 
 <style lang="scss">
 
@@ -51,12 +53,6 @@
 
 	input {
 		display: none;
-	}
-
-	div {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
 	}
 
 	.radioWrapper {

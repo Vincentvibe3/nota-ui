@@ -27,7 +27,7 @@
 			<rect width="32" height="32" fill="white"/>
 			</clipPath>
 			</defs>
-			</svg>
+		</svg>
 			
 		<svelte:fragment slot="title">Nota-ui</svelte:fragment>
 		<IconLink href="https://github.com/Vincentvibe3/nota-ui">

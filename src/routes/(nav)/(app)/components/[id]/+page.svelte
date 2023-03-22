@@ -174,12 +174,17 @@ export interface ParsedComponent {
 <BackToTop></BackToTop>
 <style>
 	iframe {
-		/* height: 30rem; */
 		width:100%;
 		border: var(--n300) solid 0.2rem;
 		border-radius: var(--borderRadius);
 		overflow: scroll;
 		min-height: 15rem;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap:1rem;
 	}
 
 	.subtitle {

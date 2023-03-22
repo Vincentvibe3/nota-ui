@@ -10,14 +10,14 @@
 		transition: all ease-in-out 0.2s;
 
 		&:hover{
-			background-color: var(--tableHeaderBgHover, #909090);
+			background-color: var(--tableBgHover, #c0c0c0);
 		}
 
 		&:nth-child(2n) {
 			background-color: var(--tableBgAlternate, #fafafa);		
 
 			&:hover{
-				background-color: var(--tableHeaderBgHover, #909090);
+				background-color: var(--tableBgHover, #c0c0c0);
 			}
 		}
 	}

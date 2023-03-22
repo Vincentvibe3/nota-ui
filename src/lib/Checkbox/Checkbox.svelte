@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { ContentContainer } from "$lib/Layout";
+
 
 	/** 
 	 * Native checkbox type <input> element
@@ -34,10 +36,14 @@
 	- default: Sets a label on the right of the checkbox
 
 	Css Variables
+
+	- checkboxCheck (default:#ffffff): Color of the check icon
+	- checkboxSelected (default:#bf5383): Color of the filled checkbox when selected
+	- checkboxUnselected (default:#bf5383): Color of the checkbox ring when unselected
 	
  -->
 <input bind:checked {name} type="checkbox" bind:this={htmlElement} />
-<div class:wrapper={true}>
+<ContentContainer>
 	<button tabindex="0" on:click={onClick} class="checkboxWrapper" class:checked={checked}>
 		<div class="customCheckmark" class:animate={checked}>
 			<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
@@ -45,7 +51,7 @@
 		</div>
 	</button>
 	<slot />
-</div>
+</ContentContainer>
 
 <style lang="scss">
 
@@ -62,12 +68,6 @@
 
 	input {
 		display: none;
-	}
-
-	.wrapper {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
 	}
 
 	.checkboxWrapper {

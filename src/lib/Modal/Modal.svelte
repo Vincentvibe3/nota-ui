@@ -9,7 +9,7 @@
 	export let strict=false;
 
 	const checkEsc = (event:KeyboardEvent)=>{
-		if (event.key=="Escape"&&!strict){
+		if ((event.key=="Escape"||event.key=="Esc")&&!strict){
 			dismissModal()
 		}
 	}

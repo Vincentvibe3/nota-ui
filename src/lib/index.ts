@@ -18,13 +18,14 @@ export {
 	Footer,
 	FixedGrid
 } from './Layout'
-export { Modal } from './Modal'
+export { ModalController, queueModal, dismissModal } from './Modal'
 export { 
 	Navbar, 
 	Sidebar, 
 	SidebarLink, 
 	SidebarSlot,
-	BackToTop 
+	BackToTop,
+	toggleSidebar 
 } from './Navigation'
 export { ProgressRing } from './ProgressRing'
 export { Radio } from './Radio'
@@ -49,8 +50,6 @@ export {
 	PasswordInput,
 	NumberInput
 } from './TextInput'
-
-
 export type {
 	SearchInputEvent,
 	SearchOptionClickEvent,

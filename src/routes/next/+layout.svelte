@@ -4,7 +4,7 @@
 	import SiteLayout from "$lib/Layout/SiteLayout.svelte";
 	import IconLink from "$lib/Links/IconLink.svelte";
 	import Navbar from "$lib/Navigation/Navbar.svelte";
-	import { toggleSidebar } from "$lib/Navigation/Sidebar.svelte";
+	import { toggleSidebar } from "$lib";
 
 </script>
 <SiteLayout>

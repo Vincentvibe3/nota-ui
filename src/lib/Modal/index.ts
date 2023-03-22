@@ -1,1 +1,1 @@
-export {default as Modal} from "./Modal.svelte"
+export {default as ModalController, dismissModal, queueModal} from "./ModalController.svelte"

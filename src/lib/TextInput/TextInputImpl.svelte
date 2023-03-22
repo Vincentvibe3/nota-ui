@@ -136,7 +136,7 @@
 		}
 	}
 
-	input[type='number']{
+	input[type="number"]{
     	width: 4em;
 		overflow-x: hidden;
 		text-overflow: ellipsis;
@@ -211,8 +211,6 @@
 	.wrapper {
 		position: relative;
 
-		width: 100%;
-
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -228,8 +226,7 @@
 		font: var(--inputFont, 400 0.75rem sans-serif);
 
 		&.notNumber {
-			// width: 100%;
-			flex-grow: 1;
+			width: 100%;
 		}
 		
 		&.shadow{

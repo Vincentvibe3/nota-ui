@@ -12,7 +12,7 @@
 	/**
 	 * Boolean to style input field when contents are valid.
 	 */
-	export let valid: boolean | undefined = undefined;
+	export let valid: boolean | null = null;
 	/**
 	 * Placeholder text when nothing was typed.
 	 */

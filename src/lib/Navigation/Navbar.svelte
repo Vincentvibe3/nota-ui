@@ -23,11 +23,9 @@
 				show=true
 				transparent=true
 				opaque = true
-				console.log(opaque)
     		} else {
 				transparent=false
 				opaque = false
-				console.log(opaque)
 				show=lastScrollPosition>window.scrollY
 			}
 			lastScrollPosition=window.scrollY
@@ -110,9 +108,17 @@
 		align-items: center;
 		justify-content: center;
 
+		&:empty {
+			display: none;
+		}
+
 		&.menuIcon {
 			display: flex;
 			margin-right: 0.5rem;
+
+			&:empty {
+				display: none;
+			}
 
 			& :global( svg ) {
 				height: auto;

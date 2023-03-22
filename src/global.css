@@ -292,6 +292,7 @@
 	--tableBg:var(-n300);
 	--tableHeaderBg:var(--p400);
 	--tableBorder:var(--n400)
+	--tableBgHover:var(--n400)
 
 	/* CodeBlock */
 	--codeblockBg:var(--n400);

@@ -4,12 +4,13 @@
 	import Dropdown from '$lib/Dropdown/Dropdown.svelte';
 	import PasswordInput from '$lib/TextInput/PasswordInput.svelte';
 	import Radio from '$lib/Radio/Radio.svelte';
-	import {TextInput, Searchbar, BackToTop, Separator, TextArea, Header, Modal, ContentContainer, Scaffold} from '$lib';
+	import {TextInput, Searchbar, BackToTop, Separator, TextArea, Header, ContentContainer, Scaffold, Text, queueModal} from '$lib';
 	import ProgressRing from '$lib/ProgressRing/ProgressRing.svelte';
 	import Link from '$lib/Text/Link.svelte';
 	import Slider from '$lib/Slider/Slider.svelte';
 	import IconButton from '$lib/Button/IconButton.svelte';
 	import type { SearchInputEvent } from '$lib';
+	import ModalContent from '../../(app)/ModalContent.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -70,7 +71,7 @@
 		Component Preview
 	</Header>
 	<ContentContainer direction="column">
-		<label for="label">Input</label>
+		<Text tag="label" caption attributes={{"for":"input"}}>TextInput</Text>
 		<TextInput
 			name="input"
 			bind:text
@@ -88,7 +89,7 @@
 			<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="var(--inputIconColor)" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 			<svg  slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="var(--inputIconColor)" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 		</TextInput>
-		<label for="label">Password</label>
+		<Text tag="label" caption attributes={{"for":"password"}}>Password</Text>
 		<PasswordInput
 			name="password"
 			bind:showText={showPassword}
@@ -106,16 +107,15 @@
 				{/if}
 			</svelte:fragment>
 		</PasswordInput>
-		<label for="radio">Button</label>
+		<Text tag="label" caption attributes={{"for":"Button"}}>Button</Text>
 		<ContentContainer direction="row">
 			<div style="flex-grow:1;">
-				<TextInput bind:text></TextInput>
+				<TextInput placeholder="hello" bind:text></TextInput>
 			</div>
 			<Button>Test</Button>
 		</ContentContainer>
 		<Separator/>
 		<ContentContainer direction="row">
-			<TextInput bind:text></TextInput>
 			<Button buttonStyle="primary" on:click={click} bind:htmlElement={button}>
 				<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 					{#if loadButton1}
@@ -157,10 +157,7 @@
 				<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
 			</IconButton>
 		</ContentContainer>
-		<div style="display: flex; flex-direction:row; align-items:center;w">
-			
-		</div>
-		<label for="radio">Dropdown</label>
+		<Text tag="label" caption attributes={{"for":"Dropdown"}}>Dropdown</Text>
 		<Dropdown>
 			<option value="0">Select an option:</option>
 			<option value="1">Option 1</option>
@@ -192,27 +189,28 @@
 			<option value="11">Option 10</option>
 			<option value="12">Option 12 very longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</option>
 		</Dropdown>
-		<label for="radio">Checkbox</label>
+		<Text tag="label" caption attributes={{"for":"Checkbox"}}>Checkbox</Text>
 		<Checkbox bind:checked>
-			<label style="margin-left: 0.5rem;" for="radio">{checked}</label>
+			<Text tag="label" caption attributes={{"for":"checkbox state"}}>{checked}</Text>
 		</Checkbox>
-		<label for="radio">Radio Buttons</label>
+		<Text tag="label" caption attributes={{"for":"radio"}}>Radio</Text>
 		<form>
-			<Radio bind:group={status} name="hello" value="loading">
-				<label style="margin-left: 0.5rem;" for="radio">Loading</label>
-			</Radio>
-			<Radio bind:group={status} name="hello" value="error">
-				<label style="margin-left: 0.5rem;" for="radio">Error</label>
-			</Radio>
-			<Radio bind:group={status} name="hello" value="complete">
-				<label style="margin-left: 0.5rem;" for="radio">Complete</label>
-			</Radio>
+			<ContentContainer direction="column">
+				<Radio bind:group={status} name="hello" value="loading">
+					<Text tag="label" caption attributes={{"for":"radio"}}>Loading</Text>
+				</Radio>
+				<Radio bind:group={status} name="hello" value="error">
+					<Text tag="label" caption attributes={{"for":"radio"}}>Error</Text>
+				</Radio>
+				<Radio bind:group={status} name="hello" value="complete">
+					<Text tag="label" caption attributes={{"for":"radio"}}>Complete</Text>
+				</Radio>
+			</ContentContainer>
 		</form>
-		<label for="radio">Spinner</label>
-		<div style="display: flex; flex-direction:row; align-items:center;">
+		<Text tag="label" caption attributes={{"for":"spinner"}}>Spinner</Text>
+		<ContentContainer>
 			<ProgressRing bind:status/>
 			<Button 
-				
 				buttonStyle="primary" 
 				on:click={()=>{
 					status="loading"
@@ -241,8 +239,8 @@
 				bind:htmlElement={button}>
 				Set Complete
 			</Button>
-		</div>
-		<label for="radio">Search Bar</label>
+		</ContentContainer>
+		<Text tag="label" caption attributes={{"for":"Search Bar"}}>Search Bar</Text>
 		<Searchbar
 			
 			on:submit={() => {
@@ -257,33 +255,18 @@
 			<svg slot="iconleft" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none" /><circle cx="116" cy="116" r="84" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 			<svg slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256"><rect width="256" height="256" stroke="none" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 		</Searchbar>
-		<label for="modal">Separator</label>
+		<Text tag="label" caption attributes={{"for":"Separator"}}>Separator</Text>
 		<Separator></Separator>
-		<label for="modal">Modal</label>
-		<Modal bind:open={modalOpen}>
-			<svelte:fragment slot="title">
-				Modal Title
-			</svelte:fragment>
-			<p>Hello from the modal!</p>
-			<TextInput text=""></TextInput>
-			<div style="width:100%; display:flex; flex-direction:row; justify-content:space-between; margin-top:1rem;">
-				<Button buttonStyle="secondary" on:click={()=>{modalOpen=false}}>
-					Cancel
-				</Button>
-				<Button on:click={()=>{modalOpen=false}}>
-					Complete
-				</Button>
-			</div>
-		</Modal>
+		<Text tag="label" caption attributes={{"for":"Modal"}}>Modal</Text>
 		<Button 
 			buttonStyle="primary" 
 			on:click={()=>{
-				modalOpen=!modalOpen
-			}} 
+				queueModal({component:ModalContent, title:"Modal Title"})
+			}}
 			bind:htmlElement={button}>
 			Open Modal
 		</Button>
-		<label for="modal">TextArea</label>
+		<Text tag="label" caption attributes={{"for":"TextArea"}}>TextArea</Text>
 		<TextArea placeholder="Placeholder" bind:text={text}></TextArea>
 		<Slider min={0} max={10} value={5} showGradations></Slider>
 		<Slider min={0} max={100} value={50} showValue></Slider>
@@ -294,14 +277,3 @@
 		</p>
 	</ContentContainer>
 </Scaffold>
-
-<!-- <Header>Component Preview</Header> -->
-
-<style>
-
-	:root :global( label ) {
-		font: var(--caption);
-		margin: 0.75rem 0rem;
-	}
-
-</style>

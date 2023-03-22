@@ -11,6 +11,7 @@
 	export let body2=false
 	export let buttons=false
 	export let caption=false
+	export let attributes:object = {}
 </script>
 <svelte:element this={tag}
 class:heading1
@@ -23,7 +24,8 @@ class:subtitle
 class:body
 class:body2
 class:buttons
-class:caption>
+class:caption
+{...attributes}>
 	<slot></slot>
 </svelte:element>
 <style lang="scss">
@@ -63,7 +65,7 @@ class:caption>
 	}
 
 	.caption {
-		font:var(--label)
+		font:var(--caption)
 	}
 
 </style>

@@ -51,6 +51,7 @@
 		position: relative;
 		
 		min-width: fit-content;
+		max-width: 100%;
 
 		display: flex;
 		flex-direction: row;
@@ -65,6 +66,10 @@
 		background-color: var(--textAreaBg, #f0f0f0);
 
 		transition: all ease-in-out 0.2s;
+
+		textarea {
+			max-width: 100%;
+		}
 
 		&.shadow{
 			box-shadow: #00000033 0.2rem 0.2rem 1rem;

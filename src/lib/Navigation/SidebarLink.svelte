@@ -17,8 +17,8 @@
 		
 		if (closeOnClick){
 			sidebarStore.update(_=>false)
-			// currentHref = window.location.href
 			setTimeout(()=>{$currentHref = window.location.href}, 100)
+			setTimeout(()=>{$currentHref = window.location.href}, 500)
 		}
 	}
 
@@ -30,7 +30,7 @@
 	$: currentPage=$currentHref === htmlElement?.href
 
 </script>
-<!-- <svelte:window on:click={(_)=>{console.log("hash vhanges");currentHref = window.location.href}}></svelte:window> -->
+<svelte:window on:popstate={(event)=>{console.log(event.state);$currentHref = window.location.href}} on:hashchange={(event)=>{console.log(event);$currentHref = window.location.href}}></svelte:window>
 <a on:click={onClick} bind:this={htmlElement} href={href} class:currentPage>
 	<div class="indicator" class:show={currentPage}></div>
 	<span class:currentPage class:multiline><slot></slot></span>

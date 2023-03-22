@@ -1,18 +1,19 @@
 <script lang="ts">
 	import TextInput from "$lib/TextInput/TextInput.svelte";
     import Button from '$lib/Button/Button.svelte'
+	import { ContentContainer } from "$lib";
     let text = ""
-    let valid:boolean|undefined;
+    let valid:boolean|null=null;
     
 </script>
 <div class="preview">
     <TextInput bind:text={text} bind:valid={valid} placeholder="Placeholder Text"></TextInput>
     <p>Typed text: {text}</p>
-    <div class="controls">
+    <ContentContainer>
         <Button on:click={()=>{valid=true}} disabled={valid === true} >Set Valid</Button>
         <Button on:click={()=>{valid=false}} disabled={valid === false} >Set Invalid</Button>
-        <Button on:click={()=>{valid=undefined}} disabled={valid === undefined} >Reset</Button>
-    </div>
+        <Button on:click={()=>{valid=null}} disabled={valid === null} >Reset</Button>
+    </ContentContainer>
 </div>
 <style>
 
@@ -24,9 +25,4 @@
         padding:2rem
     }
 
-    .controls{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 </style>
