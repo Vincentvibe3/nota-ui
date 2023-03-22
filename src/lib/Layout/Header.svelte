@@ -5,7 +5,7 @@
 	export let video=""
 	export let alt="";
 	// Text position
-	export let position="left";
+	export let position:"left"|"center"|"right"="left";
 	export let compact=false
 
 	let videoElement:HTMLVideoElement|undefined = undefined;
@@ -28,6 +28,29 @@
 	})
 
 </script>
+<!-- 
+	@component Header
+
+	Header for a page
+	
+	Props:
+	- img (string): link to an image 
+	- alt (string): alt text for the image
+	- video (string): link to a video
+	- position ("left"|"center"|"right"): position of the text
+	- compact (boolean): toggle short height variant
+
+	Slots:
+	- default: Header text
+
+	Css Variables:
+	- headerBg (default:#f0f0f0): Header background color
+	- headerTextDark (default:#f0f0f0): Header text color on images and video background
+	- headerTextLight (default:#303030): Header text color on static color background
+	- headerBorderBottom (default:#c0c0c0): Bottom border color
+	- headerFont (default:700 3rem sans-serif): Font of the Header text
+	
+ -->
 <div class:wrapper={true} class:compact class:noimage={img === ""} >
 	{#if img !== ""}
 		<img alt={alt} src={img}>
@@ -154,7 +177,7 @@
 		min-height: fit-content;
 		height: 25rem;
 		margin: 0px;
-		background: var(--headerBg, #f0f0f0);;
+		background: var(--headerBg, #f0f0f0);
 		background-size: cover;
 		background-position: center;
 		flex-shrink: 0;

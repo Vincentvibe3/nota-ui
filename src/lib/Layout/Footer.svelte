@@ -4,6 +4,10 @@
 	export let position="left";
 
 </script>
+<!-- 
+	@component Footer
+	TODO
+ -->
 <div class:wrapper={true}>
 	<div class="content {position}">
 		<slot></slot>

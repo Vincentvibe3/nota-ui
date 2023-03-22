@@ -1,3 +1,15 @@
+<!-- 
+	@component SiteLayout
+	
+	Responsive Site-wide layout with 4 zones(Navbar, Left Sidebar, Footer, Content)
+
+	Slots:
+	- default: Contains a page's content
+	- navbar: Slot for placing a navbar
+	- leftSidebar: Slot for placing a Sidebar on the left
+	- footer: Slot for placing a footer at the bottom of the site
+	
+ -->
 <div class="siteContent">
 	<slot name="navbar"></slot>
 	<div class="contentMiddle" class:hasSidebar={$$slots.leftSidebar}>

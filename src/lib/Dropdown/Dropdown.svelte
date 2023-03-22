@@ -9,7 +9,9 @@
 	let options: Array<HTMLOptionElement> = [];
 	let optionsWrapper: HTMLDivElement;
 
-	/** Native <select> element */
+	/** 
+	 * Native <select> element 
+	 * */
 	export let htmlElement: HTMLSelectElement | null = null;
 
 	const onClick = () => {
@@ -59,7 +61,6 @@
 		switch (event.key) {
 			case 'Down': // IE/Edge specific value
 			case 'ArrowDown':
-				// Do something for "down arrow" key press.
 				if (keyboardNavSelect < htmlElement.options.length - 1) {
 					keyboardNavSelect += 1;
 					optionsWrapper.scroll({
@@ -69,7 +70,6 @@
 				break;
 			case 'Up': // IE/Edge specific value
 			case 'ArrowUp':
-				// Do something for "up arrow" key press.
 				if (keyboardNavSelect > 0) {
 					keyboardNavSelect -= 1;
 					optionsWrapper.scroll({
@@ -78,7 +78,6 @@
 				}
 				break;
 			case 'Enter':
-				// Do something for "enter" or "return" key press.
 				if (keyboardNavSelect < htmlElement.options.length && keyboardNavSelect >= 0) {
 					htmlElement.selectedIndex = keyboardNavSelect;
 				}
@@ -86,15 +85,32 @@
 			case 'Esc': // IE/Edge specific value
 			case 'Escape':
 			case 'Tab':
-				// Do something for "esc" key press.
 				active = false;
 				break;
 			default:
-				return; // Quit when this doesn't handle the key event.
+				return;
 		}
 	};
 </script>
+<!-- 
+	@component Dropdown
 
+	Dropdown Component (<select>)
+	
+	Props:
+	- htmlElement (HTMLSelectElement | null): Native <select> element 
+
+	Slots:
+	- default: Expects `<option>` tags
+
+	Css Variables:
+	- dropdownFontOption (default:400 0.75rem sans-serif): Font for the dropdown options
+	- dropdownText (default: #161616): Text color
+	- dropdownBorder (default:#c0c0c0): Color of the dropdown and menu's outline
+	- dropdownBg (default: #f0f0f0): Color of the dropdown and menu's background
+	- dropdownBorderFocus (default: #99003b): Color of the dropdown's border when focused
+
+ -->
 <div bind:this={dropdownWrapper} class:wrapper={true}>
 	<select bind:this={htmlElement}>
 		<slot />

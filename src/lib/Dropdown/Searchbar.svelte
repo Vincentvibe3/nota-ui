@@ -123,7 +123,24 @@
 		active = false;
 	}
 </script>
+<!-- 
+	@component Searchbar
 
+	TODO
+
+	Searchbar Component. Behaves like a TextInput and a Dropdown
+	
+	Props:
+	- text
+	- suggestions
+	- placeholder
+
+	Slots:
+	- default: Expects `<option>` tags
+
+	Css Variables:
+
+ -->
 <div
 	bind:this={dropdownWrapper}
 	class:wrapper={true} >
