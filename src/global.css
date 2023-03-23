@@ -304,6 +304,12 @@
 	--linkVisitedFg:var(--s600);
 	--linkFgFocus:var(--p900);
 
+	/* IconLink */
+	--iconLinkStroke:var(--n800);
+	--iconLinkFill:var(--n800);
+	--iconLinkStrokeFocus:var(--n400);
+	--iconLinkFillFocus:var(--n400);
+
 	/* Fixed Grid */
 	--fixedGridGap: 2rem;
 

@@ -1,14 +1,74 @@
 <script lang="ts">
-	export let href:string;
-	export let arrow = false;
+	import type { ReferrerPolicy } from ".";
+
+
+	/**
+	 * href attribute of an <a> tag
+	*/
+	export let href:string
+	/**
+	 * target  attribute of an <a> tag
+	 */
 	export let target:string|undefined = undefined
+
+	/**
+	 * rel attribute of an <a> tag
+	 */
 	export let rel:string|undefined = undefined
-	export let referrerpolicy: "" | "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "same-origin" | "strict-origin" | "strict-origin-when-cross-origin" | "unsafe-url" 
+
+	/**
+	 * referrerpolicy attribute of an <a> tag
+	 */
+	export let referrerpolicy: ReferrerPolicy
 		= ""
+
+	/**
+	 * ping attribute of an <a> tag
+	 */
 	export let ping:string|undefined = undefined
+
+	/**
+	 * hreflang attribute of an <a> tag
+	 */
 	export let hreflang:string|undefined = undefined
+
+	/**
+	 * download attribute of an <a> tag
+	 */
 	export let download:string|undefined = undefined
+
+
+	/**
+	 * Controls the visibility of an arrow next to the link
+	 */
+	export let arrow = false;
 </script>
+<!-- 
+	@component Link
+
+	Equivalent to an <a> but allows placing an optional arrow icon to the right
+	
+	Props:
+	- href (string): href property of an `<a>` tag
+	- target (string|undefined): target property of an `<a>` tag
+	- rel (string|undefined): rel property of an `<a>` tag
+	- referrerpolicy (ReferrerPolicy): referrerpolicy property of an `<a>` tag
+	- ping (string|undefined): ping property of an `<a>` tag
+	- hreflang (string|undefined): hreflang property of an `<a>` tag
+	- download (string|undefined): download property of an `<a>` tag
+	- arrow (boolean): Controls the visibility of an arrow next to the link
+
+	Slots:
+	- default: icon for the link
+
+	CSS Variables:
+	- linkArrowBg (default:#99003b): Background of the circle around the arrow
+	- linkArrowFg (default:#99003b): Arrow color
+	- linkFg (default:#000000): Link Color
+	- linkVisitedFg (default:#535ebf): Link Color when visited
+	- linkFgFocus (default:#99003b): Link Color when hovered
+	
+ -->
 <a 
 	target={target}
 	href={href}
@@ -77,7 +137,7 @@
 		padding-bottom: 00.1rem;
 		
 		font-weight: bold;
-		color: var(--linkFg, black);
+		color: var(--linkFg, #000000);
 
 		span:not( .arrowWrapper )::after{
 			position: absolute;

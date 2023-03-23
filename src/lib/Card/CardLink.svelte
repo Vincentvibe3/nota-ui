@@ -1,20 +1,53 @@
 <script lang="ts">
 	import CardImpl from "./CardImpl.svelte";
-	import type { ReferrerPolicy } from ".";
+	import type { ReferrerPolicy } from "../Text";
 
-	export let href:string;
+	/**
+	 * href attribute of an <a> tag
+	*/
+	export let href:string
+	/**
+	 * target  attribute of an <a> tag
+	 */
 	export let target:string|undefined = undefined
+
+	/**
+	 * rel attribute of an <a> tag
+	 */
 	export let rel:string|undefined = undefined
-	export let referrerpolicy: ReferrerPolicy = "strict-origin-when-cross-origin"
+
+	/**
+	 * referrerpolicy attribute of an <a> tag
+	 */
+	export let referrerpolicy: ReferrerPolicy
+		= ""
+
+	/**
+	 * ping attribute of an <a> tag
+	 */
 	export let ping:string|undefined = undefined
+
+	/**
+	 * hreflang attribute of an <a> tag
+	 */
 	export let hreflang:string|undefined = undefined
+
+	/**
+	 * download attribute of an <a> tag
+	 */
 	export let download:string|undefined = undefined
-	export let direction: "row"|"column" = "column"
+
+	/**
+	 * Sets the direction of the Card's contents
+	*/
+	export let direction:"row"|"column" = "column"
+	
 </script>
 <!-- 
-	@component CardImpl
+	@component CardLink
 
 	Card that contains content and that can be used as an anchor(`<a>`)
+	Do not nest an `<a>` tag or a <Link> component in the CardLink
 
 	Props:
 	- direction ("row"|"column"): Sets the direction of the Card's contents 

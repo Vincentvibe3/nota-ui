@@ -57,5 +57,7 @@ export type {
 } from "./Dropdown"
 export type {
 	AnchorConfig,
-	ReferrerPolicy
 } from "./Card"
+export type {
+	ReferrerPolicy
+} from "./Text"

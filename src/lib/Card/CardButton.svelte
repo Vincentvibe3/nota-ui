@@ -1,5 +1,8 @@
 <script lang="ts">
 	import CardImpl from "./CardImpl.svelte";
+	/**
+	 * Sets the direction of the Card's contents 
+	 */
 	export let direction: "row"|"column" = "column"
 </script>
 <!-- 
