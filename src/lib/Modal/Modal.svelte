@@ -5,7 +5,15 @@
 	import {Backdrop} from "../Backdrop";
 	import { dismissModal } from "./ModalController.svelte";
 
+	/**
+	 * Controls whether the modal is shown or not
+	 */
 	export let open=false;
+
+	/**
+	 * Controls whether the Modal can be dismssed by pressing escape,
+	 * by pressing on the Backdrop or the close button (will be hidden on strict:true)
+	 */
 	export let strict=false;
 
 	const checkEsc = (event:KeyboardEvent)=>{
@@ -15,6 +23,29 @@
 	}
 
 </script>
+<!-- 
+	@component Modal
+	
+	Modal component created from a ModalController
+
+	Props:
+	- open (boolean): Controls whether the modal is shown or not
+	- strict (boolean): Controls whether the Modal can be dismssed by pressing escape,
+	by pressing on the Backdrop or the close button (will be hidden on strict:true)
+
+	Slots:
+	- default: Contents of the modal
+	- title: Text content of the modal's title
+
+	Css Variables:
+	- modalFont (default:400 1rem sans-serif)): Font used in the modal
+	- modalText (default:#161616): Text color in the modal
+	- modalCloseText (default:#161616): Color of the close button 
+	- modalCloseFont (default:400 0.75rem sans-serif): Font of the close button
+	- modalTitleText (default:#161616): Color of the title text
+	- modalTitleFont (default:300 1.25rem sans-serif): Font of the title text
+	
+ -->
 <svelte:window on:keyup={checkEsc}></svelte:window>
 <div class="wrapper" class:show={open}>
 	<Backdrop 

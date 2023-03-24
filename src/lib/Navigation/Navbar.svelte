@@ -37,6 +37,38 @@
 	}
 
 </script>
+<!-- 
+	@component Navbar
+	
+	Navbar shown at the top of a page
+
+	Props:
+	- alwaysOpaque (boolean): Controls whether the nav bar will be transparent at the top of the page
+	- navStyle ("shadow"|"border"): Control the look of the navbar
+	- reverse (boolean): Set the navigation content to be row-reverse
+
+	Slots:
+	- default: Content of the navbar
+	- menuIcon: Icon for the button opening a sidebar
+	- icon: Icon for the webpage
+	- title: Title of the site
+
+	Events:
+	- onTitleClick: dispatched when the title button is pressed
+
+	Css Variables:
+	- navbarTextTitleHover (default:#f0f0f0): Text color of the title area on hover
+	- navBgTitleHover (default:#161616): Bg color of the title area on hover
+	- navIconHover (default:#f0f0f0): icon color in the title area on hover
+	- navIcon (default:#f0f0f0): icon color in the title area
+	- navText (default:#f0f0f0): text color for text in the navbar
+	- navFont (default:400 1rem sans-serif): font for text in the navbar
+	- navTextTransparent (default:#f0f0f0): text color when the navbar becomes transparent
+	- navIconTransparent (default:#f0f0f0): icon color then the navbar becomes transparent
+	- navBg (default:#b3386b): background when the navbar isnt transparent
+	- navBottomBorder (default:#c0c0c0): bottom border of the navbar
+
+ -->
 <div class:bar={true} class:transparent={transparent&&!alwaysOpaque} class:opaque={alwaysOpaque&&opaque} class:show={show}>
 	<div class:transparent={transparent&&!alwaysOpaque} class:opaque={alwaysOpaque&&opaque} class="bg" class:shadow={navStyle === "shadow"}></div>
 	<ContentContainer direction="row">

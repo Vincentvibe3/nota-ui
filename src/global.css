@@ -95,6 +95,8 @@
 	--btnPrimaryTextFocus: var(--n200);
 	--btnPrimaryIconFill:var(--n100);
 	--btnPrimaryIconStroke:var(--n100);
+	--btnPrimaryIconFillFocus:var(--n100);
+	--btnPrimaryIconStrokeFocus:var(--n100);
 
 	/* Button Secondary */
 	--btnSecondaryBg: transparent;
@@ -104,6 +106,8 @@
 	--btnSecondaryBorder: var(--p800);
 	--btnSecondaryIconFill:var(--p800);
 	--btnSecondaryIconStroke:var(--p800);
+	--btnSecondaryIconFillFocus:var(--p800);
+	--btnSecondaryIconStrokeFocus:var(--p800);
 
 	/* Button Tertiary */
 	--btnTertiaryBg: transparent;
@@ -112,6 +116,8 @@
 	--btnTertiaryTextFocus: var(--p800);
 	--btnTertiaryIconFill:var(--p800);
 	--btnTertiaryIconStroke:var(--p800);
+	--btnTertiaryIconFillFocus:var(--p800);
+	--btnTertiaryIconStrokeFocus:var(--p800);
 
 	/* Button Disabled */
 	--btnDisabledBg:var(--n300);
@@ -129,6 +135,8 @@
 	--btnDangerBorderFocus:var(--e200);
 	--btnDangerIconFill:var(--n100);
 	--btnDangerIconStroke:var(--n100);
+	--btnDangerIconFillFocus:var(--n100);
+	--btnDangerIconStrokeFocus:var(--n100);
 
 	/* TextInput*/
 	--inputFont:var(--body2);
@@ -208,6 +216,7 @@
 	--navIconTransparent:var(--n100);
 	--navText:var(--n800);
 	--navIcon:var(--n800);
+	--navIconHover:var(--n100);
 	--navBottomBorder:var(--n400);
 
 	/* Sidebar */

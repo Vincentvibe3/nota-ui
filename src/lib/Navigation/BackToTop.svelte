@@ -2,7 +2,10 @@
 	import {Button}from "../Button";
 	import { onMount } from "svelte";
 
-	export let position="right";
+	/**
+	 * controls the horizontal alignment of the button on the page
+	 */
+	export let position:"right"|"left"|"center"="right";
 	let show=false;
 
 	onMount(()=>{
@@ -19,6 +22,26 @@
 		window.scrollTo({top:0,behavior:"smooth"})
 	}
 </script>
+<!-- 
+	@component BackToTop
+	
+	Back to top button that appears after user starts scrolling down
+
+	Props:
+	- position("right"|"left"|"center"): controls the horizontal alignment of the button on the page
+
+	Css Variables:
+	- backToTopBg (default: #b3386b): Button background
+	- backToTopBgFocus (default: #99003b): Button background when focused
+	- backToTopBorder (default: #bf5383): Button border
+	- backToTopBorderFocus (default: #a31c54): Button border when focused
+	- backToTopText (default: #fafafa): Text color
+	- backToTopTextFocus (default: #fafafa): Text color when focused
+	- backToTopIcon (default: #fafafa): Icon color 
+	- backToTopIconFocus (default: #fafafa): Icon color when focused
+
+	
+ -->
 <div 
 	class:wrapper={true} 
 	class:left={position === "left"} 
@@ -34,12 +57,17 @@
 </div>
 <style lang="scss">
 
-	.wrapper :global( button ){
+	.wrapper{
 		--btnPrimaryBg: var(--backToTopBg);
 		--btnPrimaryBgFocus: var(--backToTopBgFocus);
 		--btnPrimaryBorder: var(--backToTopBorder);
 		--btnPrimaryBorderFocus: var(--backToTopBorderFocus);
 		--btnPrimaryText: var(--backToTopText);
+		--btnPrimaryTextFocus: var(--backToTopTextFocus);
+		--btnPrimaryIconFill:var(--backToTopIcon);
+		--btnPrimaryIconStroke:var(--backToTopIcon);
+		--btnPrimaryIconFillFocus:var(--backToTopIconFocus);
+		--btnPrimaryIconStrokeFocus:var(--backToTopIconFocus);
 	}
 
 	.wrapper {

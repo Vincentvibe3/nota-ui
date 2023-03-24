@@ -149,7 +149,7 @@
 			border: var(--btnDisabledBorder, #c0c0c0) solid 0.15rem;
 			cursor:not-allowed;
 
-			.iconOnly :global( svg ){
+			.iconWrapper :global( svg ){
 				fill: var(--btnDisabledIconFill, #909090);
 				stroke: var(--btnDisabledIconStroke, #909090);
 			}
@@ -184,6 +184,12 @@
 			border: $tertiaryBgFocus solid 0.15rem;
 			color: $tertiaryTextFocus;
 			background-color: $tertiaryBgFocus;
+
+			.iconWrapper :global( svg ){
+				fill: var(--btnTertiaryIconFillFocus, #a31c54);
+				stroke: var(--btnTertiaryIconStrokeFocus, #a31c54);
+			}
+
 		}
 
 		&:focus-visible {
@@ -198,7 +204,7 @@
 			background-color: $tertiaryBgFocus;
 		}
 
-		.iconOnly :global( svg ){
+		.iconWrapper :global( svg ){
 			fill: var(--btnTertiaryIconFill, #a31c54);
 			stroke: var(--btnTertiaryIconStroke, #a31c54);
 		}
@@ -209,7 +215,7 @@
 		color: var(--btnSecondaryText, #a31c54);
 		background-color: var(--btnSecondaryBg, transparent);
 
-		.iconOnly :global( svg ){
+		.iconWrapper :global( svg ){
 			fill: var(--btnSecondaryIconFill, #a31c54);
 			stroke: var(--btnSecondaryIconStroke, #a31c54);
 		}
@@ -217,6 +223,11 @@
 		&:hover {
 			color: $secondaryTextFocus;
 			background-color: $secondaryBgFocus;
+
+			.iconWrapper :global( svg ){
+				fill: var(--btnSecondaryIconFillFocus, #a31c54);
+				stroke: var(--btnSecondaryIconStrokeFocus, #a31c54);
+			}
 		}
 
 		&:focus-visible {
@@ -241,9 +252,14 @@
 			color: var(--btnPrimaryTextFocus, #ffffff);
 			background-color: var(--btnPrimaryBgFocus, #99003b);
 			border: var(--btnPrimaryBorderFocus, #a31c54) solid 0.15rem;
+
+			.iconWrapper :global( svg ){
+				fill: var(--btnPrimaryIconFillFocus, #ffffff);
+				stroke: var(--btnPrimaryIconStrokeFocus, #ffffff);
+			}
 		}
 
-		.iconOnly :global( svg ){
+		.iconWrapper :global( svg ){
 			fill: var(--btnPrimaryIconFill, #ffffff);
 			stroke: var(--btnPrimaryIconStroke, #ffffff);
 		}
@@ -260,9 +276,14 @@
 			color: var(--btnDangerTextFocus, #ffffff);
 			background-color: var(--btnDangerBgFocus, #db3434);
 			border: var(--btnDangerBorderFocus, #db5c5c) solid 0.15rem;
+
+			.iconWrapper :global( svg ){
+				fill: var(--btnDangerIconFillFocus, #ffffff);
+				stroke: var(--btnDangerIconStrokeFocus, #ffffff);
+			}
 		}
 
-		.iconOnly :global( svg ){
+		.iconWrapper :global( svg ){
 			fill: var(--btnDangerIconFill, #ffffff);
 			stroke: var(--btnDangerIconStroke, #ffffff);
 		}

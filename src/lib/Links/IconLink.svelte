@@ -56,8 +56,8 @@
 	- default: icon for the link
 
 	CSS Variables:
-	- iconLinkStroke (default:#161616): Icon color when hovered
-	- iconLinkFill (default:#161616): Icon color when hovered
+	- iconLinkStroke (default:#161616): Icon color
+	- iconLinkFill (default:#161616): Icon color
 	- iconLinkStrokeFocus (default:#c0c0c0): Icon color when hovered
 	- iconLinkFillFocus (default:#c0c0c0): Icon color when hovered
 	
