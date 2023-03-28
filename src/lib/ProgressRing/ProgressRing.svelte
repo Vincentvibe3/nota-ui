@@ -1,12 +1,18 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-	// either loading, complete or error
-	export let status="loading";
-
-	export let indeterminate=true;
 	/**
-	 * Progress expressed as a number between 0 and 1
+	 * changes the look of the ring from a ring, a checkmark or an error x.
+	 */ 
+	export let status:"loading"|"complete"|"error"="loading";
+
+	/**
+	 * controls whether the ring will display a set progress or spin
+	 */
+	export let indeterminate=true;
+
+	/**
+	 * Number from 0 to 1, denotes the progress
 	 */
 	export let progress = 0.5;
 
@@ -32,6 +38,25 @@
 	})
 	
 </script>
+<!-- 
+	@component ProgressRing
+	
+	Ring to denote progress. Can be either determinate or indeterminate.
+
+	Props:
+	- status ("loading"|"complete"|"error"): changes the look of the ring from a ring, a checkmark or an error x.
+	- progress (number) : Number from 0 to 1, denotes the progress
+	- indeterminate (boolean): controls whether the ring will display a set progress or just spin
+
+	Css Variables:
+	- spinnerProgressBg(default: #36b32b): Ring background color when determinate
+	- spinnerIcon(default: #99003b): Ring Color
+	- spinnerBgComplete(default: #36b32b): Background color when complete
+	- spinnerBgError(default: #db3434): Background color on error
+	- spinnerIconComplete(default: #ffffff): Checkmark color
+	- spinnerIconError(default: #ffffff): X icon color
+	
+ -->
 <div class:wrapper={true}>
 	{#if status === "loading"}
 		<div class="spinnerWrapper">
@@ -90,7 +115,7 @@
 		.progressRail {
 			display:none;
 			fill: transparent;
-			stroke: var(--n400, #99003b);
+			stroke: var(--spinnerProgressBg, #f0f0f0);
 
 			&.show{
 				display: block;

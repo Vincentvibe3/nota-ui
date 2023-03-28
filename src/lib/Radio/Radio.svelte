@@ -6,38 +6,57 @@
 	 * Native radio type <input> element.
 	 */
 	export let htmlElement: HTMLInputElement | undefined = undefined;
+	
 	/**
 	 * Name of the input for forms
 	 */
 	export let name = "";
+
 	/**
 	 * Value of the radio button for forms.
 	 */
 	export let value = "";
+
 	/**
 	 * Current value of radio button group will be stored here.
 	 */
 	export let group: unknown;
 
 	const onClick = () => {
-		if (htmlElement != null) {
+		if (htmlElement !== undefined) {
 			htmlElement.click();
 		}
 	};
 </script>
 
+<!-- 
+	@component Radio
 
+	Radio button
+
+	Props:
+	- htmlElement (HTMLInputElement | undefined): Native radio type <input> element.
+	- name (string): Name of the `<input>` for forms
+	- value (string): Value of the `<input>` for forms.
+	- group (unknown): Current value of radio button group will be stored here.
+	
+	Slots:
+	- default: Slot for a label accompanying the radio button
+
+	Css Variables:
+	- radioUnselected (default: #bf5383): Color of the radio button when selected
+	- radioSelected (default: #99003b): Color of the radion button when it is not selected
+	
+ -->
 <input bind:group={group} value={value} name={name} type="radio" bind:this={htmlElement} />
 <ContentContainer>
-	{#if htmlElement!=null}
-		<button
-			type="button"
-			tabindex="0"
-			class:checked={group === value}
-			class="radioWrapper"
-			on:click={onClick} />
-		<slot/>
-	{/if}
+	<button
+		type="button"
+		tabindex="0"
+		class:checked={group === value}
+		class="radioWrapper"
+		on:click={onClick} />
+	<slot/>
 </ContentContainer>
 
 <style lang="scss">

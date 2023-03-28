@@ -9,7 +9,6 @@
 	import { onMount, setContext } from "svelte";
 	import { writable } from "svelte/store";
 	import {Backdrop} from "../Backdrop";
-	import { fade, slide } from "svelte/transition";
 	import { ContentContainer } from "$lib/Layout";
 
 	let sidebar:HTMLButtonElement;
@@ -38,10 +37,31 @@
 	}
 
 </script>
+<!-- 
+	@component Sidebar
+
+	Sidebar component that is fixed on desktop sizes and collapses on smaller screen sizes
+	Should contain SidebarLink and SidebarSlot components
+	The sidebar can be shown or hidden on smaller viewports using the `toggleSidebar` function
+	
+	Slots:
+	- default: Contains the content of the sidebar
+
+	Css Variables:
+	- sidebarCloseFont (default: 600 0.875rem sans-serif): Font used on the close button
+	- sidebarCloseText (default: #fafafa)): Text color of the close button
+	- sidebarCloseBg (default: #303030): Background color of the close button
+	- sidebarCloseBgFocus (default: #161616): Background color of the close button when hovered
+	- sidebarCloseTextFocus (default: #fafafa): Text color of the close button when hovered
+	- sidebarCloseIconFocus (default: #fafafa): Icon color of the close button when hovered
+	- sidebarCloseIcon (default: #fafafa): Icon color of the close button
+	- sidebarBg (default: #f0f0f0): Background of the sidebar
+	
+ -->
 {#if $showStore &&!desktop}
-<div class="backdropWrapper">
-	<Backdrop show={$showStore&&!desktop} on:click={close}/>
-</div>
+	<div class="backdropWrapper">
+		<Backdrop show={$showStore&&!desktop} on:click={close}/>
+	</div>
 {/if}
 <div class:sidebar={true} class:show={$showStore||desktop}>
 	

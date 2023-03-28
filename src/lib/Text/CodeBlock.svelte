@@ -1,3 +1,15 @@
+<!-- 
+	@component CodeBlock
+	
+	Code block meant to be used inline
+
+	Slots:
+	- default: text to be displayed
+
+	CSS Variables:
+	- codeblockBg (default:#c0c0c0): BAckground color of the block
+	
+ -->
 <span><slot></slot></span>
 <style lang="scss">
 	span{

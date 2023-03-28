@@ -1,10 +1,29 @@
 <script lang="ts">
 	import {NumberInput} from "../TextInput";
 
+	/**
+	 * minimum value possible
+	 */
 	export let min:number
+
+	/**
+	 * maximum value possible
+	 */
 	export let max:number
+
+	/**
+	 * current value selected by the slider
+	 */
 	export let value:number
+
+	/**
+	 * display the NumberInput attached to the value
+	 */
 	export let showValue=false
+
+	/**
+	 * display gradations (not implemented yet)
+	 */
 	export let showGradations=false
 	let percentage:number
 
@@ -28,6 +47,28 @@
 	}
 
 </script>
+<!-- 
+	@component Slider
+	
+	Custom slider with an optional `NumberInput` to have fine grain control over the value
+
+	Props:
+
+	- min (number): minimum value possible
+	- max (number): maximum value possible
+	- value (number): current value selected by the slider
+	- showValue (boolean): display the `NumberInput` attached to the value
+	- showGradations (boolean): display gradations (not implemented yet)
+
+	Css Variables:
+	- sliderTrackBg (default: #f0f0f0): Color of unselected range
+	- sliderTrackBgActive (default: #c0c0c0): Color of selected range
+	- sliderThumbBgFocus (default: #b3386b):  Color of the slider thumb when hovered
+	- sliderThumbBorderFocus (default: #a31c54): Color of the slider thumb border when hovered
+	- sliderThumbBg (default: #bf5383): Color of the slider thumb
+	- sliderThumbBorder (default: #b3386b): Color of the slider thumb border
+	
+ -->
 <div class="wrapper">
 	<div class="inputWrapper">
 		<div class="bg"></div>

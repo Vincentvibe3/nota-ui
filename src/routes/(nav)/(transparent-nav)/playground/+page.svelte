@@ -119,7 +119,7 @@
 			<Button buttonStyle="primary" on:click={click} bind:htmlElement={button}>
 				<div slot="icon" style="display:flex; flex-direction:row; align-items:center; justify-content:center; heigth:100%;">
 					{#if loadButton1}
-						<ProgressRing bind:status={status} --spinnerBgError="var(--p800)" --spinnerBgComplete="var(--p800)" --spinnerIcon="var(--n100)"></ProgressRing>
+						<ProgressRing bind:status={status}  --spinnerBgError="var(--p800)" --spinnerBgComplete="var(--p800)" --spinnerIcon="var(--n100)"></ProgressRing>
 					{:else}
 					<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
 						<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="128" y1="88" x2="128" y2="168" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
@@ -209,7 +209,7 @@
 		</form>
 		<Text tag="label" caption attributes={{"for":"spinner"}}>Spinner</Text>
 		<ContentContainer>
-			<ProgressRing bind:status/>
+			<ProgressRing bind:status indeterminate={false}/>
 			<Button 
 				buttonStyle="primary" 
 				on:click={()=>{

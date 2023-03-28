@@ -173,6 +173,8 @@
 	--spinnerIconError:var(--n100);
 	--spinnerBgComplete:var(--g300);
 	--spinnerBgError:var(--e300);
+	--spinnerProgressBg:var(--n300);
+
 
 	/* Dropdown */
 	--dropdownFont:var(--body2);
@@ -248,6 +250,7 @@
 	--sidebarLinkBorderBottom:var(--n400);
 	--sidebarLinkBorderBottomFocus:var(--n500);
 	--sidebarLinkFont:var(--buttons);
+	--sidebarCurrent:var(--p600)
 
 	/* SidebarSlot */
 	--sidebarSlotBg:var(--n300);
@@ -300,6 +303,7 @@
 	--tableFont:var(--body);
 	--tableBg:var(-n300);
 	--tableHeaderBg:var(--p400);
+	--tableHeaderBorderBottom:var(--p800);
 	--tableBorder:var(--n400)
 	--tableBgHover:var(--n400)
 

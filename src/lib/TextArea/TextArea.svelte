@@ -1,15 +1,37 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
+	/**
+	 * Native `<textarea>` element
+	 */
 	export let htmlElement: HTMLTextAreaElement | null = null;
+	
+	/**
+	 * Name of the TextArea for forms
+	 */
 	export let name = '';
+	
+	/**
+	 * Controls the border color indicating validity. Border is set to the default color when null
+	 */
 	export let valid: boolean | null = null;
+	
+	/**
+	 * Placeholder text
+	 */
 	export let placeholder = '';
+	
+	/**
+	 * Text in the TextArea
+	 */
 	export let text: string;
-
-	let focused=false;
+	
+	/**
+	 * Controls displaying a shadow when the TextArea is focused
+	 */
 	export let shadowOnFocus=false;
 
+	let focused=false;
 
 	const dispatch = createEventDispatcher<{focus:void}>();
 
@@ -27,7 +49,31 @@
 	};
 
 </script>
+<!-- 
+	@component TextArea
+	
+	Creates a TextArea
 
+	Props:
+	- htmlElement (HTMLTextAreaElement | null): Native `<textarea>` element
+	- name (string): Name of the TextArea for forms
+	- valid (boolean | null): Controls the border color indicating validity. Border is set to the default color when null
+	- placeholder (string): Placeholder text
+	- text (string): Text in the TextArea
+	- shadowOnFocus (boolean): Controls displaying a shadow when the TextArea is focused
+
+	Events:
+	- focus (void): Called when the TextArea is focused
+
+	Css Variables:
+	- textAreaFont (default: 400 0.75rem sans-serif): Font for the text area
+	- textAreaBorder (default: #c0c0c0): Border Color for the text area
+	- textAreaBg (default: #f0f0f0): Background color for the text area
+	- textAreaBorderFocus (default: #99003b): Border color for the text area when focused
+	- textAreaText (default: #161616): Text color for the text area
+	- textAreaPlaceholderText (default: #606060): Placeholder text color for the text area
+	
+ -->
 <div 
 	class:shadow={shadowOnFocus&&focused} 
 	class:focused={focused&&valid === null} 
