@@ -109,7 +109,7 @@ export interface ParsedComponent {
 			<li><Link href="#preview">Preview</Link></li>
 			<li><Link href="#props">Props</Link></li>
 			<li><Link href="#restprops">$$RestProps</Link></li>
-			<li><Link href="#slots">Sls</Link></li>
+			<li><Link href="#slots">Slots</Link></li>
 			<li><Link href="#events">Events</Link></li>
 		</ul>
 		

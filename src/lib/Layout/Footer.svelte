@@ -55,7 +55,7 @@
 		position:relative;
 		width: 100%;
 		height: 15rem;
-		background-color: var(--footerBg, #c0c0c0);
+		background-color: var(--footerBg, #303030);
 		background-size: cover;
 		background-position: center;
 		margin: 0px;
