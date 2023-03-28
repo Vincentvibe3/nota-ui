@@ -21,7 +21,7 @@
 	let placeholder = 'Enter text here';
 	let checked = false;
 	let count = 0;
-	let status="loading";
+	let status:"loading"|"complete"|"error"="loading";
 	let showPassword = false;
 	let searchSuggestAll: string[] = ['Option 1','abc', 'def', 'abd', 'dec', "a", "add", "assdf", "avsdfksdfjgjdfaf", "aajhagfjhagsfjgajsfgajhfjasgfhjgasfj", "addaf", "aasdafafasf"];
 	let searchSuggest: string[] = [];
