@@ -16,9 +16,17 @@ export {
 	Scaffold,
 	Header,
 	Footer,
-	FixedGrid
+	FixedGrid,
+	SiteLayout
 } from './Layout'
-export { ModalController, queueModal, dismissModal } from './Modal'
+export {
+	IconLink
+} from "./Links"
+export { 
+	ModalController, 
+	queueModal, 
+	dismissModal 
+} from './Modal'
 export { 
 	Navbar, 
 	Sidebar, 
