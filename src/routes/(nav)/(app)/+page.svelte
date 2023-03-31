@@ -15,11 +15,6 @@
 				<Text tag="h2" heading6>
 					Welcome to the Nota-ui docs
 				</Text>
-				<Button on:click={
-					()=>{queueModal({component:ModalContent, strict:true, title:"Modal"});queueModal({component:ModalContent, strict:false, title:"Modal"})}
-				}>
-					Queue Modal
-				</Button>
 				<p>
 					Nota-ui is a component library for 
 					<Link href="https://svelte.dev/" arrow>Svelte</Link>
@@ -28,7 +23,7 @@
 					Get Started
 				</Text>
 				<p>
-					run <CodeBlock>npm install 0.0.12-alpha</CodeBlock> to install
+					run <CodeBlock>npm install nota-ui@0.0.13-alpha</CodeBlock> to install
 				</p>
 			</ContentContainer>
 		<!-- </ContentContainer> -->
