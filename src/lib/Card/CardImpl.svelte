@@ -51,13 +51,14 @@
 	- cardBgFocus(default:#c0c0c0): Sets the card's background color on hover/focus
 	- borderRadius(default:0.5rem): Sets the border radius of the card
 	- cardMargin(default:1rem): Sets the margin for the card
+	- cardPadding(default:1rem): Sets the padding for the card content containers
 
  -->
 <svelte:element {...anchorConfig} on:click this={tag} class="bg" class:highlightable>
 	<div class="image-wrapper">
 		<slot name="image"></slot>
 	</div>
-	<ContentContainer fillWidth --contentContainerPaddingx="1.5rem" --contentContainerPaddingy="1.5rem" direction={direction}>
+	<ContentContainer fillWidth --contentContainerPaddingx="var(--cardPadding, 1rem)" --contentContainerPaddingy="var(--cardPadding, 1rem)" direction={direction}>
 		<slot></slot>
 	</ContentContainer>
 </svelte:element>
