@@ -81,7 +81,7 @@
 
 	/* Styles */
 
-	--borderRadius: 0.5rem;
+	--borderRadius: 1.25rem;
 
 	/* Button */
 	--btnFont:var(--buttons);
@@ -95,6 +95,8 @@
 	--btnPrimaryTextFocus: var(--n200);
 	--btnPrimaryIconFill:var(--n100);
 	--btnPrimaryIconStroke:var(--n100);
+	--btnPrimaryIconFillFocus:var(--n100);
+	--btnPrimaryIconStrokeFocus:var(--n100);
 
 	/* Button Secondary */
 	--btnSecondaryBg: transparent;
@@ -104,6 +106,8 @@
 	--btnSecondaryBorder: var(--p800);
 	--btnSecondaryIconFill:var(--p800);
 	--btnSecondaryIconStroke:var(--p800);
+	--btnSecondaryIconFillFocus:var(--p800);
+	--btnSecondaryIconStrokeFocus:var(--p800);
 
 	/* Button Tertiary */
 	--btnTertiaryBg: transparent;
@@ -112,6 +116,8 @@
 	--btnTertiaryTextFocus: var(--p800);
 	--btnTertiaryIconFill:var(--p800);
 	--btnTertiaryIconStroke:var(--p800);
+	--btnTertiaryIconFillFocus:var(--p800);
+	--btnTertiaryIconStrokeFocus:var(--p800);
 
 	/* Button Disabled */
 	--btnDisabledBg:var(--n300);
@@ -129,6 +135,8 @@
 	--btnDangerBorderFocus:var(--e200);
 	--btnDangerIconFill:var(--n100);
 	--btnDangerIconStroke:var(--n100);
+	--btnDangerIconFillFocus:var(--n100);
+	--btnDangerIconStrokeFocus:var(--n100);
 
 	/* TextInput*/
 	--inputFont:var(--body2);
@@ -165,6 +173,8 @@
 	--spinnerIconError:var(--n100);
 	--spinnerBgComplete:var(--g300);
 	--spinnerBgError:var(--e300);
+	--spinnerProgressBg:var(--n300);
+
 
 	/* Dropdown */
 	--dropdownFont:var(--body2);
@@ -189,8 +199,10 @@
 
 	/* Header */
 	--headerFont:var(--heading1);
-	--headerBg:var(--n300);
+	/* --headerBg:var(--n300); */
+	--headerBg:var(--p800);
 	--headerTextLight:var(--n700);
+	--headerTextLight:var(--n100);
 	--headerTextDark:var(--n300);
 	--headerBorderBottom:var(--n400)
 
@@ -206,6 +218,8 @@
 	--navIconTransparent:var(--n100);
 	--navText:var(--n800);
 	--navIcon:var(--n800);
+	--navIconHover:var(--n100);
+	--navBottomBorder:var(--n400);
 
 	/* Sidebar */
 	--sidebarCloseFont:var(--buttons);
@@ -216,15 +230,27 @@
 	--sidebarCloseIcon:var(--n200);
 	--sidebarCloseIconFocus:var(--n200);
 	--sidebarBg:var(--n200);
+	/* --sidebarCloseFont:var(--buttons);
+	--sidebarCloseBg:var(--n800);
+	--sidebarCloseBgFocus:var(--n900);
+	--sidebarCloseText:var(--n200);
+	--sidebarCloseTextFocus:var(--n200);
+	--sidebarCloseIcon:var(--n200);
+	--sidebarCloseIconFocus:var(--n200);
+	--sidebarBg:var(--n800); */
 
 	/* SidebarLink */
 	--sidebarLinkText:var(--n800);
+	/* --sidebarLinkText:var(--n100); */
 	--sidebarLinkBg:var(--n300);
 	--sidebarLinkTextFocus:var(--n800);
-	--sidebarLinkBgFocus:var(--n400);
+	/* --sidebarLinkTextFocus:var(--n100); */
+	--sidebarLinkBgFocus:var(--n300);
+	/* --sidebarLinkBgFocus:var(--n700); */
 	--sidebarLinkBorderBottom:var(--n400);
 	--sidebarLinkBorderBottomFocus:var(--n500);
-	--sidebarLinkFont:var(--body);
+	--sidebarLinkFont:var(--buttons);
+	--sidebarCurrent:var(--p600)
 
 	/* SidebarSlot */
 	--sidebarSlotBg:var(--n300);
@@ -276,8 +302,10 @@
 	/* Table */
 	--tableFont:var(--body);
 	--tableBg:var(-n300);
-	--tableHeaderBg:var(--n400);
+	--tableHeaderBg:var(--p400);
+	--tableHeaderBorderBottom:var(--p800);
 	--tableBorder:var(--n400)
+	--tableBgHover:var(--n400)
 
 	/* CodeBlock */
 	--codeblockBg:var(--n400);
@@ -287,8 +315,16 @@
 	--linkArrowFg:var(--n100);
 	--linkFg:var(--n900);
 	--linkVisitedFg:var(--s600);
-	--linkFgFocus:var(--p900)
+	--linkFgFocus:var(--p900);
 
+	/* IconLink */
+	--iconLinkStroke:var(--n800);
+	--iconLinkFill:var(--n800);
+	--iconLinkStrokeFocus:var(--n400);
+	--iconLinkFillFocus:var(--n400);
+
+	/* Fixed Grid */
+	--fixedGridGap: 2rem;
 
 }
 

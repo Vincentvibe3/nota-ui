@@ -23,7 +23,7 @@
 					Get Started
 				</Text>
 				<p>
-					run <CodeBlock>npm install nota-ui@0.0.13-alpha</CodeBlock> to install
+					run <CodeBlock>npm install nota-ui@0.0.16-alpha</CodeBlock> to install
 				</p>
 			</ContentContainer>
 		<!-- </ContentContainer> -->
