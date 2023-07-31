@@ -1,6 +1,6 @@
 {
   "name": "nota-ui",
-  "version": "0.0.18-alpha",
+  "version": "0.0.19-alpha",
   "scripts": {
     "dev": "vite dev",
     "build": "npm run package",
