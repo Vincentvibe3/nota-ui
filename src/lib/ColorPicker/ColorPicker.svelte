@@ -23,7 +23,7 @@
 	}
 
 	$: if (mounted) moveThumb(saturation, 1-value)
-	$: text = HSV2HEX({h:hue, s:saturation, v:value})
+	$: if (mounted) text = HSV2HEX({h:hue, s:saturation, v:value})
 	$: if (mounted) drawColorPicker(hue)
 
 	const drawColorPicker = (hue:number) => {
@@ -92,7 +92,6 @@
 		if (event!=null){
 			let data = (event as unknown as InputEvent).data
 			if (data!=null){
-				console.log(data)
 				hue = Number.parseInt(data)
 			}
 		}
@@ -109,11 +108,9 @@
 	}
 
 	const onHexInput = (e:Event) => {
-		console.log("new input")
 		let event = e.target
 		if (event!=null){
 			let data = (event as unknown as HTMLInputElement).value
-			console.log(event)
 			if (data!=null){
 				let hsv = HEX2HSV(data)
 				if (!isNaN(hsv.h)&&!isNaN(hsv.s)&&!isNaN(hsv.v)){
@@ -121,12 +118,17 @@
 					saturation = hsv.s
 					value = hsv.v
 				}
-				console.log(hsv)
 			}
 		}
 	}
 
 	onMount(()=>{
+		let hsv = HEX2HSV(text)
+		if (!isNaN(hsv.h)&&!isNaN(hsv.s)&&!isNaN(hsv.v)){
+			hue = hsv.h
+			saturation = hsv.s
+			value = hsv.v
+		}
 		mounted = true
 	})
 
