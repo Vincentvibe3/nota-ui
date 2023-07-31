@@ -25,6 +25,18 @@
 	$: if (mounted) moveThumb(saturation, 1-value)
 	$: if (mounted) text = HSV2HEX({h:hue, s:saturation, v:value})
 	$: if (mounted) drawColorPicker(hue)
+	$: if (mounted) onTextChange(text)
+
+	const onTextChange = (textValue:string) => {
+		let hsv = HEX2HSV(textValue)
+		if (!isNaN(hsv.h)&&!isNaN(hsv.s)&&!isNaN(hsv.v)){
+			hue = hsv.h
+			saturation = hsv.s
+			value = hsv.v
+		}
+		drawColorPicker(hue)
+		moveThumb(saturation, 1-value)
+	}
 
 	const drawColorPicker = (hue:number) => {
 		let clrCtx = canvas.getContext("2d");

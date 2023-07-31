@@ -13,6 +13,7 @@
 	import ModalContent from '../../(app)/ModalContent.svelte';
 	import ColorPicker from '$lib/ColorPicker/ColorPicker.svelte';
 
+	let color = "#ff0000"
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
 	let passwordInput: HTMLInputElement;
@@ -28,6 +29,8 @@
 	let searchSuggest: string[] = [];
 	let loadButton1=false;
 	let modalOpen=false;
+
+	$:console.log(color)
 
 	const click = () => {
 		count++;
@@ -276,6 +279,7 @@
 			<Link href="/components" arrow>components</Link>
 			here.
 		</p>
-		<ColorPicker></ColorPicker>
+		<TextInput bind:text="{color}" on:input={()=>{console.log(color)}}></TextInput>
+		<ColorPicker bind:text={color}></ColorPicker>
 	</ContentContainer>
 </Scaffold>
