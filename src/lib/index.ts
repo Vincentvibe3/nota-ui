@@ -9,6 +9,9 @@ export {
 	CardButton,
 	CardLink
 } from './Card'
+export {
+	ColorPicker
+} from './ColorPicker'
 export { Checkbox } from './Checkbox'
 export { Dropdown, Searchbar } from './Dropdown'
 export {

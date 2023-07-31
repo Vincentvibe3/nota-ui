@@ -9,6 +9,9 @@ export {
 	CardButton,
 	CardLink
 } from './Card'
+export {
+	ColorPicker
+} from './ColorPicker'
 export { Checkbox } from './Checkbox'
 export { Dropdown, Searchbar } from './Dropdown'
 export {
@@ -16,9 +19,17 @@ export {
 	Scaffold,
 	Header,
 	Footer,
-	FixedGrid
+	FixedGrid,
+	SiteLayout
 } from './Layout'
-export { ModalController, queueModal, dismissModal } from './Modal'
+export {
+	IconLink
+} from "./Links"
+export { 
+	ModalController, 
+	queueModal, 
+	dismissModal 
+} from './Modal'
 export { 
 	Navbar, 
 	Sidebar, 

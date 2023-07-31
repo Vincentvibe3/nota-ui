@@ -11,6 +11,7 @@
 	import IconButton from '$lib/Button/IconButton.svelte';
 	import type { SearchInputEvent } from '$lib';
 	import ModalContent from '../../(app)/ModalContent.svelte';
+	import ColorPicker from '$lib/ColorPicker/ColorPicker.svelte';
 
 	let button: HTMLButtonElement;
 	let input: HTMLInputElement;
@@ -90,7 +91,7 @@
 			<svg  slot="iconright" xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="var(--inputIconColor)" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><line x1="200" y1="56" x2="56" y2="200" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><line x1="200" y1="200" x2="56" y2="56" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 		</TextInput>
 		<Text tag="label" caption attributes={{"for":"password"}}>Password</Text>
-		<PasswordInput
+		<!-- <PasswordInput
 			name="password"
 			bind:showText={showPassword}
 			bind:text
@@ -98,15 +99,15 @@
 			bind:htmlElement={passwordInput}
 			on:iconRightClick={revealPassword}
 			bind:valid={validInput}>
-			<svelte:fragment slot="iconright">
+			<svelte:fragment slot="iconright"> -->
 				<!-- Icon from Phosphor Icons (https://phosphoricons.com/) licensed under an MIT license -->
-				{#if passwordInput !== undefined && passwordInput.type === 'password'}
+				<!-- {#if passwordInput !== undefined && passwordInput.type === 'password'}
 					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="var(--inputIconColor)" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><circle cx="128" cy="128" r="40" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 				{:else if passwordInput !== undefined && passwordInput.type === 'text'}
 					<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="var(--inputIconColor)" viewBox="0 0 256 256" ><rect width="256" height="256" fill="none" /><line x1="48" y1="40" x2="208" y2="216" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><path d="M154.9,157.6A39.6,39.6,0,0,1,128,168a40,40,0,0,1-26.9-69.6" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><path d="M74,68.6C33.2,89.2,16,128,16,128s32,72,112,72a117.9,117.9,0,0,0,54-12.6" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><path d="M208.6,169.1C230.4,149.6,240,128,240,128S208,56,128,56a123.9,123.9,0,0,0-20.7,1.7" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /><path d="M135.5,88.7a39.9,39.9,0,0,1,32.3,35.5" fill="none" stroke="var(--inputIconColor)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" /></svg>
 				{/if}
 			</svelte:fragment>
-		</PasswordInput>
+		</PasswordInput> -->
 		<Text tag="label" caption attributes={{"for":"Button"}}>Button</Text>
 		<ContentContainer direction="row">
 			<div style="flex-grow:1;">
@@ -275,5 +276,6 @@
 			<Link href="/components" arrow>components</Link>
 			here.
 		</p>
+		<ColorPicker></ColorPicker>
 	</ContentContainer>
 </Scaffold>
