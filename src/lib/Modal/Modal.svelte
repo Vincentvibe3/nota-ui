@@ -53,7 +53,7 @@
 		on:click={()=> {if (!strict) {dismissModal()}}}>
 	</Backdrop>
 	{#if open}
-		<div transition:fly="{{ y: 100, duration: 500 }}" class="cardWrapper">
+		<div transition:fly|global="{{ y: 100, duration: 500 }}" class="cardWrapper">
 			<Card --cardBg="var(--modalBg)" --contentContainerGap="0rem" direction="column">
 				{#if !strict}
 					<ContentContainer --contentContainerPaddingx="0rem" --contentContainerPaddingy="0rem" reverse direction="row">

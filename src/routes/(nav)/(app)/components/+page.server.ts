@@ -9,5 +9,5 @@ export const load =  (async ({ fetch }) => {
       names:data
     };
   }
-  throw error(404, 'Not found')
+  error(404, 'Not found');
 }) satisfies PageServerLoad;

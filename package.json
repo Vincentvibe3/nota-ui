@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "prepublishOnly": "npm run package",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write ."
   },
   "keywords": [
     "svelte",
@@ -35,39 +37,41 @@
   "svelte": "./dist/index.js",
   "module": "./dist/index.js",
   "devDependencies": {
-    "@playwright/test": "^1.31.2",
-    "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/kit": "^1.11.0",
-    "@sveltejs/package": "^2.0.2",
-    "@types/marked": "^4.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.55.0",
-    "@typescript-eslint/parser": "^5.55.0",
-    "autoprefixer": "^10.4.14",
+    "@playwright/test": "^1.41.1",
+    "@sveltejs/adapter-auto": "^3.1.1",
+    "@sveltejs/kit": "^2.5.0",
+    "@sveltejs/package": "^2.2.6",
+    "@sveltejs/vite-plugin-svelte": "^3.0.2",
+    "@types/eslint": "8.56.0",
+    "@types/marked": "^4.3.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "autoprefixer": "^10.4.17",
     "color-contrast-checker": "^2.1.0",
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-svelte3": "^4.0.0",
-    "marked": "^4.2.12",
-    "postcss": "^8.4.21",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.35.1",
+    "marked": "^4.3.0",
+    "postcss": "^8.4.33",
     "postcss-cli": "^10.1.0",
-    "prettier": "^2.8.4",
-    "prettier-plugin-svelte": "^2.9.0",
-    "publint": "^0.1.9",
-    "sass": "^1.59.3",
-    "sveld": "^0.18.0",
-    "svelte-check": "^3.1.4",
-    "svelte2tsx": "^0.6.10",
-    "tslib": "^2.5.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4"
+    "prettier": "^3.2.4",
+    "prettier-plugin-svelte": "^3.1.2",
+    "publint": "^0.1.16",
+    "sass": "^1.70.0",
+    "sveld": "^0.19.1",
+    "svelte-check": "^3.6.3",
+    "svelte2tsx": "^0.6.27",
+    "tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+    "vite": "^5.0.12"
   },
   "dependencies": {
-    "svelte": "^3.56.0"
+    "svelte": "^4.2.9"
   },
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
-    "./NOTICE.txt":"./NOTICE.txt",
+    "./NOTICE.txt": "./NOTICE.txt",
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js",
@@ -75,7 +79,7 @@
     }
   },
   "typesVersions": {
-    ">4.0": {
+    ">5.0": {
       "index": [
         "./dist/index.d.ts"
       ]

@@ -21,7 +21,7 @@
  -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 {#if show}
-	<div transition:fade="{{duration:300}}" on:click class:show={show}></div>
+	<div transition:fade|global="{{duration:300}}" on:click class:show={show}></div>
 {/if}
 <style lang="scss">
 	div {
